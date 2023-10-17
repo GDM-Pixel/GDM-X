@@ -1,11 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
 ---
 
-<Layout
-	title="Bienvenue à bord, capitaine."
-	description="Ceci est la meta description">
+<Layout title="Bienvenue à bord, capitaine." description="Ceci est la meta description">
 	<main>
 		<svg
 			class="astro-a"
@@ -14,7 +12,8 @@ import Card from "../components/Card.astro";
 			viewBox="0 0 495 623"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true">
+			aria-hidden="true"
+		>
 			<path
 				fill-rule="evenodd"
 				clip-rule="evenodd"
@@ -27,30 +26,27 @@ import Card from "../components/Card.astro";
 					y1="0"
 					x2="247.358"
 					y2="622.479"
-					gradientUnits="userSpaceOnUse">
+					gradientUnits="userSpaceOnUse"
+				>
 					<stop stop-opacity="0.9"></stop>
 					<stop offset="1" stop-opacity="0.2"></stop>
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1 transition:animate="fade" class="text-4xl">
-			Bienvenue sur <span class="text-gradient">Astro</span>
-		</h1>
+		<h1  transition:animate="fade" class="text-4xl">Webmarketing à <span class="text-slate-400">Caen</span></h1>
 		<p class="instructions text-md text-slate-700">
-			To get started, open the directory <code>src/pages</code> in your project.<br
-			/>
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message
-			above.
+			To get started, open the directory <code>src/pages</code> in your project.<br />
+			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
-		<ul transition:animate="slide" role="list" class="link-card-grid">
+		<ul role="list" class="link-card-grid">
 			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
+				href="/"
+				title="HomePage"
 				body="Learn how Astro works and explore the official API docs."
 			/>
 			<Card
-				href="/webmarketing"
-				title="Webmarketing"
+				href="https://astro.build/integrations/"
+				title="Integrations"
 				body="Supercharge your project with new frameworks and libraries."
 			/>
 			<Card
@@ -63,6 +59,8 @@ import Card from "../components/Card.astro";
 				title="Community"
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
+
+
 		</ul>
 	</main>
 </Layout>
@@ -103,10 +101,7 @@ import Card from "../components/Card.astro";
 	.instructions {
 		margin-bottom: 2rem;
 		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(
-			rgba(var(--accent-dark), 66%),
-			rgba(var(--accent-dark), 33%)
-		);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
 		padding: 1.5rem;
 		border-radius: 8px;
 	}

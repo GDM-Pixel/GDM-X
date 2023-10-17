@@ -1,20 +1,35 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 interface Props {
 	title: string;
+	description:string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content="Charles Annoni - GDM-Pixel" />
+		<meta name="theme-color" content="#13151a" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@GDM_Pixel" />
+		<meta name="twitter:creator" content="@GDM_Pixel" />
+		<meta property="og:title" content={title} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url}/>
+		<meta property="og:image" content="https://astro.gdm-pixel.fr/og.png" />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
+		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<slot />
@@ -29,7 +44,7 @@ const { title } = Astro.props;
 			45deg,
 			rgb(var(--accent)),
 			rgb(var(--accent-light)) 30%,
-			white 60%
+			npmhite 60%
 		);
 	}
 	html {
