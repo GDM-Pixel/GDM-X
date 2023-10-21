@@ -1,0 +1,25 @@
+---
+// src/components/Icone.astro
+import { icons } from "../assets/js/icones.js";
+interface Props {
+
+    icon : keyof typeof icons;
+    color: string;
+}
+
+const { icon, color } = Astro.props;
+
+---
+
+<span set:html={icons[icon]} class={color ? color : "prussian"}></span>
+
+
+</div>
+<style lang="scss">
+span {@apply block;
+&.prussian {@apply fill-prussian-400;}
+&.moonstone {@apply fill-moonstone-400;}
+&.dustyred {@apply fill-dustyred-400;}
+&.powder {@apply fill-powder;}
+}	
+</style>

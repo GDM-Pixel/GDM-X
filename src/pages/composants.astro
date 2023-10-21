@@ -3,16 +3,45 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Header from "../components/Header.astro";
 import HeroBox from "../components/HeroBox.astro";
-//import Reassurance from "../components/Reassurance.astro";
+import Reassurance from "../components/Reassurance.astro";
 import GaucheDroite from "../components/Gauche-Droite.astro";
 import ColumnGridAssets from "../components/Column-Grid-Assets.astro";
 ---
 
 <Layout title="Page des composants" description="Ceci est la meta description">
-	<Header /><i class="fa-brands fa-x-twitter"></i>
+	<Header />
 	<HeroBox />
 
-	
+	<!-- REASSURANCE -->
+	<div class="container -mt-20">
+		<div class="grid grid-cols-4 gap-8">
+			<Reassurance
+				title="Expérience et expertise"
+				icon="fa-hat-wizard"
+				body="15 ans d'expérience dans la conception web"
+				color="prussian"
+			/>
+			<Reassurance
+				title="Approche sur mesure"
+				icon="fa-ruler"
+				body="Solutions sur mesure correspondant à vos besoins"
+				color="prussian"
+			/>
+			<Reassurance
+				title="Ergonomie et rapidité"
+				icon="fa-rocket-launch"
+				body="Nos sites sont conçus pour être rapides et pratiques"
+				color="prussian"
+			/>
+			<Reassurance
+				title="Sites et serveurs sécurisés"
+				icon="fa-shield-check"
+				body="Nous travaillons avec des hébergeurs fiables"
+				color="prussian"
+			/>
+		</div>
+	</div>
+	<!-- FIN DE REASSURANCE -->
 
 	<GaucheDroite
 		subtitle="A propos"
@@ -107,6 +136,7 @@ import ColumnGridAssets from "../components/Column-Grid-Assets.astro";
 	.container {
 		max-width: 1400px;
 	}
+
 	/*main {
 		margin: auto;
 		padding: 1rem;

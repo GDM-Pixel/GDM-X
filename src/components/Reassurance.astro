@@ -1,0 +1,21 @@
+---
+import Icone from '../components/Icones.astro';
+interface Props {
+	title: string;
+	body: string;
+    icon: string;
+    color:string;
+}
+const { title, body, icon, color} = Astro.props;
+---
+<div class="reassurel">
+    <Icone icon={icon} color={color}/> 
+    <h4>{title}</h4>
+    <p>{body}</p>
+</div>
+<style is:global lang="scss">
+.reassurel  {@apply  bg-powder rounded-md border-b-8 border-b-moonstone-600 p-8 text-center flex flex-col gap-2 shadow-prussian-100 shadow-md;
+span {@apply w-12 block mx-auto;}}
+h4 {@apply font-bold text-xl text-prussian-400 uppercase;}
+</style>
+

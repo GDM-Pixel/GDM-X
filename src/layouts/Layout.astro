@@ -1,16 +1,18 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 interface Props {
 	title: string;
-	description:string;
+	description: string;
 }
 
 const { title, description } = Astro.props;
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
+		<script src="https://kit.fontawesome.com/de56e6b558.js" crossorigin="anonymous"></script>
+		<ViewTransitions />
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
@@ -23,44 +25,41 @@ const { title, description } = Astro.props;
 		<meta name="twitter:creator" content="@GDM_Pixel" />
 		<meta property="og:title" content={title} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url}/>
+		<meta property="og:url" content={Astro.url} />
 		<meta property="og:image" content="https://astro.gdm-pixel.fr/og.png" />
 		<meta property="og:description" content={description} />
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
-		<ViewTransitions />
 	</head>
 	<body>
 		<slot />
+		<script src="/src/assets/js/gdm-goto.js"></script>
+		<style is:global lang="scss">
+			.inner_container_lg {
+				@apply mx-auto;
+				max-width: 1600px;
+			}
+			a {
+				@apply text-moonstone-400 transition-all duration-300;
+				&:hover {
+					@apply text-dustyred-400 transition-all duration-300;
+				}
+			}
+			.cta {@apply border-2 border-solid text-white font-bold rounded-md px-6 py-3 drop-shadow-lg shadow-prussian-700;
+				&:hover {@apply text-white;}
+				&.red {@apply  border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
+				&:hover {@apply  border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700; }}
+				&.blue {@apply  border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
+					&:hover {@apply  border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800; }
+				 }
+			}
+			.gogdm {
+				&:hover {
+					cursor: pointer;
+				}
+			}
+			.fa-x-twitter,.fa-square-x-twitter {width:100px;}
+		</style>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			npmhite 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

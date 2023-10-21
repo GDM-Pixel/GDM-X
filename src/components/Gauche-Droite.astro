@@ -1,0 +1,65 @@
+---
+interface Props {
+	subtitle: string;
+	title: string;
+	intro: string;
+	body: any;
+	imgsrc: string;
+	imgalt: string;
+	reverse: boolean;
+}
+
+const { subtitle, title, intro, body, imgsrc, imgalt, reverse } = Astro.props;
+---
+
+<!-- GAUCHE DROITE -->
+<div class="container gauche-droite">
+	<div class={reverse ? "flex flex-row-reverse gap-8" : "flex flex-row gap-8"}>
+		<div class="col w-1/2">
+			<span class="h6">{subtitle}</span>
+			<h2>{title}</h2>
+			<div class="sepcontainer mb-4">
+				<svg
+					width="90"
+					height="17"
+					viewBox="0 0 90 17"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<rect y="6" width="90" height="5" rx="2.5" fill="#DDDDDD"></rect>
+					<path
+						d="M65.5007 0H70.4667L63.0326 8.21014L66.3448 12.0715L63.9458 14.7333L58 8.32242L65.5007 0Z"
+						fill="#00B2CB"></path>
+					<path
+						d="M72.5563 3.40002L70.0048 5.96756L73.536 9.45137L65.9331 17H70.9672L78.3998 9.41909L72.5563 3.40002Z"
+						fill="#00B2CB"></path>
+					<path
+						d="M67.3359 2.50642L62.6343 9.59952L69.743 14.2908L74.4446 7.19768L67.3359 2.50642Z"
+						fill="white"></path>
+				</svg>
+			</div>
+			<p class="intro">{intro}</p>
+			<div class="body" set:html={body} />
+		</div>
+		<div class="col w-1/2">
+			<img src={imgsrc} alt={imgalt} />
+		</div>
+	</div>
+</div>
+<!-- FIN DE GAUCHE DROITE -->
+<style lang="scss">
+	.container {
+		@apply mt-20 mb-20;
+        .col {@apply  flex flex-col justify-center;}
+	}
+	.h6 {
+		@apply text-dustyred-400 text-sm font-semibold uppercase mb-4 block;
+	}
+	h2 {
+		@apply text-prussian-400 text-xxxl font-bold mb-4;
+	}
+	p.intro {
+		@apply text-lg font-semibold mb-4;
+	}
+	p {
+	}
+</style>

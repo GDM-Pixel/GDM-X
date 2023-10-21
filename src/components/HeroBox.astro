@@ -1,0 +1,36 @@
+---
+interface Props {
+	//title: string;
+	//body: string;
+	//href: string;
+}
+
+//const { href, title, body } = Astro.props;
+---
+
+<section class="herobox" transition:animate="slide">
+	<div class="container">
+        <h1>Agence de communication à Caen</h1>
+        <p class="baseline">Vos ambitions,<br>notre mission</p>
+        <p class="intro">
+           Nous réalisons vos projets sur le web et vous aidons à construire votre présence en ligne ! 
+        </p>
+        <div class="cta_container">
+            <a href="#" class="cta red">En savoir plus</a>
+             <a href="#" class="cta blue">En savoir plus</a>
+        </div>
+    </div>
+</section>
+<style lang="scss">
+.herobox {
+    background:url('../assets/img/herobox-bck-home.jpg') no-repeat center center;
+    @apply bg-cover bg-center flex flex-col justify-center items-center text-white aspect-video -mt-10 z-0;
+    h1 {
+        @apply text-base font-bold uppercase text-moonstone-400 mb-6;
+    }
+    .baseline {@apply text-jumbo font-extrabold leading-[66px] uppercase text-white mb-4;}
+    .intro {@apply max-w-sm text-md;}
+    .cta_container {@apply mt-6 gap-4 flex;}
+     }
+
+</style>
