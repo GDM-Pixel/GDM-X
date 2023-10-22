@@ -6,14 +6,17 @@ import HeroBox from "../components/HeroBox.astro";
 import Reassurance from "../components/Reassurance.astro";
 import GaucheDroite from "../components/Gauche-Droite.astro";
 import ColumnGridAssets from "../components/Column-Grid-Assets.astro";
+import PixelSeparator from "../components/PixelSeparator.astro";
+import TabNavigation from "../components/TabNavigation.jsx";
 ---
 
 <Layout title="Page des composants" description="Ceci est la meta description">
 	<Header />
 	<HeroBox />
-
+	<main>
+	
 	<!-- REASSURANCE -->
-	<div class="container -mt-20">
+	<div class="reassurance">
 		<div class="grid grid-cols-4 gap-8">
 			<Reassurance
 				title="Expérience et expertise"
@@ -53,10 +56,16 @@ import ColumnGridAssets from "../components/Column-Grid-Assets.astro";
 		imgalt="Charles Annoni"
 		reverse={false}
 	/>
-	<!-- REASSURANCE -->
+
 	<div class="row my-20 bg-gradient-to-b from-[#1B3751] to-[#232634] py-20">
 		<div class="container">
-			<div class="grid grid-cols-3 gap-8">
+			<div class="section-header dark">
+				<h2 class="section-title">
+					Découvrez comment nous faisons la différence
+				</h2>
+				<PixelSeparator />
+			</div>
+			<div class="grid grid-cols-3 gap-20">
 				<ColumnGridAssets
 					title="Un service de haute qualité pour tous"
 					body="Nous sommes tributaires de nos clients et notre priorité, c’est de vous fournir les services que vous méritez."
@@ -97,103 +106,41 @@ import ColumnGridAssets from "../components/Column-Grid-Assets.astro";
 		</div>
 	</div>
 
-	<main>
-		<h1 class="text-4xl">
-			Bienvenue sur <span class="text-gradient">Astro</span>
-		</h1>
-		<p class="instructions text-md text-slate-700">
-			To get started, open the directory <code>src/pages</code> in your project.<br
-			/>
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message
-			above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="/webmarketing"
-				title="Webmarketing"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+	<div class="row my-20">
+		<div class="container">
+			<div class="section-header">
+				<span class="h6 text-dustyred-400 uppercase font-bold mb-6">Nos services</span>
+				<h2 class="section-title">
+					Nos prestations en matière de création de site, webmarketing et web 
+				</h2>
+				<PixelSeparator />
+			</div>
+		</div>
+		<div class="container wide">
+				<div class="grid grid-cols-6 gap-20">
+				</div>
+		</div>
+		
+		 <TabNavigation client:load />
+    	
+		
+
+	</div>
+
+	
+		
 	</main>
 </Layout>
 
-<style>
+<style lang="scss">
 	.container {
 		max-width: 1400px;
 	}
 
-	/*main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+	.reassurance {
+		@apply mx-auto -mt-20 relative z-10 container;
 	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(
-			rgba(var(--accent-dark), 66%),
-			rgba(var(--accent-dark), 33%)
-		);
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}*/
+	.tab-content {@apply bg-dustyred-500}
+
+	
 </style>

@@ -3,32 +3,31 @@ import Icone from "../components/Icones.astro";
 interface Props {
 	title: string;
 	body: string;
-	icon: string;
+	icon: "fa-check"|"fa-circle-plus"|"fa-envelope"|"fa-location-dot"|"fa-phone-solid"|"fa-bell-concierge"|"fa-browser"|"fa-bullhorn"|"fa-cart-shopping"|"fa-chart-lineup"|"fa-chart-mixed"|"fa-chart-network"|"fa-chess"|"fa-circle-chevron-left"|"fa-circle-chevron-right"|"fa-clock-rotate-left"|"fa-code"|"fa-comments-question-check"|"fa-database"|"fa-desktop"|"fa-display-code"|"fa-envelope-circle-check"|"fa-eye"|"fa-file-certificate"|"fa-file-contract"|"fa-file-invoice"|"fa-file-pdf"|"fa-gauge-high"|"fa-gear-complex-code"|"fa-gears"|"fa-graduation-cap"|"fa-hat-wizard"|"fa-heart"|"fa-layer-group"|"fa-list-check"|"fa-magnifying-glass"|"fa-messages-question"|"fa-microchip"|"fa-mobile-notch"|"fa-paintbrush"|"fa-palette"|"fa-photo-film-music"|"fa-rocket-launch"|"fa-ruler"|"fa-shield-check"|"fa-truck-fast"|"fa-user-gear"|"fa-instagram"|"fa-linkedin"|"fa-square-facebook"|"fa-square-x-twitter"|"fa-x-twitter"|"fa-youtube";
     color:string;
 }
 const { title, body, icon, color } = Astro.props;
 ---
-
-<div class="assets">
-     <Icone icon={icon} color={color}/>
+<div class="assets"> 
+     <Icone icon={icon} color={color} size="big"/>
 	<div class="col">
     <h3>{title}</h3>
     <hr/>
 	<p>{body}</p>
     </div>
 </div>
-<style is:global lang="scss">
+<style lang="scss">
 	.assets {
-		@apply flex flex-row items-center text-white; 
-        span {@apply w-20 h-auto block mx-auto;
+		@apply flex flex-row items-start text-white gap-6; 
+        span {margin:auto !important;
     }
     .col {
-        @apply w-40;
+      
     }
 	h3 {
-		@apply font-bold text-xl text-powder font-bold mb-4;
+		@apply font-bold text-xl text-powder mb-4;
 	}
-    hr {max-width:250px;}
+    hr {@apply max-w-[150px] mb-4 }
 	}
    
 </style>

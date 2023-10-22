@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+
+
+
+
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
@@ -31,7 +35,7 @@ export default {
 				600: "#1E2533",
 				700: "#171C27",
 			},
-			dustyred:{
+			dustyred: {
 				100: "#E6607B",
 				200: "#E34F6C",
 				300: "#E13D5E",
@@ -40,7 +44,7 @@ export default {
 				600: "#C21E3F",
 				700: "#B01C39",
 				800: "#9F1934",
-				},
+			},
 			moonstone: {
 				100: "#1FE5FF",
 				200: "#0AE2FF",
@@ -52,7 +56,7 @@ export default {
 				800: "#007E8F",
 			},
 			raisinblack: "#232634",
-			error: "#898989", 
+			error: "#898989",
 			lightgrey: "#D1D1D1",
 		},
 		fontFamily: {
@@ -68,6 +72,7 @@ export default {
 			xl: ["24px", "32px"],
 			xxl: ["30px", "40px"],
 			xxxl: ["36px", "48px"],
+			xxxxl: ["40px", "50px"],
 			jumbo: ["60px", "80px"],
 		},
 		container: {
@@ -76,5 +81,43 @@ export default {
 		},
 
 	},
-	plugins: [],
+	plugins: [
+		function ({ addBase, theme }) {
+			addBase({
+				'h1': {
+					color: theme('colors.prussian.400'),
+					fontSize: theme('fontSize.xxxxl'),
+					fontWeight: theme('fontWeight.bold'),
+				},
+				'h2': {
+					color: theme('colors.prussian.400'),
+					fontSize: theme('fontSize.xxxl'),
+					fontWeight: theme('fontWeight.bold'),
+				},
+				'h3': {
+					color: theme('colors.prussian.400'),
+					fontSize: theme('fontSize.xxl'),
+					fontWeight: theme('fontWeight.bold'),
+				},
+				'h4': {
+					color: theme('colors.prussian.400'),
+					fontSize: theme('fontSize.xl'),
+					fontWeight: theme('fontWeight.bold'),
+				},
+				'h5': {
+					color: theme('colors.prussian.400'),
+					fontSize: theme('fontSize.lg'),
+					fontWeight: theme('fontWeight.bold'),
+				},
+				'h6': {
+					color: theme('colors.prussian.400'),
+					fontSize: theme('fontSize.base'),
+					fontWeight: theme('fontWeight.bold'),
+				},
+			});
+		},
+
+
+	],
 }
+

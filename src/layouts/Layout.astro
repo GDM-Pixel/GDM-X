@@ -11,7 +11,9 @@ import { ViewTransitions } from "astro:transitions";
 <!doctype html>
 <html lang="fr">
 	<head>
-		<script src="https://kit.fontawesome.com/de56e6b558.js" crossorigin="anonymous"></script>
+		<script
+			src="https://kit.fontawesome.com/de56e6b558.js"
+			crossorigin="anonymous"></script>
 		<ViewTransitions />
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -46,20 +48,45 @@ import { ViewTransitions } from "astro:transitions";
 					@apply text-dustyred-400 transition-all duration-300;
 				}
 			}
-			.cta {@apply border-2 border-solid text-white font-bold rounded-md px-6 py-3 drop-shadow-lg shadow-prussian-700;
-				&:hover {@apply text-white;}
-				&.red {@apply  border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
-				&:hover {@apply  border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700; }}
-				&.blue {@apply  border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
-					&:hover {@apply  border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800; }
-				 }
+			.cta {
+				@apply border-2 border-solid text-white font-bold rounded-md px-6 py-3 drop-shadow-lg shadow-prussian-700;
+				&:hover {
+					@apply text-white;
+				}
+				&.red {
+					@apply border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
+					&:hover {
+						@apply border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
+					}
+				}
+				&.blue {
+					@apply border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
+					&:hover {
+						@apply border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
+					}
+				}
 			}
 			.gogdm {
 				&:hover {
 					cursor: pointer;
 				}
 			}
-			.fa-x-twitter,.fa-square-x-twitter {width:100px;}
+			.fa-x-twitter,
+			.fa-square-x-twitter {
+				width: 100px;
+			}
+			.section-header {
+				@apply flex flex-col justify-center font-bold text-center items-center  mb-10 max-w-3xl mx-auto ;
+				h2 {
+					@apply text-xxxl mb-4;
+				}
+				&.dark {
+					@apply text-white;
+					h2 {
+						@apply text-white ;
+					}
+				}
+			}
 		</style>
 	</body>
 </html>
