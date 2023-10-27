@@ -1,12 +1,14 @@
 ---
+import { Image } from 'astro:assets';
 interface Props {
 	subtitle: string;
 	title: string;
 	intro: string;
 	body: any;
-	imgsrc: string;
+	imgsrc: ImageMetadata;
 	imgalt: string;
 	reverse: boolean;
+	
 }
 
 const { subtitle, title, intro, body, imgsrc, imgalt, reverse } = Astro.props;
@@ -41,7 +43,7 @@ const { subtitle, title, intro, body, imgsrc, imgalt, reverse } = Astro.props;
 			<div class="body" set:html={body} />
 		</div>
 		<div class="col w-1/2">
-			<img src={imgsrc} alt={imgalt} />
+			<Image src={imgsrc} alt={imgalt} />
 		</div>
 	</div>
 </div>

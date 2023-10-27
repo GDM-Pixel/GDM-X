@@ -1,0 +1,158 @@
+---
+import { Image } from "astro:assets";
+import confCallWoman from "../assets/img/confcall-woman.png";
+import confCallMan from "../assets/img/confcall-man.png";
+import Icones from "./Icones.astro";
+
+const { title, body, icon, color } = Astro.props;
+---
+
+<section class="maincta">
+    <div class="mouse-overlay"></div>
+	<div class="flex justify-center gap-6">
+		<div class="col1">
+			<span class="h2">Une question ? Un doute ?</span>
+			<span class="call">
+				<i class="fa-sharp fa-solid fa-phone"></i> Appelez au 09.77.21.66.80</span
+			>
+			<p>
+				Vous pouvez également demander une consultation en ligne, en
+				visioconférence
+			</p>
+			<div class="cta-container">
+				<a href="#" class="cta blue">Lire la vidéo</a>
+				<a href="#" class="cta red">Demander un RDV</a>
+			</div>
+		</div>
+		<div class="col2">
+			<div class="imgcontainer ccman">
+				<Image
+					class="confcallman"
+					src={confCallMan}
+					width="576"
+					height="350"
+					alt="Service client GDM Pixel"
+				/>
+			</div>
+            <div class="imgcontainer ccwoman">
+			<Image
+				class="confcallwoman"
+				src={confCallWoman}
+				width="336"
+				height="204"
+				alt="Client GDM Pixel"
+			/></div>
+			
+		</div>
+	</div>
+</section>
+<script>
+const mainCta = document.querySelector(".maincta") as HTMLElement | null;
+const overlay = document.querySelector(".mouse-overlay") as HTMLElement | null;
+
+if (overlay) {
+    overlay.addEventListener("mousemove", (e: MouseEvent) => {
+        const { offsetX, offsetY, target } = e;
+        
+        if (target instanceof HTMLElement) {
+            const { clientWidth, clientHeight } = target;
+
+            const xPos = offsetX / clientWidth - 0.5;
+            const yPos = offsetY / clientHeight - 0.5;
+
+            const movement = 10;
+
+            const confCallMan = document.querySelector(".confcallman") as HTMLElement | null;
+            const confCallWoman = document.querySelector(".confcallwoman") as HTMLElement | null;
+
+            if (confCallMan) {
+                confCallMan.style.transform = `translate(${xPos * movement}px, ${yPos * movement}px)`;
+            }
+
+            if (confCallWoman) {
+                confCallWoman.style.transform = `translate(${xPos * -movement}px, ${yPos * -movement}px)`;
+            }
+        }
+    });
+}
+
+
+</script>
+<style lang="scss">
+
+	.maincta {
+		@apply mt-10 mb-20 bg-gradient-to-b from-[#1B3751] to-[#232634] py-20 text-white text-center relative pointer-events-none;
+	}
+    .mouse-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 11;
+    pointer-events: auto;
+}
+	.h2 {
+		@apply text-xxl font-bold text-moonstone-400 block mb-4;
+	}
+	.call {
+		@apply text-xl font-bold text-white block mb-4;
+	}
+	p {
+		@apply block mb-6 text-md max-w-lg mx-auto;
+	}
+	.cta-container {
+		@apply flex justify-center gap-6 z-20;
+        a {pointer-events: auto;}
+	}
+	.confcallman,
+	.confcallwoman {
+		@apply border-solid border-4 border-white rounded-2xl;
+        will-change: transform;
+       /* transition: transform 0.5s ease-out; */
+	}
+	.confcallman {
+		@apply z-10 relative top-0 left-0 block;
+		
+	}
+
+	.imgcontainer.ccman {
+		@apply z-10 relative top-0 left-0;
+		&:before {
+			@apply border-moonstone-500 absolute top-12 -left-12 border-4 border-solid rounded-lg w-[224px] h-[169px] block content-[""];
+		}
+        &:after {
+			@apply border-dustyred-500 absolute -bottom-8 left-20 border-4 border-solid rounded-lg w-[224px] h-[169px] block content-[""];
+		}
+	}
+    .imgcontainer.ccwoman {
+		@apply z-10 top-0 left-0;
+		
+	}
+	.confcallwoman {
+		@apply z-20 absolute top-40 -left-20;
+	}
+
+	.blueborder,
+	.redborder {
+		@apply border-4 border-solid rounded-lg w-[224px] h-[169px];
+	}
+	.blueborder {
+		@apply border-moonstone-500 absolute top-8 -left-8;
+	}
+	.redborder {
+		@apply border-dustyred-500 absolute top-12 left-6;
+	}
+	.redfill {
+		@apply bg-dustyred-100 rounded-lg w-[216px] h-[161px];
+	}
+
+	.col1,
+	.col2 {
+		@apply w-[50%] flex flex-col justify-center;
+        
+	}
+	.col2 {
+		@apply relative;
+	}
+</style>

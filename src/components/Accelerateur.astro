@@ -1,0 +1,52 @@
+---
+
+---
+
+<section class="accelerateur-numerique">
+	<div class="container max-w-6xl">
+		<div class="flex gap-4">
+			<span class="h2 flex flex-col justify-center"
+				>GDM-Pixel est accélérateur numérique et partenaire référent de la CCI
+				de Normandie.</span
+			>
+			<div class="img-container min-w-fit flex gap-4">
+				<img src="/img/cci-normandie.svg" alt="logo CCI Normandie" />
+				<img src="/img/france-num.svg" alt="logo France Numérique" />
+			</div>
+		</div>
+
+		<div class="numcontainer">
+			<div class="child">
+				<span class="top">100 <sup>+</sup></span>
+				<span class="bottom">Clients satisfaits</span>
+			</div>
+			<div class="child">
+				<span class="top">100 <sup>+</sup></span>
+				<span class="bottom">Sites créés</span>
+			</div>
+			<div class="child">
+				<span class="top">1000 <sup>+</sup></span>
+				<span class="bottom">Etudiants formés</span>
+			</div>
+		</div>
+	</div>
+</section>
+<style lang="scss">
+	.accelerateur-numerique {
+		@apply my-20 bg-gradient-to-b from-[#1B3751] to-[#232634] py-20 text-white;
+	}
+	.h2 {
+		@apply uppercase font-bold text-xl;
+	}
+	.numcontainer {
+		@apply flex items-center justify-center mt-8;
+		.child {
+			@apply flex flex-col items-center justify-center border-r-2 border-solid border-white px-12 py-2;
+            .top {@apply text-xxxxl font-bold uppercase;}
+            .bottom {@apply text-sm font-semibold;}
+		}
+		.child:nth-child(3) {
+			@apply border-none;
+		}
+	}
+</style>

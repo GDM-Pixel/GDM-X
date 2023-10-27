@@ -6,9 +6,10 @@ interface Props {
 }
 
 //const { href, title, body } = Astro.props;
+
 ---
 
-<section class="herobox" transition:animate="slide">
+<section class="herobox" transition:animate="slide"> 
 	<div class="container">
         <h1>Agence de communication à Caen</h1>
         <p class="baseline">Vos ambitions,<br>notre mission</p>
@@ -23,7 +24,7 @@ interface Props {
 </section>
 <style lang="scss">
 .herobox {
-    background:url('../assets/img/herobox-bck-home.jpg') no-repeat center center;
+    background:url("/src/assets/img/hero-home-bck.webp") no-repeat center center;
     @apply bg-cover bg-center flex flex-col justify-center items-center text-white aspect-video -mt-10 z-0;
     h1 {
         @apply text-base font-bold uppercase text-moonstone-400 mb-6;

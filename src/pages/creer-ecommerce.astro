@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import CharlesImage from '/src/assets/img/charles-annoni.jpg';
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Header from "../components/Header.astro";
@@ -19,8 +21,7 @@ import ColumnGridAssets from "../components/Column-Grid-Assets.astro";
 		title="Votre succès en ligne grâce à des solutions éprouvées"
 		intro="Réussir sur le web ne s’improvise pas : sans préparation, sans plan d’action, la mise en ligne d’un site ne sert à rien."
 		body="<p>Créer un site qui réalise du trafic, ça n’est pas si compliqué quand on a un cadre de travail solide et un rêve à poursuivre : avec les bonnes méthodes, les bons outils, une analyse rigoureuse et un plan d’action, tout est possible. La réussite sur le web n’est qu’une question de motivation et de temps !</p><p class='mt-6'><strong>Charles Annoni</strong> - Chef de projet</p>  "
-		imgsrc="../src/assets/img/charles-annoni.jpg"
-		;
+		imgsrc={CharlesImage}
 		imgalt="Charles Annoni"
 		reverse={false}
 	/>

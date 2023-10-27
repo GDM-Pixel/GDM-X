@@ -1,0 +1,358 @@
+---
+import { Image } from "astro:assets";
+import SylvainImage from "../assets/img/sylvain.jpeg";
+import JeromeImage from "../assets/img/jerome.jpg";
+import CharlesDImage from "../assets/img/charlesd.jpg";
+import MarieFImage from "../assets/img/marie-france.jpg";
+import MarieMImage from "../assets/img/marie-mure-ravaud.jpg";
+import PixelSeparator from "./PixelSeparator.astro";
+---
+
+<section class="testimonial-slider">
+	<div class="row mt-20 mb-10">
+		<div class="container">
+			<div class="section-header">
+				<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
+					>Témoignages utilisateurs</span
+				>
+				<h2 class="section-title">
+					Ils travaillent avec nous et nous font confiance
+				</h2>
+				<PixelSeparator />
+			</div>
+			<div class="slidercontainer">
+				<div class="slidel">
+					<Image
+						src={SylvainImage}
+						width="115"
+						height="115"
+						alt="Sylvain Vandewalle"
+					/>
+					<p>
+						Charles est le meilleur spécialiste de la région caennaise en
+						e-commerce. A des prix défiants toutes concurrence.
+					</p>
+					<span class="name">Sylvain Vandewalle</span>
+					<span class="company">Sinay</span>
+				</div>
+
+				<div class="slidel">
+					<Image
+						src={JeromeImage}
+						width="115"
+						height="115"
+						alt="Sylvain Vandewalle"
+					/>
+					<p>
+						Je recommande fortement cette agence ! Tout le travail effectué pour
+						nous a été réalisé rapidement, et avec beaucoup de professionalisme.
+					</p>
+					<span class="name">Jérome de la Casinière</span>
+					<span class="company">La Casinière</span>
+				</div>
+
+				<div class="slidel">
+					<Image
+						src={MarieFImage}
+						width="115"
+						height="115"
+						alt="Marie-France"
+					/>
+					<p>
+						Depuis un an nous avons confié notre site et tout le suivi à cette
+						agence. Travail sérieux, méthodique, nos résultats sont en constante
+						augmentation.
+					</p>
+					<span class="name">Marie-France Gras</span>
+					<span class="company">AC Communication</span>
+				</div>
+
+				<div class="slidel">
+					<Image
+						src={MarieMImage}
+						width="115"
+						height="115"
+						alt="Marie Mure Ravaud"
+					/>
+					<p>
+						Excellent formateur SEO, réunissant l’expertise et le sens de la
+						pédagogie.
+					</p>
+					<span class="name">Marie Mure Ravaud</span>
+					<span class="company">Snap Inc</span>
+				</div>
+
+				<div class="slidel">
+					<Image
+						src={CharlesDImage}
+						width="115"
+						height="115"
+						alt="Charles Dévé"
+					/>
+					<p>
+						Charles Annoni est disponible et possède une énergie remarquable. Je
+						le recommande à ceux qui veulent améliorer leur visibilité sur
+						Internet.
+					</p>
+					<span class="name">Charles Dévé</span>
+					<span class="company">Crédit Mutuel</span>
+				</div>
+
+				<div class="dash-navigation">
+					<svg
+						class="active-dot"
+						width="26"
+						height="5"
+						viewBox="0 0 26 5"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.5" width="25" height="5" rx="2.5" fill="#DDDDDD"></rect>
+					</svg>
+					<svg
+						width="26"
+						height="5"
+						viewBox="0 0 26 5"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.5" width="25" height="5" rx="2.5" fill="#DDDDDD"></rect>
+					</svg>
+					<svg
+						width="26"
+						height="5"
+						viewBox="0 0 26 5"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.5" width="25" height="5" rx="2.5" fill="#DDDDDD"></rect>
+					</svg>
+					<svg
+						width="26"
+						height="5"
+						viewBox="0 0 26 5"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.5" width="25" height="5" rx="2.5" fill="#DDDDDD"></rect>
+					</svg>
+					<svg
+						width="26"
+						height="5"
+						viewBox="0 0 26 5"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.5" width="25" height="5" rx="2.5" fill="#DDDDDD"></rect>
+					</svg>
+				</div>
+
+				<div class="navcontainer">
+					<button class="prev"
+						><svg
+							width="30"
+							height="30"
+							viewBox="0 0 30 30"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M2.8125 15C2.8125 11.7677 4.09654 8.66773 6.38214 6.38213C8.66774 4.09653 11.7677 2.8125 15 2.8125C18.2323 2.8125 21.3323 4.09654 23.6179 6.38213C25.9035 8.66774 27.1875 11.7677 27.1875 15C27.1875 18.2323 25.9035 21.3323 23.6179 23.6179C21.3323 25.9035 18.2323 27.1875 15 27.1875C11.7677 27.1875 8.66774 25.9035 6.38214 23.6179C4.09654 21.3323 2.8125 18.2323 2.8125 15ZM30 15C30 11.0218 28.4196 7.20644 25.6066 4.3934C22.7936 1.58035 18.9783 -9.63552e-07 15 -1.31134e-06C11.0218 -1.65913e-06 7.20645 1.58035 4.3934 4.3934C1.58035 7.20644 1.65913e-06 11.0218 1.31134e-06 15C9.63552e-07 18.9782 1.58035 22.7936 4.3934 25.6066C7.20644 28.4196 11.0218 30 15 30C18.9782 30 22.7936 28.4196 25.6066 25.6066C28.4196 22.7936 30 18.9782 30 15ZM9.78516 14.0039L8.78906 15L9.78516 15.9961L15.8789 22.0898L16.875 23.0859L18.8613 21.0937L17.8652 20.0977L12.7676 15L17.8652 9.90234L18.8613 8.90625L16.875 6.91992L15.8789 7.91601L9.78516 14.0039Z"
+								fill="#D62246"></path>
+						</svg>
+					</button>
+					<button class="next"
+						><svg
+							width="30"
+							height="30"
+							viewBox="0 0 30 30"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M27.1875 15C27.1875 18.2323 25.9035 21.3323 23.6179 23.6179C21.3323 25.9035 18.2323 27.1875 15 27.1875C11.7677 27.1875 8.66774 25.9035 6.38214 23.6179C4.09654 21.3323 2.8125 18.2323 2.8125 15C2.8125 11.7677 4.09654 8.66774 6.38214 6.38214C8.66774 4.09654 11.7677 2.8125 15 2.8125C18.2323 2.8125 21.3323 4.09654 23.6179 6.38214C25.9035 8.66774 27.1875 11.7677 27.1875 15ZM0 15C0 18.9782 1.58035 22.7936 4.3934 25.6066C7.20644 28.4196 11.0218 30 15 30C18.9782 30 22.7936 28.4196 25.6066 25.6066C28.4196 22.7936 30 18.9782 30 15C30 11.0218 28.4196 7.20644 25.6066 4.3934C22.7936 1.58035 18.9782 0 15 0C11.0218 0 7.20644 1.58035 4.3934 4.3934C1.58035 7.20644 0 11.0218 0 15ZM20.2148 15.9961L21.2109 15L20.2148 14.0039L14.1211 7.91016L13.125 6.91406L11.1387 8.90625L12.1348 9.90234L17.2324 15L12.1348 20.0977L11.1387 21.0938L13.125 23.0801L14.1211 22.084L20.2148 15.9961Z"
+								fill="#D62246"></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+// États du slider
+let currentSlide = 0;
+let isDragging = false;
+let startPos = 0;
+let endPos = 0;
+
+// Constantes
+const threshold = 100;
+
+// Éléments DOM
+const slides = document.querySelectorAll<HTMLElement>(".slidel");
+const totalSlides = slides.length;
+const prevButton = document.querySelector<HTMLElement>(".prev");
+const nextButton = document.querySelector<HTMLElement>(".next");
+const sliderContainer = document.querySelector<HTMLElement>('.slidercontainer');
+const dots = document.querySelectorAll<SVGRectElement>(".dash-navigation svg rect");
+
+// Mettre à jour l'affichage initial
+if (slides[currentSlide]) {
+    slides[currentSlide].style.opacity = "1";
+}
+
+function updateDots() {
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.setAttribute("class", "active-dot");
+        } else {
+            dot.removeAttribute("class");
+        }
+    });
+}
+
+function changeSlide(direction: number) {
+    if (slides[currentSlide]) {
+        slides[currentSlide].style.opacity = "0";
+    }
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    if (slides[currentSlide]) {
+        slides[currentSlide].style.opacity = "1";
+    }
+    updateDots();
+}
+// Gestion des événements
+
+
+slides.forEach(slide => {
+    slide.addEventListener('mousedown', startDrag);
+    slide.addEventListener('touchstart', startDrag);
+    
+    slide.addEventListener('mousemove', drag);
+    slide.addEventListener('touchmove', drag);
+});
+
+window.addEventListener('mouseup', endDrag);
+window.addEventListener('touchend', endDrag);
+
+function startDrag(e: MouseEvent | TouchEvent) {
+    isDragging = true;
+    startPos = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
+}
+
+function drag(e: MouseEvent | TouchEvent) {
+    if (isDragging) {
+        endPos = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
+    }
+}
+
+function endDrag() {
+    if (isDragging) {
+        isDragging = false;
+        if (endPos - startPos > threshold) {
+            changeSlide(-1);
+        } else if (startPos - endPos > threshold) {
+            changeSlide(1);
+        }
+    }
+    endPos = 0;
+    startPos = 0;
+}
+
+window.addEventListener("mouseup", () => {
+   
+    if (isDragging) {
+        isDragging = false;
+        const draggedDistance = endPos - startPos;
+        
+        if (Math.abs(draggedDistance) >= threshold) {
+            if (draggedDistance > 0) {
+                changeSlide(-1);
+            } else {
+                changeSlide(1);
+            }
+        }
+    }
+    endPos = 0;
+    startPos = 0;
+});
+if (prevButton) {
+    prevButton.addEventListener("click", () => {
+        changeSlide(-1);
+    });
+}
+if (nextButton) {
+    nextButton.addEventListener("click", () => {
+        changeSlide(1);
+    });
+}
+// Appeler la fonction pour initialiser les puces
+updateDots();
+</script>
+<style lang="scss">
+    .active-dot {
+    fill: #FF5733; /* Couleur de la puce active. Modifiez-la selon vos préférences */
+}
+	.slidel {
+		transition: opacity 400ms ease-in-out;
+	}
+	.slidercontainer {
+		position: relative;
+		width: 100%;
+		max-width: 900px;
+		min-height: 390px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+		margin: -40px auto 0 auto;
+		overflow: hidden; /* Cache les slides qui sont en dehors du container */
+	}
+	.slidel {
+		position: absolute;
+		width: 100%;
+		opacity: 0; /* Les slides commencent par être transparents */
+		transition: opacity 0.5s ease-in-out; /* Animation de fondu */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		img {
+			@apply rounded-full mb-6;
+		}
+		p {
+			@apply text-lg italic text-center text-prussian-300 mb-6 max-w-lg mx-auto;
+		}
+		.name {
+			@apply text-lg font-bold text-center text-prussian-300;
+		}
+		.company {
+			@apply text-md text-center font-semibold text-moonstone-400;
+		}
+	}
+	.slidel.active {
+		opacity: 1; /* Le slide actif sera visible */
+	}
+
+	.dash-navigation {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		gap: 10px;
+		margin: 20px auto;
+		position: absolute;
+		bottom: 0;
+	}
+
+	.navcontainer {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 20px;
+		position: relative;
+		z-index: 10;
+	}
+
+	button.prev,
+	button.next {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		margin: 0;
+	}
+
+	button:focus {
+		outline: none;
+	}
+</style>

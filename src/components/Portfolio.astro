@@ -1,0 +1,44 @@
+---
+
+---
+
+<div class="filters">
+  <button data-filter="*">Tout</button>
+  <button data-filter=".metal">Metal</button>
+  <button data-filter=".transition">Transition</button>
+  <!-- ... autres boutons de filtre -->
+</div>
+
+<div class="gridd">
+  <div class="gridd-item transition metal">Item 1</div>
+  <div class="gridd-item post-transition metal">Item 2</div>
+  <div class="gridd-item alkali metal">Item 3</div>
+  <div class="gridd-item transition metal">Item 4</div>
+  <div class="gridd-item halogen nonmetal">Item 5</div>
+  <div class="gridd-item transition metal">Item 6</div>
+</div>
+
+ 
+<script>
+
+</script>
+
+<style>
+.gridd-item {
+  width: 100px;
+  background-color: #e0e0e0;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Juste pour varier les hauteurs et voir l'effet masonry */
+.gridd-item:nth-child(odd) {
+  height: 50px;
+}
+.gridd-item:nth-child(even) {
+  height: 50px;
+}
+
+</style>

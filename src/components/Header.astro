@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import logoGDM from "../assets/img/logo-gdm-white.svg";
 interface Props {
 	//title: string;
 	//body: string;
@@ -69,11 +71,10 @@ interface Props {
 </div>
 <div class="header">
 	<div class="container">
-		<img
+		<Image
 			class="logo"
-			src="/src/assets/img/logo-gdm-white.svg"
-			alt="logo GDM-Pixel"
-		/>
+			src={logoGDM}
+			alt="logo GDM-Pixel" />
 		<nav>
 			<ul>
 				<li>

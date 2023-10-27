@@ -1,6 +1,16 @@
 ---
+import { Image } from "astro:assets";
+import CharlesImage from "../assets/img/charles-annoni.jpg";
+import logoAden from "../assets/img/logo-aden-formation.png";
+import logoLesClapiottes from "../assets/img/logo-les-clapiottes.png";
+import logoMDS from "../assets/img/logo-my-digital-school.png";
+import logoBoutiqueChientChat from "../assets/img/logo-atout-chat-chien.png";
+import logoOpenMindInnovation from "../assets/img/logo-open-mind-innovation.png";
+import logoSEOCamp from "../assets/img/logo-seo-camp.png";
+import logoAnahataYoga from "../assets/img/logo-anahata-yoga.png";
+import logoLaCasiniere from "../assets/img/logo-la-casiniere.png";
+import logoEurodisViande from "../assets/img/logo-eurodis-viande.png";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Header from "../components/Header.astro";
 import HeroBox from "../components/HeroBox.astro";
 import Reassurance from "../components/Reassurance.astro";
@@ -8,6 +18,10 @@ import GaucheDroite from "../components/Gauche-Droite.astro";
 import ColumnGridAssets from "../components/Column-Grid-Assets.astro";
 import PixelSeparator from "../components/PixelSeparator.astro";
 import TabNavigation from "../components/TabNavigation.jsx";
+import Accelerateur from "../components/Accelerateur.astro";
+import Testislider from "../components/Testislider.astro";
+import MainCTA from "../components/MainCTA.astro";
+import Portfolio from "../components/Portfolio.astro";
 ---
 
 <Layout title="Page des composants" description="Ceci est la meta description">
@@ -51,8 +65,7 @@ import TabNavigation from "../components/TabNavigation.jsx";
 			title="Votre succès en ligne grâce à des solutions éprouvées"
 			intro="Réussir sur le web ne s’improvise pas : sans préparation, sans plan d’action, la mise en ligne d’un site ne sert à rien."
 			body="<p>Créer un site qui réalise du trafic, ça n’est pas si compliqué quand on a un cadre de travail solide et un rêve à poursuivre : avec les bonnes méthodes, les bons outils, une analyse rigoureuse et un plan d’action, tout est possible. La réussite sur le web n’est qu’une question de motivation et de temps !</p><p class='mt-6'><strong>Charles Annoni</strong> - Chef de projet</p>  "
-			imgsrc="../src/assets/img/charles-annoni.jpg"
-			;
+			imgsrc={CharlesImage}
 			imgalt="Charles Annoni"
 			reverse={false}
 		/>
@@ -121,9 +134,102 @@ import TabNavigation from "../components/TabNavigation.jsx";
 			<div class="container wide">
 				<div class="grid grid-cols-6 gap-20"></div>
 			</div>
-
-			<TabNavigation client:load />
+			<TabNavigation client:visible />
 		</div>
+
+		<Accelerateur />
+		<Testislider />
+		<section class="brandpartners">
+			<div class="max-w-full px-10 flex gap-8 justify-center">
+				<Image
+					src={logoAden}
+					width="175"
+					height="90"
+					alt="logo Aden Formation"
+					loading="lazy"
+				/>
+				<Image
+					src={logoLesClapiottes}
+					width="200"
+					height="90"
+					alt="logo les Clapiottes"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoMDS}
+					width="200"
+					height="90"
+					alt="logo My Digital School"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoBoutiqueChientChat}
+					width="102"
+					height="90"
+					alt="logo Atout chat et chien"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoOpenMindInnovation}
+					width="175"
+					height="90"
+					alt="logo Open Mind Innovation"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoSEOCamp}
+					width="108"
+					height="90"
+					alt="logo SEO Camp"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoAnahataYoga}
+					width="167"
+					height="90"
+					alt="logo Anahata Yoga"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoLaCasiniere}
+					width="186"
+					height="90"
+					alt="logo La Casinière"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoEurodisViande}
+					width="102"
+					height="90"
+					alt="logo Eurodis Viande"
+					loading="lazy"
+				/>
+			</div>
+		</section>
+
+		<MainCTA />
+<section class="portfolio">
+		<div class="row my-20">
+			<div class="container">
+				<div class="section-header">
+					<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
+						>Dernières créations</span>
+					<h2 class="section-title">
+						Quelques une de nos dernières réalisations</h2>
+					<PixelSeparator />
+				</div>
+			</div>
+			<Portfolio />
+			
+		</div>
+</section>
 	</main>
 </Layout>
 
