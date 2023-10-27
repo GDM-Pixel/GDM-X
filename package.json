@@ -12,18 +12,16 @@
   "dependencies": {
     "@astrojs/react": "^3.0.3",
     "@astrojs/tailwind": "^5.0.2",
+    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^5.0.24",
     "@fontsource/open-sans": "^5.0.15",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
     "astro": "^3.3.0",
-    "isotope-layout": "^3.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-transition-group": "^4.4.5",
     "sass": "^1.69.4",
     "tailwindcss": "^3.3.3"
-  },
-  "devDependencies": {
-    "@types/isotope-layout": "^3.0.11"
   }
 }

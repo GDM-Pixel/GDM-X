@@ -21,7 +21,7 @@ import TabNavigation from "../components/TabNavigation.jsx";
 import Accelerateur from "../components/Accelerateur.astro";
 import Testislider from "../components/Testislider.astro";
 import MainCTA from "../components/MainCTA.astro";
-import Portfolio from "../components/Portfolio.astro";
+import Portfolio from "../components/Portfolio.jsx";
 ---
 
 <Layout title="Page des composants" description="Ceci est la meta description">
@@ -215,21 +215,23 @@ import Portfolio from "../components/Portfolio.astro";
 		</section>
 
 		<MainCTA />
-<section class="portfolio">
-		<div class="row my-20">
-			<div class="container">
-				<div class="section-header">
-					<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
-						>Dernières créations</span>
-					<h2 class="section-title">
-						Quelques une de nos dernières réalisations</h2>
-					<PixelSeparator />
+		<section class="portfolio">
+			<div class="row my-20">
+				<div class="container">
+					<div class="section-header">
+						<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
+							>Dernières créations</span
+						>
+						<h2 class="section-title">
+							Quelques une de nos dernières réalisations
+						</h2>
+						<PixelSeparator />
+					</div>
 				</div>
+
+				<Portfolio client:visible/>
 			</div>
-			<Portfolio />
-			
-		</div>
-</section>
+		</section>
 	</main>
 </Layout>
 
@@ -245,3 +247,4 @@ import Portfolio from "../components/Portfolio.astro";
 		@apply bg-dustyred-500;
 	}
 </style>
+../components/Portfolio.jsx/index.js
