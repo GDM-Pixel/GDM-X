@@ -14,6 +14,7 @@ import { ViewTransitions } from "astro:transitions";
 		<script
 			src="https://kit.fontawesome.com/de56e6b558.js"
 			crossorigin="anonymous"></script>
+		{/**/ }
 		<ViewTransitions />
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -34,7 +35,7 @@ import { ViewTransitions } from "astro:transitions";
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body transition:animate="fade">
 		<slot />
 		<script src="/src/assets/js/gdm-goto.js"></script>
 		<style is:global lang="scss">

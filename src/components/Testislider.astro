@@ -21,7 +21,7 @@ import PixelSeparator from "./PixelSeparator.astro";
 				<PixelSeparator />
 			</div>
 			<div class="slidercontainer">
-				<div class="slidel">
+				<div class="slidel" style="opacity: 1;">
 					<Image
 						src={SylvainImage}
 						width="115"
@@ -173,6 +173,7 @@ import PixelSeparator from "./PixelSeparator.astro";
 	</div>
 </section>
 <script>
+	function initializeSlider() {
 // États du slider
 let currentSlide = 0;
 let isDragging = false;
@@ -282,6 +283,12 @@ if (nextButton) {
 }
 // Appeler la fonction pour initialiser les puces
 updateDots();
+}
+// Appeler initializeSlider au chargement initial de la page
+initializeSlider();
+
+// Ré-appeler initializeSlider chaque fois que la navigation se produit
+document.addEventListener('astro:page-load', initializeSlider);
 </script>
 <style lang="scss">
     .active-dot {
