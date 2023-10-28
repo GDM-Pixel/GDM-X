@@ -13,6 +13,7 @@ export default {
 			borderRadius: {
 				xl: "1rem",
 			},
+			
 		},
 		screens: {
 			xs: "320px",

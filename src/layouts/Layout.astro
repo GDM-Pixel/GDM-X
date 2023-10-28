@@ -11,9 +11,14 @@ import { ViewTransitions } from "astro:transitions";
 <!doctype html>
 <html lang="fr">
 	<head>
-		<script
-			src="https://kit.fontawesome.com/de56e6b558.js"
-			crossorigin="anonymous"></script>
+		
+<script>
+	document.addEventListener('astro:page-load', () => {
+    const script = document.createElement('script');
+    script.src = "https://kit.fontawesome.com/de56e6b558.js";
+    script.crossOrigin = "anonymous";
+    document.head.appendChild(script);
+	});</script>
 		{/**/ }
 		<ViewTransitions />
 		<meta charset="UTF-8" />
@@ -86,6 +91,9 @@ import { ViewTransitions } from "astro:transitions";
 					h2 {
 						@apply text-white ;
 					}
+				}
+				&.left {
+					@apply text-left block max-w-full;
 				}
 			}
 		</style>

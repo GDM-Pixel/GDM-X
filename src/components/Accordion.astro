@@ -1,0 +1,97 @@
+---
+// Accordion.astro
+let { items } = Astro.props;
+---
+
+<ul class="accordion">
+	{
+		Array.isArray(items) &&
+			items.map(({ question, answer }, index) => (
+				<li class="accordion-item" aria-expanded="false">
+					<button type="button" class="accordion-button">
+						<span class="accordion-header">
+							{question}
+							<svg
+								width="28"
+								height="25"
+								viewBox="0 0 28 25"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<ellipse
+									cx="13.7904"
+									cy="12"
+									rx="8.19277"
+									ry="8"
+									fill="white"
+								/>
+								<path d="M14.3989 25C21.4695 25 27.2001 19.4043 27.2001 12.5C27.2001 5.5957 21.4695 0 14.3989 0C7.3282 0 1.59766 5.5957 1.59766 12.5C1.59766 19.4043 7.3282 25 14.3989 25ZM13.1987 16.7969V13.6719H9.99845C9.33338 13.6719 8.79833 13.1494 8.79833 12.5C8.79833 11.8506 9.33338 11.3281 9.99845 11.3281H13.1987V8.20312C13.1987 7.55371 13.7338 7.03125 14.3989 7.03125C15.0639 7.03125 15.599 7.55371 15.599 8.20312V11.3281H18.7993C19.4643 11.3281 19.9994 11.8506 19.9994 12.5C19.9994 13.1494 19.4643 13.6719 18.7993 13.6719H15.599V16.7969C15.599 17.4463 15.0639 17.9688 14.3989 17.9688C13.7338 17.9688 13.1987 17.4463 13.1987 16.7969Z" />
+							</svg>
+						</span>
+					</button>
+
+					<div class="accordion-content" hidden set:html={answer}></div>
+				</li>
+			))
+	}
+</ul>
+
+<script type="module">
+	const accordionItems = document.querySelectorAll(".accordion-item");
+
+	function closeAllAccordions() {
+		accordionItems.forEach((item) => {
+			item.setAttribute("aria-expanded", "false");
+		});
+	}
+
+	// Ouvrir le premier accordéon par défaut
+	if (accordionItems.length > 0) {
+		accordionItems[0].setAttribute("aria-expanded", "true");
+	}
+
+	accordionItems.forEach((item) => {
+		const button = item.querySelector(".accordion-button");
+		
+
+		if (button) {
+			button.addEventListener("click", () => {
+				const isExpanded = item.getAttribute("aria-expanded") === "true";
+				closeAllAccordions();
+				item.setAttribute("aria-expanded", (!isExpanded).toString());
+			});
+		}
+	});
+</script>
+
+<style lang="scss">
+	/* Style your accordion */
+	.accordion {
+	}
+	.accordion-header {
+		@apply flex justify-between px-6 py-10 font-semibold text-lg;
+	}
+
+	.accordion-content {
+		@apply px-6 py-0 bg-white text-base text-prussian-400 overflow-hidden max-h-0 transition-all duration-300 ease-in-out block;
+	}
+    .accordion-item[aria-expanded="true"] {
+        .accordion-content {
+            @apply px-6 py-6 block max-h-96 box-content transition-all duration-300 ease-in-out;
+        }
+    }
+	.accordion-button {
+		@apply w-full bg-prussian-600 transition-all duration-300 ease-in-out border-b-2 border-prussian-100;
+		&:hover {
+			@apply bg-prussian-500 transition-all duration-300 ease-in-out;
+		}
+		.accordion-header svg {
+			@apply  fill-dustyred-400 transition-all duration-300 ease-in-out;
+		}
+	}
+	.accordion-item[aria-expanded="true"] .accordion-button {
+		@apply bg-prussian-200 transition-all duration-300 ease-in-out;
+		.accordion-header svg {
+			@apply rotate-45 fill-moonstone-400 transition-all duration-300 ease-in-out;
+		}
+	}
+</style>
