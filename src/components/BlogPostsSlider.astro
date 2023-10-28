@@ -1,0 +1,110 @@
+---
+import PixelSeparator from "./PixelSeparator.astro";
+import { ghostClient } from '../lib/ghost';
+
+
+const posts = await ghostClient.posts
+    .browse({
+        limit: '6',
+        include: 'authors,tags,feature_image' ,
+    })
+    // @ts-ignore
+    .catch((err) => {
+        console.error(err);
+    });
+
+---
+<section class="blogpost">
+<div class="row my-20">
+	<div class="container">
+		<div class="section-header">
+			<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
+				>Dernières publications du blog</span
+			>
+			<h2 class="section-title">Quelques une de nos dernières publications</h2>
+			<PixelSeparator />
+		</div>
+	</div>
+
+
+
+<div class="swiper-container container relative overflow-hidden">
+		<div class="swiper-wrapper">
+            
+            
+			{posts.map((post: any) => (
+				<div class="swiper-slide grid grid-cols-3">
+					<a href={`/articles/${post.slug}`}>
+						<img src={post.feature_image} alt={post.title} />
+						<h1>{post.title}</h1>
+						<p>{post.excerpt}</p>
+					</a>
+				</div>
+			))}
+		</div>
+		<div class="swiper-button-next">Précédent</div>
+		<div class="swiper-button-prev">Suivant</div>
+</div>
+</section>
+
+
+
+ <script>
+  import Swiper from 'swiper/bundle';
+  import 'swiper/css/bundle';
+
+function initializeSwiper() {
+  var swiper = new Swiper(".swiper-container", {
+     autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+    },
+    slidesPerView: 3,
+      spaceBetween: 30,
+      freeMode: true,
+    speed: 500,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+    }
+  initializeSwiper();
+  document.addEventListener('astro:page-load', initializeSwiper);
+
+</script>
+
+    <style>
+     
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
