@@ -1,0 +1,331 @@
+---
+import { Image } from "astro:assets";
+import logoGDM from "../assets/img/logo-gdm-white.svg";
+import { ghostClient } from "../lib/ghost";
+
+const posts = await ghostClient.posts
+	.browse({
+		limit: "2",
+		include: "authors,tags,feature_image,created_at",
+	})
+	// @ts-ignore
+	.catch((err) => {
+		console.error(err);
+	});
+// @ts-ignore
+function formatDate(dateString) {
+	const [yyyy, mm, dd] = dateString.split("T")[0].split("-");
+	const months = [
+		"Janvier",
+		"Février",
+		"Mars",
+		"Avril",
+		"Mai",
+		"Juin",
+		"Juillet",
+		"Août",
+		"Septembre",
+		"Octobre",
+		"Novembre",
+		"Décembre",
+	];
+	const month = months[parseInt(mm, 10) - 1];
+	return `${dd} ${month} ${yyyy}`;
+}
+//const { href, title, body } = Astro.props;
+---
+
+<footer class="footer">
+	<div class="mainfooter">
+		<div class="id-contact">
+			<Image src={logoGDM} alt="logo GDM" />
+			<div class="icon-info">
+				<svg
+					width="12"
+					height="16"
+					viewBox="0 0 12 16"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M6 16C6 16 12 9.5 12 6C12 2.6875 9.3125 0 6 0C2.6875 0 0 2.6875 0 6C0 9.5 6 16 6 16ZM6 4C6.53043 4 7.03914 4.21071 7.41421 4.58579C7.78929 4.96086 8 5.46957 8 6C8 6.53043 7.78929 7.03914 7.41421 7.41421C7.03914 7.78929 6.53043 8 6 8C5.46957 8 4.96086 7.78929 4.58579 7.41421C4.21071 7.03914 4 6.53043 4 6C4 5.46957 4.21071 4.96086 4.58579 4.58579C4.96086 4.21071 5.46957 4 6 4Z"
+						fill="white"></path>
+				</svg>
+				<p>
+					10 rue de la table ronde<br />
+					 14000 Caen
+				</p>
+			</div>
+			<div class="icon-info">
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 16 16"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M0 1L4.5 0L7 4.5L4.38125 6.59375C5.50937 8.73125 7.26562 10.4875 9.40625 11.6187L11.5 9L16 11.5L15 16H14C6.26875 16 0 9.73125 0 2V1Z"
+						fill="white"></path>
+				</svg>
+				<p>+33-9-7721-6680</p>
+			</div>
+			<div class="icon-info">
+				<svg
+					width="19"
+					height="14"
+					viewBox="0 0 19 14"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M0 0H18.6667V2.91667L9.33333 9.33333L0 2.91667V0ZM0 14V4.33125L8.67344 10.2958L9.33333 10.7479L9.99323 10.2922L18.6667 4.33125V14H0Z"
+						fill="white"></path>
+				</svg>
+				<p>contact@gdm-pixel.fr</p>
+			</div>
+			<ul class="social-list">
+				<li>
+					<a href="https://www.linkedin.com/in/charles-annoni-gdm-pixel/">
+						<svg
+							width="25"
+							height="25"
+							viewBox="0 0 25 25"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M23.2143 0H1.78013C0.797991 0 0 0.809152 0 1.80246V23.1975C0 24.1908 0.797991 25 1.78013 25H23.2143C24.1964 25 25 24.1908 25 23.1975V1.80246C25 0.809152 24.1964 0 23.2143 0ZM7.5558 21.4286H3.85045V9.49777H7.56138V21.4286H7.5558ZM5.70312 7.8683C4.51451 7.8683 3.55469 6.9029 3.55469 5.71987C3.55469 4.53683 4.51451 3.57143 5.70312 3.57143C6.88616 3.57143 7.85156 4.53683 7.85156 5.71987C7.85156 6.90848 6.89174 7.8683 5.70312 7.8683ZM21.4453 21.4286H17.74V15.625C17.74 14.2411 17.7121 12.4609 15.8147 12.4609C13.8839 12.4609 13.5882 13.9676 13.5882 15.5246V21.4286H9.88281V9.49777H13.4375V11.1272H13.4877C13.9844 10.1897 15.1953 9.20201 16.9978 9.20201C20.7478 9.20201 21.4453 11.6741 21.4453 14.8884V21.4286Z"
+							></path>
+						</svg></a
+					>
+				</li>
+				<li>
+					<a href="https://twitter.com/gdm_pixel">
+						<svg
+							width="25"
+							height="25"
+							viewBox="0 0 25 25"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M22.3214 0H2.67857C1.19978 0 0 1.19978 0 2.67857V22.3214C0 23.8002 1.19978 25 2.67857 25H22.3214C23.8002 25 25 23.8002 25 22.3214V2.67857C25 1.19978 23.8002 0 22.3214 0ZM19.5926 8.86161C19.6038 9.01786 19.6038 9.17969 19.6038 9.33594C19.6038 14.1741 15.9208 19.7489 9.19085 19.7489C7.11495 19.7489 5.18973 19.1462 3.57143 18.1083C3.86719 18.1417 4.15179 18.1529 4.45312 18.1529C6.16629 18.1529 7.73995 17.5725 8.99554 16.5904C7.38839 16.5569 6.03795 15.5022 5.57478 14.0513C6.13839 14.135 6.64621 14.135 7.22656 13.9844C5.55246 13.644 4.29688 12.1708 4.29688 10.3906V10.346C4.78237 10.6194 5.35156 10.7868 5.94866 10.8092C5.44667 10.4752 5.03515 10.0223 4.75082 9.4906C4.4665 8.95895 4.31821 8.36518 4.3192 7.76228C4.3192 7.08147 4.49777 6.45647 4.81585 5.91518C6.6183 8.13616 9.32478 9.58705 12.3605 9.7433C11.8415 7.26005 13.6998 5.24554 15.9319 5.24554C16.9866 5.24554 17.9353 5.68638 18.6049 6.40067C19.4308 6.24442 20.2232 5.9375 20.9263 5.51897C20.6529 6.36719 20.0781 7.08147 19.3192 7.53348C20.0558 7.45536 20.7701 7.24888 21.4286 6.96429C20.9319 7.69531 20.3069 8.34263 19.5926 8.86161Z"
+							></path>
+						</svg></a
+					>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/gdmpixel">
+						<svg
+							width="25"
+							height="25"
+							viewBox="0 0 25 25"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M22.3214 0H2.67857C1.96817 0 1.28686 0.282206 0.784535 0.784535C0.282206 1.28687 0 1.96817 0 2.67857L0 22.3214C0 23.0318 0.282206 23.7131 0.784535 24.2155C1.28686 24.7178 1.96817 25 2.67857 25H10.3376V16.5006H6.82199V12.5H10.3376V9.45089C10.3376 5.9827 12.4023 4.06696 15.5647 4.06696C17.0792 4.06696 18.6629 4.33705 18.6629 4.33705V7.74107H16.918C15.1987 7.74107 14.6624 8.80804 14.6624 9.90234V12.5H18.5006L17.8867 16.5006H14.6624V25H22.3214C23.0318 25 23.7131 24.7178 24.2155 24.2155C24.7178 23.7131 25 23.0318 25 22.3214V2.67857C25 1.96817 24.7178 1.28687 24.2155 0.784535C23.7131 0.282206 23.0318 0 22.3214 0Z"
+							></path>
+						</svg></a
+					>
+				</li>
+				<li>
+					<a href="https://www.youtube.com/@GDMPixel">
+						<svg
+							width="36"
+							height="25"
+							viewBox="0 0 36 25"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M34.8126 3.91165C34.4037 2.37194 33.1989 1.15931 31.6691 0.747786C28.8964 0 17.7778 0 17.7778 0C17.7778 0 6.65931 0 3.88646 0.747786C2.35671 1.15937 1.15189 2.37194 0.742969 3.91165C0 6.70247 0 12.5253 0 12.5253C0 12.5253 0 18.348 0.742969 21.1389C1.15189 22.6786 2.35671 23.8407 3.88646 24.2522C6.65931 25 17.7778 25 17.7778 25C17.7778 25 28.8963 25 31.6691 24.2522C33.1989 23.8407 34.4037 22.6786 34.8126 21.1389C35.5556 18.348 35.5556 12.5253 35.5556 12.5253C35.5556 12.5253 35.5556 6.70247 34.8126 3.91165ZM14.1414 17.8119V7.23861L23.4343 12.5254L14.1414 17.8119Z"
+							></path>
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navigation">
+			<h4>Navigation</h4>
+			<nav>
+				<ul>
+					<li><a href="/creation-site/">Création de site</a></li>
+					<li><a href="/creer-ecommerce/">E-commerce</a></li>
+					<li><a href="/referencement/">SEO / SEA / SEM</a></li>
+					<li><a href="/identite-visuelle/">Identité visuelle</a></li>
+					<li><a href="/maintenance/">Maintenance</a></li>
+					<li><a href="/webmarketing/">Webmarketing</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="blogpostfooter">
+			<h4>Articles récents</h4>
+			<div class="footerblogdisplay">
+				{
+					posts.map((post: any) => (
+						<a class="blogpost" href={`/articles/${post.slug}`}>
+							<img src={post.feature_image} alt={post.title} />
+							{post.primary_tag && (
+								<span class="category">{post.primary_tag.name}</span>
+							)}
+							<div class="postmetawraper">
+								<span class="h3">{post.title}</span>
+								<span class="date">{formatDate(post.created_at)}</span>
+							</div>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</div>
+	<div class="bottomfooter">
+		<div class="container">
+			<div class="col1">Copyright @ GDM-Pixel, tous droits réservés</div>
+			<div class="col2">
+				<ul>
+					<li><a href="/mentions-legales/">Mentions légales</a></li>
+					<li><a href="/rgpd/">Politique de confidentialité</a></li>
+					<li><a href="/cgu-cgv/">CGU / CGV</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style lang="scss">
+	.footer {
+		@apply bg-prussian-400 text-white;
+	}
+	.mainfooter {
+		@apply container justify-between items-center grid grid-cols-3  py-16;
+		.id-contact {
+			img {
+				@apply max-w-[230px] mb-4;
+			}
+			.icon-info {
+				@apply flex items-center mb-2;
+				&:nth-of-type(1) {
+					@apply flex items-start;
+					svg {
+						@apply mt-1;
+					}
+				}
+				svg {
+					@apply mr-2;
+				}
+			}
+			.social-list {
+				@apply flex mt-4;
+				a {
+					svg {
+						@apply mr-4 fill-white transition-all duration-300;
+					}
+					&:hover svg {
+						@apply fill-moonstone-400 transition-all duration-300;
+					}
+				}
+			}
+		}
+		.navigation {
+			@apply text-white;
+			h4 {
+				@apply mb-4 text-white text-lg;
+			}
+			ul {
+				@apply flex flex-col pl-0;
+				li {
+					@apply mb-1;
+					&:last-of-type {
+						@apply mb-0;
+					}
+					a {
+						@apply text-white hover:text-moonstone-400;
+					}
+				}
+			}
+		}
+		.blogpostfooter {
+			@apply text-white;
+			h4 {
+				@apply mb-4 text-white text-lg;
+			}
+			.footerblogdisplay {
+				@apply flex flex-col gap-4;
+				a.blogpost {
+					@apply grid grid-cols-2 gap-4;
+					&:hover {
+						.postmetawraper span.h3 {
+							@apply text-moonstone-400 transition-all duration-300;
+						}
+					}
+					&:last-of-type {
+						@apply mb-0 border-solid border-t-2 border-white pt-4 border-opacity-40;
+					}
+
+					img {
+						@apply w-full h-full object-cover rounded-md;
+					}
+					.category {
+						@apply bg-white  py-1 px-2 rounded-full;
+					}
+					.postmetawraper {
+						@apply flex flex-col justify-between items-start;
+						span.h3 {
+							@apply text-white text-base mb-2 transition-all duration-300;
+						}
+					}
+					.date {
+						@apply text-xs;
+					}
+				}
+			}
+		}
+	}
+	.bottomfooter {
+		@apply bg-prussian-700;
+		.container {
+			@apply grid grid-cols-2 justify-between items-center;
+			.col1,
+			.col2 {
+				@apply text-white text-sm text-opacity-50 py-4;
+				a {
+					@apply text-white text-sm text-opacity-50 hover:text-white;
+				}
+			}
+			.col2 {
+				ul {
+					@apply flex justify-end;
+					li {
+						@apply mr-4 border-r border-white border-opacity-40 pr-4;
+						&:last-of-type {
+							@apply mr-0 pr-0 border-0;
+						}
+					}
+				}
+			}
+		}
+	}
+	.blogpost {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		text-decoration: none;
+		color: #fff;
+	}
+	.blogpost img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.postmetawraper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.category {
+		background-color: #fff;
+		color: #000;
+		padding: 0.5rem 1rem;
+		border-radius: 1rem;
+	}
+	.date {
+		font-size: 0.8rem;
+	}
+</style>

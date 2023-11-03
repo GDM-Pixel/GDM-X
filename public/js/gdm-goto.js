@@ -1,13 +1,21 @@
-
-document.addEventListener("DOMContentLoaded", function (event) {
+function setupGDMListeners() {
     var classname = document.getElementsByClassName("gogdm");
     for (var i = 0; i < classname.length; i++) {
-        //click gauche
+        classname[i].removeEventListener('click', myFunction, false);
         classname[i].addEventListener('click', myFunction, false);
-        //click droit
+        classname[i].removeEventListener('contextmenu', myRightFunction, false);
         classname[i].addEventListener('contextmenu', myRightFunction, false);
     }
-});
+}
+function setupGDMListeners() { 
+    var classname = document.getElementsByClassName("gogdm");
+    for (var i = 0; i < classname.length; i++) {
+        classname[i].removeEventListener('click', myFunction, false);
+        classname[i].addEventListener('click', myFunction, false);
+        classname[i].removeEventListener('contextmenu', myRightFunction, false);
+        classname[i].addEventListener('contextmenu', myRightFunction, false);
+    }
+}
 //fonction du click gauche
 var myFunction = function (event) {
     var attribute = this.getAttribute("data-goto");
@@ -28,3 +36,5 @@ var myRightFunction = function (event) {
         window.open(decodeURIComponent(window.atob(attribute)), '_blank');
     }
 }
+setupGDMListeners();
+document.addEventListener('astro:page-load', setupGDMListeners);

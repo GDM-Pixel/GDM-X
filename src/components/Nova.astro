@@ -1,0 +1,79 @@
+---
+---
+<!-- Lightbox container -->
+<div id="lightbox" class="lightbox hidden">
+  <div class="lightbox-content">
+    <span class="close-btn" onclick="closeNova()">&times;</span>
+    <iframe id="lightbox-frame" src="https://www.chatbase.co/chatbot-iframe/FgoykynZ8KTLsuPD8d1Z9" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script type="text/javascript">
+function setupNova() {
+  const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+  lightbox.style.opacity = '0';
+  lightbox.classList.add('hidden');
+
+  document.getElementById('lightbox').addEventListener('click', function (event) {
+      if (event.target === event.currentTarget) {
+          closeNova();
+      }
+  });
+
+  function openNova() {
+      lightbox.classList.remove('hidden');
+      setTimeout(() => lightbox.style.opacity = "1", 10);
+  }
+
+  function closeNova() {
+      lightbox.style.opacity = "0";
+      setTimeout(() => lightbox.classList.add('hidden'), 500);
+  }
+  window.openNova = openNova; 
+  window.closeNova = closeNova;
+}
+setupNova();
+document.addEventListener('astro:page-load', setupNova);
+</script>
+
+
+
+<style lang="scss">
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  iframe {
+    width:370px;height:600px;
+  }
+}
+
+.lightbox.hidden {
+  display: none;
+  pointer-events: none;
+}
+
+.lightbox:not(.hidden) {
+  opacity: 1;
+}
+
+.lightbox-content {
+    @apply fixed max-w-[500px] flex flex-col justify-between bottom-2 right-4 rounded-xl p-6 bg-white;
+ 
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}</style>

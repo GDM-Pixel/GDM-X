@@ -45,6 +45,9 @@ import confCallMan from "../assets/img/confcall-man.png";
 	</div>
 </section>
 <script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 function setupMouseMovement() {
 const mainCta = document.querySelector(".maincta") as HTMLElement | null;
 const overlay = document.querySelector(".mouse-overlay") as HTMLElement | null;
@@ -75,8 +78,46 @@ if (overlay) {
     });
 }
 }
+
+function animateCol1() {
+  gsap.from('.maincta .col1', {
+    scrollTrigger: {
+      trigger: '.maincta .col1',
+      start: 'top bottom', // lorsque le haut de l'élément atteint le centre du viewport
+      end: 'bottom center', // lorsque le bas de l'élément atteint le centre du viewport
+      scrub: true,
+	  toggleActions: 'play none none none',
+	  once:true,
+    },
+    duration: 0.5,
+    x: -100,
+    opacity: 0,
+    ease: 'ease-in-out',
+  });
+  
+   gsap.from('.maincta .col2', {
+    scrollTrigger: {
+      trigger: '.maincta .col2',
+      start: 'top bottom',
+      end: 'center center',
+      scrub: true, 
+	  toggleActions: 'play none none none',
+	  once:true,
+    },
+    duration: 0.6, 
+    opacity: 0,
+    ease: 'ease-in-out',
+  });
+}
+
+
 setupMouseMovement();
-document.addEventListener('astro:page-load', setupMouseMovement);
+document.addEventListener('astro:page-load', () => {
+  setupMouseMovement();
+  animateCol1();  // Appel de la fonction d'animation
+});
+
+
 </script>
 <style lang="scss">
 
@@ -96,13 +137,13 @@ document.addEventListener('astro:page-load', setupMouseMovement);
 		@apply text-xxl font-bold text-moonstone-400 block mb-4;
 	}
 	.call {
-		@apply text-xl font-bold text-white block mb-4;
+		@apply text-xl font-bold text-white block mb-4 z-20;
 	}
 	p {
 		@apply block mb-6 text-md max-w-lg mx-auto;
 	}
 	.cta-container {
-		@apply flex justify-center gap-6 z-20;
+		@apply flex justify-center gap-6;
         a {pointer-events: auto;}
 	}
 	.confcallman,
@@ -154,5 +195,8 @@ document.addEventListener('astro:page-load', setupMouseMovement);
 	}
 	.col2 {
 		@apply relative;
+	}
+	.col1 {
+		@apply relative z-20;
 	}
 </style>

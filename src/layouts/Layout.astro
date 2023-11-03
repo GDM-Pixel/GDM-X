@@ -1,25 +1,27 @@
 ---
+import { gsap } from 'gsap';
+import Nova from "../components/Nova.astro";
 interface Props {
 	title: string;
 	description: string;
 }
-
 const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
+
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
-		
-<script>
-	document.addEventListener('astro:page-load', () => {
-    const script = document.createElement('script');
-    script.src = "https://kit.fontawesome.com/de56e6b558.js";
-    script.crossOrigin = "anonymous";
-    document.head.appendChild(script);
-	});</script>
-		{/**/ }
+		<script>
+			document.addEventListener("astro:page-load", () => {
+				const script = document.createElement("script");
+				script.src = "https://kit.fontawesome.com/de56e6b558.js";
+				script.crossOrigin = "anonymous";
+				document.head.appendChild(script);
+			});
+		</script>
+		{/**/}
 		<ViewTransitions />
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -39,10 +41,12 @@ import { ViewTransitions } from "astro:transitions";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
+		
 	</head>
 	<body transition:animate="fade">
 		<slot />
-		<script src="/src/assets/js/gdm-goto.js"></script>
+		<Nova />
+		<script src="/js/gdm-goto.js" is:inline></script>
 		<style is:global lang="scss">
 			.inner_container_lg {
 				@apply mx-auto;
@@ -64,6 +68,12 @@ import { ViewTransitions } from "astro:transitions";
 					&:hover {
 						@apply border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
 					}
+					&.sktn {
+						@apply bg-transparent text-dustyred-400 border-4 border-dustyred-400 bg-none;
+						&:hover {
+							@apply bg-dustyred-400 text-white;
+						}
+					}
 				}
 				&.blue {
 					@apply border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
@@ -82,14 +92,14 @@ import { ViewTransitions } from "astro:transitions";
 				width: 100px;
 			}
 			.section-header {
-				@apply flex flex-col justify-center font-bold text-center items-center  mb-10 max-w-3xl mx-auto ;
+				@apply flex flex-col justify-center font-bold text-center items-center  mb-10 max-w-3xl mx-auto;
 				h2 {
 					@apply text-xxxl mb-4;
 				}
 				&.dark {
 					@apply text-white;
 					h2 {
-						@apply text-white ;
+						@apply text-white;
 					}
 				}
 				&.left {

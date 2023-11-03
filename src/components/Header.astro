@@ -71,10 +71,10 @@ interface Props {
 </div>
 <div class="header">
 	<div class="container">
-		<Image
+		<a href="/"><Image
 			class="logo"
 			src={logoGDM}
-			alt="logo GDM-Pixel" />
+			alt="logo GDM-Pixel" /></a>
 		<nav>
 			<ul>
 				<li>
@@ -98,9 +98,15 @@ interface Props {
 		</nav>
 	</div>
 </div>
+<script>
+window.addEventListener('scroll', function() {
+    var header = document.querySelector('.header');
+    header?.classList.toggle('stickynav', window.scrollY > 200);
+});
+</script>
 <style lang="scss">
 	.topbar {
-		@apply bg-raisinblack text-white px-6 text-sm py-3;
+		@apply bg-raisinblack text-white px-6 text-sm py-2 z-20 relative;
 		.inner_container_lg {
 			@apply flex justify-between items-center;
 			.left {
@@ -132,11 +138,26 @@ interface Props {
 		.svg-inline--fa {
 			@apply mx-2 w-4 ;}
 	}
+	@keyframes slideDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+}
 	.header {
-		@apply bg-prussian-400 py-0 px-6 z-10 relative;
+		@apply bg-prussian-400 py-0 px-6 relative z-20 transition-all duration-300 ease-in-out;
+		&.stickynav {
+			@apply bg-opacity-60 sticky top-0 transition-all duration-1000 ease-in-out;
+			animation: slideDown 0.5s forwards;
+			nav {@apply h-[60px];}
+			.logo {
+				max-width: 150px;
+			}
+		}
+
 		.container {
 			@apply max-w-[1600px] flex px-0 py-0 justify-between items-center;
-			.logo {
+			
+		}
+		.logo {
 				max-width: 230px;
 			}
 			nav {
@@ -153,6 +174,5 @@ interface Props {
 					}
 				}
 			}
-		}
 	}
 </style>
