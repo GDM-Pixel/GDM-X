@@ -4,13 +4,11 @@ interface Props {
 	//body: string;
 	//href: string;
 }
-
-//const { href, title, body } = Astro.props;
-
+import * as animations from '../components/animations.js';
 ---
 
-<section class="herobox" transition:animate="slide"> 
-	<div class="container">
+<section class="herobox"> 
+	<div class="container" transition:animate={animations.myFadeSlide}>
         <h1>Agence de communication à Caen</h1>
         <p class="baseline">Vos ambitions,<br>notre mission</p>
         <p class="intro">
@@ -33,5 +31,4 @@ interface Props {
     .intro {@apply max-w-sm text-md;}
     .cta_container {@apply mt-6 gap-4 flex;}
      }
-
 </style>

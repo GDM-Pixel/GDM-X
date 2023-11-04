@@ -1,5 +1,4 @@
 ---
-import { gsap } from 'gsap';
 import Nova from "../components/Nova.astro";
 interface Props {
 	title: string;
@@ -41,9 +40,8 @@ import { ViewTransitions } from "astro:transitions";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
-		
 	</head>
-	<body transition:animate="fade">
+	<body>
 		<slot />
 		<Nova />
 		<script src="/js/gdm-goto.js" is:inline></script>
@@ -104,6 +102,50 @@ import { ViewTransitions } from "astro:transitions";
 				}
 				&.left {
 					@apply text-left block max-w-full;
+				}
+			}
+		</style>
+		<style>
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+					transform: translateX(60px);
+				}
+				100% {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+					transform: translateX(0);
+				}
+				100% {
+					opacity: 0;
+					transform: translateX(-200px);
+				}
+			}
+
+			@keyframes fadeInFromBottom{
+				0% {
+					opacity: 0;
+					transform: translateY(60px);
+				}
+				100% {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes fadeOutToLeft{
+				0% {
+					opacity: 1;
+					transform: translateX(0);
+				}
+				100% {
+					opacity: 0;
+					transform: translateX(-200px);
 				}
 			}
 		</style>

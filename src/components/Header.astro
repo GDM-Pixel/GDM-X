@@ -9,7 +9,6 @@ interface Props {
 
 //const { href, title, body } = Astro.props;
 ---
-
 <div class="topbar">
 	<div class="inner_container_lg">
 		<div class="left">
@@ -69,7 +68,7 @@ interface Props {
 		</div>
 	</div>
 </div>
-<div class="header">
+<div class="header" transition:persist>
 	<div class="container">
 		<a href="/"><Image
 			class="logo"
@@ -93,11 +92,12 @@ interface Props {
 				<li><a href="/creer-ecommerce/">E-commerce</a></li>
 				<li><a href="/referencement/">Référencement</a></li>
 				<li><a href="/webmarketing/">Webmarketing</a></li>
-				<li><a class="gogdm" data-goto="L2NvbnRhY3Qv">Contact</a></li>
+				<li><a href="/contact/" >Contact</a></li>
 			</ul>
 		</nav>
 	</div>
 </div>
+
 <script>
 window.addEventListener('scroll', function() {
     var header = document.querySelector('.header');

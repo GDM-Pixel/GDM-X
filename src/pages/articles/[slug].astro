@@ -1,40 +1,40 @@
 ---
-import { ghostClient } from "../../lib/ghost";
-export async function getStaticPaths() {
-	const posts = await ghostClient.posts
-		.browse({
-			limit: "all",
-		})
-		.catch((err) => {
-			console.error(err);
-		});
-	return posts.map((post) => {
-		return {
-			params: {
-				slug: post.slug,
-			},
-			props: {
-				post: post,
-			},
-		};
-	});
+import { getCollection, type CollectionEntry } from 'astro:content';
+export async function getStaticPaths () {
+	const posts = await getCollection("articles");
+	const paths = posts.map(post => {
+        return {
+            params: {
+                slug: post.slug
+            },
+            props: {
+                post
+            }
+        }
+    })
+
+	return paths;
 }
+type Props = {
+    post: CollectionEntry<"articles">
+};
 const { post } = Astro.props;
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
+
 ---
-<Layout title="Page des composants" description="Ceci est la meta description"></Layout>
+
+<Layout
+	title="Page des composants"
+	description="Ceci est la meta description"
+/>
 <Header />
 
+<span>{post.data.title}</span>
 
-		<span>{post.title}</span>
-	
-	
-		<img src={post.feature_image} alt={post.title} />
+<img src={post.data.image} alt={post.data.title} />
 
-		<h1>{post.title}</h1>
-		<p>{post.reading_time} min read</p>
+<h1>{post.data.title}</h1>
 
-		<Fragment set:html={post.html} />
-	
-</Layout>
+
+

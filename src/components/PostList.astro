@@ -1,0 +1,62 @@
+---
+import * as animations from "../components/animations.js";
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const allPosts = await getCollection("articles");
+---
+
+<Layout title="Page des articles" description="Ceci est la meta description">
+	<main>
+		<section class="postgrid">
+			{
+				allPosts.map((post) => (
+					<div class="blogsingle">
+						<a class="blogpostwraper" href={`/articles/${post.slug}`}>
+							<img
+								src={post.data.image}
+								alt={post.data.title}
+								width="377"
+								height="211"
+							/>
+							{post.data.category && (
+								<span class="category">{post.data.category}</span>
+							)}
+							<div class="postmetawraper">
+								<span class="date">{post.data.date}</span>
+								<h3>{post.data.title}</h3>
+							</div>
+						</a>
+					</div>
+				))
+			}
+		</section>
+	</main>
+</Layout>
+<style lang="scss">
+	.postgrid {
+		@apply container grid grid-cols-3 mx-auto gap-6 px-6;
+		.blogsingle {
+			@apply relative border-solid border border-[#E6E6E6] shadow-md;
+		}
+		a.blogpostwraper {
+			@apply text-left rounded-lg  overflow-hidden;
+		}
+		.postmetawraper {
+			@apply px-6 pt-2 pb-6 bg-white;
+		}
+		h3 {
+			@apply text-xl font-bold text-prussian-400;
+		}
+		span.category {
+			@apply absolute right-4 top-6 px-4 py-1 bg-dustyred-400 text-white rounded-full;
+		}
+		span.date {
+			@apply text-prussian-100 text-xs;
+		}
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+</style>

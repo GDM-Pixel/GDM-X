@@ -1,4 +1,5 @@
 ---
+
 import { Image } from "astro:assets";
 import CharlesImage from "../assets/img/charles-annoni.jpg";
 import logoGDM from "../assets/img/logo-gdm-white.svg";
@@ -27,6 +28,8 @@ import Portfolio from "../components/Portfolio.jsx";
 import BlogPostsSlider from "../components/BlogPostsSlider.astro";
 import Accordion from "../components/Accordion.astro";
 import Footer from "../components/Footer.astro";
+import * as animations from '../components/animations.js';
+import HomeBlogSlider from "../components/HomeBlogSlider.astro";
 const faqItems = [
 	{
 		question: "Question 1",
@@ -46,15 +49,16 @@ const faqItems = [
 	{ question: "Question 4", answer: "Réponse 4" },
 	{ question: "Question 5", answer: "Réponse 5" },
 ];
+
+
 ---
 
 <Layout title="Page des composants" description="Ceci est la meta description">
+	<Header/>
+	<HeroBox />
 	<main>
-		<Header />
-		<HeroBox />
-
 		<!-- REASSURANCE -->
-		<div class="reassurance">
+		<div class="reassurance" transition:animate={animations.animInFromBottom}>
 			<div class="grid grid-cols-4 gap-8">
 				<Reassurance
 					title="Expérience et expertise"
@@ -83,6 +87,8 @@ const faqItems = [
 			</div>
 		</div>
 		<!-- FIN DE REASSURANCE -->
+
+		
 
 		<GaucheDroite
 			subtitle="A propos"
@@ -269,7 +275,7 @@ const faqItems = [
 
 				<div class="row flex gap-6">
 					<div class="faqcontainer"><Accordion items={faqItems} /></div>
-					<div class="novacontainer glow">
+					<div class="novacontainer glow" transition:persist>
 						<div class="novainner">
 							<div class="header-nova-box">
 								<Image
@@ -296,7 +302,7 @@ const faqItems = [
 			</div>
 		</section>
 
-		<BlogPostsSlider />
+		<HomeBlogSlider />
 	</main>
 	<Footer />
 </Layout>
