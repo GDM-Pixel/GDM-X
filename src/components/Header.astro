@@ -7,7 +7,9 @@ interface Props {
 	//href: string;
 }
 
-//const { href, title, body } = Astro.props;
+import { Breadcrumbs } from "astro-breadcrumbs";
+
+import 'astro-breadcrumbs/breadcrumbs.css';
 ---
 <div class="topbar">
 	<div class="inner_container_lg">
@@ -98,13 +100,47 @@ interface Props {
 	</div>
 </div>
 
+{Astro.url.pathname !== '/' && <Breadcrumbs>
+  <svg slot="index" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+  <svg
+    slot="separator"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    ><polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</Breadcrumbs>}
+
 <script>
-window.addEventListener('scroll', function() {
-    var header = document.querySelector('.header');
-    header?.classList.toggle('stickynav', window.scrollY > 200);
-});
+function setup() {
+    window.addEventListener('scroll', function() {
+        var header = document.querySelector('.header');
+        header?.classList.toggle('stickynav', window.scrollY > 200);
+    });
+    const navLinks = document.querySelectorAll('nav ul li a');
+    
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === window.location.pathname) {
+            link.classList.add('active');
+        }
+        
+        link.addEventListener('click', () => {
+            navLinks.forEach(link => link.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', setup);
+document.addEventListener('astro:page-load', setup);
 </script>
-<style lang="scss">
+<style lang="scss" is:global>
 	.topbar {
 		@apply bg-raisinblack text-white px-6 text-sm py-2 z-20 relative;
 		.inner_container_lg {
@@ -167,6 +203,12 @@ window.addEventListener('scroll', function() {
 					li {
 						a {
 							@apply text-base font-bold h-full flex items-center text-white px-6 flex-auto  hover:text-moonstone-400 hover:bg-prussian-600 ;
+							&.active {
+								@apply text-moonstone-400 bg-prussian-100;
+								svg {
+									@apply fill-moonstone-400;
+								}
+							}
 						}
 						svg {
 							@apply fill-powder transition-all duration-300 hover:fill-moonstone-400;
@@ -175,4 +217,12 @@ window.addEventListener('scroll', function() {
 				}
 			}
 	}
+	.c-breadcrumbs {@apply text-prussian-400 mx-auto px-6 py-1 shadow-md capitalize bg-white relative;  
+	a.c-breadcrumbs__link {
+		@apply text-dustyred-400 text-[12px] font-semibold;
+		&:hover {
+			@apply text-moonstone-400;
+		}
+	}
+}
 </style>

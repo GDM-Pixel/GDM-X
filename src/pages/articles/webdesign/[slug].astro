@@ -1,0 +1,145 @@
+---
+import { Image } from "astro:assets";
+import logoGDM from "../../../assets/img/logo-gdm-white.svg";
+import NovaImage from "../../../assets/img/nova.png";
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+export async function getStaticPaths() {
+	const posts = await getCollection("articles");
+	const paths = posts.map((post) => {
+		return {
+			params: {
+				slug: post.slug,
+			},
+			props: {
+				post,
+			},
+		};
+	});
+
+	return paths;
+}
+type Props = {
+	post: CollectionEntry<"articles">;
+};
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+---
+
+<Layout title="Page des composants" description="Ceci est la meta description">
+	<Header />
+	<main class="mt-6">
+		<div class="mx-auto flex gap-6 max-w-5xl">
+			<article class="w-2/3">
+				<img
+					src={post.data.image}
+					alt={post.data.title}
+					width="795"
+					height="445"
+					transition:name={`featuredImg_${post.slug}`}
+				/>
+
+				<h1>{post.data.title}</h1>
+				<div class="article-content prose prose-justify max-w-5xl">
+					<Content />
+				</div>
+			</article>
+			<aside class="w-1/3" transition:persist>
+				<div class="novacontainer">
+					<div class="novainner">
+						<div class="header-nova-box">
+							<Image
+								src={logoGDM}
+								width="230"
+								height="40"
+								alt="logo GDM-Pixel"
+								loading="lazy"
+							/>
+						</div>
+						<Image
+							src={NovaImage}
+							width="410"
+							height="273"
+							alt="Nova"
+							loading="lazy"
+						/>
+						<p>Vous ne trouvez pas de réponse à votre question ?</p>
+						<span class="ask">Demandez à NOVA</span>
+						<button class="cta red" onclick="openNova()"
+							>Posez votre question</button
+						>
+					</div>
+				</div>
+			</aside>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+<style lang="scss">
+	.header-nova-box {
+		@apply px-4 py-6 flex justify-center;
+	}
+
+	.novacontainer {
+		@apply w-full rounded-lg relative self-start
+		flex flex-col justify-start items-center text-white;
+		.novainner {
+			@apply pt-4 pb-12 bg-prussian-600 relative z-10 flex flex-col justify-center items-center self-center;
+		}
+		img {
+			@apply w-full;
+		}
+		p {
+			@apply px-4 py-6 text-center text-md;
+		}
+		.ask {
+			@apply block text-center text-xxl uppercase font-bold mb-6;
+		}
+	}
+
+	.glow::before,
+	.glow::after {
+		content: "";
+		position: absolute;
+		left: -2px;
+		top: -2px;
+
+		background: linear-gradient(
+			45deg,
+			#0dffd7,
+			#0c67fa,
+			#217eff,
+			#00e1ff,
+			#cff7ff,
+			#23e9ff,
+			#0055ff,
+			#00d4f5,
+			#0dffd7
+		);
+		background-size: 400%;
+		width: calc(100% + 4px);
+		height: calc(100% + 4px);
+
+		animation: animate 60s linear infinite;
+	}
+	@keyframes animate {
+		0% {
+			background-position: 0 0;
+		}
+		50% {
+			background-position: 300% 0;
+		}
+		100% {
+			background-position: 0 0;
+		}
+	}
+	.glow:after {
+		filter: blur(15px);
+		opacity: 0.5;
+	}
+		.prose-justify {
+    text-align: justify;
+}
+</style>

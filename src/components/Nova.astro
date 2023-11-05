@@ -5,7 +5,7 @@
 <div id="lightbox" class="lightbox hidden">
   <div class="lightbox-content">
     <span class="close-btn" onclick="closeNova()">&times;</span>
-    <iframe id="lightbox-frame" src="https://www.chatbase.co/chatbot-iframe/FgoykynZ8KTLsuPD8d1Z9" frameborder="0" allowfullscreen></iframe>
+    <iframe id="lightbox-frame" src="" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
 
@@ -23,6 +23,8 @@ function setupNova() {
   });
 
   function openNova() {
+     const iframe = document.getElementById('lightbox-frame');
+      iframe.src = "https://www.chatbase.co/chatbot-iframe/FgoykynZ8KTLsuPD8d1Z9";
       lightbox.classList.remove('hidden');
       setTimeout(() => lightbox.style.opacity = "1", 10);
   }

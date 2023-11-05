@@ -2,8 +2,8 @@
 import * as animations from "../components/animations.js";
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-
 const allPosts = await getCollection("articles");
+
 ---
 
 <Layout title="Page des articles" description="Ceci est la meta description">
@@ -12,16 +12,14 @@ const allPosts = await getCollection("articles");
 			{
 				allPosts.map((post) => (
 					<div class="blogsingle">
-						<a class="blogpostwraper" href={`/articles/${post.slug}`}>
-							<img
+						<a class="blogpostwraper" href={`/articles/${post.data.category}/${post.slug}`}>
+							<img transition:name={`featuredImg_${post.slug}`}
 								src={post.data.image}
 								alt={post.data.title}
 								width="377"
 								height="211"
 							/>
-							{post.data.category && (
-								<span class="category">{post.data.category}</span>
-							)}
+							
 							<div class="postmetawraper">
 								<span class="date">{post.data.date}</span>
 								<h3>{post.data.title}</h3>

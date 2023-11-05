@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const AllPosts = await getCollection("articles");
+const WebmarketingPosts = AllPosts.filter(
+	(post) => post.data.category === "webmark",
+);
+---
+
+<Layout title="Page des articles" description="Ceci est la meta description">
+	<Header />
+	<h1>Articles Webmarketing</h1>
+	<main>
+		<section class="postgrid">
+			{
+				WebmarketingPosts.map((post) => (
+					<div class="blogsingle">
+						<a
+							class="blogpostwraper"
+							href={`/articles/${post.data.category}/${post.slug}`}>
+							<img
+								transition:name={`featuredImg_${post.slug}`}
+								src={post.data.image}
+								alt={post.data.title}
+								width="377"
+								height="211"
+							/>
+
+							<div class="postmetawraper">
+								<span class="date">{post.data.date}</span>
+								<h3>{post.data.title}</h3>
+							</div>
+						</a>
+					</div>
+				))
+			}
+		</section>
+	</main>
+	<Footer />
+</Layout>
+<style lang="scss">
+	.postgrid {
+		@apply container grid grid-cols-3 mx-auto gap-6 px-6;
+		.blogsingle {
+			@apply relative border-solid border border-[#E6E6E6] shadow-md;
+		}
+		a.blogpostwraper {
+			@apply text-left rounded-lg  overflow-hidden;
+		}
+		.postmetawraper {
+			@apply px-6 pt-2 pb-6 bg-white;
+		}
+		h3 {
+			@apply text-xl font-bold text-prussian-400;
+		}
+		span.category {
+			@apply absolute right-4 top-6 px-4 py-1 bg-dustyred-400 text-white rounded-full;
+		}
+		span.date {
+			@apply text-prussian-100 text-xs;
+		}
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+</style>

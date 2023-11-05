@@ -82,7 +82,7 @@ export default {
 		},
 
 	},
-	plugins: [
+	plugins: [require("@tailwindcss/typography"),
 		function ({ addBase, theme }) {
 			addBase({
 				'h1': {
@@ -117,8 +117,6 @@ export default {
 				},
 			});
 		},
-
-
 	],
 }
 

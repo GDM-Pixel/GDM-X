@@ -1,38 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import logoGDM from "../assets/img/logo-gdm-white.svg";
-import { ghostClient } from "../lib/ghost";
+import { getCollection } from "astro:content";
 
-const posts = await ghostClient.posts
-	.browse({
-		limit: "2",
-		include: "authors,tags,feature_image,created_at",
-	})
-	// @ts-ignore
-	.catch((err) => {
-		console.error(err);
-	});
-// @ts-ignore
-function formatDate(dateString) {
-	const [yyyy, mm, dd] = dateString.split("T")[0].split("-");
-	const months = [
-		"Janvier",
-		"Février",
-		"Mars",
-		"Avril",
-		"Mai",
-		"Juin",
-		"Juillet",
-		"Août",
-		"Septembre",
-		"Octobre",
-		"Novembre",
-		"Décembre",
-	];
-	const month = months[parseInt(mm, 10) - 1];
-	return `${dd} ${month} ${yyyy}`;
-}
-//const { href, title, body } = Astro.props;
+const allPosts = await getCollection("articles");
+
 ---
 
 <footer class="footer" transition:persist>
@@ -156,20 +128,28 @@ function formatDate(dateString) {
 		<div class="blogpostfooter">
 			<h4>Articles récents</h4>
 			<div class="footerblogdisplay">
+				
+
 				{
-					posts.map((post: any) => (
+				allPosts.slice(0, 2).map((post) => (
+					
 						<a class="blogpost" href={`/articles/${post.slug}`}>
-							<img src={post.feature_image} alt={post.title} />
-							{post.primary_tag && (
-								<span class="category">{post.primary_tag.name}</span>
-							)}
+							<img 
+								src={post.data.image}
+								alt={post.data.title}
+								width="190"
+								height="96"
+								loading="lazy"
+							 />
+
 							<div class="postmetawraper">
-								<span class="h3">{post.title}</span>
-								<span class="date">{formatDate(post.created_at)}</span>
+								<span class="date">{post.data.date}</span>
+								<span class="h3">{post.data.title}</span>
 							</div>
 						</a>
-					))
-				}
+					
+				))
+			}
 			</div>
 		</div>
 	</div>

@@ -67,7 +67,7 @@ function Fancyboxbox() {
         {portfolioData.slice(0, displayCount).map((item, index) => (
 
           <div key={index} className="portfoliome" data-fancybox="gdmportfolio" data-src={item.src}>
-            <img className="pfthumb" alt={item.alt} src={item.thumb} data-lazy-type="image" data-src={item.thumb} />
+            <img className="pfthumb" alt={item.alt} src={item.thumb} data-lazy-type="image" data-src={item.thumb} loading="lazy" />
           </div>
         ))}
       </div>

@@ -1,7 +1,7 @@
 ---
 import PixelSeparator from "./PixelSeparator.astro";
-import { getCollection } from 'astro:content';
-const allPosts = await getCollection('articles');
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("articles");
 
 // @ts-ignore
 function formatDate(dateString) {
@@ -24,9 +24,8 @@ function formatDate(dateString) {
 	return `${dd} ${month} ${yyyy}`;
 }
 ---
-
 <section class="blogpost">
-	<div class="row my-20">
+	<div class="row my-20 text-center">
 		<div class="container">
 			<div class="section-header">
 				<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
@@ -42,23 +41,32 @@ function formatDate(dateString) {
 		<div class="container relative">
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
-{allPosts.slice(0, 6).map(post => 
-<div class="swiper-slide grid grid-cols-3">
-<a class="blogpostwraper" href={`/articles/${post.slug}`}>
-
-<img src={post.data.image} alt={post.data.title} width="377" height="211"/>
-{post.data.category && (
-<span class="category">{post.data.category}</span>
-)}
-<div class="postmetawraper">
-	<span class="date">{post.data.date}</span>
-	<h3>{post.data.title}</h3>
-</div>
-</a>
-</div>
-)}
-                </div>
+					{
+						allPosts.slice(0, 6).map((post) => (
+							<div class="swiper-slide grid grid-cols-3">
+								<a class="blogpostwraper" href={`/articles/${post.data.category}/${post.slug}`}>
+									<img
+										src={post.data.image}
+										alt={post.data.title}
+										width="377"
+										height="211"
+										loading="lazy"
+										transition:name={`featuredImg_${post.slug}`}
+									/>
+									{post.data.category && (
+										<span class="category">{post.data.category}</span>
+									)}
+									<div class="postmetawraper">
+										<span class="date">{post.data.date}</span>
+										<h3>{post.data.title}</h3>
+									</div>
+								</a>
+							</div>
+						))
+					}
+				</div>
 			</div>
+			
 			<div class="navelementwraper">
 				<div class="swiper-pagination text-dustyred-500"></div>
 				<div class="swiper-next">
@@ -86,9 +94,10 @@ function formatDate(dateString) {
 					</svg>
 				</div>
 			</div>
+			
 		</div>
+		<a href="/articles/" class="cta sktn red mt-12 self-center mx-auto inline-block">Voir tous les articles</a>
 	</div>
-
 	<script>
 		import Swiper from "swiper/bundle";
 		import "swiper/css/bundle";
@@ -224,8 +233,8 @@ function formatDate(dateString) {
 			}
 			img {
 				display: block;
-				width: 100%;
-				height: 100%;
+				width: 377px;
+				height: 211px;
 				object-fit: cover;
 			}
 		}
