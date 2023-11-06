@@ -1,6 +1,6 @@
 ---
 author: charles-annoni
-category: creasite
+category: webdesign
 date: 04/11/2023
 featured: false
 image: /img/demo-3.jpg

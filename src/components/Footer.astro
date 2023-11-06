@@ -133,7 +133,7 @@ const allPosts = await getCollection("articles");
 				{
 				allPosts.slice(0, 2).map((post) => (
 					
-						<a class="blogpost" href={`/articles/${post.slug}`}>
+						<a class="blogpost" href={`/articles/${post.data.category}/${post.slug}`}>
 							<img 
 								src={post.data.image}
 								alt={post.data.title}

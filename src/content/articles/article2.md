@@ -1,6 +1,6 @@
 ---
 author: charles-annoni
-category: webdesign
+category: labo
 date: 04/11/2023
 featured: false
 image: /img/demo-2.jpg

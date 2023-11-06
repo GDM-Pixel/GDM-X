@@ -9,14 +9,15 @@ interface Props {
 
 import { Breadcrumbs } from "astro-breadcrumbs";
 
-import 'astro-breadcrumbs/breadcrumbs.css';
+import "astro-breadcrumbs/breadcrumbs.css";
 ---
+
 <div class="topbar">
 	<div class="inner_container_lg">
 		<div class="left">
-			<a href="tel:+33977216680">
+			<a href="tel:+33977216680" class="mr-2">
 				<i class="fa-sharp fa-solid fa-phone"></i>+33-9-7721-6680</a
-			> | <a href="mailto:contact@gdm-pixel.fr"
+			>| <a href="mailto:contact@gdm-pixel.fr"
 				><i class="fa-sharp fa-solid fa-envelope"></i> contact@gdm-pixel.fr</a
 			>
 		</div>
@@ -72,11 +73,8 @@ import 'astro-breadcrumbs/breadcrumbs.css';
 </div>
 <div class="header" transition:persist>
 	<div class="container">
-		<a href="/"><Image
-			class="logo"
-			src={logoGDM}
-			alt="logo GDM-Pixel" /></a>
-		<nav>
+		<a href="/"><Image class="logo" src={logoGDM} alt="logo GDM-Pixel" /></a>
+		<nav class="desktop-nav">
 			<ul>
 				<li>
 					<a href="/"
@@ -94,63 +92,194 @@ import 'astro-breadcrumbs/breadcrumbs.css';
 				<li><a href="/creer-ecommerce/">E-commerce</a></li>
 				<li><a href="/referencement/">Référencement</a></li>
 				<li><a href="/webmarketing/">Webmarketing</a></li>
-				<li><a href="/contact/" >Contact</a></li>
+				<li><a href="/contact/">Contact</a></li>
 			</ul>
 		</nav>
+
+		<button
+			id="hambBtn"
+			class="transition-transform duration-300 ease-in-out block lg:hidden"
+			data-visible="false">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				height="1em"
+				viewBox="0 0 448 512"
+				fill="#ffffff"
+				><path d="M0 64H448v64H0V64zM0 224H448v64H0V224zM448 384v64H0V384H448z"
+				></path></svg
+			>
+		</button>
+	</div>
+</div>
+<div class="mobile-menu-overlay"></div>
+<div id="mobile-nav" class="gdm-nav gdm-nav-1">
+	<div class="gdm-nav gdm-nav-2">
+		<div class="gdm-nav gdm-nav-3">
+			<button class="gdm-nav-btn gdm-close-btn"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					height="1em"
+					viewBox="0 0 512 512"
+					><path
+						d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm97.9-320L320 158.1l-17 17-47 47-47-47-17-17L158.1 192l17 17 47 47-47 47-17 17L192 353.9l17-17 47-47 47 47 17 17L353.9 320l-17-17-47-47 47-47 17-17z"
+					></path></svg
+				></button
+			>
+			<div class="flex flex-col justify-center items-center">
+				<svg
+					width="88"
+					height="73"
+					viewBox="0 0 88 73"
+					xmlns="http://www.w3.org/2000/svg">
+					<g clip-path="url(#clip0_531_360)">
+						<path
+							d="M35.2954 0H58.6665L23.6895 35.0591L39.2701 51.548L27.9822 62.914L0 35.5392L35.2954 0Z"
+							fill="#00A7C6"></path>
+						<path
+							d="M60.4957 8.96521L48.4922 21.0516L65.1062 37.4608L29.334 73H53.023L88.0005 37.3008L60.4957 8.96521Z"
+							fill="#00A7C6"></path>
+						<path
+							d="M39.7019 9.76115L19.6934 40.2227L49.9458 60.3694L69.9544 29.9079L39.7019 9.76115Z"
+							fill="white"></path>
+					</g>
+					<defs>
+						<clipPath id="clip0_531_360">
+							<rect width="88" height="73" fill="white"></rect>
+						</clipPath>
+					</defs>
+				</svg>
+				<span class="h3 text-lg text-white font-bold mb-8 mt-6">Navigation</span
+				>
+				<ul
+					class="gdm-list flex flex-col justify-center alig-center text-center">
+					<li>
+						<a href="/"
+							><svg
+								class="mx-auto home-btn"
+								width="23"
+								height="21"
+								viewBox="0 0 23 21"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M20.4609 11.75L20.5 20.5H14.25V14.25H9.25V20.5H3V11.75H0.5V9.875L11.75 0.5L23 9.875V11.75H20.4609Z"
+								></path>
+							</svg>
+						</a>
+					</li>
+					<li><a href="/creation-site/">Création de site</a></li>
+					<li><a href="/creer-ecommerce/">E-commerce</a></li>
+					<li><a href="/refercenement/">Référencement</a></li>
+					<li><a href="/webmarketing/">Webmarketing</a></li>
+					<li><a href="/articles/">Le Blog</a></li>
+					<li><a href="/contact/">Contact</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </div>
 
-{Astro.url.pathname !== '/' && <Breadcrumbs>
-  <svg slot="index" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
-  <svg
-    slot="separator"
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    ><polyline points="9 18 15 12 9 6"></polyline>
-  </svg>
-</Breadcrumbs>}
-
-<script>
-function setup() {
-    window.addEventListener('scroll', function() {
-        var header = document.querySelector('.header');
-        header?.classList.toggle('stickynav', window.scrollY > 200);
-    });
-    const navLinks = document.querySelectorAll('nav ul li a');
-    
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === window.location.pathname) {
-            link.classList.add('active');
-        }
-        
-        link.addEventListener('click', () => {
-            navLinks.forEach(link => link.classList.remove('active'));
-            link.classList.add('active');
-        });
-    });
+{
+	Astro.url.pathname !== "/" && (
+		<Breadcrumbs transition:persist>
+			<svg
+				slot="index"
+				xmlns="http://www.w3.org/2000/svg"
+				height="1em"
+				viewBox="0 0 576 512">
+				<path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+			</svg>
+			<svg
+				slot="separator"
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round">
+				<polyline points="9 18 15 12 9 6" />
+			</svg>
+		</Breadcrumbs>
+	)
 }
 
-document.addEventListener('DOMContentLoaded', setup);
-document.addEventListener('astro:page-load', setup);
+<script>
+	function setup() {
+		window.addEventListener("scroll", function () {
+			var header = document.querySelector(".header");
+			header?.classList.toggle("stickynav", window.scrollY > 200);
+		});
+		const navLinks = document.querySelectorAll("nav ul li a");
+
+		navLinks.forEach((link) => {
+			if (link.getAttribute("href") === window.location.pathname) {
+				link.classList.add("active");
+			}
+
+			link.addEventListener("click", () => {
+				navLinks.forEach((link) => link.classList.remove("active"));
+				link.classList.add("active");
+			});
+		});
+
+		const menuButton = document.querySelector("#hambBtn");
+		const closeButton = document.querySelector(".gdm-close-btn");
+		const closeOverlay = document.querySelector(".mobile-menu-overlay");
+		// Écouteur pour les clics en dehors du menu
+
+		//@ts-ignore
+		menuButton.addEventListener("click", toggleMenu);
+		//@ts-ignore
+		closeButton.addEventListener("click", toggleMenu);
+		//@ts-ignore
+		closeOverlay.addEventListener("click", toggleMenu);
+	}
+
+	document.addEventListener("DOMContentLoaded", setup);
+	document.addEventListener("astro:page-load", setup);
+
+	function toggleMenu() {
+		const navBlack = document.querySelector(".gdm-nav-1");
+		const navRed = document.querySelector(".gdm-nav-2");
+		const navWhite = document.querySelector(".gdm-nav-3");
+		const overlay = document.querySelector(".mobile-menu-overlay");
+		// Cette logique vérifie si l'une des classes est déjà visible
+		// Si oui, cela signifie que le menu est ouvert et nous devons le fermer.
+		//@ts-ignore
+		const isMenuVisible = navBlack.classList.contains("activated");
+
+		// Basculer la classe 'visible' sur chaque élément de navigation
+		[navBlack, navRed, navWhite, overlay].forEach((nav) => {
+			if (isMenuVisible) {
+				//@ts-ignore
+				nav.classList.remove("activated");
+				//@ts-ignore
+				overlay.style.opacity = "0";
+			} else {
+				//@ts-ignore
+				nav.classList.add("activated");
+				//@ts-ignore
+				overlay.style.opacity = "1";
+			}
+		});
+	}
 </script>
 <style lang="scss" is:global>
 	.topbar {
 		@apply bg-raisinblack text-white px-6 text-sm py-2 z-20 relative;
 		.inner_container_lg {
-			@apply flex justify-between items-center;
+			@apply flex flex-col md:flex-row justify-between items-center;
 			.left {
 				@apply flex items-center;
 				a {
 					@apply flex items-center justify-center text-white;
 					&:hover {
-						@apply text-moonstone-400;svg {@apply text-moonstone-400 fill-moonstone-400;}
+						@apply text-moonstone-400;
+						svg {
+							@apply text-moonstone-400 fill-moonstone-400;
+						}
 					}
 				}
 			}
@@ -160,7 +289,6 @@ document.addEventListener('astro:page-load', setup);
 					@apply flex flex-col justify-center items-center text-white;
 					&:hover {
 						@apply text-moonstone-400;
-						
 					}
 				}
 			}
@@ -172,57 +300,195 @@ document.addEventListener('astro:page-load', setup);
 			}
 		}
 		.svg-inline--fa {
-			@apply mx-2 w-4 ;}
+			@apply mx-2 w-4;
+		}
 	}
 	@keyframes slideDown {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(0); }
-}
+		0% {
+			transform: translateY(-100%);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
 	.header {
-		@apply bg-prussian-400 py-0 px-6 relative z-20 transition-all duration-300 ease-in-out;
+		@apply bg-prussian-400 py-0 px-6 relative z-20 transition-all duration-300 ease-in-out xs:h-[65px] xs:flex xs:items-center xs:justify-center lg:h-auto;
 		&.stickynav {
 			@apply bg-opacity-60 sticky top-0 transition-all duration-1000 ease-in-out;
 			animation: slideDown 0.5s forwards;
-			nav {@apply h-[60px];}
-			.logo {
-				max-width: 150px;
+			nav.desktop-nav {
+				@apply h-[60px];
+			}
+			.logo {@apply xs:max-w-[120px] lg:max-w-[150px];
 			}
 		}
 
 		.container {
 			@apply max-w-[1600px] flex px-0 py-0 justify-between items-center;
-			
 		}
-		.logo {
-				max-width: 230px;
+.logo {@apply xs:max-w-[140px] lg:max-w-[230px] transition-all duration-300 ease-in-out;
 			}
-			nav {
-				@apply flex items-center h-[85px];
-				ul {
-					@apply flex h-full;
-					li {
-						a {
-							@apply text-base font-bold h-full flex items-center text-white px-6 flex-auto  hover:text-moonstone-400 hover:bg-prussian-600 ;
-							&.active {
-								@apply text-moonstone-400 bg-prussian-100;
-								svg {
-									@apply fill-moonstone-400;
-								}
+		nav.desktop-nav {
+			@apply xl:flex items-center h-[85px] xs:hidden lg:block;
+			ul {
+				@apply flex h-full;
+				li {
+					a {
+						@apply  md:text-sm lg:text-sm xl:text-base font-bold h-full flex items-center text-white lg:px-4 xl:px-6 flex-auto  hover:text-moonstone-400 hover:bg-prussian-600;
+						&.active {
+							@apply text-moonstone-400 bg-prussian-100;
+							svg {
+								@apply fill-moonstone-400;
 							}
 						}
-						svg {
-							@apply fill-powder transition-all duration-300 hover:fill-moonstone-400;
-						}
+					}
+					svg {
+						@apply fill-powder transition-all duration-300 hover:fill-moonstone-400;
 					}
 				}
 			}
-	}
-	.c-breadcrumbs {@apply text-prussian-400 mx-auto px-6 py-1 shadow-md capitalize bg-white relative;  
-	a.c-breadcrumbs__link {
-		@apply text-dustyred-400 text-[12px] font-semibold;
-		&:hover {
-			@apply text-moonstone-400;
+		}
+		nav.mobile-nav {
+			@apply visible xl:hidden;
 		}
 	}
-}
+	.c-breadcrumbs {
+		@apply text-prussian-400 mx-auto px-6 py-2 shadow-md capitalize bg-white relative;
+		a.c-breadcrumbs__link {
+			@apply text-dustyred-400 text-[12px] font-semibold;
+			&:hover {
+				@apply text-moonstone-400;
+			}
+		}
+	}
+
+	.mobile-menu-overlay {
+		opacity: 0;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7); /* Noir avec opacité */
+		z-index: 29;
+		pointer-events: none;
+		transition: 300ms ease all;
+	}
+
+	/* Style pour montrer l'overlay quand le menu mobile est activé */
+	.mobile-menu-overlay.activated {
+		pointer-events: all;
+		opacity: 1;
+		transition: 300ms ease all;
+	}
+	.gdm-text {
+		text-transform: uppercase;
+	}
+
+	.gdm-nav-btn {
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+		font-size: 20px;
+	}
+
+	.gdm-open-btn {
+		position: fixed;
+		top: 10px;
+		left: 10px;
+	}
+
+	.gdm-nav {
+		position: fixed;
+		top: 0;
+		z-index: 30;
+		right: 0;
+		height: 100vh;
+
+		transform: translateX(100%);
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.gdm-nav.activated {
+		transform: translateX(0);
+	}
+
+	.gdm-nav-1 {
+		display: flex;
+		flex-direction: column;
+		align-content: flex-end;
+		align-items: flex-end;
+		background-color: #fafffd;
+		width: 100%;
+		max-width: 360px;
+		min-width: 360px;
+		transition-delay: 0.4s;
+	}
+
+	.gdm-nav-1.activated {
+		transition-delay: 0s;
+	}
+
+	.gdm-nav-2 {display: flex;
+		flex-direction: column;
+		align-content: flex-end;
+		align-items: flex-end;
+		background-color: #445069;
+		transition-delay: 0.2s;
+		width: 95%;
+	}
+
+	.gdm-nav-2.activated {
+		transition-delay: 0.2s;
+	}
+
+	.gdm-nav-3 {
+		background-color: #232634;
+		padding: 40px;
+		position: relative;
+		transition-delay: 0s;
+		width: 95%;
+	}
+
+	.gdm-nav-3.activated {
+		transition-delay: 0.4s;
+	}
+
+	.gdm-close-btn {
+		fill: white;
+		opacity: 0.6;
+		position: absolute;
+		top: 30px;
+		left: 30px;
+	}
+
+	.gdm-logo {
+		width: 150px;
+	}
+
+	.gdm-list {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.gdm-list li {
+		margin: 10px 0;
+	}
+
+	.gdm-list li a {
+		color: white;
+		font-size: 18px;
+		text-decoration: none;
+		font-weight: bold;
+		transition: 300ms ease all;
+		svg.home-btn {
+			@apply fill-white transition-all duration-300 text-base;
+			&:hover {
+				@apply fill-moonstone-400 transition-all duration-300;
+			}
+		}
+		&:hover {
+			@apply text-moonstone-400 transition-all duration-300;
+		}
+	}
 </style>

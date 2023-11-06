@@ -6,6 +6,10 @@ import Layout from "../../../layouts/Layout.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import AuthorBox from "../../../components/AuthorBox.astro";
+
+import RelatedPosts from "../../../components/RelatedPosts.astro";
+
 export async function getStaticPaths() {
 	const posts = await getCollection("articles");
 	const paths = posts.map((post) => {
@@ -21,18 +25,37 @@ export async function getStaticPaths() {
 
 	return paths;
 }
+
 type Props = {
 	post: CollectionEntry<"articles">;
 };
+
 const { post } = Astro.props;
+
 const { Content, headings } = await post.render();
+
+// Maintenant que `post` est défini, vous pouvez appeler `getRelatedPosts`
+const category = post.data.category;
+const relatedPosts = await getRelatedPosts(category, post.slug);
+
+// @ts-ignore
+export async function getRelatedPosts(category, currentSlug, limit = 6) {
+	const allPosts = await getCollection("articles");
+	// Filtrer les articles de la même catégorie et exclure l'article actuel par slug
+	const relatedPosts = allPosts
+		.filter(
+			(post) => post.data.category === category && post.slug !== currentSlug,
+		)
+		.slice(0, limit);
+	return relatedPosts;
+}
 ---
 
 <Layout title="Page des composants" description="Ceci est la meta description">
 	<Header />
-	<main class="mt-6">
-		<div class="mx-auto flex gap-6 max-w-5xl">
-			<article class="w-2/3">
+	<main class="mt-12 mb-24">
+		<div class="mx-auto flex max-w-5xl justify-between">
+			<article class="w-3/5">
 				<img
 					src={post.data.image}
 					alt={post.data.title}
@@ -46,7 +69,7 @@ const { Content, headings } = await post.render();
 					<Content />
 				</div>
 			</article>
-			<aside class="w-1/3" transition:persist>
+			<aside class="w-2/5" transition:persist>
 				<div class="novacontainer">
 					<div class="novainner">
 						<div class="header-nova-box">
@@ -74,28 +97,57 @@ const { Content, headings } = await post.render();
 				</div>
 			</aside>
 		</div>
+
+		<AuthorBox />
+
+		<RelatedPosts relatedPosts={relatedPosts} />
 	</main>
-	<Footer />
 </Layout>
+<Footer />
+
+<script>
+	function setup() {
+		window.addEventListener("scroll", function () {
+			var novacontainer = document.querySelector(".novacontainer");
+			novacontainer?.classList.toggle("sticky", window.scrollY > 200);
+		});
+	}
+
+	document.addEventListener("DOMContentLoaded", setup);
+	document.addEventListener("astro:page-load", setup);
+</script>
 <style lang="scss">
+	aside {
+		@apply w-1/3;
+	}
+	.novacontainer {
+		@apply rounded-2xl overflow-hidden  transition-all duration-300 ease-in-out opacity-100 translate-y-0;
+		&.sticky {
+			@apply top-0 transition-all mb-24 duration-300 ease-in-out opacity-95 translate-y-20;
+			position: sticky;
+		}
+	}
 	.header-nova-box {
-		@apply px-4 py-6 flex justify-center;
+		@apply px-4 py-4 flex justify-center;
+		img {
+			@apply max-w-[200px];
+		}
 	}
 
 	.novacontainer {
 		@apply w-full rounded-lg relative self-start
 		flex flex-col justify-start items-center text-white;
 		.novainner {
-			@apply pt-4 pb-12 bg-prussian-600 relative z-10 flex flex-col justify-center items-center self-center;
+			@apply pt-2 pb-8 bg-prussian-600 relative z-10 flex flex-col justify-center items-center self-center;
 		}
 		img {
 			@apply w-full;
 		}
 		p {
-			@apply px-4 py-6 text-center text-md;
+			@apply px-4 py-2 text-center text-base;
 		}
 		.ask {
-			@apply block text-center text-xxl uppercase font-bold mb-6;
+			@apply block text-center text-xl uppercase font-bold mb-4;
 		}
 	}
 
@@ -139,7 +191,7 @@ const { Content, headings } = await post.render();
 		filter: blur(15px);
 		opacity: 0.5;
 	}
-		.prose-justify {
-    text-align: justify;
-}
+	.prose-justify {
+		text-align: justify;
+	}
 </style>

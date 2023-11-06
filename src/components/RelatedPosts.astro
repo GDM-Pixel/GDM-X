@@ -1,0 +1,251 @@
+---
+import type { CollectionEntry } from "astro:content";
+// Les props passés au composant
+export interface RelatedPostsProps {
+	relatedPosts: CollectionEntry<"articles">[];
+}
+const { relatedPosts } = Astro.props as RelatedPostsProps;
+const limitedRelatedPosts = relatedPosts.slice(0, 6);
+---
+
+<section class="related-posts max-w-5xl mx-auto">
+	<h2>Articles connexes</h2>
+	<div class="relative">
+		<div class="swiper-container relative">
+			<div class="swiper-wrapper">
+				{
+					limitedRelatedPosts.map((post) => (
+						<div class="swiper-slide grid grid-cols-3">
+							<a
+								class="blogpostwraper"
+								href={`/articles/${post.data.category}/${post.slug}`}>
+								<img
+									src={post.data.image}
+									alt={post.data.title}
+									width="377"
+									height="211"
+									loading="lazy"
+									transition:name={`featuredImg_${post.slug}`}
+								/>
+								
+								<div class="postmetawraper">
+									<span class="date">{post.data.date}</span>
+									<h3>{post.data.title}</h3>
+								</div>
+							</a>
+						</div>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="navelementwraper">
+			<div class="swiper-pagination text-dustyred-500"></div>
+			<div class="swiper-next">
+				<svg
+					width="35"
+					height="35"
+					viewBox="0 0 35 35"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M17.1572 33.5725C26.2381 33.5725 33.5996 26.2167 33.5996 17.143C33.5996 8.06923 26.2381 0.713501 17.1572 0.713501C8.07635 0.713501 0.714844 8.06923 0.714844 17.143C0.714844 26.2167 8.07635 33.5725 17.1572 33.5725Z"
+						fill="url(#paint0_linear_319_597)"></path>
+					<path
+						d="M17.1564 34.2859C7.70013 34.2859 0 26.5918 0 17.143C0 7.69409 7.70013 0 17.1564 0C26.6127 0 34.3129 7.69409 34.3129 17.143C34.3129 26.5918 26.6127 34.2859 17.1564 34.2859ZM17.1564 1.44626C8.49137 1.44626 1.44739 8.48471 1.44739 17.143C1.44739 25.8012 8.49137 32.8397 17.1564 32.8397C25.8215 32.8397 32.8655 25.8012 32.8655 17.143C32.8655 8.48471 25.8215 1.44626 17.1564 1.44626Z"
+						fill="#6C77A1"></path>
+					<path
+						d="M14.6674 24.6056C14.3972 24.6056 14.1463 24.4899 13.9534 24.2778C13.606 23.8729 13.6253 23.2751 14.0305 22.9087L20.4184 17.1815L13.799 11.6279C13.3937 11.2808 13.3358 10.683 13.6832 10.2781C14.0305 9.87311 14.6288 9.81526 15.0341 10.1624L22.5026 16.4295C22.7149 16.603 22.85 16.873 22.85 17.1622C22.85 17.4322 22.7342 17.7022 22.5219 17.895L15.3042 24.3742C15.1113 24.5478 14.899 24.6249 14.6674 24.6249V24.6056Z"
+						fill="#D62246"></path>
+					<defs>
+						<linearGradient
+							id="paint0_linear_319_597"
+							x1="7.9711"
+							y1="0.154282"
+							x2="24.3742"
+							y2="30.5364"
+							gradientUnits="userSpaceOnUse">
+							<stop stop-color="#3D4463"></stop>
+							<stop offset="1" stop-color="#1D253B"></stop>
+						</linearGradient>
+					</defs>
+				</svg>
+			</div>
+			<div class="swiper-prev">
+				<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.1572 33.5725C26.2381 33.5725 33.5996 26.2167 33.5996 17.143C33.5996 8.06923 26.2381 0.713501 17.1572 0.713501C8.07635 0.713501 0.714844 8.06923 0.714844 17.143C0.714844 26.2167 8.07635 33.5725 17.1572 33.5725Z" fill="url(#paint0_linear_319_601)"/>
+<path d="M17.1564 34.2859C7.70013 34.2859 0 26.5918 0 17.143C0 7.69409 7.70013 0 17.1564 0C26.6127 0 34.3129 7.69409 34.3129 17.143C34.3129 26.5918 26.6127 34.2859 17.1564 34.2859ZM17.1564 1.44626C8.49137 1.44626 1.44739 8.48471 1.44739 17.143C1.44739 25.8012 8.49137 32.8397 17.1564 32.8397C25.8215 32.8397 32.8655 25.8012 32.8655 17.143C32.8655 8.48471 25.8215 1.44626 17.1564 1.44626Z" fill="#6C77A1"/>
+<path d="M19.6455 24.6056C19.4139 24.6056 19.1823 24.5285 19.0086 24.355L11.791 17.8757C11.5787 17.6829 11.4629 17.4129 11.4629 17.143C11.4629 16.8537 11.598 16.603 11.8103 16.4102L19.2788 10.1431C19.6841 9.79597 20.3016 9.85382 20.6297 10.2588C20.9771 10.6637 20.9192 11.2808 20.5139 11.6086L13.8945 17.1622L20.2823 22.8894C20.6683 23.2365 20.7069 23.8536 20.3595 24.2585C20.1665 24.4707 19.8964 24.5864 19.6455 24.5864V24.6056Z" fill="#00B2CB"/>
+<defs>
+<linearGradient id="paint0_linear_319_601" x1="0.676246" y1="-0.636338" x2="33.1476" y2="34.4656" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3D4463"/>
+<stop offset="1" stop-color="#1D253B"/>
+</linearGradient>
+</defs>
+</svg>
+
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	import Swiper from "swiper/bundle";
+	import "swiper/css/bundle";
+
+	function initializeSwiper() {
+		var swiper = new Swiper(".swiper-container", {
+			slidesPerView: 1,
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				480: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+				},
+				640: {
+					slidesPerView: 2,
+					spaceBetween: 40,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 40,
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+				},
+				1280: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+				},
+			},
+			loop: true,
+			spaceBetween: 30,
+			freeMode: false,
+			speed: 500,
+			navigation: {
+				nextEl: ".swiper-next",
+				prevEl: ".swiper-prev",
+			},
+		});
+	}
+	initializeSwiper();
+	document.addEventListener("astro:page-load", initializeSwiper);
+</script>
+<style lang="scss">
+	.postgrid {
+		.blogsingle {
+			@apply relative border-solid border border-[#E6E6E6] shadow-md;
+		}
+		a.blogpostwraper {
+			@apply text-left rounded-lg  overflow-hidden;
+		}
+		.postmetawraper {
+			@apply px-6 pt-2 pb-6 bg-white;
+		}
+		h3 {
+			@apply text-xl font-bold text-prussian-400;
+		}
+		span.category {
+			@apply absolute right-4 top-6 px-4 py-1 bg-dustyred-400 text-white rounded-full;
+		}
+		span.date {
+			@apply text-prussian-100 text-xs;
+		}
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	:root {
+		--swiper-theme-color: #d62246 !important;
+		--swiper-pagination-bullet-size: 10px !important;
+		--swiper-pagination-bullet-width: 10px !important;
+		--swiper-pagination-bullet-horizontal-gap: 6px;
+		--swiper-pagination-bullet-width: 26px;
+		--swiper-pagination-bullet-height: 5px;
+		--swiper-pagination-bullet-border-radius: 99px;
+		--swiper-pagination-bullet-inactive-color: #dddddd;
+		--swiper-pagination-bullet-inactive-opacity: 1;
+	}
+
+	.navelementwraper {
+		@apply absolute top-0 left-0 right-0 z-10 h-full w-full;
+		.swiper-next,
+		.swiper-prev {
+			@apply cursor-pointer absolute top-1/2 w-9 h-9 flex items-center justify-center align-middle;
+			svg {
+				@apply fill-dustyred-400  transition-all duration-300 ease-in-out  hover:fill-moonstone-400;
+			}
+		}
+		.swiper-next {
+			@apply -right-12;
+		}
+		.swiper-prev {
+			@apply -left-12;
+		}
+		.swiper-pagination {
+			bottom: -30px !important;
+			.swiper-pagination-bullet-active {
+				background: red !important;
+			}
+		}
+	}
+	.swiper {
+		height: 100%;
+		width: 100%;
+	}
+	.swiper-wrapper {
+		@apply mx-auto;
+	}
+
+	.swiper-container {
+		@apply relative overflow-hidden z-20;
+	}
+
+	.swiper-slide {
+		text-align: center;
+		font-size: 18px;
+		background: #fff;
+		/* Center slide text vertically */
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+	}
+
+	.swiper-slide {
+		a.blogpostwraper {
+			@apply relative text-left rounded-lg border-solid border border-[#E6E6E6] shadow-md overflow-hidden;
+		}
+		.postmetawraper {
+			@apply px-6 pt-2 pb-6 bg-white;
+		}
+		h3 {
+			@apply text-xl font-bold text-prussian-400;
+		}
+		span.category {
+			@apply absolute right-4 top-6 px-4 py-1 bg-dustyred-400 text-white rounded-full;
+		}
+		span.date {
+			@apply text-prussian-100 text-xs;
+		}
+		img {
+			display: block;
+			width: 377px;
+			height: 211px;
+			object-fit: cover;
+		}
+	}
+</style>
