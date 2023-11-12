@@ -1,21 +1,80 @@
 ---
-import Icone from '../components/Icones.astro';
+import Icone from "../components/Icones.astro";
 interface Props {
 	title: string;
 	body: string;
-    icon: "fa-check"|"fa-circle-plus"|"fa-envelope"|"fa-location-dot"|"fa-phone-solid"|"fa-bell-concierge"|"fa-browser"|"fa-bullhorn"|"fa-cart-shopping"|"fa-chart-lineup"|"fa-chart-mixed"|"fa-chart-network"|"fa-chess"|"fa-circle-chevron-left"|"fa-circle-chevron-right"|"fa-clock-rotate-left"|"fa-code"|"fa-comments-question-check"|"fa-database"|"fa-desktop"|"fa-display-code"|"fa-envelope-circle-check"|"fa-eye"|"fa-file-certificate"|"fa-file-contract"|"fa-file-invoice"|"fa-file-pdf"|"fa-gauge-high"|"fa-gear-complex-code"|"fa-gears"|"fa-graduation-cap"|"fa-hat-wizard"|"fa-heart"|"fa-layer-group"|"fa-list-check"|"fa-magnifying-glass"|"fa-messages-question"|"fa-microchip"|"fa-mobile-notch"|"fa-paintbrush"|"fa-palette"|"fa-photo-film-music"|"fa-rocket-launch"|"fa-ruler"|"fa-shield-check"|"fa-truck-fast"|"fa-user-gear"|"fa-instagram"|"fa-linkedin"|"fa-square-facebook"|"fa-square-x-twitter"|"fa-x-twitter"|"fa-youtube";
-    color:string;
+	icon:
+		| "fa-check"
+		| "fa-circle-plus"
+		| "fa-envelope"
+		| "fa-location-dot"
+		| "fa-phone-solid"
+		| "fa-bell-concierge"
+		| "fa-browser"
+		| "fa-bullhorn"
+		| "fa-cart-shopping"
+		| "fa-chart-lineup"
+		| "fa-chart-mixed"
+		| "fa-chart-network"
+		| "fa-chess"
+		| "fa-circle-chevron-left"
+		| "fa-circle-chevron-right"
+		| "fa-clock-rotate-left"
+		| "fa-code"
+		| "fa-comments-question-check"
+		| "fa-database"
+		| "fa-desktop"
+		| "fa-display-code"
+		| "fa-envelope-circle-check"
+		| "fa-eye"
+		| "fa-file-certificate"
+		| "fa-file-contract"
+		| "fa-file-invoice"
+		| "fa-file-pdf"
+		| "fa-gauge-high"
+		| "fa-gear-complex-code"
+		| "fa-gears"
+		| "fa-graduation-cap"
+		| "fa-hat-wizard"
+		| "fa-heart"
+		| "fa-layer-group"
+		| "fa-list-check"
+		| "fa-magnifying-glass"
+		| "fa-messages-question"
+		| "fa-microchip"
+		| "fa-mobile-notch"
+		| "fa-paintbrush"
+		| "fa-palette"
+		| "fa-photo-film-music"
+		| "fa-rocket-launch"
+		| "fa-ruler"
+		| "fa-shield-check"
+		| "fa-truck-fast"
+		| "fa-user-gear"
+		| "fa-instagram"
+		| "fa-linkedin"
+		| "fa-square-facebook"
+		| "fa-square-x-twitter"
+		| "fa-x-twitter"
+		| "fa-youtube";
+	color: string;
 }
-const { title, body, icon, color} = Astro.props;
+const { title, body, icon, color } = Astro.props;
 ---
+
 <div class="reassurel">
-    <Icone icon={icon} color={color} size="medium"/> 
-    <h4>{title}</h4>
-    <p>{body}</p>
+	<Icone icon={icon} color={color} size="medium" />
+	<h4>{title}</h4>
+	<p>{body}</p>
 </div>
 <style lang="scss">
-.reassurel  {@apply  bg-powder rounded-md border-b-8 border-b-moonstone-600 p-8 text-center flex flex-col gap-2 shadow-prussian-100 shadow-md justify-center items-center;
-span {@apply w-12 block mx-auto;}}
-h4 {@apply font-bold text-xl text-prussian-400 uppercase;}
+	.reassurel {
+		@apply bg-powder rounded-md border-b-8 border-b-moonstone-600 xl:p-8 p-6 text-center flex flex-col gap-2 shadow-prussian-100 shadow-md justify-center items-center;
+		span {
+			@apply w-12 block mx-auto;
+		}
+	}
+	h4 {
+		@apply font-bold text-lg text-prussian-400 uppercase lg:text-base xl:text-lg xxl:text-xl;
+	}
 </style>
-

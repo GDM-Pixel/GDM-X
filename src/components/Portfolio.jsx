@@ -63,11 +63,11 @@ function Fancyboxbox() {
 
   return (
     <div className="portfoliocontainer">
-      <div className="portfoliogrid grid grid-cols-4 mx-auto gap-6 px-6">
+      <div className="portfoliogrid grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 mx-auto gap-6 px-6 max-w-[1900px]">
         {portfolioData.slice(0, displayCount).map((item, index) => (
 
-          <div key={index} className="portfoliome" data-fancybox="gdmportfolio" data-src={item.src}>
-            <img className="pfthumb" alt={item.alt} src={item.thumb} data-lazy-type="image" data-src={item.thumb} loading="lazy" />
+          <div key={index} className="portfoliome w-full" data-fancybox="gdmportfolio" data-src={item.src}>
+            <img className="pfthumb w-full" alt={item.alt} src={item.thumb} data-lazy-type="image" data-src={item.thumb} loading="lazy" />
           </div>
         ))}
       </div>

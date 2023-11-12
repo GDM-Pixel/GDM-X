@@ -11,8 +11,8 @@ function TabSlider() {
     const [activeTab, setActiveTab] = useState('SiteWeb');
 
     return (
-        <div>
-            <div className="container wide xs:w-full">
+        <div className="overflow-x-clip">
+            <div className="container wide xs:w-full overflow-x-clip">
                 <div className="grid lg:grid-cols-6 md:grid-cols-3 xs:grid-cols-2 gap-6 items-center mb-6">
                     <div className={`tab p-6 border border-1 text-center ${activeTab === 'SiteWeb' ? 'active' : ''}`} onClick={() => setActiveTab('SiteWeb')}>
                         <svg width="46" height="40" viewBox="0 0 46 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +41,7 @@ function TabSlider() {
                 </div>
             </div>
 
-            <div className="tab-content min-h-[350px] relative">
+            <div className="tab-content relative">
                 <CSSTransition in={activeTab === 'SiteWeb'} timeout={{ enter: 600, exit: 300 }} classNames="slidetransit" unmountOnExit>
                     <SiteWeb />
                 </CSSTransition>
@@ -90,14 +90,12 @@ function TabSlider() {
    .slidetransit-enter {
     transform: translateX(250px);
     opacity: 0;
-    position:absolute;
     width:100%;
     height:100%;
     }
     .slidetransit-enter-active {
     transform: translateX(0);
     opacity: 1; 
-    position:absolute;
     transition-delay: 300ms;
     transition: 300ms ease all;
     }

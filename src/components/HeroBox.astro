@@ -4,31 +4,483 @@ interface Props {
 	//body: string;
 	//href: string;
 }
-import * as animations from '../components/animations.js';
+import * as animations from "../components/animations.js";
 ---
 
-<section class="herobox"> 
+<section class="herobox">
+	<div class="left-bg-clip-1"></div>
+	<div class="effect-container">
+		<div class="left-effect">
+			<svg
+				class="hero-left-bg-2"
+				width="375"
+				height="820"
+				viewBox="0 0 375 820"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<path
+					opacity="0.3"
+					d="M205.054 -38L-59 483.648V819.821L374.608 -38H205.054Z"
+					fill="url(#paint0_linear_128_635)"></path>
+				<defs>
+					<linearGradient
+						id="paint0_linear_128_635"
+						x1="-33.2858"
+						y1="200.066"
+						x2="263.678"
+						y2="497.212"
+						gradientUnits="userSpaceOnUse">
+						<stop stop-color="white"></stop>
+						<stop offset="0.4402" stop-color="white" stop-opacity="0"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+		</div>
+		<div class="mid-effect">
+			<svg
+				class="hero-mid-bg-1"
+				viewBox="0 0 780 826"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M144.868 826L779.417 -428H634.767L0.55957 826H144.868Z"
+					fill="url(#paint0_linear_128_649)"
+					style="mix-blend-mode:soft-light"></path>
+				<defs>
+					<linearGradient
+						id="paint0_linear_128_649"
+						x1="198.557"
+						y1="7.81443"
+						x2="794.741"
+						y2="604.364"
+						gradientUnits="userSpaceOnUse">
+						<stop stop-color="white"></stop>
+						<stop offset="0.4402" stop-color="white" stop-opacity="0"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg
+				class="hero-mid-bg-2"
+				viewBox="0 0 752 826"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<g style="mix-blend-mode:color-dodge" opacity="0.33">
+					<path
+						d="M117.191 826L751.74 -428H634.382L0.174805 826H117.191Z"
+						fill="url(#paint0_linear_567_361)"></path>
+				</g>
+				<defs>
+					<linearGradient
+						id="paint0_linear_567_361"
+						x1="191.349"
+						y1="14.6334"
+						x2="766.279"
+						y2="589.916"
+						gradientUnits="userSpaceOnUse">
+						<stop stop-color="white"></stop>
+						<stop offset="0.4402" stop-color="white" stop-opacity="0"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg
+				class="hero-mid-bg-3"
+				viewBox="0 0 780 826"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M144.868 826L779.417 -428H634.767L0.55957 826H144.868Z"
+					fill="url(#paint0_linear_567_362)"
+					style="mix-blend-mode:soft-light"></path>
+				<defs>
+					<linearGradient
+						id="paint0_linear_567_362"
+						x1="198.557"
+						y1="7.81443"
+						x2="794.741"
+						y2="604.364"
+						gradientUnits="userSpaceOnUse">
+						<stop stop-color="white"></stop>
+						<stop offset="0.4402" stop-color="white" stop-opacity="0"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg
+				class="hero-red-1"
+				viewBox="0 0 516 821"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M415.576 0H515.538L100.153 820.886H0.484375L415.576 0Z"
+					fill="url(#paint0_linear_128_638)"
+					fill-opacity="0.6"></path>
+				<defs>
+					<linearGradient
+						id="paint0_linear_128_638"
+						x1="131.336"
+						y1="283.955"
+						x2="384.165"
+						y2="536.939"
+						gradientUnits="userSpaceOnUse">
+						<stop stop-color="#F30031"></stop>
+						<stop offset="0.1113" stop-color="#D40333" stop-opacity="0.8219"
+						></stop>
+						<stop offset="0.2308" stop-color="#BA0534" stop-opacity="0.6307"
+						></stop>
+						<stop offset="0.3542" stop-color="#A80735" stop-opacity="0.4332"
+						></stop>
+						<stop offset="0.4829" stop-color="#9D0836" stop-opacity="0.2273"
+						></stop>
+						<stop offset="0.6249" stop-color="#990836" stop-opacity="0"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg
+				class="hero-red-2"
+				viewBox="0 0 439 826"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M419.168 0L0 826H20.057L439 0H419.168Z"
+					fill="url(#paint0_linear_128_641)"
+					fill-opacity="0.3"
+					style="mix-blend-mode:screen"></path>
+				<defs>
+					<linearGradient
+						id="paint0_linear_128_641"
+						x1="17.9227"
+						y1="816.778"
+						x2="280.294"
+						y2="294.821"
+						gradientUnits="userSpaceOnUse">
+						<stop stop-color="#990836"></stop>
+						<stop offset="1" stop-color="#F30031"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg
+				class="hero-red-3"
+				viewBox="0 0 423 826"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M417.46 0L0 826H5.5401L423 0H417.46Z"
+					fill="url(#paint0_linear_128_643)"
+					fill-opacity="0.6"
+					style="mix-blend-mode:hard-light"></path>
+				<defs>
+					<linearGradient
+						id="paint0_linear_128_643"
+						x1="-0.122533"
+						y1="413"
+						x2="958.381"
+						y2="413"
+						gradientUnits="userSpaceOnUse">
+						<stop stop-color="#990836"></stop>
+						<stop offset="1" stop-color="#F30031"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+		</div>
+
+		<div class="right-effect">
+			<svg
+				class="hero-right-1"
+				viewBox="0 0 350 826"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<path
+					opacity="0.15"
+					d="M163.587 826L417.749 323.632L418 0L0 826H163.587Z"
+					fill="url(#paint0_linear_128_646)"></path>
+				<defs>
+					<linearGradient
+						id="paint0_linear_128_646"
+						x1="195.56"
+						y1="406.782"
+						x2="423.808"
+						y2="519.184"
+						gradientUnits="userSpaceOnUse">
+						<stop stop-color="white"></stop>
+						<stop offset="1" stop-color="white" stop-opacity="0"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg
+				class="hero-right-2"
+				width="229"
+				height="633"
+				viewBox="0 0 229 633"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<path
+					opacity="0.8"
+					d="M322.001 0.544922L0.973633 633H80.804L322.001 156.357V0.544922Z"
+					fill="url(#paint0_linear_128_647)"></path>
+				<defs>
+					<linearGradient
+						id="paint0_linear_128_647"
+						x1="275.001"
+						y1="136.5"
+						x2="61.7922"
+						y2="580.9"
+						gradientUnits="userSpaceOnUse">
+						<stop stop-color="white"></stop>
+						<stop offset="1" stop-color="white" stop-opacity="0"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+		</div>
+	</div>
+
 	<div class="container" transition:animate={animations.myFadeSlide}>
-        <h1>Agence de communication à Caen</h1>
-        <p class="baseline">Vos ambitions,<br>notre mission</p>
-        <p class="intro">
-           Nous réalisons vos projets sur le web et vous aidons à construire votre présence en ligne ! 
-        </p>
-        <div class="cta_container">
-            <a href="#" class="cta red">En savoir plus</a>
-             <a href="#" class="cta blue">En savoir plus</a>
-        </div>
-    </div>
+		<h1>Agence de communication à Caen</h1>
+		<p class="baseline">Vos ambitions,<br />notre mission</p>
+		<p class="intro">
+			Nous réalisons vos projets sur le web et vous aidons à construire votre
+			présence en ligne !
+		</p>
+		<div class="cta_container">
+			<a href="#" class="cta red">En savoir plus</a>
+			<a href="#" class="cta blue">En savoir plus</a>
+		</div>
+	</div>
 </section>
 <style lang="scss">
-.herobox {
-    background:url("/src/assets/img/hero-home-bck.webp") no-repeat center center;
-    @apply bg-cover bg-center flex flex-col justify-center items-center text-white aspect-video -mt-24 z-0;
-    h1 {
-        @apply text-base font-bold uppercase text-moonstone-400 mb-6;
-    }
-    .baseline {@apply text-jumbo font-extrabold leading-[66px] uppercase text-white mb-4;}
-    .intro {@apply max-w-sm text-md;}
-    .cta_container {@apply mt-6 gap-4 flex;}
-     }
+	.herobox {
+		background: url("/src/assets/img/hero-home-bck.webp") no-repeat center
+			center;
+		@apply relative  overflow-clip bg-cover bg-center flex flex-col justify-center items-center text-white xl:aspect-[16/6] lg:aspect-[16/7.5] md:aspect-[16/10] sm:aspect-[16/12] xs:aspect-[16/16] mt-0 z-0;
+		.container {
+			@apply -mt-10 md:max-w-7xl sm:max-w-6xl sm:text-left xs:w-full xs:max-w-full xs:text-center;
+		}
+		h1 {
+			@apply text-base font-bold uppercase text-moonstone-400 mb-2;
+		}
+		.baseline {
+			@apply xl:text-[50px] lg:text-xxxxl md:text-xxxl sm:text-xxl xs:text-xl font-extrabold leading-[66px] uppercase text-white mb-4;
+		}
+		.intro {
+			@apply max-w-sm text-md xs:mx-auto sm:mr-auto sm:ml-0;
+		}
+		.cta_container {
+			@apply mt-6 gap-4 flex sm:text-sm xs:text-xs md:text-base xs:mx-auto xs:justify-center sm:justify-start;
+		}
+	}
+	.left-bg-clip-1 {
+		@apply absolute h-full w-3/5 top-0 -left-12 bg-prussian-500 opacity-80 shadow-[0_20px_5px_rgba(0,0,0,1)];
+	}
+
+	@keyframes balancement1 {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		50% {
+			transform: translateX(
+				20px
+			); /* Ajustez la valeur ici pour la distance désirée */
+		}
+	}
+	@keyframes balancement2 {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		50% {
+			transform: translateX(
+				30px
+			); /* Ajustez la valeur ici pour la distance désirée */
+		}
+	}
+
+	@keyframes balancement3 {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		50% {
+			transform: translateX(
+				60px
+			); /* Ajustez la valeur ici pour la distance désirée */
+		}
+	}
+
+	@keyframes opacity1 {
+		0%,
+		100% {
+			opacity: 0.2;
+		}
+		50% {
+			opacity: 1; /* Ajustez la valeur ici pour la distance désirée */
+		}
+	}
+	.hero-left-bg-1,
+	.hero-left-bg-2,
+	.hero-mid-bg-1,
+	.hero-mid-bg-2,
+	.hero-mid-bg-3,
+	.hero-red-1,
+	.hero-red-2,
+	.hero-red-3,
+	.hero-right-1,
+	.hero-right-2 {
+		@apply absolute h-full;
+	}
+	.effect-container {
+		@apply absolute h-full w-full top-0 left-0 flex justify-between;
+		.left-effect {
+			@apply h-full w-1/3 relative;
+		}
+		.mid-effect {
+			@apply h-full w-1/3  relative;
+		}
+		.right-effect {
+			@apply h-full w-1/3  relative;
+		}
+	}
+
+	.hero-left-bg-1 {
+		@apply -left-40 bottom-0 object-cover h-full top-0;
+	}
+	.hero-left-bg-2 {
+		@apply left-0 h-full;
+		opacity: 0.2;
+		animation: opacity1 5s ease-in-out infinite;
+	}
+	.hero-mid-bg-1 {
+		@apply left-8;
+		opacity: 0.2;
+		animation:
+			balancement1 5s ease-in-out infinite,
+			opacity2 9s ease-in-out infinite;
+	}
+	.hero-mid-bg-2 {
+		@apply left-12;
+		opacity: 0.2;
+		animation:
+			balancement2 5s ease-in-out infinite,
+			opacity1 7s ease-in-out infinite;
+		animation-delay: 1s;
+	}
+	.hero-mid-bg-3 {
+		@apply left-6;
+		opacity: 0.2;
+		animation:
+			balancement1 4s ease-in-out infinite,
+			opacity1 8s ease-in-out infinite;
+		animation-delay: 1.5s;
+	}
+
+	.hero-red-1 {
+		@apply left-0;
+		animation: balancement3 6s ease-in-out infinite;
+		animation-delay: 2.5s;
+	}
+	.hero-red-2 {
+		@apply left-12;
+		opacity: 0.2;
+		animation:
+			balancement2 6s ease-in-out infinite,
+			opacity1 3s ease-in-out infinite;
+		animation-delay: 3.5s;
+	}
+	.hero-red-3 {
+		@apply left-36;
+		opacity: 0.2;
+		animation: balancement1 6s ease-in-out infinite;
+		animation-delay: 0.5s;
+	}
+
+	.hero-right-1 {
+		@apply right-[0%];
+		opacity: 0.2;
+		animation: opacity1 7s ease-in-out infinite;
+		animation-delay: 2.5s;
+	}
+	.hero-right-2 {
+		@apply right-[0%];
+		animation: opacity1 9s ease-in-out infinite;
+		opacity: 0.2;
+		animation-delay: 1.5s;
+	}
+
+	/*ROUGE XS*/
+	@media screen and (min-width: 240px) and (max-width: 639px) {
+		.herobox {
+			background-position: 47% 24%;
+			background-size: cover;
+		}
+		.left-bg-clip-1 {
+			@apply left-0 w-full;
+			clip-path: none;
+		}
+
+		
+		.hero-mid-bg-1,
+		.hero-mid-bg-2,
+		.hero-mid-bg-3,
+		.hero-red-1,
+		.hero-red-2,
+		.hero-red-3,
+		 {
+			@apply hidden;
+		}
+		
+	.hero-left-bg-2 {
+		@apply -left-40 h-full;
+		opacity: 0.2;
+		animation: opacity1 5s ease-in-out infinite;
+	}
+	}
+	/*ORANGE SM*/
+	@media screen and (min-width: 640px) and (max-width: 767px) {
+		.herobox {
+			background-position: 39% 24%;
+			background-size: 163%;
+		}
+		.left-bg-clip-1 {
+			@apply -left-16 w-full;
+			clip-path: polygon(0 0, 97% 0, 58% 100%, 0% 100%);
+		}
+	}
+
+	/*JAUNE MD*/
+	@media screen and (min-width: 768px) and (max-width: 1023px) {
+		.herobox {
+			background-position: 25% 26%;
+			background-size: 136%;
+		}
+		.left-bg-clip-1 {
+			@apply -left-12 w-4/5;
+			clip-path: polygon(0 0, 100% 0, 58% 100%, 0% 100%);
+		}
+	}
+	/*VERT LG*/
+	@media screen and (min-width: 1024px) and (max-width: 1279px) {
+		.herobox {
+			background-position: 40% 26%;
+			background-size: 136%;
+		}
+		.left-bg-clip-1 {
+			@apply -left-12 w-4/5;
+			clip-path: polygon(0 0, 90% 0, 58% 100%, 0% 100%);
+		}
+
+		.hero-mid-bg-1 {
+			@apply left-0;
+		}
+		.hero-mid-bg-2 {
+			@apply left-4;
+		}
+		.hero-mid-bg-3 {
+			@apply left-0;
+		}
+	}
+
+	/*BLEU XL*/
+	@media screen and (min-width: 1280px) {
+		.left-bg-clip-1 {
+			clip-path: polygon(0 0, 100% 0, 68% 100%, 0% 100%);
+		}
+	}
 </style>

@@ -6,7 +6,7 @@ interface Props {
 }
 const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
-
+import Repere from "../components/Repere.astro";
 ---
 
 <!doctype html>
@@ -44,8 +44,27 @@ import { ViewTransitions } from "astro:transitions";
 	<body>
 		<slot />
 		<Nova />
+		<Repere />
 		<script src="/js/gdm-goto.js" is:inline></script>
 		<style is:global lang="scss">
+			body {overflow-x: clip;}
+			.section-header h2.section-title,
+			.section-header.dark h2.section-title2 {
+				@apply md:text-xxxl text-xl;
+			}
+
+			.accordion-content p {
+				@apply mb-3;
+				&:last-of-type {
+					@apply mb-0;
+				}
+			}
+			@media screen and (max-width: 767px) {
+				.container {
+					@apply max-w-full;
+				}
+			}
+
 			.inner_container_lg {
 				@apply mx-auto;
 				max-width: 1600px;
@@ -127,7 +146,7 @@ import { ViewTransitions } from "astro:transitions";
 				}
 			}
 
-			@keyframes fadeInFromBottom{
+			@keyframes fadeInFromBottom {
 				0% {
 					opacity: 0;
 					transform: translateY(60px);
@@ -138,7 +157,7 @@ import { ViewTransitions } from "astro:transitions";
 				}
 			}
 
-			@keyframes fadeOutToLeft{
+			@keyframes fadeOutToLeft {
 				0% {
 					opacity: 1;
 					transform: translateX(0);

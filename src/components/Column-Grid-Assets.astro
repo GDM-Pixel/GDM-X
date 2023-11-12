@@ -18,16 +18,16 @@ const { title, body, icon, color } = Astro.props;
 </div>
 <style lang="scss">
 	.assets {
-		@apply flex flex-row items-start text-white gap-6; 
+		@apply flex md:flex-row xs:flex-col md:items-start xs:items-center xs:text-center md:text-left text-white gap-6 xs:mt-12; 
         span {margin:auto !important;
     }
     .col {
       
     }
 	h3 {
-		@apply font-bold text-xl text-powder mb-4;
+		@apply font-bold md:text-xl text-md text-powder mb-4;
 	}
-    hr {@apply max-w-[150px] mb-4 }
+    hr {@apply max-w-[150px] mb-4 xs:mx-auto md:mr-auto md:ml-0}
 	}
    
 </style>

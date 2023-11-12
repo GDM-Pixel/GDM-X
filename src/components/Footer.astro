@@ -4,7 +4,6 @@ import logoGDM from "../assets/img/logo-gdm-white.svg";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("articles");
-
 ---
 
 <footer class="footer" transition:persist>
@@ -128,28 +127,26 @@ const allPosts = await getCollection("articles");
 		<div class="blogpostfooter">
 			<h4>Articles récents</h4>
 			<div class="footerblogdisplay">
-				
-
 				{
-				allPosts.slice(0, 2).map((post) => (
-					
-						<a class="blogpost" href={`/articles/${post.data.category}/${post.slug}`}>
-							<img 
+					allPosts.slice(0, 2).map((post) => (
+						<a
+							class="blogpost"
+							href={`/articles/${post.data.category}/${post.slug}`}>
+							<img
 								src={post.data.image}
 								alt={post.data.title}
 								width="190"
 								height="96"
 								loading="lazy"
-							 />
+							/>
 
 							<div class="postmetawraper">
 								<span class="date">{post.data.date}</span>
 								<span class="h3">{post.data.title}</span>
 							</div>
 						</a>
-					
-				))
-			}
+					))
+				}
 			</div>
 		</div>
 	</div>
@@ -172,13 +169,14 @@ const allPosts = await getCollection("articles");
 		@apply bg-prussian-400 text-white;
 	}
 	.mainfooter {
-		@apply container justify-between items-center grid grid-cols-3  py-16;
+		@apply lg:container xs:px-8 lg:px-6 xl:px-6 justify-between items-center md:grid md:grid-cols-3 flex flex-col gap-6 py-16;
 		.id-contact {
+			@apply md:text-left text-center;
 			img {
-				@apply max-w-[230px] mb-4;
+				@apply max-w-[200px] lg:max-w-[230px] mb-4;
 			}
 			.icon-info {
-				@apply flex items-center mb-2;
+				@apply flex items-center mb-2 justify-center md:justify-start;
 				&:nth-of-type(1) {
 					@apply flex items-start;
 					svg {
@@ -190,7 +188,7 @@ const allPosts = await getCollection("articles");
 				}
 			}
 			.social-list {
-				@apply flex mt-4;
+				@apply flex mt-4 md:justify-start justify-center;
 				a {
 					svg {
 						@apply mr-4 fill-white transition-all duration-300;
@@ -207,9 +205,9 @@ const allPosts = await getCollection("articles");
 				@apply mb-4 text-white text-lg;
 			}
 			ul {
-				@apply flex flex-col pl-0;
+				@apply flex flex-col pl-0 justify-center md:justify-start;
 				li {
-					@apply mb-1;
+					@apply mb-1 text-center md:text-left;
 					&:last-of-type {
 						@apply mb-0;
 					}
@@ -222,15 +220,18 @@ const allPosts = await getCollection("articles");
 		.blogpostfooter {
 			@apply text-white;
 			h4 {
-				@apply mb-4 text-white text-lg;
+				@apply mb-4 text-white text-lg md:text-left text-center;
 			}
 			.footerblogdisplay {
-				@apply flex flex-col gap-4;
+				@apply flex flex-col gap-4 md:justify-start justify-center;
 				a.blogpost {
-					@apply grid grid-cols-2 gap-4;
+					@apply grid md:grid-cols-2 gap-4 grid-cols-1 text-center md:text-left;
 					&:hover {
-						.postmetawraper span.h3 {
-							@apply text-moonstone-400 transition-all duration-300;
+						.postmetawraper {
+							@apply md:text-left text-center;
+							span.h3 {
+								@apply text-moonstone-400 transition-all duration-300;
+							}
 						}
 					}
 					&:last-of-type {
@@ -244,7 +245,7 @@ const allPosts = await getCollection("articles");
 						@apply bg-white  py-1 px-2 rounded-full;
 					}
 					.postmetawraper {
-						@apply flex flex-col justify-between items-start;
+						@apply flex flex-col justify-between md:items-start items-center;
 						span.h3 {
 							@apply text-white text-base mb-2 transition-all duration-300;
 						}
@@ -259,19 +260,19 @@ const allPosts = await getCollection("articles");
 	.bottomfooter {
 		@apply bg-prussian-700;
 		.container {
-			@apply grid grid-cols-2 justify-between items-center;
+			@apply grid md:grid-cols-2 grid-cols-1 justify-between items-center;
 			.col1,
 			.col2 {
-				@apply text-white text-sm text-opacity-50 py-4;
+				@apply text-white text-sm text-opacity-50 py-4 text-center md:text-left;
 				a {
 					@apply text-white text-sm text-opacity-50 hover:text-white;
 				}
 			}
 			.col2 {
 				ul {
-					@apply flex justify-end;
+					@apply flex md:justify-end flex-col md:flex-row justify-center md:items-start items-center;
 					li {
-						@apply mr-4 border-r border-white border-opacity-40 pr-4;
+						@apply mr-4 border-none md:border-r md:border-white md:border-opacity-40 md:pr-4;
 						&:last-of-type {
 							@apply mr-0 pr-0 border-0;
 						}

@@ -6,7 +6,7 @@ import confCallMan from "../assets/img/confcall-man.png";
 
 <section class="maincta">
     <div class="mouse-overlay"></div>
-	<div class="flex justify-center gap-6">
+	<div class="flex lg:justify-center lg:gap-6 flex-col lg:flex-row gap-12 px-6">
 		<div class="col1">
 			<span class="h2">Une question ? Un doute ?</span>
 			<span class="call">
@@ -142,7 +142,7 @@ document.addEventListener('astro:page-load', () => {
 		@apply block mb-6 text-md max-w-lg mx-auto;
 	}
 	.cta-container {
-		@apply flex justify-center gap-6;
+		@apply flex sm:justify-center sm:flex-row flex-col gap-6;
         a {pointer-events: auto;}
 	}
 	.confcallman,
@@ -157,20 +157,20 @@ document.addEventListener('astro:page-load', () => {
 	}
 
 	.imgcontainer.ccman {
-		@apply z-10 relative top-0 left-0;
+		@apply z-10 relative top-0 left-0 m-auto lg:m-auto;
 		&:before {
-			@apply border-moonstone-500 absolute top-12 -left-12 border-4 border-solid rounded-lg w-[224px] h-[169px] block content-[""];
+			@apply border-moonstone-500 absolute top-12 xl:-left-12 -left-6 border-4 border-solid rounded-lg w-[224px] h-[169px] content-[""] hidden md:block;
 		}
         &:after {
-			@apply border-dustyred-500 absolute -bottom-8 left-20 border-4 border-solid rounded-lg w-[224px] h-[169px] block content-[""];
+			@apply border-dustyred-500 absolute -bottom-8 xl:left-20 left-24 border-4 border-solid rounded-lg w-[224px] h-[169px] content-[""] hidden md:block;
 		}
 	}
     .imgcontainer.ccwoman {
-		@apply z-10 top-0 left-0;
+		@apply z-10 top-0 left-0 ;
 		
 	}
 	.confcallwoman {
-		@apply z-20 absolute top-40 -left-20;
+		@apply z-20 lg:absolute mx-auto top-40 xl:-left-20 left-0 w-max lg:w-[240px] xl:w-max;
 	}
 
 	.blueborder,
@@ -178,10 +178,10 @@ document.addEventListener('astro:page-load', () => {
 		@apply border-4 border-solid rounded-lg w-[224px] h-[169px];
 	}
 	.blueborder {
-		@apply border-moonstone-500 absolute top-8 -left-8;
+		@apply border-moonstone-500 absolute top-8 xl:-left-8 left-0;
 	}
 	.redborder {
-		@apply border-dustyred-500 absolute top-12 left-6;
+		@apply border-dustyred-500 absolute top-12 xl:left-6;
 	}
 	.redfill {
 		@apply bg-dustyred-100 rounded-lg w-[216px] h-[161px];
@@ -189,7 +189,7 @@ document.addEventListener('astro:page-load', () => {
 
 	.col1,
 	.col2 {
-		@apply w-[50%] flex flex-col justify-center;
+		@apply xl:w-[50%] lg:w-[45%] w-full flex flex-col justify-center;
         
 	}
 	.col2 {

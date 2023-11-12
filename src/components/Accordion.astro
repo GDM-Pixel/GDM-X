@@ -3,7 +3,7 @@
 let { items } = Astro.props;
 ---
 
-<ul class="accordion">
+<ul id="accordion" class="accordion">
 	{
 		Array.isArray(items) &&
 			items.map(({ question, answer }, index) => (
@@ -29,37 +29,101 @@ let { items } = Astro.props;
 						</span>
 					</button>
 
-					<div class="accordion-content" hidden set:html={answer}></div>
+					<div class="accordion-content">
+						<div class="accordion-inner" set:html={answer} />
+					</div>
 				</li>
 			))
 	}
 </ul>
 
 <script type="module">
-	const accordionItems = document.querySelectorAll(".accordion-item");
+	class Accordion {
+		//@ts-ignore
+		constructor(element, options) {
+			//@ts-ignore
+			this.element = element;
+			//@ts-ignore
+			this.items = Array.from(this.element.children).filter((child) =>
+			//@ts-ignore
+				child.classList.contains("accordion-item"),
+			);
+			//@ts-ignore
+			this.settings = Object.assign(
+				{
+					duration: 300,
+					exclusive: true,
+					onOpen: () => {},
+					onClose: () => {},
+				},
+				options,
+			);
 
-	function closeAllAccordions() {
-		accordionItems.forEach((item) => {
-			item.setAttribute("aria-expanded", "false");
-		});
-	}
+			this.init();
+		}
 
-	// Ouvrir le premier accordéon par défaut
-	if (accordionItems.length > 0) {
-		accordionItems[0].setAttribute("aria-expanded", "true");
-	}
+		init() {
+			//@ts-ignore
+			this.items.forEach((item) => {
+				if (item.classList.contains("active")) {
+					item.querySelector(".accordion-content").style.display = "block";
+				}
 
-	accordionItems.forEach((item) => {
-		const button = item.querySelector(".accordion-button");
-		
-
-		if (button) {
-			button.addEventListener("click", () => {
-				const isExpanded = item.getAttribute("aria-expanded") === "true";
-				closeAllAccordions();
-				item.setAttribute("aria-expanded", (!isExpanded).toString());
+				item
+					.querySelector(".accordion-header")
+					.addEventListener("click", () => {
+						const isActive = item.classList.contains("active");
+						if (!isActive) {
+							this.open(item);
+						} else {
+							this.close(item);
+						}
+					});
 			});
 		}
+		//@ts-ignore
+		open(item) {
+			//@ts-ignore
+			if (this.settings.exclusive) {
+				this.closeAll();
+			}
+			const content = item.querySelector(".accordion-content");
+			const inner = content.querySelector(".accordion-inner");
+			//@ts-ignore
+			content.style.height = inner.scrollHeight + "px";
+			item.classList.add("active");
+			//@ts-ignore
+			if (this.settings.onOpen) {
+				//@ts-ignore
+				this.settings.onOpen.call(this, item);
+			}
+		}
+		//@ts-ignore
+		close(item) {
+			const content = item.querySelector(".accordion-content");
+			//@ts-ignore
+			content.style.height = "0";
+			item.classList.remove("active");
+			//@ts-ignore
+			if (this.settings.onClose) {
+				//@ts-ignore
+				this.settings.onClose.call(this, item);
+			}
+		}
+
+		closeAll() {
+			//@ts-ignore
+			this.items.forEach((item) => this.close(item));
+		}
+	}
+
+	// Usage
+	const myAccordion = new Accordion(document.querySelector(".accordion"), {
+		duration: 300,
+		//@ts-ignore
+		onOpen: (item) => console.log("Opened", item),
+		//@ts-ignore
+		onClose: (item) => console.log("Closed", item),
 	});
 </script>
 
@@ -68,27 +132,31 @@ let { items } = Astro.props;
 	.accordion {
 	}
 	.accordion-header {
-		@apply flex justify-between px-6 py-10 font-semibold text-lg;
+		@apply flex justify-between px-6 py-10 font-semibold text-lg text-left gap-6;
 	}
 
 	.accordion-content {
-		@apply px-6 py-0 bg-white text-base text-prussian-400 overflow-hidden max-h-0 transition-all duration-300 ease-in-out block;
+		@apply overflow-hidden transition-all duration-300 h-0 ease-in-out;
 	}
-    .accordion-item[aria-expanded="true"] {
-        .accordion-content {
-            @apply px-6 py-6 block max-h-96 box-content transition-all duration-300 ease-in-out;
-        }
-    }
+	.accordion-inner {
+		@apply px-6 py-6 bg-white text-base text-prussian-400; /* Padding et autres styles appliqués ici */
+	}
+	
+	.accordion-item.active {
+		.accordion-content {
+			height: auto;
+		}
+	}
 	.accordion-button {
 		@apply w-full bg-prussian-600 transition-all duration-300 ease-in-out border-b-2 border-prussian-100;
 		&:hover {
 			@apply bg-prussian-500 transition-all duration-300 ease-in-out;
 		}
 		.accordion-header svg {
-			@apply  fill-dustyred-400 transition-all duration-300 ease-in-out;
+			@apply fill-dustyred-400 transition-all duration-300 ease-in-out;
 		}
 	}
-	.accordion-item[aria-expanded="true"] .accordion-button {
+	.accordion-item.active .accordion-button {
 		@apply bg-prussian-200 transition-all duration-300 ease-in-out;
 		.accordion-header svg {
 			@apply rotate-45 fill-moonstone-400 transition-all duration-300 ease-in-out;
