@@ -6,6 +6,17 @@ featured: false
 image: /img/demo-2.jpg
 title: Mon deuxième article
 ---
-##Coucou 2
+# ##Coucou 2
 
-Lorem ipsum dolor sit amet 2
+**Lorem ipsum dolor sit amet 2**
+
+* Truc
+* bidule
+* machin
+
+❤️
+
+> Tu sors
+
+
+

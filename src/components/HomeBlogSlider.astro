@@ -24,6 +24,7 @@ function formatDate(dateString) {
 	return `${dd} ${month} ${yyyy}`;
 }
 ---
+
 <section class="blogpost">
 	<div class="row my-20 text-center">
 		<div class="container">
@@ -44,7 +45,9 @@ function formatDate(dateString) {
 					{
 						allPosts.slice(0, 6).map((post) => (
 							<div class="swiper-slide grid grid-cols-3">
-								<a class="blogpostwraper" href={`/articles/${post.data.category}/${post.slug}`}>
+								<a
+									class="blogpostwraper"
+									href={`/articles/${post.data.category}/${post.slug}`}>
 									<img
 										src={post.data.image}
 										alt={post.data.title}
@@ -66,7 +69,7 @@ function formatDate(dateString) {
 					}
 				</div>
 			</div>
-			
+
 			<div class="navelementwraper">
 				<div class="swiper-pagination text-dustyred-500"></div>
 				<div class="swiper-next">
@@ -94,149 +97,152 @@ function formatDate(dateString) {
 					</svg>
 				</div>
 			</div>
-			
 		</div>
-		<a href="/articles/" class="cta sktn red mt-12 self-center mx-auto inline-block">Voir tous les articles</a>
+		<a
+			href="/articles/"
+			class="cta sktn red mt-12 self-center mx-auto inline-block"
+			>Voir tous les articles</a
+		>
 	</div>
-	<script>
-		import Swiper from "swiper/bundle";
-		import "swiper/css/bundle";
-
-		function initializeSwiper() {
-			var swiper = new Swiper(".swiper-container", {
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-				slidesPerView: 1,
-				breakpoints: {
-					320: {
-						slidesPerView: 1,
-						spaceBetween: 20,
-					},
-					480: {
-						slidesPerView: 1,
-						spaceBetween: 30,
-					},
-					640: {
-						slidesPerView: 2,
-						spaceBetween: 40,
-					},
-					768: {
-						slidesPerView: 2,
-						spaceBetween: 40,
-					},
-					1024: {
-						slidesPerView: 3,
-						spaceBetween: 40,
-					},
-					1280: {
-						slidesPerView: 3,
-						spaceBetween: 40,
-					},
-				},
-				loop: true,
-				spaceBetween: 30,
-				freeMode: false,
-				speed: 500,
-				navigation: {
-					nextEl: ".swiper-next",
-					prevEl: ".swiper-prev",
-				},
-			});
-		}
-		initializeSwiper();
-		document.addEventListener("astro:page-load", initializeSwiper);
-	</script>
-
-	<style lang="scss">
-		:root {
-			--swiper-theme-color: #d62246 !important;
-			--swiper-pagination-bullet-size: 10px !important;
-			--swiper-pagination-bullet-width: 10px !important;
-			--swiper-pagination-bullet-horizontal-gap: 6px;
-			--swiper-pagination-bullet-width: 26px;
-			--swiper-pagination-bullet-height: 5px;
-			--swiper-pagination-bullet-border-radius: 99px;
-			--swiper-pagination-bullet-inactive-color: #dddddd;
-			--swiper-pagination-bullet-inactive-opacity: 1;
-		}
-
-		.navelementwraper {
-			@apply absolute top-0 left-0 right-0 z-10 h-full w-full;
-			.swiper-next,
-			.swiper-prev {
-				@apply cursor-pointer absolute top-1/2 w-9 h-9 flex items-center justify-center align-middle;
-				svg {
-					@apply fill-dustyred-400  transition-all duration-300 ease-in-out  hover:fill-moonstone-400;
-				}
-			}
-			.swiper-next {
-				@apply -right-6 hidden lg:block;
-			}
-			.swiper-prev {
-				@apply -left-6 hidden md:block;
-			}
-			.swiper-pagination {
-				bottom: -30px !important;
-				.swiper-pagination-bullet-active {
-					background: red !important;
-				}
-			}
-		}
-		.swiper {
-			height: 100%;
-			width: 100%;
-		}
-		.swiper-wrapper {
-			@apply mx-auto;
-		}
-
-		.swiper-container {
-			@apply relative overflow-hidden z-20;
-		}
-
-		.swiper-slide {
-			text-align: center;
-			font-size: 18px;
-			background: #fff;
-			/* Center slide text vertically */
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: -webkit-flex;
-			display: flex;
-			-webkit-box-pack: center;
-			-ms-flex-pack: center;
-			-webkit-justify-content: center;
-			justify-content: center;
-			-webkit-box-align: center;
-			-ms-flex-align: center;
-			-webkit-align-items: center;
-			align-items: center;
-		}
-
-		.swiper-slide {
-			a.blogpostwraper {
-				@apply relative text-left rounded-lg border-solid border border-[#E6E6E6] shadow-md overflow-hidden;
-			}
-			.postmetawraper {
-				@apply px-6 pt-2 pb-6 bg-white;
-			}
-			h3 {
-				@apply text-xl font-bold text-prussian-400;
-			}
-			span.category {
-				@apply absolute right-4 top-6 px-4 py-1 bg-dustyred-400 text-white rounded-full;
-			}
-			span.date {
-				@apply text-prussian-100 text-xs;
-			}
-			img {
-				display: block;
-				width: 377px;
-				height: 211px;
-				object-fit: cover;
-			}
-		}
-	</style>
 </section>
+<script>
+	import Swiper from "swiper/bundle";
+	import "swiper/css/bundle";
+
+	function initializeSwiper() {
+		var swiper = new Swiper(".swiper-container", {
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+			slidesPerView: 1,
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				480: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+				},
+				640: {
+					slidesPerView: 2,
+					spaceBetween: 40,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 40,
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+				},
+				1280: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+				},
+			},
+			loop: true,
+			spaceBetween: 30,
+			freeMode: false,
+			speed: 500,
+			navigation: {
+				nextEl: ".swiper-next",
+				prevEl: ".swiper-prev",
+			},
+		});
+	}
+	initializeSwiper();
+	document.addEventListener("astro:page-load", initializeSwiper);
+</script>
+
+<style lang="scss">
+	:root {
+		--swiper-theme-color: #d62246 !important;
+		--swiper-pagination-bullet-size: 10px !important;
+		--swiper-pagination-bullet-width: 10px !important;
+		--swiper-pagination-bullet-horizontal-gap: 6px;
+		--swiper-pagination-bullet-width: 26px;
+		--swiper-pagination-bullet-height: 5px;
+		--swiper-pagination-bullet-border-radius: 99px;
+		--swiper-pagination-bullet-inactive-color: #dddddd;
+		--swiper-pagination-bullet-inactive-opacity: 1;
+	}
+
+	.navelementwraper {
+		@apply absolute top-0 left-0 right-0 z-10 h-full w-full;
+		.swiper-next,
+		.swiper-prev {
+			@apply cursor-pointer absolute top-1/2 w-9 h-9 flex items-center justify-center align-middle;
+			svg {
+				@apply fill-dustyred-400  transition-all duration-300 ease-in-out  hover:fill-moonstone-400;
+			}
+		}
+		.swiper-next {
+			@apply -right-6 hidden lg:block;
+		}
+		.swiper-prev {
+			@apply -left-6 hidden md:block;
+		}
+		.swiper-pagination {
+			bottom: -30px !important;
+			.swiper-pagination-bullet-active {
+				background: red !important;
+			}
+		}
+	}
+	.swiper {
+		height: 100%;
+		width: 100%;
+	}
+	.swiper-wrapper {
+		@apply mx-auto;
+	}
+
+	.swiper-container {
+		@apply relative overflow-hidden z-20;
+	}
+
+	.swiper-slide {
+		text-align: center;
+		font-size: 18px;
+		background: #fff;
+		/* Center slide text vertically */
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+	}
+
+	.swiper-slide {
+		a.blogpostwraper {
+			@apply relative text-left rounded-lg border-solid border border-[#E6E6E6] shadow-md overflow-hidden;
+		}
+		.postmetawraper {
+			@apply px-6 pt-2 pb-6 bg-white;
+		}
+		h3 {
+			@apply text-xl font-bold text-prussian-400;
+		}
+		span.category {
+			@apply absolute right-4 top-6 px-4 py-1 bg-dustyred-400 text-white rounded-full;
+		}
+		span.date {
+			@apply text-prussian-100 text-xs;
+		}
+		img {
+			display: block;
+			width: 377px;
+			height: 211px;
+			object-fit: cover;
+		}
+	}
+</style>

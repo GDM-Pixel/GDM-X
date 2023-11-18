@@ -1,202 +1,442 @@
 ---
-import { Image } from 'astro:assets';
-import CharlesImage from '/src/assets/img/charles-annoni.jpg';
+import { Image } from "astro:assets";
+import CharlesImage from "../assets/img/charles-annoni.jpg";
+import logoGDM from "../assets/img/logo-gdm-white.svg";
+import NovaImage from "../assets/img/nova.png";
+import IntroCreasite from "../assets/img/intro-creasite.png";
+import logoAden from "../assets/img/logo-aden-formation.png";
+import logoLesClapiottes from "../assets/img/logo-les-clapiottes.png";
+import logoMDS from "../assets/img/logo-my-digital-school.png";
+import logoBoutiqueChientChat from "../assets/img/logo-atout-chat-chien.png";
+import logoOpenMindInnovation from "../assets/img/logo-open-mind-innovation.png";
+import logoSEOCamp from "../assets/img/logo-seo-camp.png";
+import logoAnahataYoga from "../assets/img/logo-anahata-yoga.png";
+import logoLaCasiniere from "../assets/img/logo-la-casiniere.png";
+import logoEurodisViande from "../assets/img/logo-eurodis-viande.png";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Header from "../components/Header.astro";
-import HeroBox from "../components/HeroBox.astro";
+import HeroBoxCreasite from "../components/HeroBoxCreasite.astro";
 import Reassurance from "../components/Reassurance.astro";
 import GaucheDroite from "../components/Gauche-Droite.astro";
 import ColumnGridAssets from "../components/Column-Grid-Assets.astro";
+import PixelSeparator from "../components/PixelSeparator.astro";
+import TabNavigationCreasite from "../components/TabNavigationCreasite.jsx";
+import Accelerateur from "../components/Accelerateur.astro";
 import Testislider from "../components/Testislider.astro";
+import MainCTA from "../components/MainCTA.astro";
+import Portfolio from "../components/Portfolio.jsx";
+import Accordion from "../components/Accordion.astro";
+import Footer from "../components/Footer.astro";
+import * as animations from "../components/animations.js";
+import HomeBlogSlider from "../components/HomeBlogSlider.astro";
+import CaseStudySlider from "../components/CaseStudySlider.astro";
+import ProcessTravailSlider from "../components/ProcessTravailSlider.astro";
+const faqItems = [
+	{
+		question: "Q : Combien coûte la création d’un site internet ?",
+		answer:
+			"<p>R : Tout dépend de votre projet ! Le coût d’une création peut aller de quelques centaines à plusieurs milliers d’euros.</p><p>Je peux vous proposer une formule sur mesure, réalisée sur devis, ou bien une formule en abonnement mensuel, à partir de 29 € par mois. Tout est possible !</p>",
+	},
+	{
+		question: "Q : Pourquoi choisir GDM-Pixel plutôt qu’une autre agence ?",
+		answer:
+			"<p>R : Tout d’abord, en tant que webmaster freelance, mon but n’est pas de vous vendre un service, mais bien plutôt de vous orienter vers la meilleure solution pour votre problématique. Avant de démarrer un projet, je réalise conseil et audit afin de déterminer la meilleure stratégie, en fonction de votre secteur d’activité et de l’état du marché.</p><p>Je procède de la même façon pour les technologies à utiliser : je privilégie toujours le meilleur rapport qualité-prix.</p><p>J’ai également 10 ans d’expérience en création de site, et mon travail en centre de formation m’a amené à travailler sur toute sorte de projet. Je connais bien les problématiques rencontrées par les chefs d’entreprise pour communiquer sur le web, que ce soit à une échelle locale ou internationale.</p><p> Enfin, mon expériences en tant que membre de jury d’examen pour des formations de l’enseignement supérieur m’a conduit à avoir une vue d’ensemble de ce qu’est devenu le web au cours de ces dernières années : mon approche des métiers du web est basée à la fois sur mon expérience personnelle et sur celles de tous les intervenants avec qui je collabore (professionnels, enseignants, clients, élèves, prestataires de service).</p>",
+	},
+	{
+		question: "Q : Avec quel type de client travaillez-vous ?",
+		answer:
+			"<p>R : Je travaille principalement avec des PMI-PME, situées en France et en Europe, mais également à l’étranger (Suisse, Israël, Angleterre, États-Unis).</p><p>Mes solutions s’adressent à la fois aux petites sociétés et aux structures plus importantes qui ont besoin d’externaliser une partie de leur activité. Je sous traite ainsi avec plusieurs agences, lorsqu’elles font face à un surcroit d’activité ou qu’une compétence dont elles ont besoin n’est pas internalisée.</p>",
+	},
+	{
+		question: "Q : Une création de site web peut-elle se faire à distance ?",
+		answer:
+			"<p>R : Une création de site Web se fait toujours à distance ! La réalisation d’un site passe par la création de fichiers multimédias, sur un ordinateur de bureau, qui seront ensuite mis en ligne sur un ordinateur, qu’il soit à 500 m ou à l’autre bout de la planète.</p><p>Je suis équipé des dernières technologies en matière de travail à distance (VOIP, partage d’écran, vidéo-conférence etc), ce qui me permet de collaborer avec des sociétés situées partout dans le monde.</p>",
+	},
+	{
+		question: "Q : Sera-t-il possible de faire évoluer mon site ?",
+		answer:
+			"<p>R : OUI ! Rien n’est gravé dans le marbre : je privilégie les systèmes de gestion de contenu Open-Source, grâce auxquels vous pouvez facilement éditer vos pages, modifier des images etc.</p><p>Vous pouvez même rajouter des fonctionnalités en quelques clics, sans aucune compétence technique.</p>",
+	},
+	{
+		question: "Q : Y a-t-il des outils de suivi statistique avec mon site ?",
+		answer:
+			"<p>R : Oui ! Mes solutions sont livrées avec des outils de suivi de trafic, les statistiques de conversion, ainsi que toutes les données nécessaires pour suivre précisément l’évolution de votre chiffre d’affaires ou des contacts de vos clients.</p><p> Il est également possible de personnaliser votre interface de suivi statistiques en fonction de vos objectifs, des intervenants ciblés, et d’automatiser la publication de certains rapports d’activité, en fonction de vos besoins.</p>",
+	},
+	{
+		question: "Q : Faites-vous des copies de sauvegarde ?",
+		answer:
+			"<p>R : Tout dépend de la formule pour laquelle vous optez : vous pouvez tout à fait être maitre à 100 % de votre site et de son environnement informatique, ou bien choisir une formule d’hébergement où vous n’avez rien à gérer et où sauvegardes et maintenance sont réalisés régulièrement, pour votre tranquilité d’esprit.</p>",
+	},
+	{
+		question: "Q : Comment accéder à mes e-mails ?",
+		answer:
+			"<p>R : Lors de la mise en place de votre boîte mail professionnelle, un technicien prend contact avec vous pour installer un logiciel de messagerie à distance, sur votre Smartphone ou votre ordinateur de bureau.</p>",
+	},
+	{
+		question: "Q : J’ai déjà un site, que je dois refondre. Vous savez faire ?",
+		answer:
+			"<p>R : Oui. Il faut cependant savoir qu’une refonte de site est une opération délicate, lancer le processus sans précaution, et c’est la perte de trafic assurée ! De ce fait, une refonte de site est toujours un peu plus coûteuse qu’une création simple, car il faut assurer la jonction technique entre l’ancienne et la nouvelle version du site.</p>",
+	},
+];
 ---
 
 <Layout title="Page des composants" description="Ceci est la meta description">
 	<Header />
-	<HeroBox />
-<Testislider />
-	
-	<!-- REASSURANCE -->
-	<div class="container mt-20">
-		<div class="grid grid-cols-4 gap-8">
-			<Reassurance
-				title="Expérience et expertise"
-				icon="fa-hat-wizard"
-				body="15 ans d'expérience dans la conception web"
-				color="prussian"
-			/>
-			<Reassurance
-				title="Approche sur mesure"
-				icon="fa-ruler"
-				body="Solutions sur mesure correspondant à vos besoins"
-				color="prussian"
-			/>
-			<Reassurance
-				title="Ergonomie et rapidité"
-				icon="fa-rocket-launch"
-				body="Nos sites sont conçus pour être rapides et pratiques"
-				color="prussian"
-			/>
-			<Reassurance
-				title="Sites et serveurs sécurisés"
-				icon="fa-shield-check"
-				body="Nous travaillons avec des hébergeurs fiables"
-				color="prussian"
-			/>
-		</div>
-	</div>
-	<!-- FIN DE REASSURANCE -->
-
-	<GaucheDroite
-		subtitle="A propos"
-		title="Votre succès en ligne grâce à des solutions éprouvées"
-		intro="Réussir sur le web ne s’improvise pas : sans préparation, sans plan d’action, la mise en ligne d’un site ne sert à rien."
-		body="<p>Créer un site qui réalise du trafic, ça n’est pas si compliqué quand on a un cadre de travail solide et un rêve à poursuivre : avec les bonnes méthodes, les bons outils, une analyse rigoureuse et un plan d’action, tout est possible. La réussite sur le web n’est qu’une question de motivation et de temps !</p><p class='mt-6'><strong>Charles Annoni</strong> - Chef de projet</p>  "
-		imgsrc={CharlesImage}
-		
-		imgalt="Charles Annoni"
-		reverse={false}
-	/>
-	<!-- REASSURANCE -->
-	<div class="row my-20 bg-gradient-to-b from-[#1B3751] to-[#232634] py-20">
-		<div class="container">
-			<div class="grid grid-cols-3 gap-8">
-				<ColumnGridAssets
-					title="Un service de haute qualité pour tous"
-					body="Nous sommes tributaires de nos clients et notre priorité, c’est de vous fournir les services que vous méritez."
-					icon="fa-bell-concierge"
-					color="moonstone"
+	<HeroBoxCreasite />
+	<main>
+		<!-- REASSURANCE -->
+		<div class="reassurance" transition:animate={animations.animInFromBottom}>
+			<div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+				<Reassurance
+					title="Expérience et expertise"
+					icon="fa-hat-wizard"
+					body="15 ans d'expérience dans la conception web"
+					color="prussian"
 				/>
-				<ColumnGridAssets
-					title="Des horaires de travail extensibles, 7J/7"
-					body="Nous pouvons intervenir 24h / 24, 7 jours/7, si vos conditions de production le nécessite."
-					icon="fa-clock-rotate-left"
-					color="moonstone"
+				<Reassurance
+					title="Approche sur mesure"
+					icon="fa-ruler"
+					body="Solutions sur mesure correspondant à vos besoins"
+					color="prussian"
 				/>
-				<ColumnGridAssets
-					title="Une grande expérience en production"
-					body="Notre expérience nous permet de vous conseiller et de vous orienter vers les meilleures solutions."
-					icon="fa-gear-complex-code"
-					color="moonstone"
+				<Reassurance
+					title="Ergonomie et rapidité"
+					icon="fa-rocket-launch"
+					body="Nos sites sont conçus pour être rapides et pratiques"
+					color="prussian"
 				/>
-				<ColumnGridAssets
-					title="Des créations sur mesure, à votre image"
-					body="Nous travaillons sur mesure, pour vous proposer un site adapté à votre niche, et à votre société."
-					icon="fa-palette"
-					color="moonstone"
-				/>
-				<ColumnGridAssets
-					title="Les meilleures technologies du marché"
-					body="Nous effectuons une veille constantes pour n’utiliser que des technologies adaptés, robustes et fiables."
-					icon="fa-microchip"
-					color="moonstone"
-				/>
-				<ColumnGridAssets
-					title="Votre intérêt avant toute autre chose"
-					body="Notre priorité, c’est de vous permettre de vous développer : on ne vous vendra jamais quelque chose d’inutile."
-					icon="fa-heart"
-					color="moonstone"
+				<Reassurance
+					title="Sites et serveurs sécurisés"
+					icon="fa-shield-check"
+					body="Nous travaillons avec des hébergeurs fiables"
+					color="prussian"
 				/>
 			</div>
 		</div>
-	</div>
+		<!-- FIN DE REASSURANCE -->
 
-	<main>
-		<h1 class="text-4xl">
-			Bienvenue sur <span class="text-gradient">Astro</span>
-		</h1>
-		<p class="instructions text-md text-slate-700">
-			To get started, open the directory <code>src/pages</code> in your project.<br
-			/>
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message
-			above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="/webmarketing"
-				title="Webmarketing"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+		<GaucheDroite
+			subtitle="A propos"
+			title="Nous faisons des sites, et nous le faisons comme il faut !"
+			intro="Parce que “chaque chose qui mérite d’être faite, mérite d’être bien faite”."
+			body='<p class="mb-3">En 15 ans d’activité, nous avons vu le web se transformer, et pas toujours dans le bon sens. L’uberisation du métier de créateur de site web n’est pas une légende, et celui qui en paie le prix, c’est toujours le client.</p><p>Chez GDM-Pixel, <strong>nous faisons des sites, et nous le faisons bien</strong>. De l’étude SEO à la mise en ligne de votre site, en passant par le maquettage, le copywriting et l’intégration, vous pouvez être sur que <strong>votre mission est confiée à un expert, et que rien n’est laissé au hasard</strong>.</p>'
+			imgsrc={IntroCreasite}
+			imgalt="Création de site internet à Caen"
+			reverse={true}
+		/>
+		<section
+			class="nos-services bg-gradient-to-b from-[#1B3751] to-[#232634] py-32 my-16">
+			<div class="section-header dark">
+				<span class="subtitle font-normal uppercase text-moonstone-400"
+					>Nos services</span
+				>
+				<h2 class="section-title">
+					Nos services en matière de création de site internet à Caen
+				</h2>
+				<PixelSeparator />
+			</div>
+			<TabNavigationCreasite client:visible />
+		</section>
+		<section class="row bg-white pt-12 pb-16 process">
+			<div class="container">
+				<div class="section-header">
+					<span class="subtitle font-semibold uppercase text-moonstone-400"
+						>Nos services</span
+					>
+					<h2 class="section-title">Notre processus de travail</h2>
+					<PixelSeparator />
+				</div>
+				<ProcessTravailSlider />
+			</div>
+		</section>
+		<section class="bg-prussian-400">
+			<div class="container text-white flex justify-between pt-12 pb-12">
+				<div class="col1">
+					<h2 class="text-white">
+						Vous voulez en savoir plus sur nos process ?
+					</h2>
+					<p>Prenez contact avec nous, et on vous expliquer tout !</p>
+				</div>
+				<a href="#" class="cta red self-center">En savoir plus</a>
+			</div>
+		</section>
+		<section class="case-study container py-20">
+			<div class="section-header left">
+				<span class="h6 text-dustyred-400 uppercase font-semibold mb-6 block"
+					>Etudes de cas</span
+				>
+				<h2 class="section-title">
+					Quelques une de nos dernières créations (et leur contenu)
+				</h2>
+				<PixelSeparator />
+			</div>
+				<CaseStudySlider />
+		</section>
+
+
+
+
+
+
+
+
+		
+		<div class="row my-20">
+			<div class="container">
+				<div class="section-header">
+					<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
+						>Nos services</span
+					>
+					<h2 class="section-title">
+						Nos prestations en matière de création de site, webmarketing et web
+					</h2>
+					<PixelSeparator />
+				</div>
+			</div>
+			<div class="container wide">
+				<div class="grid grid-cols-6 gap-20"></div>
+			</div>
+		</div>
+
+		<Accelerateur />
+		<Testislider />
+		<section class="brandpartners">
+			<div class="max-w-full px-10 flex flex-wrap gap-8 justify-center">
+				<Image
+					src={logoAden}
+					width="175"
+					height="90"
+					alt="logo Aden Formation"
+					loading="lazy"
+				/>
+				<Image
+					src={logoLesClapiottes}
+					width="200"
+					height="90"
+					alt="logo les Clapiottes"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoMDS}
+					width="200"
+					height="90"
+					alt="logo My Digital School"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoBoutiqueChientChat}
+					width="102"
+					height="90"
+					alt="logo Atout chat et chien"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoOpenMindInnovation}
+					width="175"
+					height="90"
+					alt="logo Open Mind Innovation"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoSEOCamp}
+					width="108"
+					height="90"
+					alt="logo SEO Camp"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoAnahataYoga}
+					width="167"
+					height="90"
+					alt="logo Anahata Yoga"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoLaCasiniere}
+					width="186"
+					height="90"
+					alt="logo La Casinière"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoEurodisViande}
+					width="102"
+					height="90"
+					alt="logo Eurodis Viande"
+					loading="lazy"
+				/>
+			</div>
+		</section>
+
+		<MainCTA />
+		<section class="portfolio">
+			<div class="row my-20">
+				<div class="container">
+					<div class="section-header">
+						<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
+							>Dernières créations</span
+						>
+						<h2 class="section-title">
+							Quelques une de nos dernières réalisations
+						</h2>
+						<PixelSeparator />
+					</div>
+				</div>
+
+				<Portfolio client:visible />
+			</div>
+		</section>
+
+		<section class="faqbox">
+			<div class="container">
+				<div class="section-header left dark">
+					<span class="h6 text-white uppercase font-semibold mb-6 block"
+						>FAQ</span
+					>
+					<h2 class="section-title">Réponses aux questions fréquentes</h2>
+					<PixelSeparator />
+				</div>
+
+				<div class="row flex flex-col md:flex-row gap-6">
+					<div class="faqcontainer"><Accordion items={faqItems} /></div>
+					<div class="novacontainer glow" transition:persist>
+						<div class="novainner">
+							<div class="header-nova-box">
+								<Image
+									src={logoGDM}
+									width="230"
+									height="40"
+									alt="logo GDM-Pixel"
+									loading="lazy"
+								/>
+							</div>
+							<Image
+								src={NovaImage}
+								width="410"
+								height="273"
+								alt="Nova"
+								loading="lazy"
+							/>
+							<p>Vous ne trouvez pas de réponse à votre question ?</p>
+							<span class="ask">Demandez à NOVA</span>
+							<button class="cta red" onclick="openNova()"
+								>Posez votre question</button
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<HomeBlogSlider />
 	</main>
+	<Footer />
 </Layout>
+<script>
+	function setup() {
+		window.addEventListener("scroll", function () {
+			var novacontainer = document.querySelector(".novacontainer");
+			if (novacontainer) {
+				var rect = novacontainer.getBoundingClientRect();
+				var isCloseToTop = rect.top <= 10; // 10 pixels de marge, ajustez selon vos besoins
 
-<style>
+				novacontainer.classList.toggle("sticky", isCloseToTop);
+			}
+		});
+	}
+
+	document.addEventListener("DOMContentLoaded", setup);
+	document.addEventListener("astro:page-load", setup);
+</script>
+<style lang="scss">
 	.container {
 		max-width: 1400px;
 	}
-	/*main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+
+	.reassurance {
+		@apply mx-auto xxl:-mt-20 xl:-mt-16 -mt-12 relative z-10 container;
 	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
+	.tab-content {
+		@apply bg-dustyred-500;
 	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
+	.faqbox {
+		@apply mt-10 mb-20 bg-gradient-to-b from-[#1B3751] to-[#232634] py-20 text-white;
+		.faqcontainer {
+			@apply lg:w-2/3 md:w-3/5 rounded-md overflow-clip relative z-20;
+		}
+
+		.header-nova-box {
+			@apply px-4 py-6 flex justify-center;
+		}
+
+		.novacontainer {
+			@apply lg:w-1/3 md:w-2/5 rounded-lg relative md:self-start self-center
+		flex flex-col md:justify-start justify-center items-center transition-all duration-300 ease-in-out opacity-100 translate-y-0;
+			&.sticky {
+				@apply md:top-0 transition-all md:mb-24 duration-300 ease-in-out md:opacity-95 md:translate-y-20;
+				position: sticky;
+			}
+
+			.novainner {
+				@apply pt-4 pb-12 bg-prussian-600 relative z-10 flex flex-col justify-center items-center self-center;
+			}
+			img {
+				@apply w-full;
+			}
+			p {
+				@apply px-4 py-6 text-center text-md;
+			}
+			.ask {
+				@apply block text-center text-xl lg:text-xl xl:text-xxl uppercase font-bold mb-6;
+			}
+		}
+
+		.glow::before,
+		.glow::after {
+			content: "";
+			position: absolute;
+			left: -2px;
+			top: -2px;
+
+			background: linear-gradient(
+				45deg,
+				#0dffd7,
+				#0c67fa,
+				#217eff,
+				#00e1ff,
+				#cff7ff,
+				#23e9ff,
+				#0055ff,
+				#00d4f5,
+				#0dffd7
+			);
+			background-size: 400%;
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+
+			animation: animate 60s linear infinite;
+		}
+		@keyframes animate {
+			0% {
+				background-position: 0 0;
+			}
+			50% {
+				background-position: 300% 0;
+			}
+			100% {
+				background-position: 0 0;
+			}
+		}
+		.glow:after {
+			filter: blur(15px);
+			opacity: 0.5;
+		}
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(
-			rgba(var(--accent-dark), 66%),
-			rgba(var(--accent-dark), 33%)
-		);
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}*/
 </style>

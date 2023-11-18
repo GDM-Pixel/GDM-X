@@ -38,6 +38,15 @@ let { items } = Astro.props;
 </ul>
 
 <script type="module">
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupAccordion();
+  });
+
+  document.addEventListener('astro:page-load', setupAccordion);
+
+
+	function setupAccordion() {
 	class Accordion {
 		//@ts-ignore
 		constructor(element, options) {
@@ -118,6 +127,7 @@ let { items } = Astro.props;
 	}
 
 	// Usage
+	//@ts-ignore
 	const myAccordion = new Accordion(document.querySelector(".accordion"), {
 		duration: 300,
 		//@ts-ignore
@@ -125,6 +135,9 @@ let { items } = Astro.props;
 		//@ts-ignore
 		onClose: (item) => console.log("Closed", item),
 	});
+	}
+setupAccordion();
+document.addEventListener('astro:page-load', setupAccordion);
 </script>
 
 <style lang="scss">

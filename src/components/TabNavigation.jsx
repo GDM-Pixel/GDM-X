@@ -86,7 +86,7 @@ function TabSlider() {
     .tab.active {background-color:#D62246;color:white;transition:300ms ease all;border-style:solid;}
     .tab.active svg {fill:white;}
     .tab-content.active {border:none;}
-
+    .tab-content .flex-col img {width:100%;height:100%;object-fit:cover;}
    .slidetransit-enter {
     transform: translateX(250px);
     opacity: 0;
