@@ -8,9 +8,9 @@ import RealisationImage from "../assets/img/realisation.png";
 import RecettageImage from "../assets/img/recettage.png";
 ---
 
-<div class="row my-2 text-center">
-	<div class="container relative overflow-hidden">
-		<div class="swiper-ProcessSwiper">
+<div class="my-2 text-center">
+	<div class="lg:container lg:px-0 mx-auto px-6 relative">
+		<div class="swiper-ProcessSwiper overflow-hidden">
 			<div class="swiper-pagination-process mb-8"></div>
 			<div class="swiper-wrapper">
 				<div class="swiper-slide flex flex-col">
@@ -83,7 +83,7 @@ import RecettageImage from "../assets/img/recettage.png";
 		</div>
 
 		<div class="navelementwraper">
-			<div class="swiper-next">
+			<div class="process-next">
 				<svg
 					width="30"
 					height="30"
@@ -95,7 +95,7 @@ import RecettageImage from "../assets/img/recettage.png";
 					></path>
 				</svg>
 			</div>
-			<div class="swiper-prev">
+			<div class="process-prev">
 				<svg
 					width="30"
 					height="30"
@@ -119,7 +119,7 @@ import RecettageImage from "../assets/img/recettage.png";
 		var swiper = new Swiper(".swiper-ProcessSwiper", {
 			pagination: {
 				el: ".swiper-pagination-process",
-				clickable: true,
+				clickable: false,
 				renderBullet: function (index, className) {
 					return (
 						'<span class="gdmbullet ' +
@@ -131,13 +131,16 @@ import RecettageImage from "../assets/img/recettage.png";
 				},
 			},
 			slidesPerView: 1,
-			loop: false,
-			spaceBetween: 0,
+			watchSlidesProgress: true,
+			slideToClickedSlide: true,
+			loop:false,
+			grabCursor: true,
+			spaceBetween: 40,
 			freeMode: false,
 			speed: 500,
 			navigation: {
-				nextEl: ".swiper-next",
-				prevEl: ".swiper-prev",
+				nextEl: ".process-next",
+				prevEl: ".process-prev",
 			},
 		});
 	}
@@ -191,26 +194,21 @@ import RecettageImage from "../assets/img/recettage.png";
 </style>
 <style lang="scss">
 	.navelementwraper {
-		@apply absolute top-0 left-0 right-0 z-10 h-full w-full;
-		.swiper-next,
-		.swiper-prev {
-			@apply cursor-pointer absolute top-1/2 w-9 h-9 flex items-center justify-center align-middle;
+		@apply absolute top-0 left-0 right-0 z-10 h-full w-full pointer-events-none;
+		.process-next,
+		.process-prev {
+			@apply z-30 cursor-pointer absolute top-1/2 w-9 h-9 flex items-center justify-center align-middle pointer-events-auto;
 			svg {
 				@apply fill-dustyred-400  transition-all duration-300 ease-in-out  hover:fill-moonstone-400;
 			}
 		}
-		.swiper-next {
-			@apply right-6 hidden lg:block;
+		.process-next {
+			@apply lg:right-8 right-1 hidden md:block;
 		}
-		.swiper-prev {
-			@apply left-6 hidden md:block;
+		.process-prev {
+			@apply lg:left-8 left-1 hidden md:block;
 		}
-		.swiper-pagination {
-			bottom: -30px !important;
-			.swiper-pagination-bullet-active {
-				background: red !important;
-			}
-		}
+
 	}
 	.swiper {
 		height: 100%;

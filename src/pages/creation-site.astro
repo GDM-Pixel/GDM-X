@@ -1,36 +1,23 @@
 ---
 import { Image } from "astro:assets";
-import CharlesImage from "../assets/img/charles-annoni.jpg";
 import logoGDM from "../assets/img/logo-gdm-white.svg";
 import NovaImage from "../assets/img/nova.png";
 import IntroCreasite from "../assets/img/intro-creasite.png";
-import logoAden from "../assets/img/logo-aden-formation.png";
-import logoLesClapiottes from "../assets/img/logo-les-clapiottes.png";
-import logoMDS from "../assets/img/logo-my-digital-school.png";
-import logoBoutiqueChientChat from "../assets/img/logo-atout-chat-chien.png";
-import logoOpenMindInnovation from "../assets/img/logo-open-mind-innovation.png";
-import logoSEOCamp from "../assets/img/logo-seo-camp.png";
-import logoAnahataYoga from "../assets/img/logo-anahata-yoga.png";
-import logoLaCasiniere from "../assets/img/logo-la-casiniere.png";
-import logoEurodisViande from "../assets/img/logo-eurodis-viande.png";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import HeroBoxCreasite from "../components/HeroBoxCreasite.astro";
 import Reassurance from "../components/Reassurance.astro";
 import GaucheDroite from "../components/Gauche-Droite.astro";
-import ColumnGridAssets from "../components/Column-Grid-Assets.astro";
 import PixelSeparator from "../components/PixelSeparator.astro";
 import TabNavigationCreasite from "../components/TabNavigationCreasite.jsx";
-import Accelerateur from "../components/Accelerateur.astro";
-import Testislider from "../components/Testislider.astro";
 import MainCTA from "../components/MainCTA.astro";
-import Portfolio from "../components/Portfolio.jsx";
 import Accordion from "../components/Accordion.astro";
 import Footer from "../components/Footer.astro";
 import * as animations from "../components/animations.js";
 import HomeBlogSlider from "../components/HomeBlogSlider.astro";
 import CaseStudySlider from "../components/CaseStudySlider.astro";
 import ProcessTravailSlider from "../components/ProcessTravailSlider.astro";
+import TestimonialSlider from "../components/TestimonialSlider.astro";
 const faqItems = [
 	{
 		question: "Q : Combien coûte la création d’un site internet ?",
@@ -138,16 +125,14 @@ const faqItems = [
 			<TabNavigationCreasite client:visible />
 		</section>
 		<section class="row bg-white pt-12 pb-16 process">
-			<div class="container">
-				<div class="section-header">
-					<span class="subtitle font-semibold uppercase text-moonstone-400"
-						>Nos services</span
-					>
-					<h2 class="section-title">Notre processus de travail</h2>
-					<PixelSeparator />
-				</div>
-				<ProcessTravailSlider />
+			<div class="section-header">
+				<span class="subtitle font-semibold uppercase text-moonstone-400"
+					>Nos services</span
+				>
+				<h2 class="section-title">Notre processus de travail</h2>
+				<PixelSeparator />
 			</div>
+			<ProcessTravailSlider />
 		</section>
 		<section class="bg-prussian-400">
 			<div class="container text-white flex justify-between pt-12 pb-12">
@@ -170,134 +155,38 @@ const faqItems = [
 				</h2>
 				<PixelSeparator />
 			</div>
-				<CaseStudySlider />
+			<CaseStudySlider />
+		</section>
+
+		<section
+			class="testimonials bg-gradient-to-b from-[#1B3751] to-[#232634] py-32 my-16">
+			<div class="section-header dark">
+				<span class="subtitle font-normal uppercase text-moonstone-400"
+					>Témoignages de clients</span>
+				<h2 class="section-title">
+					Ils ont travaillé avec nous,<br/> et ils en parlent !
+				</h2>
+				<PixelSeparator />
+			</div>	
+			<TestimonialSlider />	
+		</section>
+
+		<section>
+			<HomeBlogSlider />
 		</section>
 
 
 
+	
 
-
-
-
-
-		
-		<div class="row my-20">
-			<div class="container">
-				<div class="section-header">
-					<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
-						>Nos services</span
-					>
-					<h2 class="section-title">
-						Nos prestations en matière de création de site, webmarketing et web
-					</h2>
-					<PixelSeparator />
-				</div>
-			</div>
-			<div class="container wide">
-				<div class="grid grid-cols-6 gap-20"></div>
-			</div>
-		</div>
-
-		<Accelerateur />
-		<Testislider />
-		<section class="brandpartners">
-			<div class="max-w-full px-10 flex flex-wrap gap-8 justify-center">
-				<Image
-					src={logoAden}
-					width="175"
-					height="90"
-					alt="logo Aden Formation"
-					loading="lazy"
-				/>
-				<Image
-					src={logoLesClapiottes}
-					width="200"
-					height="90"
-					alt="logo les Clapiottes"
-					loading="lazy"
-				/>
-
-				<Image
-					src={logoMDS}
-					width="200"
-					height="90"
-					alt="logo My Digital School"
-					loading="lazy"
-				/>
-
-				<Image
-					src={logoBoutiqueChientChat}
-					width="102"
-					height="90"
-					alt="logo Atout chat et chien"
-					loading="lazy"
-				/>
-
-				<Image
-					src={logoOpenMindInnovation}
-					width="175"
-					height="90"
-					alt="logo Open Mind Innovation"
-					loading="lazy"
-				/>
-
-				<Image
-					src={logoSEOCamp}
-					width="108"
-					height="90"
-					alt="logo SEO Camp"
-					loading="lazy"
-				/>
-
-				<Image
-					src={logoAnahataYoga}
-					width="167"
-					height="90"
-					alt="logo Anahata Yoga"
-					loading="lazy"
-				/>
-
-				<Image
-					src={logoLaCasiniere}
-					width="186"
-					height="90"
-					alt="logo La Casinière"
-					loading="lazy"
-				/>
-
-				<Image
-					src={logoEurodisViande}
-					width="102"
-					height="90"
-					alt="logo Eurodis Viande"
-					loading="lazy"
-				/>
-			</div>
-		</section>
 
 		<MainCTA />
-		<section class="portfolio">
-			<div class="row my-20">
-				<div class="container">
-					<div class="section-header">
-						<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
-							>Dernières créations</span
-						>
-						<h2 class="section-title">
-							Quelques une de nos dernières réalisations
-						</h2>
-						<PixelSeparator />
-					</div>
-				</div>
-
-				<Portfolio client:visible />
-			</div>
-		</section>
+		
 
 		<section class="faqbox">
 			<div class="container">
-				<div class="section-header left dark">
-					<span class="h6 text-white uppercase font-semibold mb-6 block"
+				<div class="section-header left">
+					<span class="h6 text-moonstone-400 uppercase font-semibold mb-6 block"
 						>FAQ</span
 					>
 					<h2 class="section-title">Réponses aux questions fréquentes</h2>
@@ -334,8 +223,6 @@ const faqItems = [
 				</div>
 			</div>
 		</section>
-
-		<HomeBlogSlider />
 	</main>
 	<Footer />
 </Layout>
@@ -367,7 +254,7 @@ const faqItems = [
 		@apply bg-dustyred-500;
 	}
 	.faqbox {
-		@apply mt-10 mb-20 bg-gradient-to-b from-[#1B3751] to-[#232634] py-20 text-white;
+		@apply mt-10 mb-20 bg-white py-20 text-white;
 		.faqcontainer {
 			@apply lg:w-2/3 md:w-3/5 rounded-md overflow-clip relative z-20;
 		}

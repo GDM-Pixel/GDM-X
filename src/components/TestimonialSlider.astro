@@ -1,0 +1,176 @@
+---
+import { Image } from "astro:assets";
+import PixelSeparator from "./PixelSeparator.astro";
+import SylvainImage from "../assets/img/sylvain.jpeg";
+import JeromeImage from "../assets/img/jerome.jpg";
+import CharlesDImage from "../assets/img/charlesd.jpg";
+import MarieFImage from "../assets/img/marie-france.jpg";
+import MarieMImage from "../assets/img/marie-mure-ravaud.jpg";
+---
+
+<div class="container relative">
+	<div class="testi-container TestiContainer">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<Image
+					src={MarieMImage}
+					alt="Marie Mure Ravaud"
+					width="144"
+					height="144"
+				/>
+				<h4>Marie Mure Ravaud</h4>
+
+				<blockquote>
+					Excellent formateur SEO, réunissant l'expértise et le sens de la
+					pédagogie.
+				</blockquote>
+
+				<span class="font-bold mt-2">Communications Manager - Snap Inc.</span>
+			</div>
+			<div class="swiper-slide">
+				<Image
+					src={SylvainImage}
+					alt="Sylvain Vandewalle"
+					width="144"
+					height="144"
+				/>
+				<h4>Sylvain Vandewalle</h4>
+
+				<blockquote>
+					Charles est le meilleur spécialiste de la région caennaise en
+					e-commerce.
+				</blockquote>
+
+				<span class="font-bold mt-2">Growth Hacker - Sinay</span>
+			</div>
+			<div class="swiper-slide">
+				<Image
+					src={MarieFImage}
+					alt="Marie-France Gras"
+					width="144"
+					height="144"
+				/>
+				<h4>Marie-France Gras</h4>
+
+				<blockquote>
+					Travail sérieux, méthodique, nos résultats sont en constante
+					augmentation.
+				</blockquote>
+
+				<span class="font-bold mt-2">Gérante - AC Communication.</span>
+			</div>
+			<div class="swiper-slide">
+				<Image
+					src={JeromeImage}
+					alt="Jérome de la Casinière"
+					width="144"
+					height="144"
+				/>
+				<h4>Jérome de la Casinière</h4>
+
+				<blockquote>
+					Je recommande fortement cette agence ! Tout le travail effectué pour
+					nous a été réalisé rapidement, et avec beaucoup de professionalisme.
+				</blockquote>
+
+				<span class="font-bold mt-2">Gérant - La Casinière</span>
+			</div>
+			<div class="swiper-slide">
+				<Image
+					src={CharlesDImage}
+					alt="Charles Dévé"
+					width="144"
+					height="144"
+				/>
+				<h4>Charles Dévé</h4>
+
+				<blockquote>
+					Charles Annoni est disponible et possède une énergie remarquable. Je
+					le recommande à ceux qui veulent améliorer leur visibilité sur
+					Internet.
+				</blockquote>
+
+				<span class="font-bold mt-2">CRC - Crédit Mutuel.</span>
+			</div>
+
+		</div>
+	</div>
+<div class="testi-pagination text-dustyred-500 mt-10"></div>
+	
+</div>
+
+<script>
+	import Swiper from "swiper/bundle";
+	import "swiper/css/bundle";
+
+	function initializeTestiSwiper() {
+		var swiper = new Swiper(".TestiContainer", {
+			pagination: {
+				el: ".testi-pagination",
+				clickable: true,
+			},
+			loop: true,
+			autoplay: {
+				delay: 2000,
+			},
+			slidesPerView: 3,
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				480: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+				},
+				640: {
+					slidesPerView: 2,
+					spaceBetween: 40,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 40,
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+				},
+				1280: {
+					slidesPerView: 3,
+					spaceBetween: 40,
+				},
+			},
+			spaceBetween: 30,
+			freeMode: false,
+			speed: 700,
+		});
+	}
+	initializeTestiSwiper();
+	document.addEventListener("astro:page-load", initializeTestiSwiper);
+</script>
+
+<style lang="scss">
+	.swiper {
+		height: 100%;
+		width: 100%;
+	}
+	.swiper-wrapper {
+		@apply mx-auto; 
+	}
+
+	.testi-container {
+		@apply relative overflow-hidden z-20 max-w-5xl mx-auto;
+	}
+
+
+	.swiper-slide {
+		@apply md:max-w-sm mx-auto flex flex-col items-center justify-center text-white text-center;
+		h4 {
+			@apply text-xl font-bold text-white mb-4 mt-4;
+		}
+
+		img {
+			@apply rounded-full;
+		}
+	}
+</style>

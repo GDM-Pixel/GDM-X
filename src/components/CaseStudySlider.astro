@@ -8,14 +8,69 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 ---
 
 <div class="row my-2 text-center">
-	<div class="relative overflow-hidden">
-		<div class="myCaseStudy">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide flex gap-6">
-					<div class="col1">
-						<Image src={CsClapiottes} alt="Les Clapiottes" />
+	<div class="relative">
+		<!--  -->
+		<div class="mx-auto flex flex-col lg:flex-row gap-6 justify-between items-center">
+			<div class="lg:w-1/2 w-full">
+				<div class="myCaseStudyImg">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<Image src={CsClapiottes} alt="Les Clapiottes" width="630" height="410"/>
+						</div>
+						<div class="swiper-slide">
+							<Image src={CsNbeAvocats} alt="NBE Avocats" />
+						</div>
+						<div class="swiper-slide">
+							<Image src={CsVelocity} alt="Velocity" />
+						</div>
+						<div class="swiper-slide">
+							<Image src={CsCokitec} alt="Cokitec" />
+						</div>
+						<div class="swiper-slide">
+							<Image src={CsCimeAvocats} alt="Cime Avocats" />
+						</div>
 					</div>
-					<div class="col2">
+				</div>
+				<div class="thumbcontainer relative z-30 mt-2">
+					<div class="swiper myCaseStudyThumbs">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<Image
+									src={CsClapiottes}
+									alt="Les Clapiottes"
+									width="99"
+									height="65"
+								/>
+							</div>
+							<div class="swiper-slide">
+								<Image
+									src={CsNbeAvocats}
+									alt="NBE Avocats"
+									width="99"
+									height="65"
+								/>
+							</div>
+							<div class="swiper-slide">
+								<Image src={CsVelocity} alt="Velocity" width="99" height="65" />
+							</div>
+							<div class="swiper-slide">
+								<Image src={CsCokitec} alt="Cokitec" width="99" height="65" />
+							</div>
+							<div class="swiper-slide">
+								<Image
+									src={CsCimeAvocats}
+									alt="Cime Avocats"
+									width="99"
+									height="65"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="myCaseStudyText lg:w-1/2 w-full">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
 						<h3>Les Clapiottes</h3>
 						<p class="mb-3">
 							Les Clapiottes, c’était le défi technique de l’été dernier : un
@@ -97,15 +152,18 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 							toute autonomie.
 						</p>
 					</div>
-				</div>
-				<div class="swiper-slide flex gap-6">
-					<div class="col1"><Image src={CsNbeAvocats} alt="NBE Avocats" /></div>
-					<div class="col2"><h3>NBE Avocats</h3>
+					<div class="swiper-slide">
+						<h3>NBE Avocats</h3>
 						<p class="mb-3">
-							Un site totalement personnalisé, pour un prestigieux cabinet d'avocats Parisien. Réalisé sur CMS WordPress, avec utilisation de champs et de type de publications personnalisées, le site permet à l'équipe du cabinet d'être autonome sur ses publications de contenus. 
+							Un site totalement personnalisé, pour un prestigieux cabinet
+							d'avocats Parisien. Réalisé sur CMS WordPress, avec utilisation de
+							champs et de type de publications personnalisées, le site permet à
+							l'équipe du cabinet d'être autonome sur ses publications de
+							contenus.
 						</p>
 						<p>
-							Un accent particulier a été mis sur les temps de chargements, pour rendre le site totalement compatible avec les mobiles.
+							Un accent particulier a été mis sur les temps de chargements, pour
+							rendre le site totalement compatible avec les mobiles.
 						</p>
 						<ul>
 							<li>
@@ -170,17 +228,25 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 							</li>
 						</ul>
 						<p class="conclude">
-							Toutes nos créations sont personnalisées, et sont 100% adaptées à vos besoins. Nous pouvons également vous former à l'utilisation de votre site.
-						</p></div>
-				</div>
-				<div class="swiper-slide flex gap-6">
-					<div class="col1"><Image src={CsVelocity} alt="Velocity" /></div>
-					<div class="col2"><h3>Velocity</h3>
+							Toutes nos créations sont personnalisées, et sont 100% adaptées à
+							vos besoins. Nous pouvons également vous former à l'utilisation de
+							votre site.
+						</p>
+					</div>
+					<div class="swiper-slide">
+						<h3>Velocity</h3>
 						<p class="mb-3">
-							Un site E-commerce, pour un distributeur Caennais de la marque Giant. Basé sur une version 1.6 de Prestashop, le template a été totalement personnalisé pour correspondre aux deux identités visuelles de la marque, qui différencie ses produits selon le genre des utilisateurs (Liv pour les femmes, Giant pour les hommes).
+							Un site E-commerce, pour un distributeur Caennais de la marque
+							Giant. Basé sur une version 1.6 de Prestashop, le template a été
+							totalement personnalisé pour correspondre aux deux identités
+							visuelles de la marque, qui différencie ses produits selon le
+							genre des utilisateurs (Liv pour les femmes, Giant pour les
+							hommes).
 						</p>
 						<p>
-							Le site est donc scindé en deux univers, et le template Prestashop a été aménagé pour coller à la stratégie marketing du distributeur.
+							Le site est donc scindé en deux univers, et le template Prestashop
+							a été aménagé pour coller à la stratégie marketing du
+							distributeur.
 						</p>
 						<ul>
 							<li>
@@ -241,21 +307,27 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 									><path
 										d="M448 130L431 147 177.5 399.2l-16.9 16.9-16.9-16.9L17 273.1 0 256.2l33.9-34 17 16.9L160.6 348.3 397.1 112.9l17-16.9L448 130z"
 										fill="#00B2CB"></path></svg
-								>Résevation de produit en ligne
+								>Réservation en ligne
 							</li>
 						</ul>
 						<p class="conclude">
-							Le site a également fait l'objet d'une optimisation poussée pour les moteurs de recherche, afin de pousser un maximum de trafic sur un modèle web to store.
-						</p></div>
-				</div>
-				<div class="swiper-slide flex gap-6">
-					<div class="col1"><Image src={CsCokitec} alt="Cokitec" /></div>
-					<div class="col2"><h3>Cokitec</h3>
+							Le site a également fait l'objet d'une optimisation poussée pour
+							les moteurs de recherche, afin de pousser un maximum de trafic sur
+							un modèle web to store.
+						</p>
+					</div>
+					<div class="swiper-slide">
+						<h3>Cokitec</h3>
 						<p class="mb-3">
-							Cokitec, c'était le tout premier défi technique de l'agence, et c'était également son tout premier site (tout court) ! Le challenge était de taille : il fallait créer une boutique en ligne avec plus de 30 000 produits, et tout ça avec des textes uniques.
+							Cokitec, c'était le tout premier défi technique de l'agence, et
+							c'était également son tout premier site (tout court) ! Le
+							challenge était de taille : il fallait créer une boutique en ligne
+							avec plus de 30 000 produits, et tout ça avec des textes uniques.
 						</p>
 						<p>
-							Réalisé à l'aide de Sylvain Vandewalle, le site fut mis en ligne au bout de quelques mois et compte aujourd'hui près de 100 000 produits !
+							Réalisé à l'aide de Sylvain Vandewalle, le site fut mis en ligne
+							au bout de quelques mois et compte aujourd'hui près de 100 000
+							produits !
 						</p>
 						<ul>
 							<li>
@@ -320,19 +392,23 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 							</li>
 						</ul>
 						<p class="conclude">
-							Le site est aujourd'hui un des leaders de la vente d'accessoires pour smartphones en France, et propose également de l'impression personnalisée sur de nombreux supports.
-						</p></div>
-				</div>
-				<div class="swiper-slide flex gap-6">
-					<div class="col1">
-						<Image src={CsCimeAvocats} alt="Cime Avocats" />
+							Le site est aujourd'hui un des leaders de la vente d'accessoires
+							pour smartphones en France, et propose également de l'impression
+							personnalisée sur de nombreux supports.
+						</p>
 					</div>
-					<div class="col2"><h3>Cime Avocats</h3>
+					<div class="swiper-slide">
+						<h3>Cime Avocats</h3>
 						<p class="mb-3">
-							Une belle réalisation, pour un superbe cabinet d'Avocats à Rennes ! Ici aussi, tout a été personnalisé, et le site a été construit autours d'une stratégie de contenus mettant à contribution les associés du cabinet ainsi que leurs sites respectifs. Le cabinet a depuis ouvert une seconde antenne à Paris.
+							Une belle réalisation, pour un superbe cabinet d'Avocats à Rennes
+							! Ici aussi, tout a été personnalisé, et le site a été construit
+							autours d'une stratégie de contenus mettant à contribution les
+							associés du cabinet ainsi que leurs sites respectifs. Le cabinet a
+							depuis ouvert une seconde antenne à Paris.
 						</p>
 						<p>
-							Sans faire de netlinking, le site a ainsi pu se positionner rapidement dans les moteurs de recherche.
+							Sans faire de netlinking, le site a ainsi pu se positionner
+							rapidement dans les moteurs de recherche.
 						</p>
 						<ul>
 							<li>
@@ -397,48 +473,15 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 							</li>
 						</ul>
 						<p class="conclude">
-							Le cabinet Cime Avocats a su se doter de moyens de communication modernes et efficaces pour se faire connaître et développer son activité.
-						</p></div>
-				</div>
-			</div>
-		</div>
-
-		<div class="thumbcontainer max-w-lg flex flex-start mt-2">
-			<div class="swiper myCaseStudyThumbs">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<Image
-							src={CsClapiottes}
-							alt="Les Clapiottes"
-							width="99"
-							height="65"
-						/>
-					</div>
-					<div class="swiper-slide">
-						<Image
-							src={CsNbeAvocats}
-							alt="NBE Avocats"
-							width="99"
-							height="65"
-						/>
-					</div>
-					<div class="swiper-slide">
-						<Image src={CsVelocity} alt="Velocity" width="99" height="65" />
-					</div>
-					<div class="swiper-slide">
-						<Image src={CsCokitec} alt="Cokitec" width="99" height="65" />
-					</div>
-					<div class="swiper-slide">
-						<Image
-							src={CsCimeAvocats}
-							alt="Cime Avocats"
-							width="99"
-							height="65"
-						/>
+							Le cabinet Cime Avocats a su se doter de moyens de communication
+							modernes et efficaces pour se faire connaître et développer son
+							activité.
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!--TENTATIVE -->
 	</div>
 </div>
 
@@ -455,7 +498,7 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 			watchSlidesProgress: true,
 			slideToClickedSlide: true,
 		});
-		var swiper = new Swiper(".myCaseStudy", {
+		var swiperCaseText = new Swiper(".myCaseStudyText", {
 			slideActiveClass: "swiper-slide-active",
 			effect: "fade",
 			fadeEffect: {
@@ -470,6 +513,23 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 				swiper: swiperThumbs,
 			},
 		});
+		var swiperCaseImg = new Swiper(".myCaseStudyImg", {
+			slideActiveClass: "swiper-slide-active",
+			effect: "fade",
+			fadeEffect: {
+				crossFade: true,
+			},
+			loop: false,
+			spaceBetween: 0,
+			freeMode: false,
+			slidesPerView: 1,
+			watchSlidesProgress: false,
+			thumbs: {
+				swiper: swiperThumbs,
+			},
+		});
+		swiperCaseText.controller.control = swiperCaseImg;
+		swiperCaseImg.controller.control = swiperCaseText;
 	}
 	initializeSwiperCaseSt();
 	document.addEventListener("astro:page-load", initializeSwiperCaseSt);
@@ -492,40 +552,33 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 		}
 	}
 </style>
-<style lang="scss"></style>
+
 <style lang="scss">
-	.swiper {
-		height: 100%;
-		width: 100%;
-	}
-	.swiper-wrapper {
-		@apply mx-auto;
-	}
-
-	.swiper-container {
-		@apply relative overflow-hidden z-20;
-	}
-
-	.swiper-slide {
-		@apply text-left text-base flex flex-row justify-between items-center;
-		h3 {
-			@apply text-xxl font-bold mt-4 mb-4;
-		}
-		p {
-			@apply text-base text-center max-w-3xl mx-auto;
-		}
-	}
-	.myCaseStudyThumbs .swiper-slide{
+	.myCaseStudyThumbs .swiper-slide {
 		@apply border-2 border-transparent transition-all duration-300;
+		img {@apply w-full}
 	}
 	.myCaseStudyThumbs .swiper-slide-thumb-active {
 		@apply border-2 border-dustyred-400 transition-all duration-300;
 	}
+.myCaseStudyImg {img {@apply w-full}}
+	.myCaseStudyText {
+		.swiper-slide {
+			@apply text-left text-base gap-2 justify-center items-start;
+			h3 {
+				@apply text-xxl font-bold mt-4 mb-4;
+			}
+			p {
+				@apply text-base text-left w-full mx-auto;
+			}
+			img {
+				@apply w-full;
+			}
+		}
 
-	.myCaseStudy {
 		.col1,
 		.col2 {
-			@apply w-1/2;
+			@apply w-full lg:w-1/2;
 		}
 		.col2 {
 			@apply text-left;
@@ -534,7 +587,7 @@ import CsCimeAvocats from "../assets/img/cs-cime-avocats.png";
 			}
 		}
 		ul {
-			@apply flex flex-col flex-wrap gap-2 mb-6 mt-4 max-h-28;
+			@apply flex xl:flex-col flex-row flex-wrap gap-2 mb-4 mt-4 max-h-20;
 			li {
 				@apply flex flex-row items-center gap-2 font-bold;
 			}
