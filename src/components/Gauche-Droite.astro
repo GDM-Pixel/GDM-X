@@ -18,7 +18,7 @@ const { subtitle, title, intro, body, imgsrc, imgalt, reverse } = Astro.props;
 <div class="container gauche-droite">
 	<div class={reverse ? "lg:flex lg:flex-row-reverse gap-8" : "lg:flex lg:flex-row gap-8"}>
 		<div class="col lg:w-1/2">
-			<span class="h6">{subtitle}</span>
+			<span class="subtitle text-dustyred-400">{subtitle}</span>
 			<h2>{title}</h2>
 			<div class="sepcontainer mb-4">
 				<svg
@@ -59,9 +59,7 @@ const { subtitle, title, intro, body, imgsrc, imgalt, reverse } = Astro.props;
       
 	}
 	}
-	.h6 {
-		@apply text-dustyred-400 text-sm font-semibold uppercase mb-4 block;
-	}
+	
 	h2 {
 		@apply text-prussian-400 md:text-xxxl text-xl font-bold mb-4;
 	}

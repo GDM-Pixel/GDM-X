@@ -39,8 +39,8 @@ import Repere from "../components/Repere.astro";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
-		<link rel="preload" href="/img/HeroBoxCreasite.webp" as="image">
-		<link rel="preload" href="/img/contact-hero-bck.webp" as="image">
+		<link rel="preload" href="/img/HeroBoxCreasite.webp" as="image" />
+		<link rel="preload" href="/img/contact-hero-bck.webp" as="image" />
 	</head>
 	<body>
 		<slot />
@@ -48,7 +48,9 @@ import Repere from "../components/Repere.astro";
 		<Repere />
 		<script src="/js/gdm-goto.js" is:inline></script>
 		<style is:global lang="scss">
-			body {overflow-x: clip;}
+			body {
+				overflow-x: clip;
+			}
 			.section-header h2.section-title,
 			.section-header.dark h2.section-title2 {
 				@apply md:text-xxxl text-xl;
@@ -62,7 +64,7 @@ import Repere from "../components/Repere.astro";
 			}
 			@media screen and (max-width: 767px) {
 				.container {
-					@apply max-w-full;
+					@apply max-w-full px-6;
 				}
 			}
 
@@ -110,7 +112,7 @@ import Repere from "../components/Repere.astro";
 				width: 100px;
 			}
 			.section-header {
-				@apply flex flex-col justify-center font-bold text-center items-center  mb-10 max-w-3xl mx-auto;
+				@apply flex flex-col justify-center font-bold text-center items-center px-6  mb-10 max-w-3xl mx-auto;
 				h2 {
 					@apply text-xxxl mb-4;
 				}
@@ -121,8 +123,11 @@ import Repere from "../components/Repere.astro";
 					}
 				}
 				&.left {
-					@apply text-left block max-w-full;
+					@apply text-left px-0 block max-w-full;
 				}
+			}
+			.subtitle {
+				@apply font-semibold uppercase mb-6;
 			}
 		</style>
 		<style>
@@ -166,6 +171,11 @@ import Repere from "../components/Repere.astro";
 				100% {
 					opacity: 0;
 					transform: translateX(-200px);
+				}
+			}
+			@media (max-width: 640px) {
+				html {
+					font-size: 14px; 
 				}
 			}
 		</style>

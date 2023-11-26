@@ -18,6 +18,7 @@ import HomeBlogSlider from "../components/HomeBlogSlider.astro";
 import CaseStudySlider from "../components/CaseStudySlider.astro";
 import ProcessTravailSlider from "../components/ProcessTravailSlider.astro";
 import TestimonialSlider from "../components/TestimonialSlider.astro";
+import CTABand from "../components/CTABand.astro";
 const faqItems = [
 	{
 		question: "Q : Combien coûte la création d’un site internet ?",
@@ -71,6 +72,7 @@ const faqItems = [
 	<Header />
 	<HeroBoxCreasite />
 	<main>
+		
 		<!-- REASSURANCE -->
 		<div class="reassurance" transition:animate={animations.animInFromBottom}>
 			<div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
@@ -112,9 +114,9 @@ const faqItems = [
 			reverse={true}
 		/>
 		<section
-			class="nos-services bg-gradient-to-b from-[#1B3751] to-[#232634] py-32 my-16">
+			class="nos-services bg-gradient-to-b from-[#1B3751] to-[#232634] py-24">
 			<div class="section-header dark">
-				<span class="subtitle font-normal uppercase text-moonstone-400"
+				<span class="subtitle text-moonstone-400"
 					>Nos services</span
 				>
 				<h2 class="section-title">
@@ -124,9 +126,9 @@ const faqItems = [
 			</div>
 			<TabNavigationCreasite />
 		</section>
-		<section class="row bg-white pt-12 pb-16 process">
+		<section class="row bg-white pt-24 pb-16 process">
 			<div class="section-header">
-				<span class="subtitle font-semibold uppercase text-moonstone-400"
+				<span class="subtitle text-moonstone-400"
 					>Nos services</span
 				>
 				<h2 class="section-title">Notre processus de travail</h2>
@@ -134,20 +136,10 @@ const faqItems = [
 			</div>
 			<ProcessTravailSlider />
 		</section>
-		<section class="bg-prussian-400">
-			<div class="container text-white flex justify-between pt-12 pb-12">
-				<div class="col1">
-					<h2 class="text-white">
-						Vous voulez en savoir plus sur nos process ?
-					</h2>
-					<p>Prenez contact avec nous, et on vous expliquer tout !</p>
-				</div>
-				<a href="#" class="cta red self-center">En savoir plus</a>
-			</div>
-		</section>
+		<CTABand />
 		<section class="case-study container py-20">
 			<div class="section-header left">
-				<span class="h6 text-dustyred-400 uppercase font-semibold mb-6 block"
+				<span class="subtitle text-dustyred-400 block"
 					>Etudes de cas</span
 				>
 				<h2 class="section-title">
@@ -160,9 +152,9 @@ const faqItems = [
 		</section>
 
 		<section
-			class="testimonials bg-gradient-to-b from-[#1B3751] to-[#232634] py-32 my-16">
+			class="testimonials bg-gradient-to-b from-[#1B3751] to-[#232634] py-24 my-16">
 			<div class="section-header dark">
-				<span class="subtitle font-normal uppercase text-moonstone-400"
+				<span class="subtitle text-moonstone-400"
 					>Témoignages de clients</span>
 				<h2 class="section-title">
 					Ils ont travaillé avec nous,<br/> et ils en parlent !
@@ -241,7 +233,7 @@ const faqItems = [
 	}
 
 	.reassurance {
-		@apply mx-auto xxl:-mt-20 xl:-mt-16 -mt-12 relative z-10 container;
+		@apply mx-auto xxl:-mt-20 xl:-mt-12 -mt-12 relative z-10 container;
 	}
 	.tab-content {
 		@apply bg-dustyred-500;

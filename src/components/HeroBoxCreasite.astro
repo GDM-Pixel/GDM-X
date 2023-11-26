@@ -11,7 +11,7 @@ import { Image } from "astro:assets";
 <section class="herobox">
 	<div class="container" transition:animate={animations.myFadeSlide}>
 		<h1>Création de site internet à Caen</h1>
-		<p class="baseline">De l'Idée à l'Impact<br /><span class="text-xxl">Donnez Vie à Votre Projet Digital</span></p>
+		<p class="baseline">De l'Idée à l'Impact<br /><span class="subline">Donnez Vie à Votre Projet Digital</span></p>
 		<p class="intro mb-4">
 			Nous façonnons votre vision en un site web dynamique et engageant pour propulser votre marque sur le web
 		</p>
@@ -25,23 +25,26 @@ import { Image } from "astro:assets";
 </section>
 <style lang="scss">
 	.herobox {
-		background: url("/img/HeroBoxCreasite.webp") no-repeat center
-			center;
-		@apply relative  overflow-clip bg-cover bg-center flex flex-col justify-center items-center text-white xl:aspect-[16/6] lg:aspect-[16/7.5] md:aspect-[16/10] sm:aspect-[16/12] xs:aspect-[16/16] mt-0 z-0;
+		background: url("/img/HeroBoxCreasite.webp");
+		@apply bg-no-repeat relative overflow-clip bg-contain bg-center flex flex-col justify-center items-center text-white xl:aspect-[16/6] lg:aspect-[16/7.5] md:aspect-[16/10] sm:aspect-[16/12] aspect-[16/20] mt-0 z-0;
 		.container {
-			@apply -mt-10 md:max-w-7xl sm:max-w-6xl sm:text-left xs:w-full xs:max-w-full xs:text-center;
+			@apply -mt-10 md:max-w-7xl sm:max-w-6xl sm:text-left xs:w-full max-w-full text-center;
 		}
 		h1 {
-			@apply text-base font-bold uppercase text-dustyred-400 mb-2;
+			@apply text-base font-bold uppercase text-dustyred-400 mb-4;
 		}
 		.baseline {
-			@apply xl:text-[50px] lg:text-xxxxl md:text-xxxl sm:text-xxl xs:text-xl font-extrabold leading-[66px] uppercase text-white mb-4;
+			@apply xl:text-xxxxl lg:text-xxxxl md:text-xxxl sm:text-xxl xs:text-xl font-extrabold xl:leading-6 uppercase text-white mb-2;
+			.subline {
+				@apply xl:text-[30px] lg:text-xxxxl md:text-xxxl sm:text-xxl text-lg ;
+			}
 		}
 		.intro {
-			@apply max-w-xl text-lg xs:mx-auto sm:mr-auto sm:ml-0;
+			@apply max-w-xl text-md md:text-md lg:text-md mx-auto sm:mr-auto sm:ml-0;
 		}
+		.herolist {@apply hidden md:block}
 		.cta_container {
-			@apply mt-6 gap-4 flex sm:text-sm xs:text-xs md:text-base xs:mx-auto xs:justify-center sm:justify-start;
+			@apply mt-6 gap-4 flex sm:text-sm text-xs md:text-base mx-auto justify-center sm:justify-start;
 		}
 	}
 	.left-bg-clip-1 {
@@ -111,7 +114,7 @@ import { Image } from "astro:assets";
 	@media screen and (min-width: 640px) and (max-width: 767px) {
 		.herobox {
 			background-position: 39% 24%;
-			background-size: 163%;
+			background-size: cover;
 		}
 	
 	}
@@ -120,7 +123,7 @@ import { Image } from "astro:assets";
 	@media screen and (min-width: 768px) and (max-width: 1023px) {
 		.herobox {
 			background-position: 25% 26%;
-			background-size: 136%;
+			background-size: cover;
 		}
 	
 	}
@@ -137,6 +140,9 @@ import { Image } from "astro:assets";
 	@media screen and (min-width: 1280px) {
 		.left-bg-clip-1 {
 			clip-path: polygon(0 0, 100% 0, 68% 100%, 0% 100%);
+		}
+		.herobox {	
+			background-size: cover;
 		}
 	}
 </style>
