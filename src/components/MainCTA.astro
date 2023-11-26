@@ -7,7 +7,7 @@ import confCallMan from "../assets/img/confcall-man.png";
 <section class="maincta">
     <div class="mouse-overlay"></div>
 	<div class="flex lg:justify-center lg:gap-6 flex-col lg:flex-row gap-12 px-6">
-		<div class="col1">
+		<div class="col1" id="questionhave">
 			<span class="h2">Une question ? Un doute ?</span>
 			<span class="call">
 				<i class="fa-sharp fa-solid fa-phone"></i> Appelez au 09.77.21.66.80</span
@@ -21,7 +21,7 @@ import confCallMan from "../assets/img/confcall-man.png";
 				<a href="#" class="cta red">Demander un RDV</a>
 			</div>
 		</div>
-		<div class="col2">
+		<div class="col2" id="prettypics">
 			<div class="imgcontainer ccman">
 				<Image
 					class="confcallman"
@@ -79,9 +79,9 @@ if (overlay) {
 }
 
 function animateCol1() {
-  gsap.from('.maincta .col1', {
+  gsap.from('#questionhave', {
     scrollTrigger: {
-      trigger: '.maincta .col1',
+      trigger: '#questionhave',
       start: 'top bottom', // lorsque le haut de l'élément atteint le centre du viewport
       end: 'bottom center', // lorsque le bas de l'élément atteint le centre du viewport
       scrub: true,
@@ -94,9 +94,9 @@ function animateCol1() {
     ease: 'ease-in-out',
   });
   
-   gsap.from('.maincta .col2', {
+   gsap.from('#prettypics', {
     scrollTrigger: {
-      trigger: '.maincta .col2',
+      trigger: '#prettypics',
       start: 'top bottom',
       end: 'center center',
       scrub: true, 
@@ -108,8 +108,6 @@ function animateCol1() {
     ease: 'ease-in-out',
   });
 }
-
-
 setupMouseMovement();
 document.addEventListener('astro:page-load', () => {
   setupMouseMovement();
