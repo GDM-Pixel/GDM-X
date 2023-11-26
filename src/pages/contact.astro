@@ -42,7 +42,7 @@ import * as animations from "../components/animations.js";
 						<h2 class="section-title">Demande de renseignement</h2>
 						<PixelSeparator />
 					</div>
-					<form id="contact-form" class="grid grid-cols-2 gap-6" >
+					<form id="contact-form" class="grid grid-cols-2 gap-6" method="POST">
 						<input type="hidden" name="contact_number" />
 						<input type="text" name="user_name" placeholder="Nom" />
 						<input type="email" name="user_mail" placeholder="E-mail" />
@@ -58,78 +58,58 @@ import * as animations from "../components/animations.js";
 							class="col-span-2"
 						/>
 					</form>
+				</div>
 
-					<div id="success-message">
-						<img
-							src="https://media0.giphy.com/media/E8rJEUMGs9cyWEtNXT/giphy.gif?cid=ecf05e47sb2icuh3cndpy6sdvvo5p27ff3o34zulu8hb8djn&ep=v1_gifs_related&rid=giphy.gif&ct=g"
-							width="300"
-							height="300"
-							loading="lazy"
-						/><p class="mt-6">
-							Merci, nous avons reçu votre demande et vous répondrons sous peu.
-						</p>
-					</div>
+				<div id="success-message">
+					<img
+						src="https://media0.giphy.com/media/E8rJEUMGs9cyWEtNXT/giphy.gif?cid=ecf05e47sb2icuh3cndpy6sdvvo5p27ff3o34zulu8hb8djn&ep=v1_gifs_related&rid=giphy.gif&ct=g"
+						width="300"
+						height="300"
+						loading="lazy"
+					/><p class="mt-6">
+						Merci, nous avons reçu votre demande et vous répondrons sous peu.
+					</p>
 				</div>
 			</div>
 		</div>
 	</main>
-
 	<Footer />
 </Layout>
+
 <script>
 	import { gsap } from "gsap";
-	import emailjs from "emailjs-com";
-	emailjs.init("wQEDFvRepXlQSSh9w");
-	window.onload = function () {
-		//@ts-ignore
-		document
-			.getElementById("contact-form")
-			.addEventListener("submit", function (event) {
-				event.preventDefault();
+</script>
+<script>
+	//@ts-ignore
+	document
+		.getElementById("contact-form")
+		.addEventListener("submit", function (event) {
+			event.preventDefault(); // Empêche l'envoi du formulaire de manière traditionnelle
+			//@ts-ignore
+			const formData = new FormData(event.target);
+			const formObject = {};
+			//@ts-ignore
+			formData.forEach((value, key) => {
 				//@ts-ignore
-				emailjs.sendForm("service_ggmx5dv", "template_rijsi5a", this).then(
-					function () {
-						console.log("SUCCESS!");
-						gsap
-							.fromTo(
-								"#success-message",
-								{ top: "-500px", autoAlpha: 0 },
-								{ duration: 0.5, autoAlpha: 1 },
-							)
-							.then(() => {
-								return gsap.to("#success-message", {
-									duration: 0.5,
-									delay: 3,
-									top: "-500px",
-									autoAlpha: 0,
-								});
-							});
-					},
-					function (error) {
-						console.log("FAILED...", error);
-					},
-				);
+				formObject[key] = value;
 			});
-		//@ts-ignore
-		document
-			.getElementById("test-button")
-			.addEventListener("click", function () {
-				gsap
-					.fromTo(
-						"#success-message",
-						{ top: "0", autoAlpha: 0 },
-						{ duration: 0.7, top: "50%", autoAlpha: 1 },
-					)
-					.then(() => {
-						return gsap.to("#success-message", {
-							duration: 0.7,
-							delay: 3,
-							top: "0",
-							autoAlpha: 0,
-						});
-					});
-			});
-	};
+			fetch("/.netlify/functions/triggerContactEmail", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formObject),
+			})
+				.then((response) => response.json())
+				.then((data) => {
+					console.log(data);
+					// Ici, vous pouvez gérer la réponse de votre fonction, comme afficher un message de succès
+				})
+				.catch((error) => {
+					console.error("Error:", error);
+					// Gérez les erreurs ici également
+				});
+		});
 </script>
 <style lang="scss">
 	main {
