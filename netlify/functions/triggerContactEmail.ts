@@ -42,9 +42,9 @@ try {
 const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
   method: 'POST',
   headers: {
-    //'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}`,
-    //'Content-Type': 'application/json',
-    "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET as string,
+    'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}`,
+    'Content-Type': 'application/json',
+    //"netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET as string,
   },
   body: JSON.stringify(data),
 });
