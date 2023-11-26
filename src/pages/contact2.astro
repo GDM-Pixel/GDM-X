@@ -5,12 +5,13 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import PixelSeparator from "../components/PixelSeparator.astro";
 import Footer from "../components/Footer.astro";
-import * as animations from '../components/animations.js';
+import * as animations from "../components/animations.js";
 ---
+
 <Layout
 	title="Bienvenue à bord, capitaine."
 	description="Ceci est la meta description">
-	<Header/>
+	<Header />
 	<section class="herobox medium">
 		<div class="container" transition:animate={animations.myFadeSlide}>
 			<h1>Nous contacter</h1>
@@ -26,8 +27,7 @@ import * as animations from '../components/animations.js';
 		</div>
 	</section>
 
-	
-	<main class="-mt-16" >
+	<main class="-mt-16">
 		<div class="container mx-auto max-w-6xl">
 			<div class="grid grid-cols-12 gap-6 p-12 shadow-2xl bg-white rounded-lg">
 				<div class="col1 col-span-5 flex flex-col justify-center">
@@ -42,42 +42,52 @@ import * as animations from '../components/animations.js';
 						<h2 class="section-title">Demande de renseignement</h2>
 						<PixelSeparator />
 					</div>
-<form id="contact-form" class="grid grid-cols-2 gap-6" action="/.netlify/functions/triggerContactEmails" method="POST"></form>
-    <input type="hidden" name="contact_number" />
-    <input type="text" name="user_name" placeholder="Nom" />
-    <input type="email" name="user_mail" placeholder="E-mail" />
-    <input type="text" name="user_phone" placeholder="Téléphone" />
-    <input type="text" name="demande" placeholder="Objet" />
-    <textarea name="message" placeholder="Votre message" class="col-span-2"></textarea>
-    <input type="submit" value="Envoyer votre demande" class="col-span-2" />
-</form>
+					<form
+						id="contact-form"
+						class="grid grid-cols-2 gap-6"
+						action="/.netlify/functions/triggerContactEmails"
+						method="POST">
 					
-					<div id="success-message">
-						<img
-							src="https://media0.giphy.com/media/E8rJEUMGs9cyWEtNXT/giphy.gif?cid=ecf05e47sb2icuh3cndpy6sdvvo5p27ff3o34zulu8hb8djn&ep=v1_gifs_related&rid=giphy.gif&ct=g"
-							width="300"
-							height="300"
-							loading="lazy"
-						/><p class="mt-6">
-							Merci, nous avons reçu votre demande et vous répondrons sous peu.
-						</p>
-					</div>
+					<input type="hidden" name="contact_number" />
+					<input type="text" name="user_name" placeholder="Nom" />
+					<input type="email" name="user_mail" placeholder="E-mail" />
+					<input type="text" name="user_phone" placeholder="Téléphone" />
+					<input type="text" name="demande" placeholder="Objet" />
+					<textarea
+						name="message"
+						placeholder="Votre message"
+						class="col-span-2"></textarea>
+					<input
+						type="submit"
+						value="Envoyer votre demande"
+						class="col-span-2"
+					/></form>
+				</div>
+
+				<div id="success-message">
+					<img
+						src="https://media0.giphy.com/media/E8rJEUMGs9cyWEtNXT/giphy.gif?cid=ecf05e47sb2icuh3cndpy6sdvvo5p27ff3o34zulu8hb8djn&ep=v1_gifs_related&rid=giphy.gif&ct=g"
+						width="300"
+						height="300"
+						loading="lazy"
+					/><p class="mt-6">
+						Merci, nous avons reçu votre demande et vous répondrons sous peu.
+					</p>
 				</div>
 			</div>
 		</div>
 	</main>
-
 	<Footer />
 </Layout>
+
+
+
 <script>
 	import { gsap } from "gsap";
-	
-	
 </script>
 <style lang="scss">
 	main {
 		padding: 1rem 1rem 4rem 1rem;
-		
 	}
 	#success-message {
 		@apply fixed bg-prussian-700 text-center text-white p-8 rounded-md border-solid border-2 border-white flex flex-col items-center w-[300px] mx-auto transform -translate-x-1/2 -translate-y-full left-1/2 -top-28 z-20;
@@ -106,11 +116,14 @@ import * as animations from '../components/animations.js';
 		}
 	}
 	#contact-form {
-		input,textarea {
+		input,
+		textarea {
 			@apply px-4 py-3 rounded-md border border-solid border-prussian-100 border-opacity-20;
 		}
-		textarea {@apply min-h-[120px];}
-		input[type='submit'] {
+		textarea {
+			@apply min-h-[120px];
+		}
+		input[type="submit"] {
 			@apply bg-dustyred-400 text-white font-bold text-base px-4 py-3 rounded-md cursor-pointer normal-case hover:bg-moonstone-500 transition-all;
 		}
 	}
