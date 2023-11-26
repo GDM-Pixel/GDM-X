@@ -18,28 +18,38 @@ const handler: Handler = async function(event) {
   message: string;       // Correspond à "message"
 };
 
-  //automatically generated snippet from the email preview
-  //sends a request to an email handler for a subscribed email
-  await fetch(`${process.env.URL}/.netlify/functions/emails/subscribed`, {
-    headers: {
-      "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET as string,
-    },
-    method: "POST",
-    body: JSON.stringify({
-      from: requestBody.userEmail,
-      to: "charles@gdm-pixel.fr",
-      subject: "Message sur GDM-Pixel.fr",
-      parameters: {
-        name: requestBody.userName,
-        email: requestBody.userEmail,
+try {
+    const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
+      headers: {
+        "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET as string,
       },
-    }),
-  });
+      method: "POST",
+      body: JSON.stringify({
+        from: requestBody.userEmail,
+        to: "charles@gdm-pixel.fr",
+        subject: "Message sur GDM-Pixel.fr",
+        parameters: {
+          name: requestBody.userName,
+          email: requestBody.userEmail,
+        },
+      }),
+    });
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify("Mail envoyé !"),
-  };
+    const responseData = await response.text(); // ou response.json() si la réponse est en JSON
+
+    console.log('SendGrid response:', responseData);
+
+    return {
+      statusCode: 200,
+      body: responseData,
+    };
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: 'Error sending email', error: error }),
+    };
+  }
 };
 
 export { handler };
