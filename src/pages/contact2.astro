@@ -45,7 +45,6 @@ import * as animations from "../components/animations.js";
 					<form
 						id="contact-form"
 						class="grid grid-cols-2 gap-6"
-						action="/.netlify/functions/triggerContactEmail"
 						method="POST">
 					
 					<input type="hidden" name="contact_number" />
@@ -84,6 +83,33 @@ import * as animations from "../components/animations.js";
 
 <script>
 	import { gsap } from "gsap";
+</script>
+<script>
+	//@ts-ignore
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche l'envoi du formulaire de manière traditionnelle
+	//@ts-ignore
+    const formData = new FormData(event.target);
+    const formObject = {};
+	//@ts-ignore
+    formData.forEach((value, key) => { formObject[key] = value; });
+    fetch('/.netlify/functions/triggerContactEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formObject),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // Ici, vous pouvez gérer la réponse de votre fonction, comme afficher un message de succès
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Gérez les erreurs ici également
+    });
+  });
 </script>
 <style lang="scss">
 	main {
