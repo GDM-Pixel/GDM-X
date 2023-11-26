@@ -167,7 +167,7 @@ import "astro-breadcrumbs/breadcrumbs.css";
 						</a>
 					</li>
 					<li><a href="/creation-site/">Création de site</a></li>
-					<li><a href="/creer-ecommerce/">E-commerce</a></li>
+					<li><a href="/creation-site/creer-ecommerce/">E-commerce</a></li>
 					<li><a href="/refercenement/">Référencement</a></li>
 					<li><a href="/webmarketing/">Webmarketing</a></li>
 					<li><a href="/articles/">Le Blog</a></li>
@@ -224,6 +224,8 @@ import "astro-breadcrumbs/breadcrumbs.css";
 			});
 		});
 
+		
+
 		const menuButton = document.querySelector("#hambBtn");
 		const closeButton = document.querySelector(".gdm-close-btn");
 		const closeOverlay = document.querySelector(".mobile-menu-overlay");
@@ -235,6 +237,16 @@ import "astro-breadcrumbs/breadcrumbs.css";
 		closeButton.addEventListener("click", toggleMenu);
 		//@ts-ignore
 		closeOverlay.addEventListener("click", toggleMenu);
+		// Récupérer tous les liens de la navigation mobile
+    	const mobileNavLinks = document.querySelectorAll('#mobile-nav a');
+		 // Ajouter un écouteur d'événements pour chaque lien
+    	mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Appeler toggleMenu pour fermer la navigation mobile
+            toggleMenu();
+        });
+    });
+
 	}
 
 	document.addEventListener("DOMContentLoaded", setup);
@@ -250,20 +262,13 @@ import "astro-breadcrumbs/breadcrumbs.css";
 		//@ts-ignore
 		const isMenuVisible = navBlack.classList.contains("activated");
 
-		// Basculer la classe 'visible' sur chaque élément de navigation
-		[navBlack, navRed, navWhite, overlay].forEach((nav) => {
-			if (isMenuVisible) {
-				//@ts-ignore
-				nav.classList.remove("activated");
-				//@ts-ignore
-				overlay.style.opacity = "0";
-			} else {
-				//@ts-ignore
-				nav.classList.add("activated");
-				//@ts-ignore
-				overlay.style.opacity = "1";
-			}
-		});
+		// Basculer la classe 'activated' sur chaque élément de navigation
+    [navBlack, navRed, navWhite, overlay].forEach(nav => {
+		//@ts-ignore
+        nav.classList.toggle("activated", !isMenuVisible);
+		//@ts-ignore
+        overlay.style.opacity = isMenuVisible ? "0" : "1";
+    });
 	}
 </script>
 <style lang="scss" is:global>
@@ -422,7 +427,7 @@ import "astro-breadcrumbs/breadcrumbs.css";
 		width: 100%;
 		max-width: 360px;
 		min-width: 360px;
-		transition-delay: 0.4s;
+		transition-delay: 0s;
 	}
 
 	.gdm-nav-1.activated {
@@ -434,24 +439,24 @@ import "astro-breadcrumbs/breadcrumbs.css";
 		align-content: flex-end;
 		align-items: flex-end;
 		background-color: #445069;
-		transition-delay: 0.2s;
+		transition-delay: 0.1s;
 		width: 95%;
 	}
 
 	.gdm-nav-2.activated {
-		transition-delay: 0.2s;
+		transition-delay: 0.1s;
 	}
 
 	.gdm-nav-3 {
 		background-color: #232634;
 		padding: 40px;
 		position: relative;
-		transition-delay: 0s;
+		transition-delay: 0.2s;
 		width: 95%;
 	}
 
 	.gdm-nav-3.activated {
-		transition-delay: 0.4s;
+		transition-delay: 0.2s;
 	}
 
 	.gdm-close-btn {
