@@ -1,178 +1,128 @@
 ---
 // Accordion.astro
-let { items } = Astro.props;
+const { items, extraClass = "" } = Astro.props;
 ---
 
-<ul id="accordion" class="accordion">
+<div class={`accordion-wrapper ${extraClass}`}>
 	{
-		Array.isArray(items) &&
-			items.map(({ question, answer }, index) => (
-				<li class="accordion-item" aria-expanded="false">
-					<button type="button" class="accordion-button">
-						<span class="accordion-header">
-							{question}
-							<svg
-								width="28"
-								height="25"
-								viewBox="0 0 28 25"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<ellipse
-									cx="13.7904"
-									cy="12"
-									rx="8.19277"
-									ry="8"
-									fill="white"
-								/>
-								<path d="M14.3989 25C21.4695 25 27.2001 19.4043 27.2001 12.5C27.2001 5.5957 21.4695 0 14.3989 0C7.3282 0 1.59766 5.5957 1.59766 12.5C1.59766 19.4043 7.3282 25 14.3989 25ZM13.1987 16.7969V13.6719H9.99845C9.33338 13.6719 8.79833 13.1494 8.79833 12.5C8.79833 11.8506 9.33338 11.3281 9.99845 11.3281H13.1987V8.20312C13.1987 7.55371 13.7338 7.03125 14.3989 7.03125C15.0639 7.03125 15.599 7.55371 15.599 8.20312V11.3281H18.7993C19.4643 11.3281 19.9994 11.8506 19.9994 12.5C19.9994 13.1494 19.4643 13.6719 18.7993 13.6719H15.599V16.7969C15.599 17.4463 15.0639 17.9688 14.3989 17.9688C13.7338 17.9688 13.1987 17.4463 13.1987 16.7969Z" />
-							</svg>
-						</span>
-					</button>
-
-					<div class="accordion-content">
-						<div class="accordion-inner" set:html={answer} />
-					</div>
-				</li>
-			))
-	}
-</ul>
-
-<script type="module">
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    setupAccordion();
-  });
-
-  document.addEventListener('astro:page-load', setupAccordion);
-
-
-	function setupAccordion() {
-	class Accordion {
 		//@ts-ignore
-		constructor(element, options) {
+		items.map((item, index) => (
 			//@ts-ignore
-			this.element = element;
-			//@ts-ignore
-			this.items = Array.from(this.element.children).filter((child) =>
-			//@ts-ignore
-				child.classList.contains("accordion-item"),
-			);
-			//@ts-ignore
-			this.settings = Object.assign(
-				{
-					duration: 300,
-					exclusive: true,
-					onOpen: () => {},
-					onClose: () => {},
-				},
-				options,
-			);
+			<div key={index}>
+				<button
+					class={`accordion flex justify-between ${
+						item.isopen ? "active" : ""
+					}`}>
+					{item.title}
+					<svg
+						width="24"
+						height="25"
+						viewBox="0 0 24 25"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<path d="M12.0002 24.2344C18.6284 24.2344 24.0002 18.8625 24.0002 12.2344C24.0002 5.60625 18.6284 0.234375 12.0002 0.234375C5.37212 0.234375 0.000244141 5.60625 0.000244141 12.2344C0.000244141 18.8625 5.37212 24.2344 12.0002 24.2344ZM10.8752 16.3594V13.3594H7.87524C7.25181 13.3594 6.75024 12.8578 6.75024 12.2344C6.75024 11.6109 7.25181 11.1094 7.87524 11.1094H10.8752V8.10938C10.8752 7.48594 11.3768 6.98438 12.0002 6.98438C12.6237 6.98438 13.1252 7.48594 13.1252 8.10938V11.1094H16.1252C16.7487 11.1094 17.2502 11.6109 17.2502 12.2344C17.2502 12.8578 16.7487 13.3594 16.1252 13.3594H13.1252V16.3594C13.1252 16.9828 12.6237 17.4844 12.0002 17.4844C11.3768 17.4844 10.8752 16.9828 10.8752 16.3594Z" />
+					</svg>
+				</button>
+				<div class="panel" data-isopen={item.isopen ? "true" : "false"}>
+					<div class="accordion-content" set:html={item.answer} />
+				</div>
+			</div>
+		))
+	}
+</div>
 
-			this.init();
-		}
+<script>
+	function initAccordion() {
+		const allAccordionsGroups = document.querySelectorAll(".accordion-wrapper");
 
-		init() {
-			//@ts-ignore
-			this.items.forEach((item) => {
-				if (item.classList.contains("active")) {
-					item.querySelector(".accordion-content").style.display = "block";
+		allAccordionsGroups.forEach((wrapper) => {
+			const accordions = wrapper.querySelectorAll(".accordion");
+			const panels = wrapper.querySelectorAll(".panel");
+
+			accordions.forEach((accordionButton, index) => {
+				const panel = panels[index];
+				const isopen = panel.getAttribute("data-isopen") === "true";
+
+				// Initialiser le max-height pour les éléments ouverts par défaut
+				if (isopen) {
+					accordionButton.classList.add("active");
+					//@ts-ignore
+					panel.style.maxHeight = panel.scrollHeight + "px";
 				}
 
-				item
-					.querySelector(".accordion-header")
-					.addEventListener("click", () => {
-						const isActive = item.classList.contains("active");
-						if (!isActive) {
-							this.open(item);
-						} else {
-							this.close(item);
+				accordionButton.addEventListener("click", () => {
+					const isActive = accordionButton.classList.contains("active");
+
+					// Fermer les autres panneaux dans le même groupe
+					accordions.forEach((otherAccordion, idx) => {
+						const otherPanel = panels[idx];
+						if (otherAccordion !== accordionButton) {
+							otherAccordion.classList.remove("active");
+							//@ts-ignore
+							otherPanel.style.maxHeight = null;
 						}
 					});
+
+					// Basculer le panneau actuel
+					if (!isActive) {
+						accordionButton.classList.add("active");
+						//@ts-ignore
+						panel.style.maxHeight = panel.scrollHeight + "px";
+					} else {
+						accordionButton.classList.remove("active");
+						//@ts-ignore
+						panel.style.maxHeight = null;
+					}
+				});
 			});
-		}
-		//@ts-ignore
-		open(item) {
-			//@ts-ignore
-			if (this.settings.exclusive) {
-				this.closeAll();
-			}
-			const content = item.querySelector(".accordion-content");
-			const inner = content.querySelector(".accordion-inner");
-			//@ts-ignore
-			content.style.height = inner.scrollHeight + "px";
-			item.classList.add("active");
-			//@ts-ignore
-			if (this.settings.onOpen) {
-				//@ts-ignore
-				this.settings.onOpen.call(this, item);
-			}
-		}
-		//@ts-ignore
-		close(item) {
-			const content = item.querySelector(".accordion-content");
-			//@ts-ignore
-			content.style.height = "0";
-			item.classList.remove("active");
-			//@ts-ignore
-			if (this.settings.onClose) {
-				//@ts-ignore
-				this.settings.onClose.call(this, item);
-			}
-		}
-
-		closeAll() {
-			//@ts-ignore
-			this.items.forEach((item) => this.close(item));
-		}
+		});
 	}
-
-	// Usage
-	//@ts-ignore
-	const myAccordion = new Accordion(document.querySelector(".accordion"), {
-		duration: 300,
-		//@ts-ignore
-		onOpen: (item) => console.log("Opened", item),
-		//@ts-ignore
-		onClose: (item) => console.log("Closed", item),
-	});
-	}
-setupAccordion();
-document.addEventListener('astro:page-load', setupAccordion);
+	document.addEventListener("astro:content-ready", initAccordion);
+	document.addEventListener("astro:page-load", initAccordion);
 </script>
 
 <style lang="scss">
-	/* Style your accordion */
+	/* Style de l'accordéon avec effet de glissement */
 	.accordion {
+		@apply w-full bg-prussian-600 transition-all duration-300 ease-in-out border-b-2 border-prussian-100 text-left px-6 py-8 cursor-pointer font-semibold;
 	}
-	.accordion-header {
-		@apply flex justify-between px-6 py-10 font-semibold text-lg text-left gap-6;
+
+	.accordion svg {
+		@apply fill-moonstone-500 transition-all duration-500 ease-in-out rotate-0;
+	}
+	.accordion.active svg {
+		@apply fill-dustyred-200 transition-all duration-500 ease-in-out rotate-45;
+	}
+
+	.active {
+		color: white;
+		@apply bg-prussian-200 transition-all duration-300 ease-in-out text-white;
+	}
+	.accordion:hover {
+		@apply bg-prussian-500 transition-all duration-300 ease-in-out;
+	}
+
+	.clearaccordion {
+		@apply shadow-lg;
+		.accordion.active {
+			@apply bg-prussian-200 transition-all duration-300 ease-in-out;
+		}
+		.accordion:hover {
+			@apply bg-prussian-200 transition-all duration-300 ease-in-out;
+		}
+		.accordion {
+			@apply bg-white text-prussian-700 border-t border-prussian-400 border-solid;
+		}
+		& > div:first-child button {
+			@apply border-t-0;
+		}
+	}
+	.panel {
+    @apply max-h-0 overflow-hidden transition-all duration-300 border-b bg-white text-prussian-700;
 	}
 
 	.accordion-content {
-		@apply overflow-hidden transition-all duration-300 h-0 ease-in-out;
-	}
-	.accordion-inner {
-		@apply px-6 py-6 bg-white text-base text-prussian-400; /* Padding et autres styles appliqués ici */
-	}
-	
-	.accordion-item.active {
-		.accordion-content {
-			height: auto;
-		}
-	}
-	.accordion-button {
-		@apply w-full bg-prussian-600 transition-all duration-300 ease-in-out border-b-2 border-prussian-100;
-		&:hover {
-			@apply bg-prussian-500 transition-all duration-300 ease-in-out;
-		}
-		.accordion-header svg {
-			@apply fill-dustyred-400 transition-all duration-300 ease-in-out;
-		}
-	}
-	.accordion-item.active .accordion-button {
-		@apply bg-prussian-200 transition-all duration-300 ease-in-out;
-		.accordion-header svg {
-			@apply rotate-45 fill-moonstone-400 transition-all duration-300 ease-in-out;
-		}
+		padding: 18px;
+		background-color: white;
 	}
 </style>

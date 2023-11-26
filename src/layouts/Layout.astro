@@ -23,6 +23,7 @@ import Repere from "../components/Repere.astro";
 		<ViewTransitions />
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
+		<meta name="robots" content="noindex, nofollow" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
@@ -39,8 +40,10 @@ import Repere from "../components/Repere.astro";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
+		<link rel="preload" href="/img/hero-home-bck.webp" as="image" />
 		<link rel="preload" href="/img/HeroBoxCreasite.webp" as="image" />
 		<link rel="preload" href="/img/contact-hero-bck.webp" as="image" />
+		<link rel="preload" href="/img/HeroEcommerce.webp" as="image" />	
 	</head>
 	<body>
 		<slot />
@@ -129,6 +132,7 @@ import Repere from "../components/Repere.astro";
 			.subtitle {
 				@apply font-semibold uppercase mb-6;
 			}
+			.gauche-droite .col .body p {@apply mb-3;}
 		</style>
 		<style>
 			@keyframes fadeIn {
@@ -154,6 +158,10 @@ import Repere from "../components/Repere.astro";
 
 			@keyframes fadeInFromBottom {
 				0% {
+					opacity: 0;
+					transform: translateY(60px);
+				}
+				50% {
 					opacity: 0;
 					transform: translateY(60px);
 				}

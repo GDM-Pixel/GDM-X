@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 interface Props {
 	subtitle: string;
 	title: string;
@@ -8,7 +8,6 @@ interface Props {
 	imgsrc: ImageMetadata;
 	imgalt: string;
 	reverse: boolean;
-	
 }
 
 const { subtitle, title, intro, body, imgsrc, imgalt, reverse } = Astro.props;
@@ -16,7 +15,10 @@ const { subtitle, title, intro, body, imgsrc, imgalt, reverse } = Astro.props;
 
 <!-- GAUCHE DROITE -->
 <div class="container gauche-droite">
-	<div class={reverse ? "lg:flex lg:flex-row-reverse gap-8" : "lg:flex lg:flex-row gap-8"}>
+	<div
+		class={reverse
+			? "lg:flex lg:flex-row-reverse gap-8"
+			: "lg:flex lg:flex-row gap-8"}>
 		<div class="col lg:w-1/2">
 			<span class="subtitle text-dustyred-400">{subtitle}</span>
 			<h2>{title}</h2>
@@ -50,16 +52,20 @@ const { subtitle, title, intro, body, imgsrc, imgalt, reverse } = Astro.props;
 <!-- FIN DE GAUCHE DROITE -->
 <style lang="scss">
 	.container {
-		@apply mt-20 mb-20 ; 
-        .col {@apply  flex flex-col justify-center;}
+		@apply mt-20 mb-20;
+		.col {
+			@apply flex flex-col justify-center;
+			.body p {
+				@apply mb-3;
+			}
+		}
 	}
 	@media screen and (max-width: 767px) {
 		.container {
-		@apply mt-20 mb-20 max-w-full; 
-      
+			@apply mt-20 mb-20 max-w-full;
+		}
 	}
-	}
-	
+
 	h2 {
 		@apply text-prussian-400 md:text-xxxl text-xl font-bold mb-4;
 	}

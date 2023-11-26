@@ -1,0 +1,307 @@
+---
+import { Image } from "astro:assets";
+import Reassurance from "../../components/Reassurance.astro";
+import TeasingEcommerce from "/src/assets/img/teasingecommerce.png";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import HeroBoxEcommerce from "../../components/HeroBoxEcommerce.astro";
+import GaucheDroite from "../../components/Gauche-Droite.astro";
+import FlipBox from "../../components/FlipBox.astro";
+import PixelSeparator from "../../components/PixelSeparator.astro";
+import * as animations from "../../components/animations.js";
+import CaseStudyEcommerceSlider from "../../components/CaseStudyEcommerceSlider.astro";
+import logoGDM from "../../assets/img/logo-gdm-white.svg";
+import Accordion from "../../components/Accordion.astro";
+import NovaImage from "../../assets/img/nova.png";
+import Testislider from "../../components/Testislider.astro";
+import MainCTA from "../../components/MainCTA.astro";
+import HomeBlogSlider from "../../components/HomeBlogSlider.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="Page des composants" description="Ceci est la meta description">
+	<Header />
+	<HeroBoxEcommerce />
+	<main>
+		<!-- REASSURANCE -->
+		<div class="reassurance" transition:animate={animations.animInFromBottom}>
+			<div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+				<Reassurance
+					title="Expérience et expertise"
+					icon="fa-hat-wizard"
+					body="13 ans d'expérience en création de sites E-commerce"
+					color="prussian"
+				/>
+				<Reassurance
+					title="Approche sur mesure"
+					icon="fa-ruler"
+					body="Solutions sur mesure correspondant à vos besoins "
+					color="prussian"
+				/>
+				<Reassurance
+					title="Ergonomie et rapidité"
+					icon="fa-rocket-launch"
+					body="Nos sites sont conçus pour être rapides et pratiques"
+					color="prussian"
+				/>
+				<Reassurance
+					title="Sites et serveurs sécurisés"
+					icon="fa-shield-check"
+					body="Nous travaillons avec des hébergeurs fiables"
+					color="prussian"
+				/>
+			</div>
+		</div>
+		<!-- FIN DE REASSURANCE -->
+
+		<GaucheDroite
+			subtitle="A propos de nos sites e-commerce"
+			title="Vendez en Ligne Efficacement avec Nos Stratégies Infaillibles"
+			intro="Le E-commerce est une machine à Cash, quand on maitrise les leviers offerts par l’informatique"
+			body="<p>Nous sommes en 2023 et plus que jamais, le traitement automatique de l’information permet de réaliser des miracles !</p><p>De la rédaction des fiches produits, à l’acquisition et l’amélioration de l’expérience utilisateur, il existe de nombreux outis pour remplacer, assister ou accompagner sur la création et la gestion d’une boutique en ligne.</p><p class='mt-6'><strong>Travailler avec nous, ce n’est pas juste “créer une boutique en ligne”, c’est accéder à tous les leviers qui permettent de vendre massivement, partout dans le monde.</strong></p>  "
+			imgsrc={TeasingEcommerce}
+			imgalt="Création de site E-commerce à Caen"
+			reverse={false}
+		/>
+
+		<!-- REASSURANCE -->
+		<div class="row bg-gradient-to-b from-[#1B3751] to-[#232634] py-24">
+			<div class="container">
+				<div class="section-header dark">
+					<span class="subtitle text-moonstone-400">Nos Services</span>
+					<h2 class="section-title">
+						Pourquoi nos sites E-commerce sont meilleurs (oui, on assume)
+					</h2>
+					<PixelSeparator />
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<FlipBox
+						title="CMS"
+						bodyFront="Nous proposons des CMS Prestashop, Woocommerce ou Shopify, selon vos besoins."
+						bodyBack="C'est vous qui choisissez, mais nous sommes là pour vous conseiller."
+						icon="fa-gears"
+						color="moonstone"
+					/>
+					<FlipBox
+						title="Personnalisation"
+						bodyFront="Des interfaces sur-mesure pour refléter l'identité unique de votre marque"
+						bodyBack="Votre site est unique, comme votre entreprise et son idendité visuelle."
+						icon="fa-palette"
+						color="moonstone"
+					/>
+					<FlipBox
+						title="Capacité"
+						bodyFront="Gérez un inventaire allant de 10 à 100 000 produits sans compromettre les performances."
+						bodyBack="Nos solutions sont adaptées à votre catalogue, et évoluent avec vous."
+						icon="fa-database"
+						color="moonstone"
+					/>
+					<FlipBox
+						title="SEO"
+						bodyFront="Un site optimisé pour les moteurs de recherche dès sa conception, pour plus de trafic et de chiffre d’affaire."
+						bodyBack="Une stratégie d'acquisition de trafic est mise en place dès la conception de votre site."
+						icon="fa-chart-lineup"
+						color="moonstone"
+					/>
+					<FlipBox
+						title="Logistique"
+						bodyFront="Nous proposons des intégrations de solutions logistiques pour un processus d'achat fluide."
+						bodyBack="Nos partenaires logistiques vous accompagnent dans votre croissance."
+						icon="fa-truck-fast"
+						color="moonstone"
+					/>
+					<FlipBox
+						title="Formation"
+						bodyFront="Devenez autonome avec notre formation complète à l'utilisation de votre boutique."
+						bodyBack="Prenez les commandes en toute sérénité grâce à nos formations financées !"
+						icon="fa-graduation-cap"
+						color="moonstone"
+					/>
+				</div>
+				<div class="cta-container-centered">
+					<a href="#" class="cta blue">Poser une question</a><a
+						href="#"
+						class="cta red">Nous contacter</a
+					>
+				</div>
+			</div>
+		</div>
+
+		<section class="case-study container py-24">
+			<div class="section-header left">
+				<span class="subtitle text-dustyred-400 block">Etudes de cas</span>
+				<h2 class="section-title">
+					Quelques une de nos dernières créations (et leur contenu)
+				</h2>
+				<PixelSeparator />
+			</div>
+
+			<CaseStudyEcommerceSlider />
+		</section>
+
+		<section class="faqbox">
+			<div class="container">
+				<div class="section-header left dark">
+					<span class="h6 text-white uppercase font-semibold mb-6 block"
+						>FAQ</span
+					>
+					<h2 class="section-title">Réponses aux questions fréquentes</h2>
+					<PixelSeparator />
+				</div>
+
+				<div class="row flex flex-col md:flex-row gap-6">
+					<div class="faqcontainer">
+						<Accordion
+							items={[
+								{
+									title: "Q : Combien coûte la création d’un site internet ?",
+									answer:
+										"<p>R : Tout dépend de votre projet ! Le coût d’une création peut aller de quelques centaines à plusieurs milliers d’euros.</p><p>Je peux vous proposer une formule sur mesure, réalisée sur devis, ou bien une formule en abonnement mensuel, à partir de 29 € par mois. Tout est possible !</p>",
+									isopen: true,
+								},
+								{
+									title:
+										"Q : Pourquoi choisir GDM-Pixel plutôt qu’une autre agence ?",
+									answer:
+										"<p>R : Tout d’abord, en tant que webmaster freelance, mon but n’est pas de vous vendre un service, mais bien plutôt de vous orienter vers la meilleure solution pour votre problématique. Avant de démarrer un projet, je réalise conseil et audit afin de déterminer la meilleure stratégie, en fonction de votre secteur d’activité et de l’état du marché.</p><p>Je procède de la même façon pour les technologies à utiliser : je privilégie toujours le meilleur rapport qualité-prix.</p><p>J’ai également 10 ans d’expérience en création de site, et mon travail en centre de formation m’a amené à travailler sur toute sorte de projet. Je connais bien les problématiques rencontrées par les chefs d’entreprise pour communiquer sur le web, que ce soit à une échelle locale ou internationale.</p><p> Enfin, mon expériences en tant que membre de jury d’examen pour des formations de l’enseignement supérieur m’a conduit à avoir une vue d’ensemble de ce qu’est devenu le web au cours de ces dernières années : mon approche des métiers du web est basée à la fois sur mon expérience personnelle et sur celles de tous les intervenants avec qui je collabore (professionnels, enseignants, clients, élèves, prestataires de service).</p>",
+								},
+								{
+									title: "Q : Avec quel type de client travaillez-vous ?",
+									answer:
+										"<p>R : Je travaille principalement avec des PMI-PME, situées en France et en Europe, mais également à l’étranger (Suisse, Israël, Angleterre, États-Unis).</p><p>Mes solutions s’adressent à la fois aux petites sociétés et aux structures plus importantes qui ont besoin d’externaliser une partie de leur activité. Je sous traite ainsi avec plusieurs agences, lorsqu’elles font face à un surcroit d’activité ou qu’une compétence dont elles ont besoin n’est pas internalisée.</p>",
+								},
+								{
+									title:
+										"Q : Une création de site web peut-elle se faire à distance ?",
+									answer:
+										"<p>R : Une création de site Web se fait toujours à distance ! La réalisation d’un site passe par la création de fichiers multimédias, sur un ordinateur de bureau, qui seront ensuite mis en ligne sur un ordinateur, qu’il soit à 500 m ou à l’autre bout de la planète.</p><p>Je suis équipé des dernières technologies en matière de travail à distance (VOIP, partage d’écran, vidéo-conférence etc), ce qui me permet de collaborer avec des sociétés situées partout dans le monde.</p>",
+								},
+	
+	
+	
+							]}
+						/>
+					</div>
+					<div class="novacontainer glow" transition:persist>
+						<div class="novainner">
+							<div class="header-nova-box">
+								<Image
+									src={logoGDM}
+									width="230"
+									height="40"
+									alt="logo GDM-Pixel"
+									loading="lazy"
+								/>
+							</div>
+							<Image
+								src={NovaImage}
+								width="410"
+								height="273"
+								alt="Nova"
+								loading="lazy"
+							/>
+							<p>Vous ne trouvez pas de réponse à votre question ?</p>
+							<span class="ask">Demandez à NOVA</span>
+							<button class="cta red" onclick="openNova()"
+								>Posez votre question</button
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<Testislider />
+		<MainCTA />
+		<HomeBlogSlider />
+	</main>
+	<Footer />
+</Layout>
+
+<style lang="scss">
+	.container {
+		max-width: 1400px;
+	}
+
+	.reassurance {
+		@apply mx-auto xxl:-mt-20 xl:-mt-12 -mt-12 relative z-10 container;
+	}
+	.cta-container-centered {
+		@apply flex flex-col sm:flex-row items-center justify-center gap-4 mt-8;
+		.cta {
+			@apply w-52 text-center items-center;
+		}
+	}
+	.faqbox {
+		@apply bg-gradient-to-b from-[#1B3751] to-[#232634] py-24 text-white;
+		.faqcontainer {
+			@apply lg:w-2/3 md:w-3/5 rounded-md overflow-clip relative z-20;
+		}
+
+		.header-nova-box {
+			@apply px-4 py-6 flex justify-center;
+		}
+
+		.novacontainer {
+			@apply lg:w-1/3 md:w-2/5 rounded-lg relative md:self-start self-center
+		flex flex-col md:justify-start justify-center items-center transition-all duration-300 ease-in-out opacity-100 translate-y-0;
+			&.sticky {
+				@apply md:top-0 transition-all md:mb-24 duration-300 ease-in-out md:opacity-95 md:translate-y-20;
+				position: sticky;
+			}
+
+			.novainner {
+				@apply pt-4 pb-12 bg-prussian-600 relative z-10 flex flex-col justify-center items-center self-center;
+			}
+			img {
+				@apply w-full;
+			}
+			p {
+				@apply px-4 py-6 text-center text-md;
+			}
+			.ask {
+				@apply block text-center text-xl lg:text-xl xl:text-xxl uppercase font-bold mb-6;
+			}
+		}
+
+		.glow::before,
+		.glow::after {
+			content: "";
+			position: absolute;
+			left: -2px;
+			top: -2px;
+
+			background: linear-gradient(
+				45deg,
+				#0dffd7,
+				#0c67fa,
+				#217eff,
+				#00e1ff,
+				#cff7ff,
+				#23e9ff,
+				#0055ff,
+				#00d4f5,
+				#0dffd7
+			);
+			background-size: 400%;
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+
+			animation: animate 60s linear infinite;
+		}
+		@keyframes animate {
+			0% {
+				background-position: 0 0;
+			}
+			50% {
+				background-position: 300% 0;
+			}
+			100% {
+				background-position: 0 0;
+			}
+		}
+		.glow:after {
+			filter: blur(15px);
+			opacity: 0.5;
+		}
+	}
+</style>

@@ -1,0 +1,158 @@
+---
+import Icone from "../components/Icones.astro";
+interface Props {
+	title: string;
+	bodyFront: string;
+	bodyBack: string;
+	icon:
+		| "fa-check"
+		| "fa-circle-plus"
+		| "fa-envelope"
+		| "fa-location-dot"
+		| "fa-phone-solid"
+		| "fa-bell-concierge"
+		| "fa-browser"
+		| "fa-bullhorn"
+		| "fa-cart-shopping"
+		| "fa-chart-lineup"
+		| "fa-chart-mixed"
+		| "fa-chart-network"
+		| "fa-chess"
+		| "fa-circle-chevron-left"
+		| "fa-circle-chevron-right"
+		| "fa-clock-rotate-left"
+		| "fa-code"
+		| "fa-comments-question-check"
+		| "fa-database"
+		| "fa-desktop"
+		| "fa-display-code"
+		| "fa-envelope-circle-check"
+		| "fa-eye"
+		| "fa-file-certificate"
+		| "fa-file-contract"
+		| "fa-file-invoice"
+		| "fa-file-pdf"
+		| "fa-gauge-high"
+		| "fa-gear-complex-code"
+		| "fa-gears"
+		| "fa-graduation-cap"
+		| "fa-hat-wizard"
+		| "fa-heart"
+		| "fa-layer-group"
+		| "fa-list-check"
+		| "fa-magnifying-glass"
+		| "fa-messages-question"
+		| "fa-microchip"
+		| "fa-mobile-notch"
+		| "fa-paintbrush"
+		| "fa-palette"
+		| "fa-photo-film-music"
+		| "fa-rocket-launch"
+		| "fa-ruler"
+		| "fa-shield-check"
+		| "fa-truck-fast"
+		| "fa-user-gear"
+		| "fa-instagram"
+		| "fa-linkedin"
+		| "fa-square-facebook"
+		| "fa-square-x-twitter"
+		| "fa-x-twitter"
+		| "fa-youtube";
+	color: string;
+}
+const { title, bodyFront, bodyBack, icon, color } = Astro.props;
+
+---
+
+<div class="flip-box">
+	<div class="flip-box-inner">
+		<div class="flip-box-front">
+			<Icone icon={icon} color={color} size="small" />
+			<h3>{title}</h3>
+			<div class="bodyfront">{bodyFront}</div>
+		</div>
+		<div class="flip-box-back">
+			<Icone icon={icon} color="dustyred" size="tiny" />
+			<h4>{title}</h4>
+			<div class="bodyback">{bodyBack}</div>
+		</div>
+	</div>
+</div>
+
+<script>
+//@ts-ignore
+const frontHeight = document.querySelector('.flip-box-front').offsetHeight;
+//@ts-ignore
+const backHeight = document.querySelector('.flip-box-back').offsetHeight;
+const maxHeight = Math.max(frontHeight, backHeight);
+const flipBoxInner = document.querySelector('.flip-box-inner');
+//@ts-ignore
+flipBoxInner.style.minHeight = `${maxHeight}px`;
+</script>
+<style lang="scss">
+	.flip-box {
+		background-color: transparent;
+		width: 100%;
+		min-height: 250px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border: 1px #f1f1f1;
+		perspective: 1000px;
+		h3 {
+			@apply text-lg font-bold text-powder mb-2 mt-2;
+		}
+		h4 {
+			@apply text-md font-bold text-powder mb-2 mt-2;
+		}
+	}
+	.flip-box-inner {
+		position: relative;
+        display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		min-height: 100%;
+		text-align: center;
+		transition: transform 0.8s;
+		transform-style: preserve-3d;
+	}
+
+	.flip-box:hover .flip-box-inner {
+		transform: rotateY(180deg);
+	}
+
+	.flip-box-front,
+	.flip-box-back {
+        @apply border border-dashed border-powder;
+		position: absolute;
+		width: 100%;
+		min-height: 100%;
+        display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		-webkit-backface-visibility: hidden; /* Safari */
+		backface-visibility: hidden;
+        @apply p-6;
+	}
+
+	.flip-box-front {
+		background-color: transparent;color:white;
+        @apply z-10;
+		
+	}
+
+	.flip-box-back {
+        @apply bg-powder text-prussian-400;
+		transform: rotateY(180deg);
+        h4 {
+            @apply text-prussian-400;
+        }
+        svg {
+            @apply fill-dustyred-400;
+        }
+	}
+</style>

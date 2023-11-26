@@ -27,7 +27,7 @@ export const myFadeSlide = {
 
 export const animInFromBottomIn = {
     name: "fadeInFromBottom",
-    duration: "0.3s",
+    duration: "0.6s",
     easing: "ease-in-out",
     fillMode: "forwards",
    
