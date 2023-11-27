@@ -1,6 +1,6 @@
 import type { Handler } from "@netlify/functions";
 import fetch from "node-fetch";
-//@ts-ignore
+
 const handler: Handler = async function(event) {
   if (event.body === null) {
     return {
@@ -9,61 +9,40 @@ const handler: Handler = async function(event) {
     };
   }
 
- const requestBody = JSON.parse(event.body) as {
+  const requestBody = JSON.parse(event.body) as {
   contactNumber: string; // Correspond à "contact_number" dans le formulaire
   userName: string;      // Correspond à "user_name"
   userEmail: string;     // Correspond à "user_mail"
   userPhone: string;     // Correspond à "user_phone"
   demande: string;       // Correspond à "demande"
   message: string;       // Correspond à "message"
-};
+  };
 
-try {
-    const data = {
-  personalizations: [
-    {
-      to: [{ email: "charles@gdm-pixel.fr" }],
-      subject: requestBody.demande,
+  //automatically generated snippet from the email preview
+  //sends a request to an email handler for a subscribed email
+  await fetch(`${process.env.URL}/.netlify/functions/emails/contactus`, {
+    headers: {
+      "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET as string,
     },
-  ],
-  from: { email: "charles@gdm-pixel.fr" }, // Utilisez votre adresse email vérifiée par SendGrid
-  content: [
-    {
-      type: 'text/plain',
-      value: requestBody.message,
-    },
-    {
-      type: 'text/html',
-      value: `<p>${requestBody.message}</p>`, // Vous pouvez mettre ici le HTML de votre email
-    },
-  ],
-};
+    method: "POST",
+    body: JSON.stringify({
+      from: "charles@gdm-pixel.fr",
+      to: "charles@gdm-pixel.fr",
+      subject: "Vous avez un nouveau message",
+      parameters: {
+        userName: requestBody.userName,
+        userEmail: requestBody.userEmail,
+        userPhone: requestBody.userPhone,
+        demande: requestBody.demande,
+        message: requestBody.message
+      },
+    }),
+  });
 
-const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
-  method: 'POST',
-  headers: {
-    'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}`,
-    'Content-Type': 'application/json',
-    //"netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET as string,
-  },
-  body: JSON.stringify(data),
-});
-console.log(`Status Code: ${response.status}`);
-console.log(`Headers: ${JSON.stringify(response.headers)}`);
-const responseBody = await response.text(); // Use text to ensure you get raw response even if it's not JSON
-console.log(`Body: ${responseBody}`);
-const responseData = await response.text();
-
-console.log('SendGrid response:', responseData);
-  } 
-  
-  catch (error) {
-    console.error('Error sending email:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: 'Error sending email', error: error }),
-    };
-  }
+  return {
+    statusCode: 200,
+    body: JSON.stringify("Message envoyé"),
+  };
 };
 
 export { handler };

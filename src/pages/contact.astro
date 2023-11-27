@@ -43,10 +43,10 @@ import * as animations from "../components/animations.js";
 						<PixelSeparator />
 					</div>
 					<form id="contact-form" class="grid grid-cols-2 gap-6" method="POST">
-						<input type="hidden" name="contact_number" />
-						<input type="text" name="user_name" placeholder="Nom" />
-						<input type="email" name="user_mail" placeholder="E-mail" />
-						<input type="text" name="user_phone" placeholder="Téléphone" />
+						<input type="hidden" name="contactNumber" />
+						<input type="text" name="userName" placeholder="Nom" />
+						<input type="email" name="userEmail" placeholder="E-mail" />
+						<input type="text" name="userPhone" placeholder="Téléphone" />
 						<input type="text" name="demande" placeholder="Objet" />
 						<textarea
 							name="message"
@@ -84,20 +84,32 @@ import * as animations from "../components/animations.js";
 		.getElementById("contact-form")
 		.addEventListener("submit", function (event) {
 			event.preventDefault(); // Empêche l'envoi du formulaire de manière traditionnelle
-			//@ts-ignore
-			const formData = new FormData(event.target);
-			const formObject = {};
-			//@ts-ignore
-			formData.forEach((value, key) => {
-				//@ts-ignore
-				formObject[key] = value;
-			});
+			const target = event.target as typeof event.target & {
+				userName: { value: string };
+				userEmail: { value: string };
+				userPhone: { value: string };
+				demande: { value: string };
+				message: { value: string };
+			};
+
+			const data = {
+				userName: target.userName,
+				userEmail: target.userEmail,
+				userPhone: target.userPhone,
+				demande: target.demande,
+				message: target.message,
+			};
+
 			fetch("/.netlify/functions/triggerContactEmail", {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formObject),
+				body: JSON.stringify({
+					userName: data.userName,
+					userEmail: data.userEmail,
+					AdminEmail: "charles@gdm-pixel.fr",
+					userPhone: data.userPhone,
+					demande: data.demande,
+					message: data.message,
+				}),
 			})
 				.then((response) => response.json())
 				.then((data) => {
