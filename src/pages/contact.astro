@@ -93,11 +93,11 @@ import * as animations from "../components/animations.js";
 			};
 
 			const data = {
-				userName: target.userName,
-				userEmail: target.userEmail,
-				userPhone: target.userPhone,
-				demande: target.demande,
-				message: target.message,
+				userName: target["userName"].value,
+				userEmail: target["userEmail"].value,
+				userPhone: target["userPhone"].value,
+				demande: target["demande"].value,
+				message: target["message"].value,
 			};
 
 			fetch("/.netlify/functions/triggerContactEmail", {
