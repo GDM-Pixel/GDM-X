@@ -114,7 +114,7 @@ import * as animations from "../components/animations.js";
 				.then((response) => response.json())
 				.then((data) => {
 					console.log(data);
-					// Ici, vous pouvez gérer la réponse de votre fonction, comme afficher un message de succès
+					gsap.to("#success-message", { autoAlpha: 1, y: 60, duration: 1 });
 				})
 				.catch((error) => {
 					console.error("Error:", error);
