@@ -27,7 +27,7 @@ const handler: Handler = async function(event) {
     method: "POST",
     body: JSON.stringify({
       from: "charles@gdm-pixel.fr",
-      to: "charles@gdm-pixel.fr",
+      to: "gdmpixel.fr@gmail.com",
       subject: "Vous avez un nouveau message : " + requestBody.demande,
       parameters: {
         userName: requestBody.userName,
