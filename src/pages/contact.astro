@@ -57,6 +57,8 @@ import * as animations from "../components/animations.js";
 							value="Envoyer votre demande"
 							class="col-span-2"
 						/>
+						<!-- Bouton de test pour l'animation -->
+						<button id="test-success-btn">Tester l'animation Success</button>
 					</form>
 				</div>
 
@@ -77,50 +79,63 @@ import * as animations from "../components/animations.js";
 </Layout>
 <script>
 	import { gsap } from "gsap";
-</script>
-<script>
-	//@ts-ignore
-	document
-		.getElementById("contact-form")
-		.addEventListener("submit", function (event) {
-			event.preventDefault(); // Empêche l'envoi du formulaire de manière traditionnelle
-			const target = event.target as typeof event.target & {
-				userName: { value: string };
-				userEmail: { value: string };
-				userPhone: { value: string };
-				demande: { value: string };
-				message: { value: string };
-			};
+	function initializeForm() {
+		//@ts-ignore
+		document
+			.getElementById("contact-form")
+			.addEventListener("submit", function (event) {
+				event.preventDefault(); // Empêche l'envoi du formulaire de manière traditionnelle
+				const target = event.target as typeof event.target & {
+					userName: { value: string };
+					userEmail: { value: string };
+					userPhone: { value: string };
+					demande: { value: string };
+					message: { value: string };
+				};
 
-			const data = {
-				userName: target["userName"].value,
-				userEmail: target["userEmail"].value,
-				userPhone: target["userPhone"].value,
-				demande: target["demande"].value,
-				message: target["message"].value,
-			};
+				const data = {
+					userName: target["userName"].value,
+					userEmail: target["userEmail"].value,
+					userPhone: target["userPhone"].value,
+					demande: target["demande"].value,
+					message: target["message"].value,
+				};
 
-			fetch("/.netlify/functions/triggerContactEmail", {
-				method: "POST",
-				body: JSON.stringify({
-					userName: data.userName,
-					userEmail: data.userEmail,
-					AdminEmail: "charles@gdm-pixel.fr",
-					userPhone: data.userPhone,
-					demande: data.demande,
-					message: data.message,
-				}),
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					console.log(data);
-					gsap.to("#success-message", { autoAlpha: 1, y: 60, duration: 1 });
+				fetch("/.netlify/functions/triggerContactEmail", {
+					method: "POST",
+					body: JSON.stringify({
+						userName: data.userName,
+						userEmail: data.userEmail,
+						AdminEmail: "charles@gdm-pixel.fr",
+						userPhone: data.userPhone,
+						demande: data.demande,
+						message: data.message,
+					}),
 				})
-				.catch((error) => {
-					console.error("Error:", error);
-					// Gérez les erreurs ici également
-				});
-		});
+					.then((response) => response.json())
+					.then((data) => {
+						console.log(data);
+						gsap.to("#success-message", {
+							autoAlpha: 1,
+							y: 200,
+							duration: 0.5,
+						});
+						setTimeout(() => {
+							gsap.to("#success-message", {
+								autoAlpha: 0,
+								y: -30,
+								duration: 0.5,
+							});
+						}, 4000); 
+					})
+					.catch((error) => {
+						console.error("Error:", error);
+						// Gérez les erreurs ici également
+					});
+			});
+	}
+	initializeForm();
+	document.addEventListener("astro:page-load", initializeForm);
 </script>
 <style lang="scss">
 	main {
