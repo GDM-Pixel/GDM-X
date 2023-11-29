@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/old-path"
+  to = "https://www.google.fr"
+  status = 301

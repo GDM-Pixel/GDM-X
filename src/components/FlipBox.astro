@@ -61,7 +61,6 @@ interface Props {
 	color: string;
 }
 const { title, bodyFront, bodyBack, icon, color } = Astro.props;
-
 ---
 
 <div class="flip-box">
@@ -80,14 +79,14 @@ const { title, bodyFront, bodyBack, icon, color } = Astro.props;
 </div>
 
 <script>
-//@ts-ignore
-const frontHeight = document.querySelector('.flip-box-front').offsetHeight;
-//@ts-ignore
-const backHeight = document.querySelector('.flip-box-back').offsetHeight;
-const maxHeight = Math.max(frontHeight, backHeight);
-const flipBoxInner = document.querySelector('.flip-box-inner');
-//@ts-ignore
-flipBoxInner.style.minHeight = `${maxHeight}px`;
+	//@ts-ignore
+	const frontHeight = document.querySelector(".flip-box-front").offsetHeight;
+	//@ts-ignore
+	const backHeight = document.querySelector(".flip-box-back").offsetHeight;
+	const maxHeight = Math.max(frontHeight, backHeight);
+	const flipBoxInner = document.querySelector(".flip-box-inner");
+	//@ts-ignore
+	flipBoxInner.style.minHeight = `${maxHeight}px`;
 </script>
 <style lang="scss">
 	.flip-box {
@@ -109,7 +108,7 @@ flipBoxInner.style.minHeight = `${maxHeight}px`;
 	}
 	.flip-box-inner {
 		position: relative;
-        display: flex;
+		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
@@ -118,41 +117,41 @@ flipBoxInner.style.minHeight = `${maxHeight}px`;
 		text-align: center;
 		transition: transform 0.8s;
 		transform-style: preserve-3d;
+		backface-visibility: hidden;
 	}
 
 	.flip-box:hover .flip-box-inner {
 		transform: rotateY(180deg);
+		backface-visibility: hidden;
 	}
 
 	.flip-box-front,
 	.flip-box-back {
-        @apply border border-dashed border-powder;
+		@apply border border-dashed border-powder;
 		position: absolute;
 		width: 100%;
 		min-height: 100%;
-        display: flex;
+		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		-webkit-backface-visibility: hidden; /* Safari */
 		backface-visibility: hidden;
-        @apply p-6;
+		@apply p-6;
 	}
 
 	.flip-box-front {
-		background-color: transparent;color:white;
-        @apply z-10;
-		
+		@apply z-10  text-white;
 	}
 
 	.flip-box-back {
-        @apply bg-powder text-prussian-400;
+		@apply bg-powder text-prussian-400;
 		transform: rotateY(180deg);
-        h4 {
-            @apply text-prussian-400;
-        }
-        svg {
-            @apply fill-dustyred-400;
-        }
+		h4 {
+			@apply text-prussian-400;
+		}
+		svg {
+			@apply fill-dustyred-400;
+		}
 	}
 </style>
