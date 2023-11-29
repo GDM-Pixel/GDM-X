@@ -93,26 +93,31 @@ import * as animations from "../components/animations.js";
     const emailInput = form.querySelector('input[name="userEmail"]');
 	//@ts-ignore
     const messageTextarea = form.querySelector('textarea[name="message"]');
-    let errorDiv = form.querySelector('.error-message'); // Ajout d'une classe pour le div d'erreur
+    //@ts-ignore
+	let errorDiv = form.querySelector('.error-message'); // Ajout d'une classe pour le div d'erreur
     if (!errorDiv) {
       errorDiv = document.createElement('div');
       errorDiv.className = 'error-message'; // Ajout d'une classe pour le div d'erreur
-      errorDiv.style.color = 'red';
+      //@ts-ignore
+	  errorDiv.style.color = 'red';
+	  //@ts-ignore
       form.appendChild(errorDiv);
     }
 //@ts-ignore
     form.addEventListener("submit", function (event) {
       event.preventDefault(); // Empêche l'envoi du formulaire de manière traditionnelle
 
-      // Vérifications
+      //@ts-ignore
       errorDiv.textContent = ''; // Réinitialiser le message d'erreur
 	  //@ts-ignore
       if (!emailInput.value || !validateEmail(emailInput.value)) {
+	  //@ts-ignore
         errorDiv.textContent = 'Veuillez fournir un email valide.';
         return; // Arrête la fonction si l'email n'est pas valide
       }
 	  //@ts-ignore
       if (!messageTextarea.value) {
+	  //@ts-ignore
         errorDiv.textContent = 'Veuillez écrire un message.';
         return; // Arrête la fonction si le message est vide
       }
