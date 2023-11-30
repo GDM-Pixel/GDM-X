@@ -1,125 +1,363 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import { Image } from "astro:assets";
+import logoGDM from "../assets/img/logo-gdm-white.svg";
+import NovaImage from "../assets/img/nova.png";
+import IntroCreasite from "../assets/img/intro-creasite.png";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import HeroBoxSEO from "../components/HeroBoxSEO.astro";
+import Reassurance from "../components/Reassurance.astro";
+import GaucheDroite from "../components/Gauche-Droite.astro";
+import PixelSeparator from "../components/PixelSeparator.astro";
+import TabNavigationSEO from "../components/TabNavigationSEO.jsx";
+import MainCTA from "../components/MainCTA.astro";
+import Accordion from "../components/Accordion.astro";
+import Footer from "../components/Footer.astro";
+import * as animations from "../components/animations.js";
+import HomeBlogSlider from "../components/HomeBlogSlider.astro";
+import CaseStudySlider from "../components/CaseStudySlider.astro";
+import ProcessTravailSlider from "../components/ProcessTravailSlider.astro";
+import TestimonialSlider from "../components/TestimonialSlider.astro";
+import CTABand from "../components/CTABand.astro";
+import AmbitiousMan from "../assets/img/ambitiousman.png";
+import SEODataCenter from "../assets/img/seo-data-center.png";
 ---
 
-<Layout title="Bienvenue à bord, capitaine." description="Ceci est la meta description">
+<Layout
+	title="SEO à Caen : votre agence en Normandie"
+	description="Vous avez besoin de plus de visibilité sur le web ? D'un audit SEO ? Ou d'améliorer le trafic sur votre boutique en ligne ? Découvrez nos services !">
+	<Header />
+	<HeroBoxSEO />
 	<main>
-		<svg
-			class="astro-a"
-			width="495"
-			height="623"
-			viewBox="0 0 495 623"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
-			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
-				d="M167.19 364.254C83.4786 364.254 0 404.819 0 404.819C0 404.819 141.781 19.4876 142.087 18.7291C146.434 7.33701 153.027 0 162.289 0H332.441C341.703 0 348.574 7.33701 352.643 18.7291C352.92 19.5022 494.716 404.819 494.716 404.819C494.716 404.819 426.67 364.254 327.525 364.254L264.41 169.408C262.047 159.985 255.147 153.581 247.358 153.581C239.569 153.581 232.669 159.985 230.306 169.408L167.19 364.254ZM160.869 530.172C160.877 530.18 160.885 530.187 160.894 530.195L160.867 530.181C160.868 530.178 160.868 530.175 160.869 530.172ZM136.218 411.348C124.476 450.467 132.698 504.458 160.869 530.172C160.997 529.696 161.125 529.242 161.248 528.804C161.502 527.907 161.737 527.073 161.917 526.233C165.446 509.895 178.754 499.52 195.577 500.01C211.969 500.487 220.67 508.765 223.202 527.254C224.141 534.12 224.23 541.131 224.319 548.105C224.328 548.834 224.337 549.563 224.347 550.291C224.563 566.098 228.657 580.707 237.264 593.914C245.413 606.426 256.108 615.943 270.749 622.478C270.593 621.952 270.463 621.508 270.35 621.126C270.045 620.086 269.872 619.499 269.685 618.911C258.909 585.935 266.668 563.266 295.344 543.933C298.254 541.971 301.187 540.041 304.12 538.112C310.591 533.854 317.059 529.599 323.279 525.007C345.88 508.329 360.09 486.327 363.431 457.844C364.805 446.148 363.781 434.657 359.848 423.275C358.176 424.287 356.587 425.295 355.042 426.275C351.744 428.366 348.647 430.33 345.382 431.934C303.466 452.507 259.152 455.053 214.03 448.245C184.802 443.834 156.584 436.019 136.218 411.348Z"
-				fill="url(#paint0_linear_1805_24383)"></path>
-			<defs>
-				<linearGradient
-					id="paint0_linear_1805_24383"
-					x1="247.358"
-					y1="0"
-					x2="247.358"
-					y2="622.479"
-					gradientUnits="userSpaceOnUse"
+		<!-- REASSURANCE -->
+		<div class="reassurance" transition:animate={animations.animInFromBottom}>
+			<div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+				<Reassurance
+					title="Expérience et expertise"
+					icon="fa-hat-wizard"
+					body="15 ans d'expérience dans la conception web"
+					color="prussian"
+				/>
+				<Reassurance
+					title="Solutions complètes"
+					icon="fa-layer-group"
+					body="Du référencement au marketing, une stratégie digitale complète."
+					color="prussian"
+				/>
+				<Reassurance
+					title="Stratégies Big Data"
+					icon="fa-chart-mixed"
+					body="Des décisions éclairées par des données fiables pour plus d’efficacité"
+					color="prussian"
+				/>
+				<Reassurance
+					title="Approche Sur Mesure"
+					icon="fa-list-check"
+					body="Solutions sur mesure correspondant à vos besoins "
+					color="prussian"
+				/>
+			</div>
+		</div>
+		<!-- FIN DE REASSURANCE -->
+
+		<GaucheDroite
+			subtitle="A propos"
+			title="Votre site a besoin d'une stratégie pour briller sur le web."
+			intro="Un site web n'est que le point de départ ; c'est la stratégie qui crée l'impact."
+			body="<p>Accélérer sa croissance en ligne est un défi à plusieurs facettes. Chez GDM-Pixel, nous comprenons que posséder un site web n'est que la première étape. Ce qui fait vraiment la différence, c'est <strong>une stratégie digitale solide qui englobe le SEO, SEA et SEM</strong>. </p><p>Nous vous aidons à maximiser votre visibilité en ligne <strong>grâce à des solutions personnalisées</strong>, qui vont bien au-delà de la simple création d'un site. </p><p>Découvrez comment notre expertise en référencement naturel, en publicité en ligne et en marketing des moteurs de recherche peut vous aider <strong>à atteindre vos objectifs et à transformer vos visiteurs en clients fidèles</strong>.</p>"
+			imgsrc={AmbitiousMan}
+			imgalt="Création de site internet à Caen"
+			reverse={true}
+		/>
+		<section
+			class="nos-services bg-gradient-to-b from-[#1B3751] to-[#232634] py-24">
+			<div class="section-header dark">
+				<span class="subtitle text-moonstone-400"
+					>Nos Services EN SEO, SEA et SEM</span
 				>
-					<stop stop-opacity="0.9"></stop>
-					<stop offset="1" stop-opacity="0.2"></stop>
-				</linearGradient>
-			</defs>
-		</svg>
-		<h1 class="text-4xl">Bienvenue sur <span class="text-gradient">Astro</span></h1>
-		<p class="instructions text-md text-slate-700">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
+				<h2 class="section-title">
+					SEO / SEA / SEM : que veulent dire tous ces acronymes ?
+				</h2>
+				<PixelSeparator />
+				<p class="intro font-bold text-lg">
+					On vous fait un petit topo pour que vous compreniez tous les enjeux
+					pour vous et votre activité.
+				</p>
+			</div>
 
+			<div class="container gauche-droite whatisseo mt-24">
+				<div class="lg:flex lg:flex-row gap-8 mb-12">
+					<div class="col lg:w-1/2">
+						<h2>SEO : l’optimisation pour les moteurs de recherche</h2>
+						<p>
+							Le SEO, ou <strong>Search Engine Optimization</strong>, est l'art de positionner un
+							site web dans les premiers résultats des moteurs de recherche.
+						</p>
+						<p>
+							Plus qu'une simple série de techniques, c'est une <strong>stratégie
+							globale</strong> qui vise à <strong>améliorer la visibilité et l'accessibilité d'un site</strong>.
+						</p>
+						<p>
+							Chez GDM-Pixel, nous nous concentrons sur l'optimisation de tous
+							les aspects, des méta-descriptions aux backlinks, afin de <strong>créer
+							une expérience utilisateur exceptionnelle</strong>. L'objectif ? Convertir
+							vos visiteurs en clients fidèles <strong>tout en boostant votre présence
+							en ligne</strong>.
+						</p>
+					</div>
+					<div class="col lg:w-1/2 lg:mt-0 mt-8">
+						<Image src={SEODataCenter} alt="SEO Data Center" />
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<h2 class="text-center text-white mb-8">Nos prestations en SEO</h2>
+				 
+				<TabNavigationSEO client:idle />
+			</div>
+		</section>
 
-		</ul>
+		<section class="row bg-white pt-24 pb-16 process">
+			<div class="section-header">
+				<span class="subtitle text-moonstone-400">Nos services</span>
+				<h2 class="section-title">Notre processus de travail</h2>
+				<PixelSeparator />
+			</div>
+			<ProcessTravailSlider />
+		</section>
+		<CTABand />
+		<section class="case-study container py-24">
+			<div class="section-header left">
+				<span class="subtitle text-dustyred-400 block">Etudes de cas</span>
+				<h2 class="section-title">
+					Quelques une de nos dernières créations (et leur contenu)
+				</h2>
+				<PixelSeparator />
+			</div>
+
+			<CaseStudySlider />
+		</section>
+
+		<section
+			class="testimonials bg-gradient-to-b from-[#1B3751] to-[#232634] py-24">
+			<div class="section-header dark">
+				<span class="subtitle text-moonstone-400">Témoignages de clients</span>
+				<h2 class="section-title">
+					Ils ont travaillé avec nous,<br /> et ils en parlent !
+				</h2>
+				<PixelSeparator />
+			</div>
+			<TestimonialSlider />
+		</section>
+
+		<section>
+			<HomeBlogSlider />
+		</section>
+		<MainCTA />
+		<section class="faqbox">
+			<div class="container">
+				<div class="section-header left">
+					<span class="h6 text-moonstone-400 uppercase font-semibold mb-6 block"
+						>FAQ</span
+					>
+					<h2 class="section-title">Réponses aux questions fréquentes</h2>
+					<PixelSeparator />
+				</div>
+
+				<div class="row flex flex-col md:flex-row gap-6">
+					<div class="faqcontainer">
+						<Accordion
+							items={[
+								{
+									title: "Q : Combien coûte la création d’un site internet ?",
+									answer:
+										"<p>R : Tout dépend de votre projet ! Le coût d’une création peut aller de quelques centaines à plusieurs milliers d’euros.</p><p>Je peux vous proposer une formule sur mesure, réalisée sur devis, ou bien une formule en abonnement mensuel, à partir de 29 € par mois. Tout est possible !</p>",
+									isopen: true,
+								},
+								{
+									title:
+										"Q : Pourquoi choisir GDM-Pixel plutôt qu’une autre agence ?",
+									answer:
+										"<p>R : Tout d’abord, en tant que webmaster freelance, mon but n’est pas de vous vendre un service, mais bien plutôt de vous orienter vers la meilleure solution pour votre problématique. Avant de démarrer un projet, je réalise conseil et audit afin de déterminer la meilleure stratégie, en fonction de votre secteur d’activité et de l’état du marché.</p><p>Je procède de la même façon pour les technologies à utiliser : je privilégie toujours le meilleur rapport qualité-prix.</p><p>J’ai également 10 ans d’expérience en création de site, et mon travail en centre de formation m’a amené à travailler sur toute sorte de projet. Je connais bien les problématiques rencontrées par les chefs d’entreprise pour communiquer sur le web, que ce soit à une échelle locale ou internationale.</p><p> Enfin, mon expériences en tant que membre de jury d’examen pour des formations de l’enseignement supérieur m’a conduit à avoir une vue d’ensemble de ce qu’est devenu le web au cours de ces dernières années : mon approche des métiers du web est basée à la fois sur mon expérience personnelle et sur celles de tous les intervenants avec qui je collabore (professionnels, enseignants, clients, élèves, prestataires de service).</p>",
+								},
+								{
+									title: "Q : Avec quel type de client travaillez-vous ?",
+									answer:
+										"<p>R : Je travaille principalement avec des PMI-PME, situées en France et en Europe, mais également à l’étranger (Suisse, Israël, Angleterre, États-Unis).</p><p>Mes solutions s’adressent à la fois aux petites sociétés et aux structures plus importantes qui ont besoin d’externaliser une partie de leur activité. Je sous traite ainsi avec plusieurs agences, lorsqu’elles font face à un surcroit d’activité ou qu’une compétence dont elles ont besoin n’est pas internalisée.</p>",
+								},
+								{
+									title:
+										"Q : Une création de site web peut-elle se faire à distance ?",
+									answer:
+										"<p>R : Une création de site Web se fait toujours à distance ! La réalisation d’un site passe par la création de fichiers multimédias, sur un ordinateur de bureau, qui seront ensuite mis en ligne sur un ordinateur, qu’il soit à 500 m ou à l’autre bout de la planète.</p><p>Je suis équipé des dernières technologies en matière de travail à distance (VOIP, partage d’écran, vidéo-conférence etc), ce qui me permet de collaborer avec des sociétés situées partout dans le monde.</p>",
+								},
+								{
+									title: "Q : Sera-t-il possible de faire évoluer mon site ?",
+									answer:
+										"<p>R : OUI ! Rien n’est gravé dans le marbre : je privilégie les systèmes de gestion de contenu Open-Source, grâce auxquels vous pouvez facilement éditer vos pages, modifier des images etc.</p><p>Vous pouvez même rajouter des fonctionnalités en quelques clics, sans aucune compétence technique.</p>",
+								},
+								{
+									title:
+										"Q : Y a-t-il des outils de suivi statistique avec mon site ?",
+									answer:
+										"<p>R : Oui ! Mes solutions sont livrées avec des outils de suivi de trafic, les statistiques de conversion, ainsi que toutes les données nécessaires pour suivre précisément l’évolution de votre chiffre d’affaires ou des contacts de vos clients.</p><p> Il est également possible de personnaliser votre interface de suivi statistiques en fonction de vos objectifs, des intervenants ciblés, et d’automatiser la publication de certains rapports d’activité, en fonction de vos besoins.</p>",
+								},
+								{
+									title: "Q : Faites-vous des copies de sauvegarde ?",
+									answer:
+										"<p>R : Tout dépend de la formule pour laquelle vous optez : vous pouvez tout à fait être maitre à 100 % de votre site et de son environnement informatique, ou bien choisir une formule d’hébergement où vous n’avez rien à gérer et où sauvegardes et maintenance sont réalisés régulièrement, pour votre tranquilité d’esprit.</p>",
+								},
+								{
+									title: "Q : Comment accéder à mes e-mails ?",
+									answer:
+										"<p>R : Lors de la mise en place de votre boîte mail professionnelle, un technicien prend contact avec vous pour installer un logiciel de messagerie à distance, sur votre Smartphone ou votre ordinateur de bureau.</p>",
+								},
+								{
+									title:
+										"Q : J’ai déjà un site, que je dois refondre. Vous savez faire ?",
+									answer:
+										"<p>R : Oui. Il faut cependant savoir qu’une refonte de site est une opération délicate, lancer le processus sans précaution, et c’est la perte de trafic assurée ! De ce fait, une refonte de site est toujours un peu plus coûteuse qu’une création simple, car il faut assurer la jonction technique entre l’ancienne et la nouvelle version du site.</p>",
+								},
+							]}
+						/>
+					</div>
+					<div class="novacontainer glow" transition:persist>
+						<div class="novainner">
+							<div class="header-nova-box">
+								<Image
+									src={logoGDM}
+									width="230"
+									height="40"
+									alt="logo GDM-Pixel"
+									loading="lazy"
+								/>
+							</div>
+							<Image
+								src={NovaImage}
+								width="410"
+								height="273"
+								alt="Nova"
+								loading="lazy"
+							/>
+							<p>Vous ne trouvez pas de réponse à votre question ?</p>
+							<span class="ask">Demandez à NOVA</span>
+							<button class="cta red" onclick="openNova()"
+								>Posez votre question</button
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
+	<Footer />
 </Layout>
+<script>
+	function setup() {
+		window.addEventListener("scroll", function () {
+			var novacontainer = document.querySelector(".novacontainer");
+			if (novacontainer) {
+				var rect = novacontainer.getBoundingClientRect();
+				var isCloseToTop = rect.top <= 10; // 10 pixels de marge, ajustez selon vos besoins
 
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+				novacontainer.classList.toggle("sticky", isCloseToTop);
+			}
+		});
 	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
+
+	document.addEventListener("DOMContentLoaded", setup);
+	document.addEventListener("astro:page-load", setup);
+</script>
+<style lang="scss">
+	.container {
+		max-width: 1400px;
 	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
+	.whatisseo {
+		h2 {@apply text-white mb-4 leading-snug;}
+		p {
+			@apply text-base text-white mb-3;
+			&:last-of-type {
+				@apply mb-0;
+			}
+		}
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
+	.reassurance {
+		@apply mx-auto xxl:-mt-20 xl:-mt-12 -mt-12 relative z-10 container;
 	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
+	.tab-content {
+		@apply bg-dustyred-500;
 	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
+	.faqbox {
+		@apply bg-white py-24 text-white;
+		.faqcontainer {
+			@apply lg:w-2/3 md:w-3/5 rounded-md overflow-clip relative z-20;
+		}
+
+		.header-nova-box {
+			@apply px-4 py-6 flex justify-center;
+		}
+
+		.novacontainer {
+			@apply lg:w-1/3 md:w-2/5 rounded-lg relative md:self-start self-center
+		flex flex-col md:justify-start justify-center items-center transition-all duration-300 ease-in-out opacity-100 translate-y-0;
+			&.sticky {
+				@apply md:top-0 transition-all md:mb-24 duration-300 ease-in-out md:opacity-95 md:translate-y-20;
+				position: sticky;
+			}
+
+			.novainner {
+				@apply pt-4 pb-12 bg-prussian-600 relative z-10 flex flex-col justify-center items-center self-center;
+			}
+			img {
+				@apply w-full;
+			}
+			p {
+				@apply px-4 py-6 text-center text-md;
+			}
+			.ask {
+				@apply block text-center text-xl lg:text-xl xl:text-xxl uppercase font-bold mb-6;
+			}
+		}
+
+		.glow::before,
+		.glow::after {
+			content: "";
+			position: absolute;
+			left: -2px;
+			top: -2px;
+
+			background: linear-gradient(
+				45deg,
+				#0dffd7,
+				#0c67fa,
+				#217eff,
+				#00e1ff,
+				#cff7ff,
+				#23e9ff,
+				#0055ff,
+				#00d4f5,
+				#0dffd7
+			);
+			background-size: 400%;
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+
+			animation: animate 60s linear infinite;
+		}
+		@keyframes animate {
+			0% {
+				background-position: 0 0;
+			}
+			50% {
+				background-position: 300% 0;
+			}
+			100% {
+				background-position: 0 0;
+			}
+		}
+		.glow:after {
+			filter: blur(15px);
+			opacity: 0.5;
+		}
 	}
 </style>
