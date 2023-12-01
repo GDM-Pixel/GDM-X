@@ -40,17 +40,37 @@ import Repere from "../components/Repere.astro";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
-		<link rel="prefetch" href="/img/hero-home-bck.webp" as="image" />
-		<link rel="prefetch" href="/img/HeroBoxCreasite.webp" as="image" />
-		<link rel="prefetch" href="/img/contact-hero-bck.webp" as="image" />
-		<link rel="prefetch" href="/img/HeroEcommerce.webp" as="image" />	
 	</head>
 	<body>
 		<slot />
 		<Nova />
 		<Repere />
 		<script src="/js/gdm-goto.js" is:inline></script>
-		<style is:global lang="scss">
+		
+	</body>
+</html>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+    const loadedImages = {};
+//@ts-ignore
+    function preloadImage(url) {
+		//@ts-ignore
+        if (!loadedImages[url]) {
+            const img = new Image();
+            img.src = url;
+			//@ts-ignore
+            loadedImages[url] = true;
+        }
+    }
+    document.querySelectorAll('a[data-image-src]').forEach(link => {
+        link.addEventListener('mouseover', function() {
+			//@ts-ignore
+            preloadImage(this.getAttribute('data-image-src'));
+        });
+    });
+});
+</script>
+<style is:global lang="scss">
 			body {
 				overflow-x: clip;
 			}
@@ -187,5 +207,3 @@ import Repere from "../components/Repere.astro";
 				}
 			}
 		</style>
-	</body>
-</html>

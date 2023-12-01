@@ -8,7 +8,7 @@ function Veille() {
                 <p>La veille SEO consiste à suivre les tendances et mises à jour des algorithmes des moteurs. Nous restons informés des dernières évolutions pour vous assurer que votre stratégie SEO reste efficace. </p><p>Notre veille inclut l'analyse des mises à jour algorithmiques et l'évolution des comportements des utilisateurs en ligne, pour garder votre site à la pointe du progrès.</p>
             </div>
             <div className="col lg:w-1/2 flex flex-col justify-center">
-                <img width="468" height="262" className="rounded-md" src="/img/cms.webp" alt="Veille" />
+                <img width="468" height="262" className="rounded-md" src="/img/veille.webp" alt="Veille" />
             </div>
         </div>
     );
