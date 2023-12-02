@@ -9,7 +9,7 @@ function Performances() {
                 <p>Nous fournissons des rapports détaillés et des insights pour vous aider à comprendre le retour sur investissement de vos campagnes et à prendre des décisions éclairées.</p>
             </div>
             <div className="col lg:w-1/2 flex flex-col justify-center">
-                <img width="468" height="262" className="rounded-md" src="/img/cms.webp" alt="Performances" />
+                <img width="468" height="262" className="rounded-md" src="/img/seo-audit-ref.webp" alt="Audit de performances" />
             </div>
         </div>
     );

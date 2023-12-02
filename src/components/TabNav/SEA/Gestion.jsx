@@ -9,10 +9,10 @@ function Gestion() {
                 <p>Cela inclut l'ajustement des enchères en fonction des heures de la journée, des jours de la semaine, de la géolocalisation et de la performance des annonces. Notre objectif est d'optimiser vos dépenses pour atteindre les meilleurs résultats possibles avec votre budget.</p>
             </div>
             <div className="col lg:w-1/2 flex flex-col justify-center">
-                <img width="468" height="262" className="rounded-md" src="/img/cms.webp" alt="Gestion" />
+                <img width="468" height="262" className="rounded-md" src="/img/charts-audit2-ref.webp" alt="Gestion des ressources" />
             </div>
         </div>
     );
 }
 
-export default Audit;
+export default Gestion;

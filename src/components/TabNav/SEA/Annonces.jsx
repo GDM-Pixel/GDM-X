@@ -9,7 +9,7 @@ function Annonces() {
                 <p>Notre expertise comprend l'optimisation des mots-clés, le ciblage démographique et comportemental, et l'utilisation de techniques d'appel à l'action efficaces pour améliorer les taux de clics et de conversion.</p>
             </div>
             <div className="col lg:w-1/2 flex flex-col justify-center">
-                <img width="468" height="262" className="rounded-md" src="/img/cms.webp" alt="Annonces" />
+                <img width="468" height="262" className="rounded-md" src="/img/proofreading-ref.webp" alt="Rédaction d'annonces" />
             </div>
         </div>
     );

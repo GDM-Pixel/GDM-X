@@ -9,7 +9,7 @@ function Retargeting() {
                 <p>En affichant des annonces pertinentes sur différentes plateformes et réseaux publicitaires, nous augmentons les chances de conversion en ramenant ces visiteurs.</p>
             </div>
             <div className="col lg:w-1/2 flex flex-col justify-center">
-                <img width="468" height="262" className="rounded-md" src="/img/cms.webp" alt="Retargeting" />
+                <img width="468" height="262" className="rounded-md" src="/img/retargeting-ref.webp" alt="Retargeting" />
             </div>
         </div>
     );

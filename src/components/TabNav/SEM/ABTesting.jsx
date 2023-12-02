@@ -9,7 +9,7 @@ function ABTesting() {
                 <p>Ce processus méthodique nous aide à comprendre précisément ce qui résonne le mieux avec votre public cible. </p>
             </div>
             <div className="col lg:w-1/2 flex flex-col justify-center">
-                <img width="468" height="262" className="rounded-md" src="/img/cms.webp" alt="AB Testing" />
+                <img width="468" height="262" className="rounded-md" src="/img/split-testing.webp" alt="AB et split testing" />
             </div>
         </div>
     );

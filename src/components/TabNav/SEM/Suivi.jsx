@@ -9,7 +9,7 @@ function Suivi() {
                 <p>Nos rapports détaillés vous offrent des insights clairs sur le retour sur investissement de vos campagnes SEM, et nous permettent de mettre en place plusieurs stratégies pour améliorer votre taux de conversion.</p>
             </div>
             <div className="col lg:w-1/2 flex flex-col justify-center">
-                <img width="468" height="262" className="rounded-md" src="/img/cms.webp" alt="Suivi" />
+                <img width="468" height="262" className="rounded-md" src="/img/team-audit-charts.webp" alt="Suivi de performances" />
             </div>
         </div>
     );

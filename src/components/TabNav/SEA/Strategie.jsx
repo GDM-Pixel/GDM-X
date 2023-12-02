@@ -9,7 +9,7 @@ function Strategie() {
                 <p>De Google Ads à Bing Ads, nous optimisons chaque campagne pour un impact maximal.</p>
             </div>
             <div className="col lg:w-1/2 flex flex-col justify-center">
-                <img width="468" height="262" className="rounded-md" src="/img/cms.webp" alt="Stratégie" />
+                <img width="468" height="262" className="rounded-md" src="/img/working-audit-ref.webp" alt="Stratégie de contenu" />
             </div>
         </div>
     );

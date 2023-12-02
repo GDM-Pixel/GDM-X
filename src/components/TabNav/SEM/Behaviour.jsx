@@ -9,7 +9,7 @@ function Behaviour() {
                 <p> Il s’agit de mettre en place des outils permettant de mesurer quelles sont les “zones chaudes” de votre site, et détecter les zones qui, au contraires, sont peu engageantes pour le visiteur.</p>
             </div>
             <div className="col lg:w-1/2 flex flex-col justify-center">
-                <img width="468" height="262" className="rounded-md" src="/img/cms.webp" alt="Transformation" />
+                <img width="468" height="262" className="rounded-md" src="/img/heat-optimisation.webp" alt="Création de Heatmap" />
             </div>
         </div>
     );

@@ -10,6 +10,8 @@ import Reassurance from "../components/Reassurance.astro";
 import GaucheDroite from "../components/Gauche-Droite.astro";
 import PixelSeparator from "../components/PixelSeparator.astro";
 import TabNavigationSEO from "../components/TabNavigationSEO.jsx";
+import TabNavigationSEA from "../components/TabNavigationSEA.jsx";
+import TabNavigationSEM from "../components/TabNavigationSEM.jsx";
 import MainCTA from "../components/MainCTA.astro";
 import Accordion from "../components/Accordion.astro";
 import Footer from "../components/Footer.astro";
@@ -85,35 +87,162 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 				</p>
 			</div>
 
-			<div class="container gauche-droite whatisseo mt-24">
-				<div class="lg:flex lg:flex-row gap-8 mb-12">
-					<div class="col lg:w-1/2">
-						<h2>SEO : l’optimisation pour les moteurs de recherche</h2>
-						<p>
-							Le SEO, ou <strong>Search Engine Optimization</strong>, est l'art de positionner un
-							site web dans les premiers résultats des moteurs de recherche.
-						</p>
-						<p>
-							Plus qu'une simple série de techniques, c'est une <strong>stratégie
-							globale</strong> qui vise à <strong>améliorer la visibilité et l'accessibilité d'un site</strong>.
-						</p>
-						<p>
-							Chez GDM-Pixel, nous nous concentrons sur l'optimisation de tous
-							les aspects, des méta-descriptions aux backlinks, afin de <strong>créer
-							une expérience utilisateur exceptionnelle</strong>. L'objectif ? Convertir
-							vos visiteurs en clients fidèles <strong>tout en boostant votre présence
-							en ligne</strong>.
-						</p>
+			<div class="tabnav top text-center mx-auto px-8">
+				<span
+					data-target="whatisseo"
+					class="tabbtn seo-tab active md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
+					>SEO</span
+				>
+				<span
+					data-target="whatissea"
+					class="tabbtn sea-tab md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
+					>SEA</span
+				>
+				<span
+					data-target="whatissem"
+					class="tabbtn sem-tab md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
+					>SEM</span
+				>
+			</div>
+			<div class="tab-content mx-auto relative h-auto container p-0">
+				
+				<div id="whatisseo" class="tabcontentEl p-10 active">
+					<div class="gauche-droite">
+						<div class="lg:flex lg:flex-row gap-8 mb-12">
+							<div class="col lg:w-1/2">
+								<h2>SEO : l’optimisation pour les moteurs de recherche</h2>
+								<p>
+									Le SEO, ou <strong>Search Engine Optimization</strong>, est
+									l'art de positionner un site web dans les premiers résultats
+									des moteurs de recherche.
+								</p>
+								<p>
+									Plus qu'une simple série de techniques, c'est une <strong
+										>stratégie globale</strong
+									> qui vise à <strong
+										>améliorer la visibilité et l'accessibilité d'un site</strong
+									>.
+								</p>
+								<p>
+									Chez GDM-Pixel, nous nous concentrons sur l'optimisation de
+									tous les aspects, des méta-descriptions aux backlinks, afin de
+
+
+									<strong
+										>créer une expérience utilisateur exceptionnelle</strong
+									>. L'objectif ? Convertir vos visiteurs en clients fidèles <strong
+										>tout en boostant votre présence en ligne</strong
+									>.
+								</p>
+							</div>
+							<div class="col lg:w-1/2 lg:mt-0 mt-8">
+								<Image src={SEODataCenter} alt="SEO Data Center" />
+							</div>
+						</div>
 					</div>
-					<div class="col lg:w-1/2 lg:mt-0 mt-8">
-						<Image src={SEODataCenter} alt="SEO Data Center" />
+					<div class="xxx">
+						<h2 class="text-center text-white mb-8">Nos prestations en SEO</h2>
+						<TabNavigationSEO client:idle />
 					</div>
 				</div>
-			</div>
-			<div class="container">
-				<h2 class="text-center text-white mb-8">Nos prestations en SEO</h2>
-				 
-				<TabNavigationSEO client:idle />
+
+				<div id="whatissea" class="tabcontentEl p-10">
+					<div class="gauche-droite">
+						<div class="lg:flex lg:flex-row gap-8 mb-12">
+							<div class="col lg:w-1/2">
+								<h2>SEA : faire de la publicité sur les moteurs de recherche</h2>
+								<p>
+									Le SEO, ou <strong>Search Engine Optimization</strong>, est
+									l'art de positionner un site web dans les premiers résultats
+									des moteurs de recherche.
+								</p>
+								<p>
+									Plus qu'une simple série de techniques, c'est une <strong
+										>stratégie globale</strong
+									> qui vise à <strong
+										>améliorer la visibilité et l'accessibilité d'un site</strong
+									>.
+								</p>
+								<p>
+									Chez GDM-Pixel, nous nous concentrons sur l'optimisation de
+									tous les aspects, des méta-descriptions aux backlinks, afin de
+
+
+									<strong
+										>créer une expérience utilisateur exceptionnelle</strong
+									>. L'objectif ? Convertir vos visiteurs en clients fidèles <strong
+										>tout en boostant votre présence en ligne</strong
+									>.
+								</p>
+							</div>
+							<div class="col lg:w-1/2 lg:mt-0 mt-8">
+								<Image src={SEODataCenter} alt="SEO Data Center" />
+							</div>
+						</div>
+					</div>
+					<div class="xxx">
+						<h2 class="text-center text-white mb-8">Nos prestations en SEO</h2>
+						<TabNavigationSEA client:idle />
+					</div>
+				</div>
+
+				<div id="whatissem" class="tabcontentEl p-10">
+					<div class="gauche-droite">
+						<div class="lg:flex lg:flex-row gap-8 mb-12">
+							<div class="col lg:w-1/2">
+								<h2>SEM : vers une approche globale du marketing sur les moteurs de recherche</h2>
+								<p>
+									Le SEO, ou <strong>Search Engine Optimization</strong>, est
+									l'art de positionner un site web dans les premiers résultats
+									des moteurs de recherche.
+								</p>
+								<p>
+									Plus qu'une simple série de techniques, c'est une <strong
+										>stratégie globale</strong
+									> qui vise à <strong
+										>améliorer la visibilité et l'accessibilité d'un site</strong
+									>.
+								</p>
+								<p>
+									Chez GDM-Pixel, nous nous concentrons sur l'optimisation de
+									tous les aspects, des méta-descriptions aux backlinks, afin de
+
+
+									<strong
+										>créer une expérience utilisateur exceptionnelle</strong
+									>. L'objectif ? Convertir vos visiteurs en clients fidèles <strong
+										>tout en boostant votre présence en ligne</strong
+									>.
+								</p>
+							</div>
+							<div class="col lg:w-1/2 lg:mt-0 mt-8">
+								<Image src={SEODataCenter} alt="SEO Data Center" />
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<h2 class="text-center text-white mb-8">Nos prestations en SEO</h2>
+						<TabNavigationSEM client:idle />
+					</div>
+				</div>
+
+			</div><!--	FIN DE TABCONTENT -->
+			<div class="tabnav bottom text-center mx-auto px-8">
+				<span
+					data-target="whatisseo"
+					class="tabbtn seo-tab active md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
+					>SEO</span
+				>
+				<span
+					data-target="whatissea"
+					class="tabbtn sea-tab md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
+					>SEA</span
+				>
+				<span
+					data-target="whatissem"
+					class="tabbtn sem-tab md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
+					>SEM</span
+				>
 			</div>
 		</section>
 
@@ -264,16 +393,49 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 			}
 		});
 	}
-
 	document.addEventListener("DOMContentLoaded", setup);
 	document.addEventListener("astro:page-load", setup);
 </script>
+<script>
+	function attachTabClickHandlers() {
+    const tabs = document.querySelectorAll(".tabbtn");
+    tabs.forEach((tab) => {
+        tab.removeEventListener("click", handleTabClick); // Nettoyez d'abord
+        tab.addEventListener("click", (event) => handleTabClick(event)); // Utilisez une fonction fléchée
+    });
+}
+//@ts-ignore
+function handleTabClick(event) {
+    const clickedTab = event.currentTarget;
+    const targetId = clickedTab.getAttribute("data-target"); // Utilisez un attribut de données pour la cible
+    const tabs = document.querySelectorAll(".tabbtn");
+    const tabContents = document.querySelectorAll(".tabcontentEl");
+
+    tabs.forEach((tab) => {
+        if (tab.getAttribute("data-target") === targetId) {
+            tab.classList.add("active");
+        } else {
+            tab.classList.remove("active");
+        }
+    });
+
+    tabContents.forEach((tabContent) => {
+        tabContent.classList.toggle("active", tabContent.id === targetId);
+    });
+}
+
+attachTabClickHandlers();
+// Attachez les gestionnaires d'onglets lorsque le DOM est prêt
+document.addEventListener("DOMContentLoaded", attachTabClickHandlers);
+// Réattachez les gestionnaires d'onglets sur les événements de navigation d'Astro
+document.addEventListener("astro:page-load", attachTabClickHandlers);
+</script>
 <style lang="scss">
-	.container {
-		max-width: 1400px;
-	}
-	.whatisseo {
-		h2 {@apply text-white mb-4 leading-snug;}
+
+	.whatisseo { 
+		h2 {
+			@apply text-white mb-4 leading-snug;
+		}
 		p {
 			@apply text-base text-white mb-3;
 			&:last-of-type {
@@ -285,8 +447,51 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 		@apply mx-auto xxl:-mt-20 xl:-mt-12 -mt-12 relative z-10 container;
 	}
 	.tab-content {
-		@apply bg-dustyred-500;
+		@apply bg-transparent border-4 border-dashed border-moonstone-300 rounded-xl;
 	}
+	.tabnav {@apply z-20 relative flex justify-center items-center gap-4;}
+	.tabnav.top {
+		@apply -mb-5;
+	}
+	.tabnav.bottom {
+		@apply -mt-5;
+	}
+	.tabbtn { 
+		@apply text-white bg-transparent transition-all duration-300 rounded-lg;
+		&:hover {
+			@apply cursor-pointer text-white bg-dustyred-200 transition-all duration-200 ;
+		}
+	}
+	.tabbtn.active {
+		@apply text-white bg-dustyred-400;
+	}
+	.tabcontentEl {@apply z-10}
+	.tabcontentEl.active {@apply z-20}
+	.tab-content .gauche-droite .col {
+		@apply flex flex-col justify-center text-white;
+		p {@apply text-base mb-3 leading-7}
+	}
+	#whatissea,
+	#whatissem {
+		position: absolute;
+	}
+	#whatisseo,
+	#whatissea,
+	#whatissem {
+		opacity: 0;
+		transition:
+			visibility 0s linear 0.3s,
+			opacity 0.3s linear;
+	}
+	#whatisseo.active,
+	#whatissea.active,
+	#whatissem.active {
+		opacity: 1;
+		transition:
+			visibility 0s linear 0.3s,
+			opacity 0.3s linear;
+	}
+
 	.faqbox {
 		@apply bg-white py-24 text-white;
 		.faqcontainer {
