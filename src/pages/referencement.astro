@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import logoGDM from "../assets/img/logo-gdm-white.svg";
 import NovaImage from "../assets/img/nova.png";
 import IntroCreasite from "../assets/img/intro-creasite.png";
+import MainSEA from "../assets/img/main-sea.png";
+import MainSEM from "../assets/img/main-sem.png";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import HeroBoxSEO from "../components/HeroBoxSEO.astro";
@@ -16,13 +18,14 @@ import MainCTA from "../components/MainCTA.astro";
 import Accordion from "../components/Accordion.astro";
 import Footer from "../components/Footer.astro";
 import * as animations from "../components/animations.js";
-import HomeBlogSlider from "../components/HomeBlogSlider.astro";
+import SEOBlogSlider from "../components/SEOBlogSlider.astro";
 import CaseStudySlider from "../components/CaseStudySlider.astro";
 import ProcessTravailSlider from "../components/ProcessTravailSlider.astro";
 import TestimonialSlider from "../components/TestimonialSlider.astro";
 import CTABand from "../components/CTABand.astro";
 import AmbitiousMan from "../assets/img/ambitiousman.png";
 import SEODataCenter from "../assets/img/seo-data-center.png";
+import Accelerateur from "../components/Accelerateur.astro";
 ---
 
 <Layout
@@ -72,7 +75,7 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 			reverse={true}
 		/>
 		<section
-			class="nos-services bg-gradient-to-b from-[#1B3751] to-[#232634] py-24">
+			class="nos-services bg-gradient-to-b from-[#1B3751] to-[#232634] px-6 py-24">
 			<div class="section-header dark">
 				<span class="subtitle text-moonstone-400"
 					>Nos Services EN SEO, SEA et SEM</span
@@ -88,25 +91,12 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 			</div>
 
 			<div class="tabnav top text-center mx-auto px-8">
-				<span
-					data-target="whatisseo"
-					class="tabbtn seo-tab active md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
-					>SEO</span
-				>
-				<span
-					data-target="whatissea"
-					class="tabbtn sea-tab md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
-					>SEA</span
-				>
-				<span
-					data-target="whatissem"
-					class="tabbtn sem-tab md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
-					>SEM</span
-				>
+				<button data-target="whatisseo" class="tabbtn seo-tab active">SEO</button>
+				<button data-target="whatissea" class="tabbtn sea-tab">SEA</button>
+				<button data-target="whatissem" class="tabbtn sem-tab">SEM</button>
 			</div>
-			<div class="tab-content mx-auto relative h-auto container p-0">
-				
-				<div id="whatisseo" class="tabcontentEl p-10 active">
+			<div class="tab-content mx-auto relative h-auto max-w-7xl p-0">
+				<div id="whatisseo" class="tabcontentEl active">
 					<div class="gauche-droite">
 						<div class="lg:flex lg:flex-row gap-8 mb-12">
 							<div class="col lg:w-1/2">
@@ -136,7 +126,7 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 								</p>
 							</div>
 							<div class="col lg:w-1/2 lg:mt-0 mt-8">
-								<Image src={SEODataCenter} alt="SEO Data Center" />
+								<Image src={SEODataCenter} alt="SEO Data Center" height="381" width="629" loading="lazy"/>
 							</div>
 						</div>
 					</div>
@@ -146,143 +136,67 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 					</div>
 				</div>
 
-				<div id="whatissea" class="tabcontentEl p-10">
+				<div id="whatissea" class="tabcontentEl">
 					<div class="gauche-droite">
 						<div class="lg:flex lg:flex-row gap-8 mb-12">
 							<div class="col lg:w-1/2">
-								<h2>SEA : faire de la publicité sur les moteurs de recherche</h2>
+								<h2>
+									SEA : faire de la publicité sur les moteurs de recherche
+								</h2>
 								<p>
-									Le SEO, ou <strong>Search Engine Optimization</strong>, est
-									l'art de positionner un site web dans les premiers résultats
-									des moteurs de recherche.
+									Le SEA, ou <strong>Search Engine Advertising</strong>, est la clé pour une visibilité immédiate dans les résultats des moteurs de recherche grâce à la publicité payante.
 								</p>
 								<p>
-									Plus qu'une simple série de techniques, c'est une <strong
-										>stratégie globale</strong
-									> qui vise à <strong
-										>améliorer la visibilité et l'accessibilité d'un site</strong
-									>.
+								Contrairement au SEO, qui joue sur le long terme, le SEA offre des résultats instantanés et mesurables. Nous créons et gérons efficacement toutes vos campagnes publicitaires ciblées.
 								</p>
 								<p>
-									Chez GDM-Pixel, nous nous concentrons sur l'optimisation de
-									tous les aspects, des méta-descriptions aux backlinks, afin de
-
-
-									<strong
-										>créer une expérience utilisateur exceptionnelle</strong
-									>. L'objectif ? Convertir vos visiteurs en clients fidèles <strong
-										>tout en boostant votre présence en ligne</strong
-									>.
+									Nous optimisons vos annonces pour atteindre les audiences les plus pertinentes, maximisant ainsi le retour sur investissement. Notre objectif ? Augmenter votre visibilité, attirer du trafic qualifié vers votre site et accélérer votre croissance en ligne..
 								</p>
 							</div>
 							<div class="col lg:w-1/2 lg:mt-0 mt-8">
-								<Image src={SEODataCenter} alt="SEO Data Center" />
+								<Image src={MainSEA} alt="SEA consultant" width="629" height="381" loading="lazy" />
 							</div>
 						</div>
 					</div>
 					<div class="xxx">
-						<h2 class="text-center text-white mb-8">Nos prestations en SEO</h2>
+						<h2 class="text-center text-white mb-8">Nos prestations en SEA</h2>
 						<TabNavigationSEA client:idle />
 					</div>
 				</div>
 
-				<div id="whatissem" class="tabcontentEl p-10">
+				<div id="whatissem" class="tabcontentEl">
 					<div class="gauche-droite">
 						<div class="lg:flex lg:flex-row gap-8 mb-12">
 							<div class="col lg:w-1/2">
-								<h2>SEM : vers une approche globale du marketing sur les moteurs de recherche</h2>
+								<h2>
+									SEM : vers une approche globale du marketing sur les moteurs
+									de recherche
+								</h2>
 								<p>
-									Le SEO, ou <strong>Search Engine Optimization</strong>, est
-									l'art de positionner un site web dans les premiers résultats
-									des moteurs de recherche.
+								Le SEM, ou Search Engine Marketing, est l'art d'utiliser les moteurs de recherche comme levier de croissance.
 								</p>
 								<p>
-									Plus qu'une simple série de techniques, c'est une <strong
-										>stratégie globale</strong
-									> qui vise à <strong
-										>améliorer la visibilité et l'accessibilité d'un site</strong
-									>.
-								</p>
-								<p>
-									Chez GDM-Pixel, nous nous concentrons sur l'optimisation de
-									tous les aspects, des méta-descriptions aux backlinks, afin de
-
-
-									<strong
-										>créer une expérience utilisateur exceptionnelle</strong
-									>. L'objectif ? Convertir vos visiteurs en clients fidèles <strong
-										>tout en boostant votre présence en ligne</strong
-									>.
+								Nous combinons SEO et publicités ciblées pour propulser votre site en première ligne des résultats de recherche. Notre approche holistique vise à optimiser chaque aspect de votre présence en ligne, assurant ainsi un trafic qualifié et un taux de conversion optimisé. Notre objectif ? Faire de votre marque une référence incontournable sur le web.
 								</p>
 							</div>
 							<div class="col lg:w-1/2 lg:mt-0 mt-8">
-								<Image src={SEODataCenter} alt="SEO Data Center" />
+								<Image src={MainSEM} alt="SEM consultant" width="629" height="381" loading="lazy" />
 							</div>
 						</div>
 					</div>
 					<div class="container">
-						<h2 class="text-center text-white mb-8">Nos prestations en SEO</h2>
+						<h2 class="text-center text-white mb-8">Nos prestations en SEM</h2>
 						<TabNavigationSEM client:idle />
 					</div>
 				</div>
-
 			</div><!--	FIN DE TABCONTENT -->
 			<div class="tabnav bottom text-center mx-auto px-8">
-				<span
-					data-target="whatisseo"
-					class="tabbtn seo-tab active md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
-					>SEO</span
-				>
-				<span
-					data-target="whatissea"
-					class="tabbtn sea-tab md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
-					>SEA</span
-				>
-				<span
-					data-target="whatissem"
-					class="tabbtn sem-tab md:text-md sm:text-base text-[16px] px-4 py-2 font-semibold"
-					>SEM</span
-				>
+				<button data-target="whatisseo" class="tabbtn seo-tab active">SEO</button>
+				<button data-target="whatissea" class="tabbtn sea-tab">SEA</button>
+				<button data-target="whatissem" class="tabbtn sem-tab">SEM</button>
 			</div>
 		</section>
 
-		<section class="row bg-white pt-24 pb-16 process">
-			<div class="section-header">
-				<span class="subtitle text-moonstone-400">Nos services</span>
-				<h2 class="section-title">Notre processus de travail</h2>
-				<PixelSeparator />
-			</div>
-			<ProcessTravailSlider />
-		</section>
-		<CTABand />
-		<section class="case-study container py-24">
-			<div class="section-header left">
-				<span class="subtitle text-dustyred-400 block">Etudes de cas</span>
-				<h2 class="section-title">
-					Quelques une de nos dernières créations (et leur contenu)
-				</h2>
-				<PixelSeparator />
-			</div>
-
-			<CaseStudySlider />
-		</section>
-
-		<section
-			class="testimonials bg-gradient-to-b from-[#1B3751] to-[#232634] py-24">
-			<div class="section-header dark">
-				<span class="subtitle text-moonstone-400">Témoignages de clients</span>
-				<h2 class="section-title">
-					Ils ont travaillé avec nous,<br /> et ils en parlent !
-				</h2>
-				<PixelSeparator />
-			</div>
-			<TestimonialSlider />
-		</section>
-
-		<section>
-			<HomeBlogSlider />
-		</section>
-		<MainCTA />
 		<section class="faqbox">
 			<div class="container">
 				<div class="section-header left">
@@ -294,58 +208,64 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 				</div>
 
 				<div class="row flex flex-col md:flex-row gap-6">
-					<div class="faqcontainer">
+					<div class="faqcontainer shadow-md">
 						<Accordion
 							items={[
 								{
-									title: "Q : Combien coûte la création d’un site internet ?",
+									title: "Q : Quelle est la différence entre SEO, SEA et SEM ?",
 									answer:
-										"<p>R : Tout dépend de votre projet ! Le coût d’une création peut aller de quelques centaines à plusieurs milliers d’euros.</p><p>Je peux vous proposer une formule sur mesure, réalisée sur devis, ou bien une formule en abonnement mensuel, à partir de 29 € par mois. Tout est possible !</p>",
+										"<p>R : Le SEO fait référence à l'optimisation pour les moteurs de recherche, focalisée sur l'amélioration du classement naturel d'un site. Le SEA concerne la publicité sur les moteurs de recherche, où vous payez pour apparaître dans les résultats de recherche. Le SEM englobe les deux, SEO et SEA, pour une stratégie de marketing globale sur les moteurs de recherche.</p>",
 									isopen: true,
 								},
 								{
 									title:
-										"Q : Pourquoi choisir GDM-Pixel plutôt qu’une autre agence ?",
+										"Q : Combien de temps faut-il pour voir les résultats du SEO ?",
 									answer:
-										"<p>R : Tout d’abord, en tant que webmaster freelance, mon but n’est pas de vous vendre un service, mais bien plutôt de vous orienter vers la meilleure solution pour votre problématique. Avant de démarrer un projet, je réalise conseil et audit afin de déterminer la meilleure stratégie, en fonction de votre secteur d’activité et de l’état du marché.</p><p>Je procède de la même façon pour les technologies à utiliser : je privilégie toujours le meilleur rapport qualité-prix.</p><p>J’ai également 10 ans d’expérience en création de site, et mon travail en centre de formation m’a amené à travailler sur toute sorte de projet. Je connais bien les problématiques rencontrées par les chefs d’entreprise pour communiquer sur le web, que ce soit à une échelle locale ou internationale.</p><p> Enfin, mon expériences en tant que membre de jury d’examen pour des formations de l’enseignement supérieur m’a conduit à avoir une vue d’ensemble de ce qu’est devenu le web au cours de ces dernières années : mon approche des métiers du web est basée à la fois sur mon expérience personnelle et sur celles de tous les intervenants avec qui je collabore (professionnels, enseignants, clients, élèves, prestataires de service).</p>",
+										"<p>R : Les résultats du SEO peuvent varier, mais il faut généralement de 3 à 6 mois pour observer des changements significatifs. Cela dépend de nombreux facteurs, y compris la concurrence, la qualité du contenu, et l'âge du site.</p>",
 								},
 								{
-									title: "Q : Avec quel type de client travaillez-vous ?",
+									title: "Q : Comment choisissez-vous les mots-clés pour une campagne SEA ?",
 									answer:
-										"<p>R : Je travaille principalement avec des PMI-PME, situées en France et en Europe, mais également à l’étranger (Suisse, Israël, Angleterre, États-Unis).</p><p>Mes solutions s’adressent à la fois aux petites sociétés et aux structures plus importantes qui ont besoin d’externaliser une partie de leur activité. Je sous traite ainsi avec plusieurs agences, lorsqu’elles font face à un surcroit d’activité ou qu’une compétence dont elles ont besoin n’est pas internalisée.</p>",
-								},
-								{
-									title:
-										"Q : Une création de site web peut-elle se faire à distance ?",
-									answer:
-										"<p>R : Une création de site Web se fait toujours à distance ! La réalisation d’un site passe par la création de fichiers multimédias, sur un ordinateur de bureau, qui seront ensuite mis en ligne sur un ordinateur, qu’il soit à 500 m ou à l’autre bout de la planète.</p><p>Je suis équipé des dernières technologies en matière de travail à distance (VOIP, partage d’écran, vidéo-conférence etc), ce qui me permet de collaborer avec des sociétés situées partout dans le monde.</p>",
-								},
-								{
-									title: "Q : Sera-t-il possible de faire évoluer mon site ?",
-									answer:
-										"<p>R : OUI ! Rien n’est gravé dans le marbre : je privilégie les systèmes de gestion de contenu Open-Source, grâce auxquels vous pouvez facilement éditer vos pages, modifier des images etc.</p><p>Vous pouvez même rajouter des fonctionnalités en quelques clics, sans aucune compétence technique.</p>",
+										"<p>R : Nous sélectionnons les mots-clés en fonction de la pertinence par rapport à votre entreprise, du volume de recherche, de la compétitivité, et de l'intention de recherche des utilisateurs. Nous utilisons également des outils de recherche de mots-clés et analysons les tendances du marché.</p>",
 								},
 								{
 									title:
-										"Q : Y a-t-il des outils de suivi statistique avec mon site ?",
+										"Q : Le SEO est-il toujours pertinent avec les dernières mises à jour des algorithmes des moteurs de recherche ?",
 									answer:
-										"<p>R : Oui ! Mes solutions sont livrées avec des outils de suivi de trafic, les statistiques de conversion, ainsi que toutes les données nécessaires pour suivre précisément l’évolution de votre chiffre d’affaires ou des contacts de vos clients.</p><p> Il est également possible de personnaliser votre interface de suivi statistiques en fonction de vos objectifs, des intervenants ciblés, et d’automatiser la publication de certains rapports d’activité, en fonction de vos besoins.</p>",
+										"<p>R : Absolument. Le SEO continue d'être crucial malgré les changements d'algorithmes. Ces mises à jour visent souvent à améliorer la qualité des résultats de recherche, donc une stratégie SEO bien conçue, axée sur un contenu de qualité et une expérience utilisateur optimale, reste très efficace.</p>",
 								},
 								{
-									title: "Q : Faites-vous des copies de sauvegarde ?",
+									title: "Q : Quel est le ROI (retour sur investissement) attendu d'une campagne SEM ?",
 									answer:
-										"<p>R : Tout dépend de la formule pour laquelle vous optez : vous pouvez tout à fait être maitre à 100 % de votre site et de son environnement informatique, ou bien choisir une formule d’hébergement où vous n’avez rien à gérer et où sauvegardes et maintenance sont réalisés régulièrement, pour votre tranquilité d’esprit.</p>",
-								},
-								{
-									title: "Q : Comment accéder à mes e-mails ?",
-									answer:
-										"<p>R : Lors de la mise en place de votre boîte mail professionnelle, un technicien prend contact avec vous pour installer un logiciel de messagerie à distance, sur votre Smartphone ou votre ordinateur de bureau.</p>",
+										"<p>R : Le ROI d'une campagne SEM varie selon plusieurs facteurs, comme l'industrie, la compétitivité des mots-clés, et la qualité de l'exécution de la campagne. En général, une campagne bien gérée offre un ROI significatif, mais il est important de fixer des attentes réalistes et de mesurer les performances régulièrement.</p>",
 								},
 								{
 									title:
-										"Q : J’ai déjà un site, que je dois refondre. Vous savez faire ?",
+										"Q : Comment mesurez-vous le succès d'une campagne SEO ou SEA ?",
 									answer:
-										"<p>R : Oui. Il faut cependant savoir qu’une refonte de site est une opération délicate, lancer le processus sans précaution, et c’est la perte de trafic assurée ! De ce fait, une refonte de site est toujours un peu plus coûteuse qu’une création simple, car il faut assurer la jonction technique entre l’ancienne et la nouvelle version du site.</p>",
+										"<p>R : Le succès est mesuré à l'aide de KPIs (indicateurs clés de performance) tels que le trafic du site web, le classement des mots-clés, le taux de conversion, et le ROI. Nous utilisons des outils d'analyse pour suivre ces KPIs et ajuster nos stratégies en conséquence.</p>",
+								},
+								{
+									title: "Q : Le SEA affecte-t-il le SEO ?",
+									answer:
+										"<p>R : Le SEA n'affecte pas directement le SEO, car les annonces payantes et les résultats organiques sont gérés séparément par les moteurs de recherche. Cependant, une campagne SEA réussie peut augmenter le trafic et la notoriété de la marque, ce qui peut indirectement influencer les performances SEO.</p>",
+								},
+								{
+									title: "Q : Comment restez-vous à jour avec les tendances du SEO et du SEM ?",
+									answer:
+										"<p>R : Nous suivons régulièrement les blogs de l'industrie, participons à des conférences, et nous formons continuellement sur les dernières pratiques. Nous expérimentons aussi constamment avec de nouvelles techniques et stratégies pour rester à l'avant-garde.</p>",
+								},
+								{
+									title:
+										"Q : Quels outils utilisez-vous pour le SEO et le SEA ?",
+									answer:
+										"<p>R : Nous utilisons une variété d'outils, y compris Google Analytics, Google Ads, SEMrush, Ahrefs, et Moz, pour la recherche de mots-clés, le suivi du classement, l'analyse de la concurrence, et l'optimisation des campagnes.</p>",
+								},
+								{
+									title:
+										"Q : Comment gérez-vous les changements d'algorithme imprévus dans vos stratégies SEO/SEA ?",
+									answer:
+										"<p>R : Nous surveillons constamment les mises à jour d'algorithme et ajustons rapidement nos stratégies pour y répondre. Notre approche est centrée sur la création de contenu de qualité et la fourniture d'une excellente expérience utilisateur, ce qui aide à minimiser les impacts négatifs des mises à jour d'algorithme.</p>",
 								},
 							]}
 						/>
@@ -378,6 +298,15 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 				</div>
 			</div>
 		</section>
+		<Accelerateur />
+
+TESTIMONIAL BAND
+
+<MainCTA />
+<section>
+			<SEOBlogSlider />
+		</section>
+
 	</main>
 	<Footer />
 </Layout>
@@ -398,41 +327,40 @@ import SEODataCenter from "../assets/img/seo-data-center.png";
 </script>
 <script>
 	function attachTabClickHandlers() {
-    const tabs = document.querySelectorAll(".tabbtn");
-    tabs.forEach((tab) => {
-        tab.removeEventListener("click", handleTabClick); // Nettoyez d'abord
-        tab.addEventListener("click", (event) => handleTabClick(event)); // Utilisez une fonction fléchée
-    });
-}
-//@ts-ignore
-function handleTabClick(event) {
-    const clickedTab = event.currentTarget;
-    const targetId = clickedTab.getAttribute("data-target"); // Utilisez un attribut de données pour la cible
-    const tabs = document.querySelectorAll(".tabbtn");
-    const tabContents = document.querySelectorAll(".tabcontentEl");
+		const tabs = document.querySelectorAll(".tabbtn");
+		tabs.forEach((tab) => {
+			tab.removeEventListener("click", handleTabClick); // Nettoyez d'abord
+			tab.addEventListener("click", (event) => handleTabClick(event)); // Utilisez une fonction fléchée
+		});
+	}
+	//@ts-ignore
+	function handleTabClick(event) {
+		const clickedTab = event.currentTarget;
+		const targetId = clickedTab.getAttribute("data-target"); // Utilisez un attribut de données pour la cible
+		const tabs = document.querySelectorAll(".tabbtn");
+		const tabContents = document.querySelectorAll(".tabcontentEl");
 
-    tabs.forEach((tab) => {
-        if (tab.getAttribute("data-target") === targetId) {
-            tab.classList.add("active");
-        } else {
-            tab.classList.remove("active");
-        }
-    });
+		tabs.forEach((tab) => {
+			if (tab.getAttribute("data-target") === targetId) {
+				tab.classList.add("active");
+			} else {
+				tab.classList.remove("active");
+			}
+		});
 
-    tabContents.forEach((tabContent) => {
-        tabContent.classList.toggle("active", tabContent.id === targetId);
-    });
-}
+		tabContents.forEach((tabContent) => {
+			tabContent.classList.toggle("active", tabContent.id === targetId);
+		});
+	}
 
-attachTabClickHandlers();
-// Attachez les gestionnaires d'onglets lorsque le DOM est prêt
-document.addEventListener("DOMContentLoaded", attachTabClickHandlers);
-// Réattachez les gestionnaires d'onglets sur les événements de navigation d'Astro
-document.addEventListener("astro:page-load", attachTabClickHandlers);
+	attachTabClickHandlers();
+	// Attachez les gestionnaires d'onglets lorsque le DOM est prêt
+	document.addEventListener("DOMContentLoaded", attachTabClickHandlers);
+	// Réattachez les gestionnaires d'onglets sur les événements de navigation d'Astro
+	document.addEventListener("astro:page-load", attachTabClickHandlers);
 </script>
 <style lang="scss">
-
-	.whatisseo { 
+	.whatisseo {
 		h2 {
 			@apply text-white mb-4 leading-snug;
 		}
@@ -447,53 +375,54 @@ document.addEventListener("astro:page-load", attachTabClickHandlers);
 		@apply mx-auto xxl:-mt-20 xl:-mt-12 -mt-12 relative z-10 container;
 	}
 	.tab-content {
-		@apply bg-transparent border-4 border-dashed border-moonstone-300 rounded-xl;
+		@apply  p-10 bg-transparent border-4 border-dashed border-moonstone-300 rounded-xl overflow-clip;
 	}
-	.tabnav {@apply z-20 relative flex justify-center items-center gap-4;}
+	.tabnav {
+		@apply z-20 relative flex justify-center items-center gap-4;
+	}
 	.tabnav.top {
 		@apply -mb-5;
 	}
 	.tabnav.bottom {
 		@apply -mt-5;
 	}
-	.tabbtn { 
-		@apply text-white bg-transparent transition-all duration-300 rounded-lg;
+	.tabbtn {
+		@apply text-white bg-gradient-to-tl from-[#00B2CB] to-[#86E8F5] transition-all duration-300 rounded-md md:text-md sm:text-base text-[16px] px-8 sm:px-16 py-1 font-semibold border border-white;
 		&:hover {
-			@apply cursor-pointer text-white bg-dustyred-200 transition-all duration-200 ;
+			@apply cursor-pointer text-white bg-gradient-to-tl from-[#DA2D50] to-[#FF9AAE] transition-all duration-200;
 		}
 	}
 	.tabbtn.active {
-		@apply text-white bg-dustyred-400;
+		@apply text-white bg-gradient-to-tl from-dustyred-800 to-dustyred-300;
 	}
-	.tabcontentEl {@apply z-10}
-	.tabcontentEl.active {@apply z-20}
+	.tabcontentEl {
+		@apply z-10;
+	}
+	.tabcontentEl.active {
+		@apply z-20;
+	}
 	.tab-content .gauche-droite .col {
 		@apply flex flex-col justify-center text-white;
-		p {@apply text-base mb-3 leading-7}
+		p {
+			@apply text-base mb-3 leading-7;
+		}
 	}
-	#whatissea,
-	#whatissem {
-		position: absolute;
-	}
-	#whatisseo,
-	#whatissea,
-	#whatissem {
-		opacity: 0;
-		transition:
-			visibility 0s linear 0.3s,
-			opacity 0.3s linear;
-	}
-	#whatisseo.active,
-	#whatissea.active,
-	#whatissem.active {
-		opacity: 1;
-		transition:
-			visibility 0s linear 0.3s,
-			opacity 0.3s linear;
-	}
+	#whatisseo, #whatissea, #whatissem {
+    opacity: 0;
+	height:0;
+	transform: scale(0.85) translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, height 10ms linear;
+}
+
+#whatisseo.active, #whatissea.active, #whatissem.active {
+    opacity: 1;
+	height:fit-content;
+    transform: scale(1) translateY(0px);
+	transition: opacity 0.3s ease, transform 0.3s ease, height 10ms linear;
+}
 
 	.faqbox {
-		@apply bg-white py-24 text-white;
+		@apply bg-white py-24 text-white; 
 		.faqcontainer {
 			@apply lg:w-2/3 md:w-3/5 rounded-md overflow-clip relative z-20;
 		}
