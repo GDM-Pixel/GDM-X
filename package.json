@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.3",
-    "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/react": "^3.0.7",
+    "@astrojs/tailwind": "^5.0.3",
     "@fancyapps/fancybox": "^3.5.7",
     "@fancyapps/ui": "^5.0.24",
     "@fontsource/open-sans": "^5.0.15",
@@ -19,7 +19,7 @@
     "@tryghost/content-api": "^1.11.18",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
-    "astro": "^3.3.0",
+    "astro": "^4.0.1",
     "astro-breadcrumbs": "^1.8.0",
     "date-fns": "^2.30.0",
     "emailjs-com": "^3.2.0",
