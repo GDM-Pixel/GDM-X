@@ -1,0 +1,177 @@
+---
+import { Image } from "astro:assets";
+import PixelSeparator from "./PixelSeparator.astro";
+import SylvainImage from "../assets/img/sylvain.jpeg";
+import JeromeImage from "../assets/img/jerome.jpg";
+import CharlesDImage from "../assets/img/charlesd.jpg";
+import MarieFImage from "../assets/img/marie-france.jpg";
+import MarieMImage from "../assets/img/marie-mure-ravaud.jpg";
+---
+
+<section class="testimonials-customer py-24 px-6">
+	<div class="testiband-container TestiBandContainer">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div class="ss-inner-container">
+					<div class="col1">
+						<Image
+							src={MarieMImage}
+							alt="Marie Mure Ravaud"
+							width="144"
+							height="144"
+						/>
+					</div>
+					<div class="col2">
+						<blockquote>
+							"Excellent formateur SEO, réunissant l'expértise et le sens de la
+							pédagogie."
+						</blockquote>
+						<h4>Marie Mure Ravaud</h4>
+						<span class="position">Communications Manager - Snap Inc.</span>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="ss-inner-container">
+					<div class="col1">
+						<Image
+							src={SylvainImage}
+							alt="Sylvain Vandewalle"
+							width="144"
+							height="144"
+						/>
+					</div>
+					<div class="col2">
+						<blockquote>
+							"Charles est le meilleur spécialiste de la région caennaise en
+							e-commerce."
+						</blockquote>
+						<h4>Sylvain Vandewalle</h4>
+						<span class="position">Growth Hacker - Sinay</span>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="ss-inner-container">
+					<div class="col1">
+						<Image
+							src={MarieFImage}
+							alt="Marie-France Gras"
+							width="144"
+							height="144"
+						/>
+					</div>
+					<div class="col2">
+						<blockquote>
+							"Travail sérieux, méthodique, nos résultats sont en constante
+							augmentation."
+						</blockquote>
+						<h4>Marie-France Gras</h4>
+						<span class="position">Gérante - AC Communication.</span>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="ss-inner-container">
+					<div class="col1">
+						<Image
+							src={JeromeImage}
+							alt="Jérome de la Casinière"
+							width="144"
+							height="144"
+						/>
+					</div>
+					<div class="col2">
+						<blockquote>
+							"Je recommande fortement cette agence ! Tout le travail effectué
+							pour nous a été réalisé rapidement, et avec beaucoup de
+							professionalisme."
+						</blockquote>
+						<h4>Jérome de la Casinière</h4>
+						<span class="position">Gérant - La Casinière</span>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="ss-inner-container">
+					<div class="col1">
+						<Image
+							src={CharlesDImage}
+							alt="Charles Dévé"
+							width="144"
+							height="144"
+						/>
+					</div>
+					<div class="col2">
+						<blockquote>
+							"Charles Annoni est disponible et possède une énergie remarquable.
+							Je le recommande à ceux qui veulent améliorer leur visibilité sur
+							Internet."
+						</blockquote>
+						<h4>Charles Dévé</h4>
+						<span class="position">CRC - Crédit Mutuel.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	import Swiper from "swiper/bundle";
+	import "swiper/css/bundle";
+
+	function initializeTestiBandSwiper() {
+		var swiper = new Swiper(".TestiBandContainer", {
+			loop: true,
+			autoplay: {
+				delay: 4000,
+			},
+			slidesPerView: 1,
+			spaceBetween: 0,
+			freeMode: false,
+			speed: 700,
+			effect: "fade",
+			fadeEffect: {
+				crossFade: true,
+			},
+		});
+	}
+	initializeTestiBandSwiper();
+	document.addEventListener("astro:page-load", initializeTestiBandSwiper);
+</script>
+
+<style lang="scss">
+	.swiper {
+		height: 100%;
+		width: 100%;
+	}
+	.swiper-wrapper {
+		@apply mx-auto;
+	}
+
+	.testiband-container {
+		@apply relative overflow-hidden z-20 max-w-4xl mx-auto;
+		.swiper-slide {
+			.ss-inner-container { 
+				@apply flex sm:flex-row flex-col justify-between gap-12 items-center sm:text-left text-center;
+			}
+			.col1 {
+				@apply shrink-0;
+			}
+			@apply w-full mx-auto;
+			h4 {
+				@apply text-base font-bold text-prussian-700 mb-1 mt-1 sm:text-left text-center;
+			}
+			blockquote {
+				@apply text-xl font-bold mb-3 text-prussian-400 sm:text-left text-center;
+			}
+			img {
+				@apply rounded-full self-center;
+			}
+			.position {
+				@apply text-base text-prussian-200 sm:text-left text-center;
+			}
+		}
+	}
+</style>

@@ -10,7 +10,7 @@ const { items, extraClass = "" } = Astro.props;
 			//@ts-ignore
 			<div key={index}>
 				<button
-					class={`accordion flex justify-between ${
+					class={`accordion flex justify-between gap-3 ${
 						item.isopen ? "active" : ""
 					}`}>
 					{item.title}
@@ -88,7 +88,7 @@ const { items, extraClass = "" } = Astro.props;
 	}
 
 	.accordion svg {
-		@apply fill-moonstone-500 transition-all duration-500 ease-in-out rotate-0;
+		@apply fill-moonstone-500 transition-all duration-500 ease-in-out rotate-0 flex-shrink-0;
 	}
 	.accordion.active svg {
 		@apply fill-dustyred-200 transition-all duration-500 ease-in-out rotate-45;

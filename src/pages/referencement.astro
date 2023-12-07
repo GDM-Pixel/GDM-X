@@ -26,6 +26,7 @@ import CTABand from "../components/CTABand.astro";
 import AmbitiousMan from "../assets/img/ambitiousman.png";
 import SEODataCenter from "../assets/img/seo-data-center.png";
 import Accelerateur from "../components/Accelerateur.astro";
+import TestimonialsBand from "../components/TestimonialsBand.astro"; 
 ---
 
 <Layout
@@ -300,7 +301,7 @@ import Accelerateur from "../components/Accelerateur.astro";
 		</section>
 		<Accelerateur />
 
-TESTIMONIAL BAND
+		<TestimonialsBand />
 
 <MainCTA />
 <section>
@@ -316,8 +317,7 @@ TESTIMONIAL BAND
 			var novacontainer = document.querySelector(".novacontainer");
 			if (novacontainer) {
 				var rect = novacontainer.getBoundingClientRect();
-				var isCloseToTop = rect.top <= 10; // 10 pixels de marge, ajustez selon vos besoins
-
+				var isCloseToTop = rect.top <= 10;
 				novacontainer.classList.toggle("sticky", isCloseToTop);
 			}
 		});
@@ -329,8 +329,8 @@ TESTIMONIAL BAND
 	function attachTabClickHandlers() {
 		const tabs = document.querySelectorAll(".tabbtn");
 		tabs.forEach((tab) => {
-			tab.removeEventListener("click", handleTabClick); // Nettoyez d'abord
-			tab.addEventListener("click", (event) => handleTabClick(event)); // Utilisez une fonction fléchée
+			tab.removeEventListener("click", handleTabClick); 
+			tab.addEventListener("click", (event) => handleTabClick(event));
 		});
 	}
 	//@ts-ignore
