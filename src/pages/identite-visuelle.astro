@@ -13,10 +13,23 @@ import CaseStudyEcommerceSlider from "../components/CaseStudyEcommerceSlider.ast
 import logoGDM from "../assets/img/logo-gdm-white.svg";
 import Accordion from "../components/Accordion.astro";
 import NovaImage from "../assets/img/nova.png";
+import CTABand from "../components/CTABand.astro";
 import Testislider from "../components/Testislider.astro";
 import MainCTA from "../components/MainCTA.astro";
+import Accelerateur from "../components/Accelerateur.astro";
 import EcommerceSlider from "../components/EcommerceSlider.astro";
 import Footer from "../components/Footer.astro";
+import Portfolio from "../components/Portfolio.jsx";
+import logoAden from "../assets/img/logo-aden-formation.png";
+import logoLesClapiottes from "../assets/img/logo-les-clapiottes.png";
+import logoMDS from "../assets/img/logo-my-digital-school.png";
+import logoBoutiqueChientChat from "../assets/img/logo-atout-chat-chien.png";
+import logoOpenMindInnovation from "../assets/img/logo-open-mind-innovation.png";
+import logoSEOCamp from "../assets/img/logo-seo-camp.png";
+import logoAnahataYoga from "../assets/img/logo-anahata-yoga.png";
+import logoLaCasiniere from "../assets/img/logo-la-casiniere.png";
+import logoEurodisViande from "../assets/img/logo-eurodis-viande.png";
+import DesignBlogSlider from "../components/DesignBlogSlider.astro";
 ---
 
 <Layout
@@ -33,24 +46,28 @@ import Footer from "../components/Footer.astro";
 					icon="fa-hat-wizard"
 					body="13 ans d'expérience en création de sites E-commerce"
 					color="prussian"
+					size="medium"
 				/>
 				<Reassurance
 					title="Satisfaction garantie"
 					icon="fa-message-heart"
 					body="Votre satisfaction est notre priorité absolue"
 					color="prussian"
+					size="medium"
 				/>
 				<Reassurance
 					title="Approche globale multicanale"
 					icon="fa-photo-film-music"
 					body="Notre approche du design inclut tous les médias, web & print."
 					color="prussian"
+					size="medium"
 				/>
 				<Reassurance
 					title="Consultation gratuite"
 					icon="fa-messages-question"
 					body="Demandez un rendez-vous pour faire le point sur votre besoin."
 					color="prussian"
+					size="medium"
 				/>
 			</div>
 		</div>
@@ -115,21 +132,106 @@ import Footer from "../components/Footer.astro";
 			</div>
 		</div>
 
-		<section class="case-study container py-24">
-			<div class="section-header left">
-				<span class="subtitle text-dustyred-400 block">Etudes de cas</span>
-				<h2 class="section-title">
-					Quelques une de nos dernières créations (et leur contenu)
-				</h2>
-				<PixelSeparator />
-			</div>
-			<CaseStudyEcommerceSlider />
-		</section>
+		<section class="portfolio">
+			<div class="row my-20">
+				<div class="container">
+					<div class="section-header">
+						<span class="h6 text-dustyred-400 uppercase font-bold mb-6"
+							>Dernières créations</span
+						>
+						<h2 class="section-title">
+							Quelques une de nos dernières réalisations
+						</h2>
+						<PixelSeparator />
+					</div>
+				</div>
 
+				<Portfolio client:idle />
+			</div>
+		</section>
+		<Accelerateur />
+		<Testislider />
+		<section class="brandpartners pb-24">
+			<div class="max-w-full px-10 flex flex-wrap gap-8 justify-center">
+				<Image
+					src={logoAden}
+					width="175"
+					height="90"
+					alt="logo Aden Formation"
+					loading="lazy"
+				/>
+				<Image
+					src={logoLesClapiottes}
+					width="200"
+					height="90"
+					alt="logo les Clapiottes"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoMDS}
+					width="200"
+					height="90"
+					alt="logo My Digital School"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoBoutiqueChientChat}
+					width="102"
+					height="90"
+					alt="logo Atout chat et chien"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoOpenMindInnovation}
+					width="175"
+					height="90"
+					alt="logo Open Mind Innovation"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoSEOCamp}
+					width="108"
+					height="90"
+					alt="logo SEO Camp"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoAnahataYoga}
+					width="167"
+					height="90"
+					alt="logo Anahata Yoga"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoLaCasiniere}
+					width="186"
+					height="90"
+					alt="logo La Casinière"
+					loading="lazy"
+				/>
+
+				<Image
+					src={logoEurodisViande}
+					width="102"
+					height="90"
+					alt="logo Eurodis Viande"
+					loading="lazy"
+				/>
+			</div>
+		</section>
+		<MainCTA />
+		<DesignBlogSlider />
+		<CTABand />
 		<section class="faqbox">
 			<div class="container">
-				<div class="section-header left dark">
-					<span class="h6 text-white uppercase font-semibold mb-6 block"
+				<div class="section-header left">
+					<span class="h6 text-moonstone-400 uppercase font-semibold mb-6 block"
 						>FAQ</span
 					>
 					<h2 class="section-title">Réponses aux questions fréquentes</h2>
@@ -137,69 +239,69 @@ import Footer from "../components/Footer.astro";
 				</div>
 
 				<div class="row flex flex-col md:flex-row gap-6">
-					<div class="faqcontainer">
+					<div class="faqcontainer shadow-md">
 						<Accordion
 							items={[
 								{
 									title:
-										"Q : Quel est le coût de création d'un site e-commerce ?",
+										"Q : Qu'est-ce que le webdesign et pourquoi est-il important ?",
 									answer:
-										"<p>R : Le coût varie en fonction de divers facteurs, tels que la complexité du design, le nombre de produits, les fonctionnalités spécifiques et les intégrations nécessaires. Après avoir évalué vos besoins, nous vous fournirons un devis personnalisé.</p>",
+										"<p>R : Le webdesign est l'art de créer l'apparence visuelle et l'expérience utilisateur d'un site web. Il est crucial car il influence la façon dont les visiteurs perçoivent votre marque et détermine l'efficacité de leur interaction avec votre site.</p>",
 									isopen: true,
 								},
 								{
 									title:
-										"Q : Combien de temps faut-il pour développer un site e-commerce ?",
+										"Q : Comment créez-vous une identité visuelle unique pour un site web ?",
 									answer:
-										"<p>R : Le temps de développement dépend de la taille et de la complexité du projet. En moyenne, un site e-commerce peut prendre de 3 à 6 mois pour être complètement opérationnel.</p>",
+										"<p>R : Nous commençons par comprendre votre marque, votre public cible et vos objectifs. Ensuite, nous élaborons un design unique qui reflète votre identité de marque, en utilisant des éléments visuels cohérents comme les couleurs, les polices, et les images.</p>",
 								},
 								{
 									title:
-										"Q : Mon site e-commerce sera-t-il optimisé pour le mobile ?",
+										"Q : Combien de temps prend la création d'un design web ?",
 									answer:
-										"<p>R : Oui, tous nos sites e-commerce sont conçus avec une approche responsive, garantissant une expérience utilisateur optimale sur les appareils mobiles et les tablettes.</p>",
+										"<p>R :  Le temps nécessaire varie selon la complexité du projet. Un design de base peut être réalisé en quelques semaines, tandis qu'un projet plus complexe nécessitera plus de temps pour la recherche, la conception et les révisions.</p>",
 								},
 								{
 									title:
-										"Q : Comment gérez-vous les paiements en ligne sécurisés ?",
+										"Q : Quels sont les éléments clés d'un bon webdesign ?",
 									answer:
-										"<p>R : Nous intégrons des solutions de paiement sécurisées, telles que PayPal, Stripe, ou des passerelles de paiement spécifiques à un pays, en utilisant des protocoles de cryptage pour protéger les informations sensibles des clients.</p>",
+										"<p>R : Un bon webdesign doit être esthétiquement plaisant, facile à naviguer, responsive (adapté aux mobiles), rapide à charger, et doit fournir une expérience utilisateur intuitive.</p>",
 								},
 								{
 									title:
-										"Q : Proposez-vous des solutions pour le référencement (SEO) des sites e-commerce ?",
+										"Q : Comment intégrez-vous l'identité de marque dans le webdesign ?",
 									answer:
-										"<p>R : Oui, nous intégrons des pratiques SEO dès la conception du site, en optimisant les structures de pages, les balises méta, les descriptions de produits et en veillant à la performance générale du site pour améliorer sa visibilité.</p>",
+										"<p>R : Nous utilisons les couleurs, les polices, le style graphique et le ton de votre marque pour créer un design qui reflète fidèlement votre identité de marque et renforce la reconnaissance de votre marque.</p>",
 								},
 								{
 									title:
-										"Q : Comment puis-je suivre les ventes et les performances de mon site e-commerce ?",
+										"Q : Proposez-vous des services de refonte pour les sites existants ?",
 									answer:
-										"<p>R : Nos solutions E-commerce intégrent déjà des outils de suivis statistiques afin de connaitre à tout moment votre chiffre d'affaire, votre panier moyen, le nombre de visiteurs etc. Nous intégrons également des outils d'analyse comme Google Analytics, qui vous permettront de suivre le comportement des utilisateurs et d'autres métriques importantes pour évaluer les performances de votre site.</p>",
+										"<p>R : Oui, nous offrons des services de refonte pour moderniser votre site existant, améliorer l'expérience utilisateur, et le rendre plus conforme à votre identité de marque actuelle.</p>",
 								},
 								{
 									title:
-										"Q : Offrez-vous un support après le lancement du site ?",
+										"Q : Comment restez-vous à jour avec les dernières tendances en webdesign ?",
 									answer:
-										"<p>R : Oui, nous proposons des services de support et de maintenance pour résoudre les problèmes de gestion que vous pourriez rencontrer, mettre à jour le site, et assurer son bon fonctionnement continu.</p>",
+										"<p>R : Nous suivons les dernières tendances en matière de webdesign en participant à des conférences, en lisant des publications de l'industrie, et en expérimentant avec de nouvelles techniques et technologies.</p>",
 								},
 								{
 									title:
-										"Q : Puis-je gérer moi-même les stocks et les produits sur le site ?",
+										"Q : Comment l'identité visuelle influence-t-elle la perception de ma marque par les clients ?",
 									answer:
-										"<p>R : Absolument. Nous configurons votre site e-commerce sur des plateformes comme Shopify, WooCommerce, ou Prestashop, qui offrent des interfaces conviviales pour gérer les stocks et les produits facilement.</p>",
+										"<p>R : L'identité visuelle est cruciale car elle transmet les valeurs, l'essence et la personnalité de votre marque. Un design cohérent et réfléchi crée une impression positive et durable, aide à établir la confiance et favorise la reconnaissance de votre marque auprès des clients.</p>",
 								},
 								{
 									title:
-										"Q : Comment assurez-vous la sécurité des données clients ?",
+										"Q : Pouvez-vous adapter mon identité visuelle existante à un nouveau design de site web ?",
 									answer:
-										"<p>R : Nous utilisons des certificats SSL, des mesures de sécurité des serveurs, et des protocoles de conformité pour assurer la sécurité des données clients et des transactions sur votre site.</p>",
+										"<p>R : Oui, nous pouvons harmoniser votre identité visuelle existante avec un nouveau design de site web. Cela implique d'intégrer vos couleurs, logos, polices et autres éléments de marque de manière cohérente tout en apportant des améliorations pour rafraîchir et moderniser l'apparence générale.</p>",
 								},
 								{
 									title:
-										"Q : Pouvez-vous intégrer des fonctionnalités spécifiques, comme des abonnements ou des ventes croisées ?",
+										"Q : Comment gérez-vous les dernières tendances en matière d'identité visuelle tout en maintenant une apparence intemporelle ?",
 									answer:
-										"<p>R : Oui, nous pouvons intégrer diverses fonctionnalités avancées, y compris des options d'abonnement, des recommandations de produits, des ventes croisées et montées en gamme, pour améliorer l'expérience utilisateur et augmenter les ventes.</p>",
+										"<p>R : Tout en étant attentifs aux tendances actuelles, notre approche consiste à créer une identité visuelle qui est à la fois moderne et intemporelle. Nous équilibrons l'innovation avec des éléments classiques pour assurer que votre identité visuelle reste pertinente et efficace à long terme, évitant ainsi un design qui pourrait rapidement devenir démodé.</p>",
 								},
 							]}
 						/>
@@ -232,12 +334,24 @@ import Footer from "../components/Footer.astro";
 				</div>
 			</div>
 		</section>
-		<Testislider />
-		<MainCTA />
-		<EcommerceSlider />
+	
 	</main>
 	<Footer />
 </Layout>
+<script>
+	function setup() {
+		window.addEventListener("scroll", function () {
+			var novacontainer = document.querySelector(".novacontainer");
+			if (novacontainer) {
+				var rect = novacontainer.getBoundingClientRect();
+				var isCloseToTop = rect.top <= 10;
+				novacontainer.classList.toggle("sticky", isCloseToTop);
+			}
+		});
+	}
+	document.addEventListener("DOMContentLoaded", setup);
+	document.addEventListener("astro:page-load", setup);
+</script>
 
 <style lang="scss">
 	.container {
@@ -254,7 +368,7 @@ import Footer from "../components/Footer.astro";
 		}
 	}
 	.faqbox {
-		@apply bg-gradient-to-b from-[#1B3751] to-[#232634] py-24 text-white;
+		@apply bg-powder py-24 text-white;
 		.faqcontainer {
 			@apply lg:w-2/3 md:w-3/5 rounded-md overflow-clip relative z-20;
 		}
@@ -267,7 +381,7 @@ import Footer from "../components/Footer.astro";
 			@apply lg:w-1/3 md:w-2/5 rounded-lg relative md:self-start self-center
 		flex flex-col md:justify-start justify-center items-center transition-all duration-300 ease-in-out opacity-100 translate-y-0;
 			&.sticky {
-				@apply md:top-0 transition-all md:mb-24 duration-300 ease-in-out md:opacity-95 md:translate-y-20;
+				@apply md:top-0 transition-all md:mb-24 duration-300 ease-in-out md:opacity-95 md:translate-y-20;position: sticky;
 			}
 
 			.novainner {

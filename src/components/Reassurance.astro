@@ -59,12 +59,13 @@ interface Props {
 		| "fa-youtube"
 		| "fa-message-heart";
 	color: string;
+	size: "small" | "medium"| "normal" | "big" | "tiny";
 }
-const { title, body, icon, color } = Astro.props;
+const { title, body, icon, color, size } = Astro.props;
 ---
 
 <div class="reassurel">
-	<Icone icon={icon} color={color} size="medium" />
+	<Icone icon={icon} color={color} size={size} />
 	<h4>{title}</h4>
 	<p>{body}</p>
 </div>
