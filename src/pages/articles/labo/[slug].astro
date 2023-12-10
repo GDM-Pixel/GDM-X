@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import logoGDM from "../../../assets/img/logo-gdm-white.svg";
 import NovaImage from "../../../assets/img/nova.png";
-import Layout from "../../../layouts/Layout.astro";
+import LayoutBlogPost from "../../../layouts/LayoutBlogPost.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -51,9 +51,9 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 }
 ---
 
-<Layout title="Page des composants" description="Ceci est la meta description">
+<LayoutBlogPost title="Page des composants" description="Ceci est la meta description">
 	<Header />
-	<main class="mt-12 mb-24">
+	<main class="mt-6 mb-16 px-6">
 		<div class="mx-auto flex max-w-5xl justify-between">
 			<article class="w-3/5">
 				<img
@@ -102,7 +102,7 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 
 		<RelatedPosts relatedPosts={relatedPosts} />
 	</main>
-</Layout>
+</LayoutBlogPost>
 <Footer />
 
 <script>

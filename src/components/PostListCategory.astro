@@ -1,32 +1,24 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-
-const AllPosts = await getCollection("articles");
-const CreasitePosts = AllPosts.filter((post) => post.data.category === "creasite");
+//import * as animations from "./animations.js";
+//import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Page des articles" description="Ceci est la meta description">
-	<Header />
-	<h1>Articles Creasite</h1>
 	<main>
 		<section class="postgrid">
 			{
-				CreasitePosts.map((post) => (
+				//@ts-ignore
+				Astro.props.posts.map((post) => (
 					<div class="blogsingle">
-						<a
-							class="blogpostwraper"
-							href={`/articles/${post.data.category}/${post.slug}`}>
-							<img
-								transition:name={`featuredImg_${post.slug}`}
+						<a class="blogpostwraper" href={`/articles/${post.data.category}/${post.slug}`}>
+							<img transition:name={`featuredImg_${post.slug}`}
 								src={post.data.image}
 								alt={post.data.title}
 								width="377"
 								height="211"
 							/>
-
+							
 							<div class="postmetawraper">
 								<span class="date">{post.data.date}</span>
 								<h3>{post.data.title}</h3>
@@ -37,7 +29,6 @@ const CreasitePosts = AllPosts.filter((post) => post.data.category === "creasite
 			}
 		</section>
 	</main>
-	<Footer />
 </Layout>
 <style lang="scss">
 	.postgrid {

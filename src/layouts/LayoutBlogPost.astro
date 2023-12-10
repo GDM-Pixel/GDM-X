@@ -6,7 +6,7 @@ interface Props {
 }
 const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
-//import Repere from "../components/Repere.astro"; <Repere />
+import Repere from "../components/Repere.astro";
 ---
 
 <!doctype html>
@@ -36,47 +36,34 @@ import { ViewTransitions } from "astro:transitions";
 	<body>
 		<slot />
 		<Nova />
-		
+		<Repere />
 		<script src="/js/gdm-goto.js" is:inline></script>
-		
-	</body>
-</html>
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-    const loadedImages = {};
-//@ts-ignore
-    function preloadImage(url) {
-		//@ts-ignore
-        if (!loadedImages[url]) {
-            const img = new Image();
-            img.src = url;
-			//@ts-ignore
-            loadedImages[url] = true;
-        }
-    }
-    document.querySelectorAll('a[data-image-src]').forEach(link => {
-        link.addEventListener('mouseover', function() {
-			//@ts-ignore
-            preloadImage(this.getAttribute('data-image-src'));
-        });
-    });
-});
-</script>
-<style is:global lang="scss">
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const loadedImages = {};
+				//@ts-ignore
+				function preloadImage(url) {
+					//@ts-ignore
+					if (!loadedImages[url]) {
+						const img = new Image();
+						img.src = url;
+						//@ts-ignore
+						loadedImages[url] = true;
+					}
+				}
+				document.querySelectorAll("a[data-image-src]").forEach((link) => {
+					link.addEventListener("mouseover", function () {
+						//@ts-ignore
+						preloadImage(this.getAttribute("data-image-src"));
+					});
+				});
+			});
+		</script>
+		<style is:global lang="scss">
 			body {
 				overflow-x: clip;
 			}
-			.section-header h2.section-title,
-			.section-header.dark h2.section-title2 {
-				@apply md:text-xxxl text-xl;
-			}
 
-			.accordion-content p {
-				@apply mb-3;
-				&:last-of-type {
-					@apply mb-0;
-				}
-			}
 			@media screen and (max-width: 767px) {
 				.container {
 					@apply max-w-full px-6;
@@ -126,29 +113,24 @@ import { ViewTransitions } from "astro:transitions";
 			.fa-square-x-twitter {
 				width: 100px;
 			}
-			.section-header {
-				@apply flex flex-col justify-center font-bold text-center items-center px-6  mb-10 max-w-3xl mx-auto;
-				h2 {
-					@apply text-xxxl mb-4;
-				}
-				&.dark {
-					@apply text-white;
-					h2 {
-						@apply text-white;
+			.category-header {
+				@apply mx-auto container px-6 py-12 text-center;
+			}
+			.blogpagination {
+				@apply mt-6 mb-6 flex justify-center gap-6 items-center;
+				.prevbtn {
+					@apply border-2 border-solid text-white text-sm font-bold rounded-md px-4 py-2 drop-shadow-lg shadow-prussian-700 border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
+					&:hover {
+						@apply border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
 					}
 				}
-				&.left {
-					@apply text-left px-0 block max-w-full;
+				.nextbtn {
+					@apply border-2 border-solid text-white text-sm font-bold rounded-md px-4 py-2 drop-shadow-lg shadow-prussian-700 border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
+					&:hover {
+						@apply border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
+					}
 				}
 			}
-			.subtitle {
-				@apply font-semibold uppercase mb-6;
-			}
-			.gauche-droite .col .body p {@apply mb-3;}
-			.category-header {
-		@apply mx-auto container mb-12;
-	}
-  
 		</style>
 		<style>
 			@keyframes fadeIn {
@@ -199,7 +181,9 @@ import { ViewTransitions } from "astro:transitions";
 			}
 			@media (max-width: 640px) {
 				html {
-					font-size: 14px; 
+					font-size: 14px;
 				}
 			}
 		</style>
+	</body>
+</html>

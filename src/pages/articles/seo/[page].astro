@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import LayoutBlogPost from "../../../layouts/LayoutBlogPost.astro";
+import PostList from "../../../components/PostList.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+
+//@ts-ignore
+export async function getStaticPaths({ paginate }) {
+	const allPosts = await getCollection("articles");
+	return paginate(allPosts, { pageSize: 12 });
+}
+//@ts-ignore
+const { page } = Astro.props as { page: PageProps };
+---
+
+<LayoutBlogPost title={`Page des articles`} description="Ceci est la meta description">
+	<Header />
+	<main class="pt-0 pb-12">
+	<div class="category-header">
+		<h1>Articles SEO</h1>
+		<p>Retrouvez ici nos derniers articles en seo</p>
+	</div>
+
+	<PostList posts={page.data} />
+
+	<nav class="blogpagination">
+		{
+			page.url.prev && (
+				<a
+					class="prevbtn"
+					href={page.currentPage === 2 ? `/articles/seo/` : page.url.prev}>
+					Page précédente
+				</a>
+			)
+		}
+
+		{
+			page.url.next && (
+				<a class="nextbtn" href={page.url.next}>
+					Page suivante
+				</a>
+			)
+		}
+	</nav>
+</main>
+	<Footer />
+</LayoutBlogPost>

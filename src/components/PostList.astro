@@ -1,16 +1,12 @@
 ---
-import * as animations from "../components/animations.js";
-import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-const allPosts = await getCollection("articles");
+
+const { posts } = Astro.props;
 
 ---
-
-<Layout title="Page des articles" description="Ceci est la meta description">
-	<main>
 		<section class="postgrid">
 			{
-				allPosts.map((post) => (
+				//@ts-ignore
+				posts.map((post) => (
 					<div class="blogsingle">
 						<a class="blogpostwraper" href={`/articles/${post.data.category}/${post.slug}`}>
 							<img transition:name={`featuredImg_${post.slug}`}
@@ -29,8 +25,7 @@ const allPosts = await getCollection("articles");
 				))
 			}
 		</section>
-	</main>
-</Layout>
+
 <style lang="scss">
 	.postgrid {
 		@apply container grid grid-cols-3 mx-auto gap-6 px-6;

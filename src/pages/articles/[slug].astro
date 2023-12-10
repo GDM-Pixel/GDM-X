@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import logoGDM from "../../assets/img/logo-gdm-white.svg";
 import NovaImage from "../../assets/img/nova.png";
-import Layout from "../../layouts/Layout.astro";
+import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -22,16 +22,16 @@ export async function getStaticPaths() {
 	return paths;
 }
 type Props = {
-	post: CollectionEntry<"articles">;
+	post: CollectionEntry<'articles'>;
 };
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
 ---
 
-<Layout title="Page des composants" description="Ceci est la meta description">
+<LayoutBlogPost title="Page des composants" description="Ceci est la meta description">
 	<Header />
-	<main class="mt-12">
-		<div class="container flex gap-6">
+	<main class="mt-6 mb-16 px-6">
+		<div class="container flex gap-6 px-6">
 			<article class="w-2/3">
 				<img
 					src={post.data.image}
@@ -76,7 +76,7 @@ const { Content, headings } = await post.render();
 		</div>
 	</main>
 	<Footer />
-</Layout>
+</LayoutBlogPost>
 <style lang="scss">
 	.header-nova-box {
 		@apply px-4 py-6 flex justify-center;

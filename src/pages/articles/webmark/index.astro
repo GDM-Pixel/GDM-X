@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import LayoutBlogPost from "../../../layouts/LayoutBlogPost.astro";
+import PostList from "../../../components/PostList.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+
+// Logique de pagination
+const allPosts = await getCollection("articles");
+const WebmarkPosts = allPosts.filter(
+	(post) => post.data.category === "webmark",
+);
+const pageSize = 12;
+const pageNumber = 1;
+const paginatedPosts = WebmarkPosts.slice(
+	(pageNumber - 1) * pageSize,
+	pageNumber * pageSize,
+);
+const totalPages = Math.ceil(WebmarkPosts.length / pageSize);
+---
+
+<LayoutBlogPost
+	title="Page des articles"
+	description="Ceci est la meta description">
+	<Header />
+	<main class="pt-0 pb-12">
+		<div class="category-header">
+			<h1 class="mt-0">Articles Webmarketing</h1>
+			<p>Retrouvez ici nos dernières publications, webmarketing</p>
+		</div>
+
+		<PostList posts={paginatedPosts} />
+
+		<nav class="blogpagination">
+			{
+				pageNumber > 1 && (
+					//@ts-ignore
+					<a
+						class="prevbtn"
+						href={
+							//@ts-ignore
+							pageNumber === 2
+								? `/articles/webmark/`
+								: `/articles/webmark/${pageNumber - 1}`
+						}>
+						Page précédente
+					</a>
+				)
+			}
+
+			{
+				pageNumber < totalPages && (
+					<a class="nextbtn" href={`/articles/webdesign/${pageNumber + 1}`}>
+						Page suivante
+					</a>
+				)
+			}
+		</nav>
+	</main>
+	<Footer />
+</LayoutBlogPost>
