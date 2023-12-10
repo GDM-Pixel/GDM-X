@@ -1,0 +1,146 @@
+---
+interface Props {
+	//title: string;
+	//body: string;
+	//href: string;
+}
+import * as animations from "./animations.js";
+import { Image } from "astro:assets";
+---
+
+<section class="herobox">
+	<div class="container" transition:animate={animations.myFadeSlide}>
+		<h1>Agence Webmarketing à Caen</h1>
+		<p class="baseline">Accélérez Votre Croissance !</p>
+		<p class="intro mb-4">
+			Stratégies digitales personnalisées pour booster votre présence en ligne et votre rentabilité.
+		</p>
+		<div class="cta_container">
+			<a href="#" class="cta red">Demander un RDV en ligne</a>
+		</div>
+	
+	</div>
+</section>
+	<style lang="scss">
+	.herobox {
+		background: url("/img/HeroBckWebmarketing.webp");
+		@apply bg-no-repeat relative overflow-clip bg-contain bg-center flex flex-col justify-center items-center text-white xl:aspect-[16/6] lg:aspect-[16/7.5] md:aspect-[16/10] sm:aspect-[16/12] aspect-[16/20] mt-0 z-0;
+		.container {
+			@apply -mt-10 md:max-w-7xl sm:max-w-6xl sm:text-left xs:w-full max-w-full text-center;
+		}
+		h1 {
+			@apply text-base font-bold uppercase text-moonstone-400 mb-12;
+		}
+		.baseline {
+			@apply xl:text-xxxxl lg:text-xxxxl md:text-xxxl sm:text-xxl xs:text-xl font-extrabold xl:leading-6 uppercase text-white mb-6;
+			.subline {
+				@apply xl:text-[30px] lg:text-xxxxl md:text-xxxl sm:text-xxl text-lg ;
+			}
+		}
+		.intro {
+			@apply max-w-xl text-md md:text-md lg:text-md mx-auto sm:mr-auto sm:ml-0;
+		}
+		.herolist {@apply hidden md:block}
+		.cta_container {
+			@apply mt-6 gap-4 flex sm:text-sm text-xs md:text-base mx-auto justify-center sm:justify-start;
+		}
+	}
+	.left-bg-clip-1 {
+		@apply absolute h-full w-3/5 top-0 -left-12 bg-prussian-500 opacity-80 shadow-[0_20px_5px_rgba(0,0,0,1)];
+	}
+
+	@keyframes balancement1 {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		50% {
+			transform: translateX(
+				20px
+			); /* Ajustez la valeur ici pour la distance désirée */
+		}
+	}
+	@keyframes balancement2 {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		50% {
+			transform: translateX(
+				30px
+			); /* Ajustez la valeur ici pour la distance désirée */
+		}
+	}
+
+	@keyframes balancement3 {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		50% {
+			transform: translateX(
+				60px
+			); /* Ajustez la valeur ici pour la distance désirée */
+		}
+	}
+
+	@keyframes opacity1 {
+		0%,
+		100% {
+			opacity: 0.2;
+		}
+		50% {
+			opacity: 1; /* Ajustez la valeur ici pour la distance désirée */
+		}
+	}
+	
+
+	/*ROUGE XS*/
+	@media screen and (min-width: 240px) and (max-width: 639px) {
+		.herobox {
+			background-position: 47% 24%;
+			background-size: cover;
+		}
+	
+	
+	}
+	/*ORANGE SM*/
+	@media screen and (min-width: 640px) and (max-width: 767px) {
+		.herobox {
+			background-position: 39% 24%;
+			background-size: cover;
+		}
+	
+	}
+
+	/*JAUNE MD*/
+	@media screen and (min-width: 768px) and (max-width: 1023px) {
+		.herobox {
+			background-position: 25% 26%;
+			background-size: cover;
+		}
+	
+	}
+	/*VERT LG*/
+	@media screen and (min-width: 1024px) and (max-width: 1279px) {
+		.herobox {
+			background-position: 40% 26%;
+			background-size: 136%;
+		}
+	
+	}
+
+	/*BLEU XL*/
+	@media screen and (min-width: 1280px) {
+		.left-bg-clip-1 {
+			clip-path: polygon(0 0, 100% 0, 68% 100%, 0% 100%);
+		}
+		.herobox {	
+			background-size: cover;
+		}
+	}
+</style>
+
+
+
+
