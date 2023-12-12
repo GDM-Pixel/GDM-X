@@ -95,7 +95,9 @@ const customCrumbs = [
 							class="col-span-2"
 						/> 
 						<div class="error-message" style="color: red;"></div>
-
+<button type="button" id="test-animation-button" class="col-span-2">
+    Tester l'Animation
+</button>
 					</form>
 				</div>
 
@@ -122,10 +124,14 @@ const customCrumbs = [
     return re.test(String(email).toLowerCase());
   }
 	function initializeForm() {
-
+		
 
 		//@ts-ignore
 	const form = document.getElementById("contact-form");
+	if (!form) {
+        return; // Si le formulaire n'est pas trouvé, arrêtez l'exécution de la fonction
+    }
+	
 	//@ts-ignore
     const emailInput = form.querySelector('input[name="userEmail"]');
 	//@ts-ignore
@@ -209,6 +215,36 @@ const customCrumbs = [
 	}
 	initializeForm();
 	document.addEventListener("astro:page-load", initializeForm);
+	document.addEventListener("astro:content-ready", initializeForm);
+
+	
+
+
+
+	//LLLLLL
+
+	document.addEventListener("astro:page-load", () => {
+    initializeForm();
+
+    const testButton = document.getElementById("test-animation-button");
+    if (testButton) {
+        testButton.addEventListener("click", () => {
+            // Déclencher l'animation
+            gsap.to("#success-message", {
+                autoAlpha: 1,
+                y: 200,
+                duration: 0.5,
+            });
+            setTimeout(() => {
+                gsap.to("#success-message", {
+                    autoAlpha: 0,
+                    y: -30,
+                    duration: 0.5,
+                });
+            }, 4000); 
+        });
+    }
+});
 </script>
 <style lang="scss">
 	main {
