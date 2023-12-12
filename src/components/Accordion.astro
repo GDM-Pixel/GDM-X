@@ -9,7 +9,7 @@ const { items, extraClass = "" } = Astro.props;
 		items.map((item, index) => (
 			//@ts-ignore
 			<div key={index}>
-				<button
+				<button aria-label="FAQ"
 					class={`accordion flex justify-between gap-3 ${
 						item.isopen ? "active" : ""
 					}`}>

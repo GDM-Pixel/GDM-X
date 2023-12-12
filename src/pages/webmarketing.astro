@@ -186,7 +186,7 @@ const customCrumbs = [
 			<div class="container wide">
 				<div class="grid grid-cols-6 gap-20"></div>
 			</div>
-			<TabNavigationWebmark client:load />
+			<TabNavigationWebmark client:idle />
 		</section>
 
 
@@ -369,7 +369,7 @@ const customCrumbs = [
 							/>
 							<p>Vous ne trouvez pas de réponse à votre question ?</p>
 							<span class="ask">Demandez à NOVA</span>
-							<button class="cta red" onclick="openNova()"
+							<button aria-label="Poser une question à Nova" class="cta red" onclick="openNova()"
 								>Posez votre question</button
 							>
 						</div>

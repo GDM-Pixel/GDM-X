@@ -67,7 +67,7 @@ function Fancyboxbox() {
         {portfolioData.slice(0, displayCount).map((item, index) => (
 
           <div key={index} className="portfoliome w-full" data-fancybox="gdmportfolio" data-src={item.src}>
-            <img className="pfthumb w-full" alt={item.alt} src={item.thumb} data-lazy-type="image" data-src={item.thumb} loading="lazy" />
+            <img className="pfthumb w-full" width="435" height="245" alt={item.alt} src={item.thumb} data-lazy-type="image" data-src={item.thumb} loading="lazy" />
           </div>
         ))}
       </div>
@@ -75,6 +75,7 @@ function Fancyboxbox() {
       <button
         className={`cta sktn ${buttonClicked ? "grey" : "red"}`}
         onClick={showAll}
+        aria-label="Montrer tout le portfolio"
       >
         {buttonClicked ? "Le portfolio est chargé" : "Afficher tout"}
       </button>

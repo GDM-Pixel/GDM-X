@@ -7,9 +7,9 @@ import logoGDM from "../assets/img/logo-gdm-white.svg";
 <div class="topbar">
 	<div class="inner_container_lg">
 		<div class="left">
-			<a href="tel:+33977216680" class="mr-2">
+			<a title="Nous appeler" href="tel:+33977216680" class="mr-2">
 				<i class="fa-sharp fa-solid fa-phone"></i>+33-9-7721-6680</a
-			>| <a href="mailto:contact@gdm-pixel.fr"
+			>| <a title="Nous écrire" href="mailto:contact@gdm-pixel.fr"
 				><i class="fa-sharp fa-solid fa-envelope"></i> contact@gdm-pixel.fr</a
 			>
 		</div>
@@ -113,6 +113,7 @@ import logoGDM from "../assets/img/logo-gdm-white.svg";
 
 		<button
 			id="hambBtn"
+			aria-label="Navigation"
 			class="transition-transform duration-300 ease-in-out block lg:hidden"
 			data-visible="false">
 			<svg
@@ -130,7 +131,7 @@ import logoGDM from "../assets/img/logo-gdm-white.svg";
 <div id="mobile-nav" class="gdm-nav gdm-nav-1">
 	<div class="gdm-nav gdm-nav-2">
 		<div class="gdm-nav gdm-nav-3">
-			<button class="gdm-nav-btn gdm-close-btn"
+			<button class="gdm-nav-btn gdm-close-btn" aria-label="Fermer le menu"
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
 					height="1em"
