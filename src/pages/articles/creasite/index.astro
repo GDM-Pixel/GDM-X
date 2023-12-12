@@ -4,6 +4,8 @@ import LayoutBlogPost from "../../../layouts/LayoutBlogPost.astro";
 import PostList from "../../../components/PostList.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
 
 // Logique de pagination
 const allPosts = await getCollection("articles");

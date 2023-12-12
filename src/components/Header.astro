@@ -1,15 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import logoGDM from "../assets/img/logo-gdm-white.svg";
-interface Props {
-	//title: string;
-	//body: string;
-	//href: string;
-}
 
-import { Breadcrumbs } from "astro-breadcrumbs";
-
-import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
 <div class="topbar">
@@ -71,7 +63,7 @@ import "astro-breadcrumbs/breadcrumbs.css";
 		</div>
 	</div>
 </div>
-<div class="header" transition:persist>
+<header class="header" transition:persist>
 	<div class="container">
 		<a href="/" data-image-src="/img/hero-home-bck.webp"
 			><Image class="logo" src={logoGDM} alt="logo GDM-Pixel" /></a
@@ -92,21 +84,29 @@ import "astro-breadcrumbs/breadcrumbs.css";
 				</li>
 				<li>
 					<a href="/creation-site/" data-image-src="/img/HeroBoxCreasite.webp"
-						>Création de site</a>
+						>Création de site</a
+					>
 				</li>
 				<li>
 					<a
 						href="/creation-site/creer-ecommerce/"
-						data-image-src="/img/HeroEcommerce.webp">E-commerce</a>
+						data-image-src="/img/HeroEcommerce.webp">E-commerce</a
+					>
 				</li>
 				<li>
 					<a href="/referencement/" data-image-src="/img/SEOHero.webp"
-						>Référencement</a>
+						>Référencement</a
+					>
 				</li>
-				<li><a href="/webmarketing/">Webmarketing</a></li>
+				<li>
+					<a
+						href="/webmarketing/"
+						data-image-src="/img/HeroBckWebmarketing.webp">Webmarketing</a>
+				</li>
 				<li>
 					<a href="/contact/" data-image-src="/img/contact-hero-bck.webp"
-						>Contact</a>
+						>Contact</a
+					>
 				</li>
 			</ul>
 		</nav>
@@ -125,8 +125,8 @@ import "astro-breadcrumbs/breadcrumbs.css";
 			>
 		</button>
 	</div>
-</div>
-<div class="mobile-menu-overlay"></div>
+</header>
+
 <div id="mobile-nav" class="gdm-nav gdm-nav-1">
 	<div class="gdm-nav gdm-nav-2">
 		<div class="gdm-nav gdm-nav-3">
@@ -168,7 +168,7 @@ import "astro-breadcrumbs/breadcrumbs.css";
 				<ul
 					class="gdm-list flex flex-col justify-center alig-center text-center">
 					<li>
-						<a href="/"
+						<a href="/" data-image-src="/img/HeroBoxCreasite.webp"
 							><svg
 								class="mx-auto home-btn"
 								width="23"
@@ -181,71 +181,81 @@ import "astro-breadcrumbs/breadcrumbs.css";
 							</svg>
 						</a>
 					</li>
-					<li><a href="/creation-site/">Création de site</a></li>
-					<li><a href="/creation-site/creer-ecommerce/">E-commerce</a></li>
-					<li><a href="/refercenement/">Référencement</a></li>
-					<li><a href="/webmarketing/">Webmarketing</a></li>
+					<li>
+						<a href="/creation-site/" data-image-src="/img/HeroBoxCreasite.webp"
+							>Création de site</a>
+					</li>
+					<li>
+						<a
+							href="/creation-site/creer-ecommerce/"
+							data-image-src="/img/HeroEcommerce.webp">E-commerce</a>
+					</li>
+					<li>
+						<a href="/referencement/" data-image-src="/img/SEOHero.webp"
+							>Référencement</a>
+					</li>
+					<li>
+						<a
+							href="/webmarketing/"
+							data-image-src="/img/HeroBckWebmarketing.webp">Webmarketing</a>
+					</li>
 					<li><a href="/articles/">Le Blog</a></li>
-					<li><a href="/contact/">Contact</a></li>
+					<li>
+						<a href="/contact/" data-image-src="/img/contact-hero-bck.webp"
+							>Contact</a>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </div>
+<div class="mobile-menu-overlay"></div>
 
-{
-	Astro.url.pathname !== "/" && (
-		<div class="bd-container">
-			<Breadcrumbs transition:persist>
-				<svg
-					slot="index"
-					xmlns="http://www.w3.org/2000/svg"
-					height="1em"
-					viewBox="0 0 576 512">
-					<path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
-				</svg>
-				<svg
-					slot="separator"
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round">
-					<polyline points="9 18 15 12 9 6" />
-				</svg>
-			</Breadcrumbs>
-		</div>
-	)
-}
 
-<script>
+<script> 
+import { navigate } from 'astro:transitions/client';
+
+
+
+function toggleMenu() {
+		const navBlack = document.querySelector(".gdm-nav-1");
+		const navRed = document.querySelector(".gdm-nav-2");
+		const navWhite = document.querySelector(".gdm-nav-3");
+		const overlay = document.querySelector(".mobile-menu-overlay");
+		//@ts-ignore
+		const isMenuVisible = navBlack.classList.contains("activated");
+		// Basculer la classe 'activated' sur chaque élément de navigation
+		[navBlack, navRed, navWhite, overlay].forEach((nav) => {
+			//@ts-ignore
+			nav.classList.toggle("activated", !isMenuVisible);
+			//@ts-ignore
+			overlay.style.opacity = isMenuVisible ? "0" : "1";
+		});
+		
+	}
+
 	function setup() {
 		window.addEventListener("scroll", function () {
 			var header = document.querySelector(".header");
 			header?.classList.toggle("stickynav", window.scrollY > 200);
 		});
-		const navLinks = document.querySelectorAll("nav ul li a");
-
+		const navLinks = document.querySelectorAll("nav.desktop-nav ul li a");
 		navLinks.forEach((link) => {
 			if (link.getAttribute("href") === window.location.pathname) {
 				link.classList.add("active");
 			}
-
+			else if (link.getAttribute("href") != window.location.pathname) {
+				link.classList.remove("active");
+			}
 			link.addEventListener("click", () => {
 				navLinks.forEach((link) => link.classList.remove("active"));
 				link.classList.add("active");
 			});
 		});
-
 		const menuButton = document.querySelector("#hambBtn");
 		const closeButton = document.querySelector(".gdm-close-btn");
 		const closeOverlay = document.querySelector(".mobile-menu-overlay");
 		// Écouteur pour les clics en dehors du menu
-
 		//@ts-ignore
 		menuButton.addEventListener("click", toggleMenu);
 		//@ts-ignore
@@ -256,34 +266,23 @@ import "astro-breadcrumbs/breadcrumbs.css";
 		const mobileNavLinks = document.querySelectorAll("#mobile-nav a");
 		// Ajouter un écouteur d'événements pour chaque lien
 		mobileNavLinks.forEach((link) => {
-			link.addEventListener("click", () => {
-				// Appeler toggleMenu pour fermer la navigation mobile
-				toggleMenu();
-			});
-		});
+        link.addEventListener("click", (event) => {
+			toggleMenu(); // Ferme le menu
+            event.preventDefault();
+            handleNavigation(link.getAttribute("href")); // Gère la navigation
+        });
+    });
 	}
+	//@ts-ignore
+	function handleNavigation(href) {
+    if (href) {
+        setTimeout(() => {
+            navigate(href);
+        }, 300);
+    }
+}
+document.addEventListener("astro:page-load", setup);
 
-	document.addEventListener("DOMContentLoaded", setup);
-	document.addEventListener("astro:page-load", setup);
-
-	function toggleMenu() {
-		const navBlack = document.querySelector(".gdm-nav-1");
-		const navRed = document.querySelector(".gdm-nav-2");
-		const navWhite = document.querySelector(".gdm-nav-3");
-		const overlay = document.querySelector(".mobile-menu-overlay");
-		// Cette logique vérifie si l'une des classes est déjà visible
-		// Si oui, cela signifie que le menu est ouvert et nous devons le fermer.
-		//@ts-ignore
-		const isMenuVisible = navBlack.classList.contains("activated");
-
-		// Basculer la classe 'activated' sur chaque élément de navigation
-		[navBlack, navRed, navWhite, overlay].forEach((nav) => {
-			//@ts-ignore
-			nav.classList.toggle("activated", !isMenuVisible);
-			//@ts-ignore
-			overlay.style.opacity = isMenuVisible ? "0" : "1";
-		});
-	}
 </script>
 <style lang="scss" is:global>
 	.topbar {
@@ -369,9 +368,9 @@ import "astro-breadcrumbs/breadcrumbs.css";
 				}
 			}
 		}
-		nav.mobile-nav {
-			@apply visible xl:hidden;
-		}
+	}
+	#mobile-nav {
+		@apply visible xl:hidden bg-dustyred-100 fixed z-30;
 	}
 	.bd-container {
 		@apply bg-white shadow-md;
@@ -388,13 +387,13 @@ import "astro-breadcrumbs/breadcrumbs.css";
 
 	.mobile-menu-overlay {
 		opacity: 0;
-		position: fixed;
+		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
 		background-color: rgba(0, 0, 0, 0.7); /* Noir avec opacité */
-		z-index: 29;
+		z-index: 20;
 		pointer-events: none;
 		transition: 300ms ease all;
 	}

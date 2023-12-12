@@ -8,7 +8,7 @@ const { posts } = Astro.props;
 				//@ts-ignore
 				posts.map((post) => (
 					<div class="blogsingle">
-						<a class="blogpostwraper" href={`/articles/${post.data.category}/${post.slug}`}>
+						<a class="blogpostwraper" href={`/articles/${post.data.category}/${post.slug}/`}>
 							<img transition:name={`featuredImg_${post.slug}`}
 								src={post.data.image}
 								alt={post.data.title}
