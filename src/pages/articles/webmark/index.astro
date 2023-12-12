@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import LayoutBlogPost from "../../../layouts/LayoutBlogPost.astro";
+import LayoutBlogCategory from "../../../layouts/LayoutBlogCategory.astro";
 import PostList from "../../../components/PostList.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
@@ -21,9 +21,9 @@ const paginatedPosts = WebmarkPosts.slice(
 const totalPages = Math.ceil(WebmarkPosts.length / pageSize);
 ---
 
-<LayoutBlogPost
-	title="Page des articles"
-	description="Ceci est la meta description">
+<LayoutBlogCategory
+	title="Webmarketing Essentials - Stratégies pour Croître en Ligne | GDM-Pixel"
+	description="Boostez votre activité avec nos insights webmarketing. Tactiques incontournables pour un impact maximal.">
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -86,4 +86,4 @@ const totalPages = Math.ceil(WebmarkPosts.length / pageSize);
 		</nav>
 	</main>
 	<Footer />
-</LayoutBlogPost>
+</LayoutBlogCategory>

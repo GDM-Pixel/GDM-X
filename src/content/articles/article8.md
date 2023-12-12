@@ -3,8 +3,10 @@ author: charles-annoni
 category: webdesign
 date: 04/11/2023
 featured: false
-image: /img/demo-2.jpg
+ogimage: /img/demo-2.jpg
 title: Mon huitième article
+metatitle: Title de l'article de test
+excerpt: metadescription de l'article de test
 ---
 ##Coucou 2
 

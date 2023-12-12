@@ -1,28 +1,8 @@
 ---
 import PixelSeparator from "./PixelSeparator.astro";
 import { getCollection } from "astro:content";
-const allPosts = await getCollection("articles");
+const allPosts = (await getCollection("articles")).filter(post => post.data.category === 'ecommerce');
 
-// @ts-ignore
-function formatDate(dateString) {
-	const [dd, mm, yyyy] = dateString.split("T")[0].split("-");
-	const months = [
-		"Janvier",
-		"Février",
-		"Mars",
-		"Avril",
-		"Mai",
-		"Juin",
-		"Juillet",
-		"Août",
-		"Septembre",
-		"Octobre",
-		"Novembre",
-		"Décembre",
-	];
-	const month = months[parseInt(mm, 10) - 1];
-	return `${dd} ${month} ${yyyy}`;
-}
 ---
 
 <section class="blogpost">
@@ -49,7 +29,7 @@ function formatDate(dateString) {
 									class="blogpostwraper"
 									href={`/articles/${post.data.category}/${post.slug}/`}>
 									<img
-										src={post.data.image}
+										src={post.data.ogimage}
 										alt={post.data.title}
 										width="377"
 										height="211"

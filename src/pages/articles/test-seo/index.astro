@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import LayoutBlogPost from "../../../layouts/LayoutBlogPost.astro";
+import LayoutBlogCategory from "../../../layouts/LayoutBlogCategory.astro";
 import PostList from "../../../components/PostList.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
@@ -21,9 +21,7 @@ const paginatedPosts = TestPosts.slice(
 const totalPages = Math.ceil(TestPosts.length / pageSize);
 ---
 
-<LayoutBlogPost
-	title="Page des articles"
-	description="Ceci est la meta description">
+<LayoutBlogCategory title="Test SEO - Évaluez et Améliorez votre Stratégie | GDM-Pixel" description="Perfectionnez votre SEO ! Découvrez nos tests et outils pour une stratégie de référencement gagnante.">
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -86,4 +84,4 @@ const totalPages = Math.ceil(TestPosts.length / pageSize);
 		</nav>
 	</main>
 	<Footer />
-</LayoutBlogPost>
+</LayoutBlogCategory>

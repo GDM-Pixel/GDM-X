@@ -1,8 +1,7 @@
 ---
 import PixelSeparator from "./PixelSeparator.astro";
 import { getCollection } from "astro:content";
-const allPosts = (await getCollection("articles")).filter(post => post.data.category === 'webmark');
-
+const allPosts = (await getCollection("articles")).filter(post => post.data.category === 'creasite');
 ---
 
 <section class="blogpost">
@@ -13,7 +12,7 @@ const allPosts = (await getCollection("articles")).filter(post => post.data.cate
 					>Dernières publications</span
 				>
 				<h2 class="section-title">
-					Des articles pour vous aider à comprendre le webmarketing
+					Des articles pour vous aider à comprendre la création de site web
 				</h2>
 				<PixelSeparator />
 			</div>

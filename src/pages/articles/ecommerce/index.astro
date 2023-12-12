@@ -10,7 +10,7 @@ import "astro-breadcrumbs/breadcrumbs.css";
 // Logique de pagination
 const allPosts = await getCollection("articles");
 const WebdesignPosts = allPosts.filter(
-	(post) => post.data.category === "webdesign",
+	(post) => post.data.category === "ecommerce",
 );
 const pageSize = 12;
 const pageNumber = 1;
@@ -21,7 +21,7 @@ const paginatedPosts = WebdesignPosts.slice(
 const totalPages = Math.ceil(WebdesignPosts.length / pageSize);
 ---
 
-<LayoutBlogCategory title="Webdesign Tips - Créez des Sites Esthétiques et Fonctionnels | GDM-Pixel" description="Sublimez vos sites avec nos astuces webdesign. Design intuitif, tendances et créativité au rendez-vous.">
+<LayoutBlogCategory title="Ecommerce Insights - Boostez Vos Ventes en Ligne | GDM-Pixel" description="Découvrez comment propulser votre boutique en ligne avec nos astuces ecommerce ciblées. Vendez plus, mieux ">
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -51,10 +51,8 @@ const totalPages = Math.ceil(WebdesignPosts.length / pageSize);
 	</div>
 	<main class="pt-0 pb-12">
 		<div class="category-header">
-			<h1 class="mt-0">Articles Webdesign</h1>
-			<p>
-				Retrouvez ici nos dernières publications, webdesign
-			</p>
+			<h1 class="mt-0">Articles LABO</h1>
+			<p>Retrouvez ici nos dernières publications, LABO</p>
 		</div>
 
 		<PostList posts={paginatedPosts} />
@@ -68,8 +66,8 @@ const totalPages = Math.ceil(WebdesignPosts.length / pageSize);
 						href={
 							//@ts-ignore
 							pageNumber === 2
-								? `/articles/webdesign/`
-								: `/articles/webdesign/${pageNumber - 1}`
+								? `/articles/labo/`
+								: `/articles/labo/${pageNumber - 1}`
 						}>
 						Page précédente
 					</a>
@@ -78,7 +76,7 @@ const totalPages = Math.ceil(WebdesignPosts.length / pageSize);
 
 			{
 				pageNumber < totalPages && (
-					<a class="nextbtn" href={`/articles/webdesign/${pageNumber + 1}`}>
+					<a class="nextbtn" href={`/articles/labo/${pageNumber + 1}`}>
 						Page suivante
 					</a>
 				)

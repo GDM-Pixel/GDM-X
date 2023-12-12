@@ -10,7 +10,7 @@ const { posts } = Astro.props;
 					<div class="blogsingle">
 						<a class="blogpostwraper" href={`/articles/${post.data.category}/${post.slug}/`}>
 							<img transition:name={`featuredImg_${post.slug}`}
-								src={post.data.image}
+								src={post.data.ogimage}
 								alt={post.data.title}
 								width="377"
 								height="211"

@@ -52,7 +52,7 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 }
 ---
 
-<LayoutBlogPost title="Page des composants" description="Ceci est la meta description">
+<LayoutBlogPost title={post.data.metatitle} description={post.data.excerpt} ogimage={post.data.ogimage}>
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -84,7 +84,7 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 		<div class="mx-auto flex max-w-5xl justify-between">
 			<article class="w-3/5">
 				<img
-					src={post.data.image}
+					src={post.data.ogimage}
 					alt={post.data.title}
 					width="795"
 					height="445"

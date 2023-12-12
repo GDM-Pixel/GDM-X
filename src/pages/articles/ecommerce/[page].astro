@@ -7,21 +7,16 @@ import Footer from "../../../components/Footer.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
-// Logique de pagination
-const allPosts = await getCollection("articles");
-const WebdesignPosts = allPosts.filter(
-	(post) => post.data.category === "webdesign",
-);
-const pageSize = 12;
-const pageNumber = 1;
-const paginatedPosts = WebdesignPosts.slice(
-	(pageNumber - 1) * pageSize,
-	pageNumber * pageSize,
-);
-const totalPages = Math.ceil(WebdesignPosts.length / pageSize);
+//@ts-ignore
+export async function getStaticPaths({ paginate }) {
+	const allPosts = await getCollection("articles");
+	return paginate(allPosts, { pageSize: 12 });
+}
+//@ts-ignore
+const { page } = Astro.props as { page: PageProps };
 ---
 
-<LayoutBlogCategory title="Webdesign Tips - Créez des Sites Esthétiques et Fonctionnels | GDM-Pixel" description="Sublimez vos sites avec nos astuces webdesign. Design intuitif, tendances et créativité au rendez-vous.">
+<LayoutBlogCategory title="Ecommerce Insights - Boostez Vos Ventes en Ligne | GDM-Pixel" description="Découvrez comment propulser votre boutique en ligne avec nos astuces ecommerce ciblées. Vendez plus, mieux ">
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -50,40 +45,32 @@ const totalPages = Math.ceil(WebdesignPosts.length / pageSize);
 		</Breadcrumbs>
 	</div>
 	<main class="pt-0 pb-12">
-		<div class="category-header">
-			<h1 class="mt-0">Articles Webdesign</h1>
-			<p>
-				Retrouvez ici nos dernières publications, webdesign
-			</p>
-		</div>
+	<div class="category-header">
+		<h1>Articles labo</h1>
+		<p>Retrouvez ici nos derniers articles en labo</p>
+	</div>
 
-		<PostList posts={paginatedPosts} />
+	<PostList posts={page.data} />
 
-		<nav class="blogpagination">
-			{
-				pageNumber > 1 && (
-					//@ts-ignore
-					<a
-						class="prevbtn"
-						href={
-							//@ts-ignore
-							pageNumber === 2
-								? `/articles/webdesign/`
-								: `/articles/webdesign/${pageNumber - 1}`
-						}>
-						Page précédente
-					</a>
-				)
-			}
+	<nav class="blogpagination">
+		{
+			page.url.prev && (
+				<a
+					class="prevbtn"
+					href={page.currentPage === 2 ? `/articles/labo/` : page.url.prev}>
+					Page précédente
+				</a>
+			)
+		}
 
-			{
-				pageNumber < totalPages && (
-					<a class="nextbtn" href={`/articles/webdesign/${pageNumber + 1}`}>
-						Page suivante
-					</a>
-				)
-			}
-		</nav>
-	</main>
+		{
+			page.url.next && (
+				<a class="nextbtn" href={page.url.next}>
+					Page suivante
+				</a>
+			)
+		}
+	</nav>
+</main>
 	<Footer />
 </LayoutBlogCategory>

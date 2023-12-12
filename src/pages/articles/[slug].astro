@@ -30,7 +30,7 @@ import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
-<LayoutBlogPost title="Page des composants" description="Ceci est la meta description">
+<LayoutBlogPost title={post.data.metatitle} description={post.data.excerpt} ogimage={post.data.ogimage}>
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -62,7 +62,7 @@ import "astro-breadcrumbs/breadcrumbs.css";
 		<div class="container flex gap-6 px-6">
 			<article class="w-2/3">
 				<img
-					src={post.data.image}
+					src={post.data.ogimage}
 					alt={post.data.title}
                     width="795"
                     height="445"

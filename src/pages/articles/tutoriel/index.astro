@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import LayoutBlogPost from "../../../layouts/LayoutBlogPost.astro";
+import LayoutBlogCategory from "../../../layouts/LayoutBlogCategory.astro";
 import PostList from "../../../components/PostList.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
@@ -21,9 +21,7 @@ const paginatedPosts = TutorielPosts.slice(
 const totalPages = Math.ceil(TutorielPosts.length / pageSize);
 ---
 
-<LayoutBlogPost
-	title="Page des articles"
-	description="Ceci est la meta description">
+<LayoutBlogCategory title="Tutoriels Web - Guides Pratiques pour Réussir en Ligne | GDM-Pixel" description="Apprenez avec nos tutoriels : des étapes simples pour des résultats web impressionnants. À vos marques !">
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -86,4 +84,4 @@ const totalPages = Math.ceil(TutorielPosts.length / pageSize);
 		</nav>
 	</main>
 	<Footer />
-</LayoutBlogPost>
+</LayoutBlogCategory>

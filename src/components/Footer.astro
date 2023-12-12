@@ -133,7 +133,7 @@ const allPosts = await getCollection("articles");
 							class="blogpost"
 							href={`/articles/${post.data.category}/${post.slug}/`}>
 							<img
-								src={post.data.image}
+								src={post.data.ogimage}
 								alt={post.data.title}
 								width="190"
 								height="96"

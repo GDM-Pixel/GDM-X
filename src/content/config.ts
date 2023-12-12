@@ -9,8 +9,10 @@ const articlesCollection = defineCollection({
     category:z.string(), 
     date: z.string(),
     featured:z.boolean().default(false),
-    image:z.string(),
-    title:z.string()
+    ogimage:z.string(),
+    title:z.string(),
+    metatitle:z.string(),
+    excerpt:z.string()
    })
 });
 

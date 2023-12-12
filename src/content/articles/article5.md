@@ -1,10 +1,12 @@
 ---
 author: charles-annoni
-category: webdesign
+category: creasite
 date: 04/11/2023
 featured: false
-image: /img/demo-5.jpg
+ogimage: /img/demo-5.jpg
 title: Mon cinquième article
+metatitle: Title de l'article de test
+excerpt: metadescription de l'article de test
 ---
 ##Coucou 2
 

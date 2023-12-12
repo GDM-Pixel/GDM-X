@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
+import LayoutBlogCategory from "../../layouts/LayoutBlogCategory.astro";
 import PostList from "../../components/PostList.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
@@ -17,7 +17,7 @@ const totalPages = Math.ceil(allPosts.length / pageSize);
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 ---
-<LayoutBlogPost title="Page des articles" description="Ceci est la meta description">
+<LayoutBlogCategory title="GDM-Pixel, le blog" description="Explorez les dernières tendances du web avec notre blog – astuces, analyses et conseils d'experts pour booster votre présence en ligne">
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -77,5 +77,5 @@ import "astro-breadcrumbs/breadcrumbs.css";
 	</nav>
   </main>
 	<Footer />
-</LayoutBlogPost>
+</LayoutBlogCategory>
 

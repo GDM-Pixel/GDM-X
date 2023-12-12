@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import LayoutBlogPost from "../../../layouts/LayoutBlogPost.astro";
+import LayoutBlogCategory from "../../../layouts/LayoutBlogCategory.astro";
 import PostList from "../../../components/PostList.astro";
 import Header from "../../../components/Header.astro";
 import Footer from "../../../components/Footer.astro";
@@ -16,7 +16,7 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props as { page: PageProps };
 ---
 
-<LayoutBlogPost title={`Page des articles`} description="Ceci est la meta description">
+<LayoutBlogCategory title="Laboratoire de Test - Innovation et Qualité Web | GDM-Pixel" description="Découvrez notre labo de test où qualité et innovation web se rencontrent pour des solutions digitales performantes.">
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -73,4 +73,4 @@ const { page } = Astro.props as { page: PageProps };
 	</nav>
 </main>
 	<Footer />
-</LayoutBlogPost>
+</LayoutBlogCategory>
