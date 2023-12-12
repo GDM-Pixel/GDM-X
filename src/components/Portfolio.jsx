@@ -75,7 +75,7 @@ function Fancyboxbox() {
       <button
         className={`cta sktn ${buttonClicked ? "grey" : "red"}`}
         onClick={showAll}
-        aria-label="Montrer tout le portfolio"
+        aria-label="Afficher tout"
       >
         {buttonClicked ? "Le portfolio est chargé" : "Afficher tout"}
       </button>
