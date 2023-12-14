@@ -8,7 +8,6 @@ const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
 //import Repere from "../components/Repere.astro"; <Repere />
 ---
-
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -19,21 +18,8 @@ import { ViewTransitions } from "astro:transitions";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<style is:inline>
-			.herobox {
-				position: relative;
-				overflow: clip;
-				display: flex;
-				flex-directionl: column;
-				justify-content: center;
-				align-items: center;
-			}
-			.heroimg {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				z-index: -10;
-			}
+		.herobox {position: relative;overflow: clip;display: flex;flex-directionl: column;justify-content: center;align-items: center;}
+		.heroimg {position: absolute;width: 100%;height: 100%;object-fit: cover;z-index: -10;}
 		</style>
 		<meta name="generator" content={Astro.generator} />
 		<meta name="author" content="Charles Annoni - GDM-Pixel" />
@@ -49,7 +35,6 @@ import { ViewTransitions } from "astro:transitions";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
-		
 	</head>
 	<body>
 		<slot />
