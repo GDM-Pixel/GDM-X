@@ -18,21 +18,7 @@ import { ViewTransitions } from "astro:transitions";
 		<meta name="robots" content="noindex, follow" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="author" content="Charles Annoni - GDM-Pixel" />
-		<meta name="theme-color" content="#13151a" />
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:site" content="@GDM_Pixel" />
-		<meta name="twitter:creator" content="@GDM_Pixel" />
-		<meta property="og:title" content={title} />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
-		<meta property="og:image" content="/img/Opengraph-img.jpg" />
-		<meta property="og:description" content={description} />
-		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
-		<meta property="og:locale" content="fr_FR" />
-		<title>{title}</title>
-		<style>
+		<style is:inline>
 			.herobox {
 				position: relative;
 				overflow: clip;
@@ -49,6 +35,21 @@ import { ViewTransitions } from "astro:transitions";
 				z-index: -10;
 			}
 		</style>
+		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content="Charles Annoni - GDM-Pixel" />
+		<meta name="theme-color" content="#13151a" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@GDM_Pixel" />
+		<meta name="twitter:creator" content="@GDM_Pixel" />
+		<meta property="og:title" content={title} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:image" content="/img/Opengraph-img.jpg" />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
+		<meta property="og:locale" content="fr_FR" />
+		<title>{title}</title>
+		
 	</head>
 	<body>
 		<slot />
