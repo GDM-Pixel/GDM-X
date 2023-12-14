@@ -31,6 +31,23 @@ import { ViewTransitions } from "astro:transitions";
 		<meta property="og:description" content={description} />
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
+		<style is:inline>
+			.herobox {
+				position: relative;
+				overflow: clip;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			.heroimg {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: -10;
+			}
+		</style>
 		<title>{title}</title>
 	</head>
 	<body>
