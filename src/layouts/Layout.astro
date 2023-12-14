@@ -32,7 +32,7 @@ import { ViewTransitions } from "astro:transitions";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<style is:inline>
-			.herobox {
+			.heroboxhome,.herobox,.herobo.medium {
 				position: relative;
 				overflow: clip;
 				display: flex;
@@ -40,6 +40,8 @@ import { ViewTransitions } from "astro:transitions";
 				justify-content: center;
 				align-items: center;
 			}
+			.heroboxhome {z-index: 0;}
+			.herobox.medium {height: 485px;}
 			.heroimg {
 				position: absolute;
 				width: 100%;
