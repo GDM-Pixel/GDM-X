@@ -6,7 +6,6 @@ interface Props {
 }
 const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
-
 ---
 
 <!doctype html>
@@ -32,8 +31,10 @@ import { ViewTransitions } from "astro:transitions";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<style is:inline>
-			.heroboxhome,.herobox,.herobox.medium {
-				background:#273043;
+			.heroboxhome,
+			.herobox,
+			.herobox.medium {
+				background: #273043;
 				position: relative;
 				overflow: clip;
 				display: flex;
@@ -42,7 +43,9 @@ import { ViewTransitions } from "astro:transitions";
 				align-items: center;
 				z-index: 0;
 			}
-			.herobox.medium {height: 485px;}
+			.herobox.medium {
+				height: 485px;
+			}
 			.heroimg {
 				position: absolute;
 				width: 100%;
@@ -76,6 +79,36 @@ import { ViewTransitions } from "astro:transitions";
 						preloadImage(this.getAttribute("data-image-src"));
 					});
 				});
+			});
+		</script>
+		<script type="text/javascript">
+			(function (d, t) {
+				var v = d.createElement(t),
+					s = d.getElementsByTagName(t)[0];
+				v.onload = function () {
+					window.voiceflow.chat.load({
+						verify: { projectID: "6579a0dea484f9a58503480e" },
+						url: "https://general-runtime.voiceflow.com",
+						versionID: "production",
+						assistant: {
+							title: "Nom de l'assistant",
+							description: "Description de l'assistant",
+							image: "URL de l'image de l'assistant",
+							// color: "Code couleur",
+							stylesheet: "URL de votre feuille de style CSS", // lien vers votre feuille de style auto-hébergée
+						},
+					});
+				};
+				v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+				v.type = "text/javascript";
+				s.parentNode.insertBefore(v, s);
+			})(document, "script");
+		</script>
+		<script>
+			//@ts-ignore
+			document.getElementById("novabtn").addEventListener("click", function () {
+				//@ts-ignore
+				window.voiceflow.chat.open();
 			});
 		</script>
 		<style is:global lang="scss">
