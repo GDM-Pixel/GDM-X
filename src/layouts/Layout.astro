@@ -6,7 +6,7 @@ interface Props {
 }
 const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
-//import Repere from "../components/Repere.astro"; <Repere />
+
 ---
 
 <!doctype html>
@@ -149,7 +149,7 @@ import { ViewTransitions } from "astro:transitions";
 			.category-header {
 				@apply mx-auto container mb-12;
 			}
-			</ > <style > @keyframes fadeIn {
+			@keyframes fadeIn {
 				0% {
 					opacity: 0;
 					transform: translateX(60px);
