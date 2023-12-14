@@ -6,7 +6,6 @@ interface Props {
 }
 import * as animations from "./animations.js";
 import { Image } from "astro:assets";
-//import Ecommerce from "../assets/img/HeroEcommerce.png";
 ---
 <section class="herobox">
 	<div class="container" transition:animate={animations.myFadeSlide}>
@@ -18,11 +17,12 @@ import { Image } from "astro:assets";
 		<div class="cta_container">
 			<a href="#" class="cta red">En savoir plus</a>
 		</div>
-
+	</div>
+	<img src="/img/HeroEcommerce.webp" alt="Agence E-commerce à Caen" width="1920" height="auto" class="heroimg"/>
 </section>
 <style lang="scss">
 	.herobox {
-		background: url("/img/HeroEcommerce.webp");
+		/*background: url("/img/HeroEcommerce.webp");*/
 		@apply bg-no-repeat relative overflow-clip bg-contain bg-center flex flex-col justify-center items-center text-white xl:aspect-[16/6] lg:aspect-[16/7.5] md:aspect-[16/10] sm:aspect-[16/12] aspect-[16/20] mt-0 z-0;
 		.container {
 			@apply -mt-10 md:max-w-7xl sm:max-w-6xl xs:w-full max-w-full text-center;

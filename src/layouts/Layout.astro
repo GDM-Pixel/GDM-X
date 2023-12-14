@@ -37,168 +37,170 @@ import { ViewTransitions } from "astro:transitions";
 		<slot />
 		<Nova />
 		<script src="/js/gdm-goto.js" is:inline></script>
-		
-	</body>
-</html>
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-    const loadedImages = {};
-//@ts-ignore
-    function preloadImage(url) {
-		//@ts-ignore
-        if (!loadedImages[url]) {
-            const img = new Image();
-            img.src = url;
+	</body><script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const loadedImages = {};
 			//@ts-ignore
-            loadedImages[url] = true;
-        }
-    }
-    document.querySelectorAll('a[data-image-src]').forEach(link => {
-        link.addEventListener('mouseover', function() {
-			//@ts-ignore
-            preloadImage(this.getAttribute('data-image-src'));
-        });
-    });
-});
-</script>
-<style is:global lang="scss">
-			body {
-				overflow-x: clip;
+			function preloadImage(url) {
+				//@ts-ignore
+				if (!loadedImages[url]) {
+					const img = new Image();
+					img.src = url;
+					//@ts-ignore
+					loadedImages[url] = true;
+				}
 			}
-			.section-header h2.section-title,
-			.section-header.dark h2.section-title2 {
-				@apply md:text-xxxl text-xl;
-			}
+			document.querySelectorAll("a[data-image-src]").forEach((link) => {
+				link.addEventListener("mouseover", function () {
+					//@ts-ignore
+					preloadImage(this.getAttribute("data-image-src"));
+				});
+			});
+		});
+	</script>
+	<style is:global lang="scss">
+		body {
+			overflow-x: clip;
+		}
+		.heroimg {
+			@apply absolute w-full h-full object-cover -z-10;
+		}
+		.section-header h2.section-title,
+		.section-header.dark h2.section-title2 {
+			@apply md:text-xxxl text-xl;
+		}
 
-			.accordion-content p {
-				@apply mb-3;
-				&:last-of-type {
-					@apply mb-0;
-				}
+		.accordion-content p {
+			@apply mb-3;
+			&:last-of-type {
+				@apply mb-0;
 			}
-			@media screen and (max-width: 767px) {
-				.container {
-					@apply max-w-full px-6;
-				}
+		}
+		@media screen and (max-width: 767px) {
+			.container {
+				@apply max-w-full px-6;
 			}
+		}
 
-			.inner_container_lg {
-				@apply mx-auto;
-				max-width: 1600px;
+		.inner_container_lg {
+			@apply mx-auto;
+			max-width: 1600px;
+		}
+		a {
+			@apply text-moonstone-400 transition-all duration-300;
+			&:hover {
+				@apply text-dustyred-400 transition-all duration-300;
 			}
-			a {
-				@apply text-moonstone-400 transition-all duration-300;
-				&:hover {
-					@apply text-dustyred-400 transition-all duration-300;
-				}
+		}
+		.cta {
+			@apply border-2 border-solid text-white font-bold rounded-md px-6 py-3 drop-shadow-lg shadow-prussian-700;
+			&:hover {
+				@apply text-white;
 			}
-			.cta {
-				@apply border-2 border-solid text-white font-bold rounded-md px-6 py-3 drop-shadow-lg shadow-prussian-700;
+			&.red {
+				@apply border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
 				&:hover {
-					@apply text-white;
-				}
-				&.red {
-					@apply border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
-					&:hover {
-						@apply border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
-					}
-					&.sktn {
-						@apply bg-transparent text-dustyred-400 border-4 border-dustyred-400 bg-none;
-						&:hover {
-							@apply bg-dustyred-400 text-white;
-						}
-					}
-				}
-				&.blue {
 					@apply border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
+				}
+				&.sktn {
+					@apply bg-transparent text-dustyred-400 border-4 border-dustyred-400 bg-none;
 					&:hover {
-						@apply border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
+						@apply bg-dustyred-400 text-white;
 					}
 				}
 			}
-			.gogdm {
+			&.blue {
+				@apply border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
 				&:hover {
-					cursor: pointer;
+					@apply border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
 				}
 			}
-			.fa-x-twitter,
-			.fa-square-x-twitter {
-				width: 100px;
+		}
+		.gogdm {
+			&:hover {
+				cursor: pointer;
 			}
-			.section-header {
-				@apply flex flex-col justify-center font-bold text-center items-center px-6  mb-10 max-w-3xl mx-auto;
+		}
+		.fa-x-twitter,
+		.fa-square-x-twitter {
+			width: 100px;
+		}
+		.section-header {
+			@apply flex flex-col justify-center font-bold text-center items-center px-6  mb-10 max-w-3xl mx-auto;
+			h2 {
+				@apply text-xxxl mb-4;
+			}
+			&.dark {
+				@apply text-white;
 				h2 {
-					@apply text-xxxl mb-4;
-				}
-				&.dark {
 					@apply text-white;
-					h2 {
-						@apply text-white;
-					}
-				}
-				&.left {
-					@apply text-left px-0 block max-w-full;
 				}
 			}
-			.subtitle {
-				@apply font-semibold uppercase mb-6;
+			&.left {
+				@apply text-left px-0 block max-w-full;
 			}
-			.gauche-droite .col .body p {@apply mb-3;}
-			.category-header {
-		@apply mx-auto container mb-12;
-	}
-  
-		</style>
-		<style>
-			@keyframes fadeIn {
-				0% {
-					opacity: 0;
-					transform: translateX(60px);
-				}
-				100% {
-					opacity: 1;
-					transform: translateX(0);
-				}
+		}
+		.subtitle {
+			@apply font-semibold uppercase mb-6;
+		}
+		.gauche-droite .col .body p {
+			@apply mb-3;
+		}
+		.category-header {
+			@apply mx-auto container mb-12;
+		}
+	</style>
+	<style>
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+				transform: translateX(60px);
 			}
-			@keyframes fadeOut {
-				0% {
-					opacity: 1;
-					transform: translateX(0);
-				}
-				100% {
-					opacity: 0;
-					transform: translateX(-200px);
-				}
+			100% {
+				opacity: 1;
+				transform: translateX(0);
 			}
+		}
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+				transform: translateX(0);
+			}
+			100% {
+				opacity: 0;
+				transform: translateX(-200px);
+			}
+		}
 
-			@keyframes fadeInFromBottom {
-				0% {
-					opacity: 0;
-					transform: translateY(60px);
-				}
-				50% {
-					opacity: 0;
-					transform: translateY(60px);
-				}
-				100% {
-					opacity: 1;
-					transform: translateY(0);
-				}
+		@keyframes fadeInFromBottom {
+			0% {
+				opacity: 0;
+				transform: translateY(60px);
 			}
+			50% {
+				opacity: 0;
+				transform: translateY(60px);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 
-			@keyframes fadeOutToLeft {
-				0% {
-					opacity: 1;
-					transform: translateX(0);
-				}
-				100% {
-					opacity: 0;
-					transform: translateX(-200px);
-				}
+		@keyframes fadeOutToLeft {
+			0% {
+				opacity: 1;
+				transform: translateX(0);
 			}
-			@media (max-width: 640px) {
-				html {
-					font-size: 14px; 
-				}
+			100% {
+				opacity: 0;
+				transform: translateX(-200px);
 			}
-		</style>
+		}
+		@media (max-width: 640px) {
+			html {
+				font-size: 14px;
+			}
+		}
+	</style>
+</html>

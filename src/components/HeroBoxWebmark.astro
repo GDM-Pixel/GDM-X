@@ -13,18 +13,25 @@ import { Image } from "astro:assets";
 		<h1>Agence Webmarketing à Caen</h1>
 		<p class="baseline">Accélérez Votre Croissance !</p>
 		<p class="intro mb-4">
-			Stratégies digitales personnalisées pour booster votre présence en ligne et votre rentabilité.
+			Stratégies digitales personnalisées pour booster votre présence en ligne
+			et votre rentabilité.
 		</p>
 		<div class="cta_container">
 			<a href="#" class="cta red">Demander un RDV en ligne</a>
 		</div>
-	
 	</div>
+	<img
+		src="/img/HeroBckWebmarketing.webp"
+		alt="Agence Webmarketing à Caen"
+		width="1920"
+		height="auto"
+		class="heroimg"
+	/>
 </section>
-	<style lang="scss">
+<style lang="scss">
 	.herobox {
-		background: url("/img/HeroBckWebmarketing.webp");
-		@apply bg-no-repeat relative overflow-clip bg-contain bg-center flex flex-col justify-center items-center text-white xl:aspect-[16/6] lg:aspect-[16/7.5] md:aspect-[16/10] sm:aspect-[16/12] aspect-[16/20] mt-0 z-0;
+		/*background: url("/img/HeroBckWebmarketing.webp");*/
+		@apply relative overflow-clip flex flex-col justify-center items-center text-white xl:aspect-[16/6] lg:aspect-[16/7.5] md:aspect-[16/10] sm:aspect-[16/12] aspect-[16/20] mt-0 z-0;
 		.container {
 			@apply -mt-10 md:max-w-7xl sm:max-w-6xl sm:text-left xs:w-full max-w-full text-center;
 		}
@@ -34,13 +41,15 @@ import { Image } from "astro:assets";
 		.baseline {
 			@apply xl:text-xxxxl lg:text-xxxxl md:text-xxxl sm:text-xxl xs:text-xl font-extrabold xl:leading-6 uppercase text-white mb-6;
 			.subline {
-				@apply xl:text-[30px] lg:text-xxxxl md:text-xxxl sm:text-xxl text-lg ;
+				@apply xl:text-[30px] lg:text-xxxxl md:text-xxxl sm:text-xxl text-lg;
 			}
 		}
 		.intro {
 			@apply max-w-xl text-md md:text-md lg:text-md mx-auto sm:mr-auto sm:ml-0;
 		}
-		.herolist {@apply hidden md:block}
+		.herolist {
+			@apply hidden md:block;
+		}
 		.cta_container {
 			@apply mt-6 gap-4 flex sm:text-sm text-xs md:text-base mx-auto justify-center sm:justify-start;
 		}
@@ -93,7 +102,6 @@ import { Image } from "astro:assets";
 			opacity: 1; /* Ajustez la valeur ici pour la distance désirée */
 		}
 	}
-	
 
 	/*ROUGE XS*/
 	@media screen and (min-width: 240px) and (max-width: 639px) {
@@ -101,8 +109,6 @@ import { Image } from "astro:assets";
 			background-position: 47% 24%;
 			background-size: cover;
 		}
-	
-	
 	}
 	/*ORANGE SM*/
 	@media screen and (min-width: 640px) and (max-width: 767px) {
@@ -110,7 +116,6 @@ import { Image } from "astro:assets";
 			background-position: 39% 24%;
 			background-size: cover;
 		}
-	
 	}
 
 	/*JAUNE MD*/
@@ -119,7 +124,6 @@ import { Image } from "astro:assets";
 			background-position: 25% 26%;
 			background-size: cover;
 		}
-	
 	}
 	/*VERT LG*/
 	@media screen and (min-width: 1024px) and (max-width: 1279px) {
@@ -127,7 +131,6 @@ import { Image } from "astro:assets";
 			background-position: 40% 26%;
 			background-size: 136%;
 		}
-	
 	}
 
 	/*BLEU XL*/
@@ -135,12 +138,8 @@ import { Image } from "astro:assets";
 		.left-bg-clip-1 {
 			clip-path: polygon(0 0, 100% 0, 68% 100%, 0% 100%);
 		}
-		.herobox {	
+		.herobox {
 			background-size: cover;
 		}
 	}
 </style>
-
-
-
-
