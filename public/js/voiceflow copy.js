@@ -1,4 +1,3 @@
-/*
 function setupNovaListeners() {
     console.log("setupNovaListeners appelée");
     (function (d, t) {
@@ -36,16 +35,11 @@ function reloadVoiceflow() {
     setupNovaListeners();
 }
 
-// Écouteur d'événement pour le survol du bouton
-var button = document.querySelector('button.goload');
-button.addEventListener('mouseover', function () {
-    setupNovaListeners();
-});
-
+// Appel initial de la fonction
+setupNovaListeners();
 
 // Écouter l'événement astro:page-load pour recharger le widget
 document.addEventListener('astro:page-load', function () {
     console.log("Événement astro:page-load détecté");
     reloadVoiceflow();
 });
-*/

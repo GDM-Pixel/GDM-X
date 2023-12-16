@@ -59,7 +59,6 @@ import { ViewTransitions } from "astro:transitions";
 	<body>
 		<slot />
 		<BookMe />
-		<script is:inline src="/js/voiceflow.js"></script>
 		<script>
 			function setupNovaListeners() {
 				console.log("setupNovaListeners appelée");
@@ -92,23 +91,28 @@ import { ViewTransitions } from "astro:transitions";
 					console.log("Script Voiceflow inséré dans le DOM");
 				})(document, "script");
 			}
-
 			function reloadVoiceflow() {
 				console.log("Rechargement du widget Voiceflow");
 				//@ts-ignore
 				if (window.voiceflow) {
 					//@ts-ignore
-					delete window.voiceflow.chat; // Ajustez selon l'objet réel
+					delete window.voiceflow.chat;
 					console.log("Référence Voiceflow supprimée de window");
 				}
 				// Recréer le widget
-				setupNovaListeners();
+				var button = document.querySelector(".novabtn");
+				//@ts-ignore
+				button.addEventListener("mouseover", function () {
+					setupNovaListeners();
+				});
 			}
-			// Appel initial de la fonction
-			setupNovaListeners();
-			// Écouter l'événement astro:page-load pour recharger le widget
+			var button = document.querySelector(".novabtn");
+			//@ts-ignore
+			button.addEventListener("mouseover", function () {
+				setupNovaListeners();
+			});
 			document.addEventListener("astro:page-load", function () {
-				console.log("Événement astro:page-load détecté");
+				console.log("Événementsss astro:page-load détecté");
 				reloadVoiceflow();
 			});
 		</script>
