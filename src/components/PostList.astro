@@ -1,7 +1,19 @@
 ---
 
 const { posts } = Astro.props;
+//@ts-ignore
+function formatDate(date) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+	//@ts-ignore
+    let formattedDate = new Date(date).toLocaleDateString('fr-FR', options);
 
+    // Gérer le cas "1er"
+    if (formattedDate.startsWith('1 ')) {
+        formattedDate = formattedDate.replace('1 ', '1er ');
+    }
+
+    return formattedDate;
+}
 ---
 		<section class="postgrid">
 			{
@@ -17,8 +29,8 @@ const { posts } = Astro.props;
 							/>
 							
 							<div class="postmetawraper">
-								<span class="date">{post.data.date}</span>
-								<h3>{post.data.title}</h3>
+								<span class="date">{formatDate(post.data.date)}</span>
+								<h2>{post.data.title}</h2>
 							</div>
 						</a>
 					</div>
@@ -28,7 +40,7 @@ const { posts } = Astro.props;
 
 <style lang="scss">
 	.postgrid {
-		@apply container grid grid-cols-3 mx-auto gap-6 px-6;
+		@apply xl:container grid md:grid-cols-2 lg:grid-cols-3 mx-auto gap-6 px-6;
 		.blogsingle {
 			@apply relative border-solid border border-[#E6E6E6] shadow-md;
 		}
@@ -38,8 +50,8 @@ const { posts } = Astro.props;
 		.postmetawraper {
 			@apply px-6 pt-2 pb-6 bg-white;
 		}
-		h3 {
-			@apply text-xl font-bold text-prussian-400;
+		h2 {
+			@apply text-base md:text-md lg:text-lg font-bold text-prussian-400;
 		}
 		span.category {
 			@apply absolute right-4 top-6 px-4 py-1 bg-dustyred-400 text-white rounded-full;

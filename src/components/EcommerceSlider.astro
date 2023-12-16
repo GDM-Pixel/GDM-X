@@ -1,8 +1,29 @@
 ---
 import PixelSeparator from "./PixelSeparator.astro";
 import { getCollection } from "astro:content";
-const allPosts = (await getCollection("articles")).filter(post => post.data.category === 'ecommerce');
+const allPosts = (await getCollection("articles")).filter(
+	(post) => post.data.category === "ecommerce",
+);
+//@ts-ignore
+const sortedPosts = allPosts.sort(
+	//@ts-ignore
+	(a, b) => new Date(b.data.date) - new Date(a.data.date),
+);
+const postsForSlider = sortedPosts.slice(0, 6);
 
+// @ts-ignore
+function formatDate(date) {
+	const options = { year: "numeric", month: "long", day: "numeric" };
+	//@ts-ignore
+	let formattedDate = new Date(date).toLocaleDateString("fr-FR", options);
+
+	// Gérer le cas "1er"
+	if (formattedDate.startsWith("1 ")) {
+		formattedDate = formattedDate.replace("1 ", "1er ");
+	}
+
+	return formattedDate;
+}
 ---
 
 <section class="blogpost">
@@ -23,8 +44,8 @@ const allPosts = (await getCollection("articles")).filter(post => post.data.cate
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
 					{
-						allPosts.slice(0, 6).map((post) => (
-							<div class="swiper-slide grid grid-cols-3">
+						postsForSlider.map((post) => (
+							<div class="swiper-slide">
 								<a
 									class="blogpostwraper"
 									href={`/articles/${post.data.category}/${post.slug}/`}>
@@ -40,7 +61,7 @@ const allPosts = (await getCollection("articles")).filter(post => post.data.cate
 										<span class="category">{post.data.category}</span>
 									)}
 									<div class="postmetawraper">
-										<span class="date">{post.data.date}</span>
+										<span class="date">{formatDate(post.data.date)}</span>
 										<h3>{post.data.title}</h3>
 									</div>
 								</a>
@@ -210,7 +231,7 @@ const allPosts = (await getCollection("articles")).filter(post => post.data.cate
 			@apply px-6 pt-2 pb-6 bg-white;
 		}
 		h3 {
-			@apply text-xl font-bold text-prussian-400;
+			@apply text-lg font-bold text-prussian-400;
 		}
 		span.category {
 			@apply absolute right-4 top-6 px-4 py-1 bg-dustyred-400 text-white rounded-full;
@@ -220,8 +241,8 @@ const allPosts = (await getCollection("articles")).filter(post => post.data.cate
 		}
 		img {
 			display: block;
-			width: 377px;
-			height: 211px;
+			width: 100%;
+			height: auto;
 			object-fit: cover;
 		}
 	}

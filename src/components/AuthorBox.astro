@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 import CharlesImageAuthor from "../assets/img/charles-annoni-author.png";
 ---
 
-<div class="authorbox flex max-w-5xl mx-auto mt-12 rounded-lg overflow-clip" transition:persist>
-	<div class="col1 w-2/5">
+<div class="authorbox flex md:flex-row flex-col md:text-left text-center max-w-5xl mx-auto mt-12 rounded-lg overflow-clip" transition:persist>
+	<div class="col1 md:w-2/5 w-full">
 		<Image
 			src={CharlesImageAuthor}
 			width="320"
@@ -13,7 +13,7 @@ import CharlesImageAuthor from "../assets/img/charles-annoni-author.png";
 			loading="lazy"
 		/>
 	</div>
-	<div class="col2 w-3/5 authorbox">
+	<div class="col2 md:w-3/5 w-full">
 		<h4>Charles Annoni</h4>
 		<span class="h5">Développeur Front-End et Formateur</span>
 		<p>
@@ -75,24 +75,24 @@ import CharlesImageAuthor from "../assets/img/charles-annoni-author.png";
 <script></script>
 <style lang="scss">
 	.authorbox {
-		@apply bg-prussian-400 text-white;
+		@apply bg-prussian-400 text-white py-12 md:py-0;
 		.col1 {
 			img {
-				@apply w-full;
+				@apply lg:w-full object-cover lg:h-auto md:w-full h-full md:rounded-none rounded-full md:mx-0 mx-auto md:aspect-auto aspect-square;
 			}
 		}
 		.col2 {
-			@apply px-12 py-6 flex flex-col justify-center;
+			@apply lg:px-12 px-8 py-6 flex flex-col justify-center;
 			h4 {
-				@apply text-white mb-2 text-xxl font-bold;
+				@apply text-white mb-2 lg:text-xxl md:text-xl text-xxl font-bold;
 			}
 			span.h5 {
-				@apply text-moonstone-600 text-lg mb-4;
+				@apply text-moonstone-600 text-lg lg:mb-4 md:mb-2 mb-4;
 			}
-			p {@apply text-md mb-4;}
-			ul.social-list {
-				li a {@apply w-[40px] h-[40px] flex flex-col justify-center items-center rounded-lg mr-4 bg-gradient-to-b from-[#E04261] to-[#D62246] transition-all duration-300 ease-in-out;
-				&:hover {@apply bg-gradient-to-b from-[#69D2E1] to-[#00B2CB] transition-all duration-300 ease-in-out;}}
+			p {@apply lg:text-md md:text-base text-md mb-4;}
+			ul.social-list {@apply flex md:justify-start justify-center;
+				li a {@apply lg:w-[40px] lg:h-[40px] md:w-[30px] md:h-[30px] w-[40px] h-[40px] flex flex-col justify-center items-center rounded-lg md:rounded-md lg:rounded-lg mr-4 bg-gradient-to-b from-[#E04261] to-[#D62246] transition-all duration-300 ease-in-out;
+				&:hover {@apply bg-gradient-to-b from-[#69D2E1] to-[#00B2CB] transition-all duration-300 ease-in-out;}} 
 			}
 		}
 	}

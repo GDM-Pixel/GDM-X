@@ -10,7 +10,6 @@ import AuthorBox from "../../../components/AuthorBox.astro";
 import RelatedPosts from "../../../components/RelatedPosts.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
-
 export async function getStaticPaths() {
 	const posts = await getCollection("articles");
 	const paths = posts.map((post) => {
@@ -52,7 +51,10 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 }
 ---
 
-<LayoutBlogPost title={post.data.metatitle} description={post.data.excerpt} ogimage={post.data.ogimage}>
+<LayoutBlogPost
+	title={post.data.metatitle}
+	description={post.data.excerpt}
+	ogimage={post.data.ogimage}>
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -81,8 +83,8 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 		</Breadcrumbs>
 	</div>
 	<main class="mt-6 mb-16 px-6">
-		<div class="mx-auto flex max-w-5xl justify-between">
-			<article class="w-3/5">
+		<div class="mx-auto flex max-w-5xl md:justify-between md:flex-row flex-col">
+			<article class="md:w-[62%] w-full">
 				<img
 					src={post.data.ogimage}
 					alt={post.data.title}
@@ -96,7 +98,7 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 					<Content />
 				</div>
 			</article>
-			<aside class="w-2/5" transition:persist>
+			<aside class="md:w-[35%] w-full" transition:persist>
 				<div class="novacontainer">
 					<div class="novainner">
 						<div class="header-nova-box">
@@ -117,9 +119,7 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 						/>
 						<p>Vous ne trouvez pas de réponse à votre question ?</p>
 						<span class="ask">Demandez à NOVA</span>
-						<button aria-label="Posez votre question" class="cta red" id="novabtn"
-							>Posez votre question</button
-						>
+						<button class="cta red" id="novabtn">Posez votre question</button>
 					</div>
 				</div>
 			</aside>
@@ -145,12 +145,12 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 </script>
 <style lang="scss">
 	aside {
-		@apply w-1/3;
+		@apply hidden md:block;
 	}
 	.novacontainer {
-		@apply rounded-2xl overflow-hidden  transition-all duration-300 ease-in-out opacity-100 translate-y-0;
+		@apply rounded-2xl overflow-hidden transition-all duration-300 ease-in-out opacity-100 translate-y-0;
 		&.sticky {
-			@apply top-0 transition-all mb-24 duration-300 ease-in-out opacity-95 translate-y-20;
+			@apply top-0 transition-all mb-24 duration-300 ease-in-out opacity-95 md:translate-y-20 translate-y-12;
 			position: sticky;
 		}
 	}

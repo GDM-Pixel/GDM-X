@@ -6,16 +6,32 @@ export interface RelatedPostsProps {
 }
 const { relatedPosts } = Astro.props as RelatedPostsProps;
 const limitedRelatedPosts = relatedPosts.slice(0, 6);
+//@ts-ignore
+const sortedPosts = relatedPosts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+
+// @ts-ignore
+function formatDate(date) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+	//@ts-ignore
+    let formattedDate = new Date(date).toLocaleDateString('fr-FR', options);
+
+    // Gérer le cas "1er"
+    if (formattedDate.startsWith('1 ')) {
+        formattedDate = formattedDate.replace('1 ', '1er ');
+    }
+
+    return formattedDate;
+}
 ---
 
 <section class="related-posts max-w-5xl mx-auto mt-6">
-	<h4 class="mb-6">Articles connexes</h4>
+	<h4 class="mb-6 text-center md:text-left">Articles connexes</h4>
 	<div class="relative grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-3">
 	
 
 				{
-					limitedRelatedPosts.map((post) => (
-						<div class="swiper-slide">
+					sortedPosts.map((post) => (
+						<div class="postgrid">
 							<a
 								class="blogpostwraper"
 								href={`/articles/${post.data.category}/${post.slug}/`}>
@@ -29,7 +45,7 @@ const limitedRelatedPosts = relatedPosts.slice(0, 6);
 								/>
 								
 								<div class="postmetawraper">
-									<span class="date">{post.data.date}</span>
+									<span class="date">{formatDate(post.data.date)}</span>
 									<h3>{post.data.title}</h3>
 								</div>
 							</a>
@@ -44,18 +60,18 @@ const limitedRelatedPosts = relatedPosts.slice(0, 6);
 </section>
 
 <style lang="scss">
-	.postgrid {
+	.postgrid {@apply shadow-lg;
 		.blogsingle {
-			@apply relative border-solid border border-[#E6E6E6] shadow-md;
+			@apply relative;
 		}
-		a.blogpostwraper {
-			@apply text-left rounded-lg  overflow-hidden;
+		a.blogpostwraper{
+			@apply text-left;
 		}
 		.postmetawraper {
 			@apply px-6 pt-2 pb-6 bg-white;
 		}
 		h3 {
-			@apply text-xl font-bold text-prussian-400;
+			@apply text-lg font-bold text-prussian-400;
 		}
 		span.category {
 			@apply absolute right-4 top-6 px-4 py-1 bg-dustyred-400 text-white rounded-full;

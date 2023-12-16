@@ -9,9 +9,9 @@ import "astro-breadcrumbs/breadcrumbs.css";
 
 // Logique de pagination
 const allPosts = await getCollection("articles");
-const WebdesignPosts = allPosts.filter(
-	(post) => post.data.category === "ecommerce",
-);
+const WebdesignPosts = allPosts.filter((post) => post.data.category === "ecommerce")
+	//@ts-ignore
+    .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
 const pageSize = 12;
 const pageNumber = 1;
 const paginatedPosts = WebdesignPosts.slice(

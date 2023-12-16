@@ -5,7 +5,7 @@ interface Props {
 	description: string;
 	ogimage?: string;
 }
-const { title, description, ogimage} = Astro.props;
+const { title, description, ogimage } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
 import Repere from "../components/Repere.astro";
 ---
@@ -28,7 +28,12 @@ import Repere from "../components/Repere.astro";
 		<meta property="og:title" content={title} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
-		<meta property="og:image" content={ogimage ? `https://www.gdm-pixel.fr${ogimage}` : 'https://www.gdm-pixel.fr/img/Opengraph-img.jpg'} />
+		<meta
+			property="og:image"
+			content={ogimage
+				? `https://www.gdm-pixel.fr${ogimage}`
+				: "https://www.gdm-pixel.fr/img/Opengraph-img.jpg"}
+		/>
 		<meta property="og:description" content={description} />
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
@@ -60,11 +65,52 @@ import Repere from "../components/Repere.astro";
 				});
 			});
 		</script>
+		<script type="text/javascript" defer>
+			(function (d, t) {
+				var v = d.createElement(t),
+					s = d.getElementsByTagName(t)[0];
+				v.onload = function () {
+					window.voiceflow.chat.load({
+						verify: { projectID: "6579a0dea484f9a58503480e" },
+						url: "https://general-runtime.voiceflow.com",
+						versionID: "production",
+						assistant: {
+							title: "Nova",
+							description: "Technico-commerciale chez GDM-Pixel",
+							stylesheet: "https://dev.gdm-pixel.fr/css/nova.css", // lien vers votre feuille de style auto-hébergée
+						},
+					});
+				};
+				v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+				v.type = "text/javascript";
+				s.parentNode.insertBefore(v, s);
+			})(document, "script");
+		</script>
+		<script>
+			//@ts-ignore
+			document.getElementById("novabtn").addEventListener("click", function () {
+				//@ts-ignore
+				window.voiceflow.chat.open();
+			});
+		</script>
 		<style is:global lang="scss">
 			body {
 				overflow-x: clip;
 			}
+			.heroimg {
+				@apply absolute w-full h-full object-cover -z-10;
+			}
+			.section-header h2.section-title,
+			.section-header.dark h2.section-title2 {
+				@apply md:text-xxxl text-xl;
+			}
 
+			.accordion-content p {
+				@apply mb-3;
+				&:last-of-type {
+					@apply mb-0;
+				}
+			}
 			@media screen and (max-width: 767px) {
 				.container {
 					@apply max-w-full px-6;
@@ -114,26 +160,30 @@ import Repere from "../components/Repere.astro";
 			.fa-square-x-twitter {
 				width: 100px;
 			}
+			.section-header {
+				@apply flex flex-col justify-center font-bold text-center items-center px-6  mb-10 max-w-3xl mx-auto;
+				h2 {
+					@apply text-xxxl mb-4;
+				}
+				&.dark {
+					@apply text-white;
+					h2 {
+						@apply text-white;
+					}
+				}
+				&.left {
+					@apply text-left px-0 block max-w-full;
+				}
+			}
+			.subtitle {
+				@apply font-semibold uppercase mb-6;
+			}
+			.gauche-droite .col .body p {
+				@apply mb-3;
+			}
 			.category-header {
-				@apply mx-auto container px-6 py-12 text-center;
+				@apply mx-auto container mb-12;
 			}
-			.blogpagination {
-				@apply mt-6 mb-6 flex justify-center gap-6 items-center;
-				.prevbtn {
-					@apply border-2 border-solid text-white text-sm font-bold rounded-md px-4 py-2 drop-shadow-lg shadow-prussian-700 border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
-					&:hover {
-						@apply border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
-					}
-				}
-				.nextbtn {
-					@apply border-2 border-solid text-white text-sm font-bold rounded-md px-4 py-2 drop-shadow-lg shadow-prussian-700 border-moonstone-200 bg-gradient-to-r from-moonstone-300 to-moonstone-700;
-					&:hover {
-						@apply border-dustyred-100 bg-gradient-to-r from-dustyred-300 to-dustyred-800;
-					}
-				}
-			}
-		</style>
-		<style>
 			@keyframes fadeIn {
 				0% {
 					opacity: 0;

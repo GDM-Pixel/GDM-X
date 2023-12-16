@@ -10,7 +10,8 @@ import "astro-breadcrumbs/breadcrumbs.css";
 //@ts-ignore
 export async function getStaticPaths({ paginate }) {
 	const allPosts = await getCollection("articles");
-	return paginate(allPosts, { pageSize: 12 });
+	const filteredPosts = allPosts.filter(post => post.data.category === "labo");
+	return paginate(filteredPosts, { pageSize: 12 });
 }
 //@ts-ignore
 const { page } = Astro.props as { page: PageProps };

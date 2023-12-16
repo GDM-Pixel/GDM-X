@@ -4,6 +4,19 @@ import logoGDM from "../assets/img/logo-gdm-white.svg";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("articles");
+//@ts-ignore
+function formatDate(date) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+	//@ts-ignore
+    let formattedDate = new Date(date).toLocaleDateString('fr-FR', options);
+
+    // Gérer le cas "1er"
+    if (formattedDate.startsWith('1 ')) {
+        formattedDate = formattedDate.replace('1 ', '1er ');
+    }
+
+    return formattedDate;
+}
 ---
 
 <footer class="footer" transition:persist>
@@ -141,7 +154,7 @@ const allPosts = await getCollection("articles");
 							/>
 
 							<div class="postmetawraper">
-								<span class="date">{post.data.date}</span>
+								<span class="date">{formatDate(post.data.date)}</span>
 								<span class="h3">{post.data.title}</span>
 							</div>
 						</a>

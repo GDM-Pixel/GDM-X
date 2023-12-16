@@ -59,6 +59,34 @@ import Repere from "../components/Repere.astro";
 				});
 			});
 		</script>
+		<script type="text/javascript" defer>
+			(function (d, t) {
+				var v = d.createElement(t),
+					s = d.getElementsByTagName(t)[0];
+				v.onload = function () {
+					window.voiceflow.chat.load({
+						verify: { projectID: "6579a0dea484f9a58503480e" },
+						url: "https://general-runtime.voiceflow.com",
+						versionID: "production",
+						assistant: {
+							title: "Nova",
+							description: "Technico-commerciale chez GDM-Pixel",
+							stylesheet: "https://dev.gdm-pixel.fr/css/nova.css", // lien vers votre feuille de style auto-hébergée
+						},
+					});
+				};
+				v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+				v.type = "text/javascript";
+				s.parentNode.insertBefore(v, s);
+			})(document, "script");
+		</script>
+		<script>
+			//@ts-ignore
+			document.getElementById("novabtn").addEventListener("click", function () {
+				//@ts-ignore
+				window.voiceflow.chat.open();
+			});
+		</script>
 		<style is:global lang="scss">
 			body {
 				overflow-x: clip;
