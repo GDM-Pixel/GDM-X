@@ -17,8 +17,8 @@ import confCallMan from "../assets/img/confcall-man.png";
 				visioconférence
 			</p>
 			<div class="cta-container">
-				<a href="#" class="cta blue">Lire la vidéo</a>
-				<a href="#" class="cta red">Demander un RDV</a>
+				<a href="/contact/" class="cta blue">Nous contacter</a>
+				<button class="cta red" onclick="openBookMe()">Demander un RDV</button>
 			</div>
 		</div>
 		<div class="col2" id="prettypics">
@@ -141,7 +141,7 @@ document.addEventListener('astro:page-load', () => {
 	}
 	.cta-container {
 		@apply flex sm:justify-center sm:flex-row flex-col gap-6;
-        a {pointer-events: auto;}
+        a,button {pointer-events: auto;}
 	}
 	.confcallman,
 	.confcallwoman {

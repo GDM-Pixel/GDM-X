@@ -7,7 +7,7 @@ interface Props {
 }
 const { title, description, ogimage } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
-import Repere from "../components/Repere.astro";
+//import Repere from "../components/Repere.astro";
 ---
 
 <!doctype html>
@@ -42,7 +42,6 @@ import Repere from "../components/Repere.astro";
 	<body>
 		<slot />
 		<Nova />
-		<Repere />
 		<script src="/js/gdm-goto.js" is:inline></script>
 		<script>
 			document.addEventListener("DOMContentLoaded", () => {

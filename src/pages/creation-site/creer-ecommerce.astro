@@ -162,8 +162,8 @@ const customCrumbs = [
 					/>
 				</div>
 				<div class="cta-container-centered">
-					<a href="#" class="cta blue">Poser une question</a><a
-						href="#"
+					<button id="novabtn" class="cta blue">Poser une question</button><a
+						href="/contact/"
 						class="cta red">Nous contacter</a
 					>
 				</div>
@@ -293,6 +293,22 @@ const customCrumbs = [
 	</main>
 	<Footer />
 </Layout>
+<script>
+	function setup() {
+		window.addEventListener("scroll", function () {
+			var novacontainer = document.querySelector(".novacontainer");
+			if (novacontainer) {
+				var rect = novacontainer.getBoundingClientRect();
+				var isCloseToTop = rect.top <= 10; // 10 pixels de marge, ajustez selon vos besoins
+
+				novacontainer.classList.toggle("sticky", isCloseToTop);
+			}
+		});
+	}
+
+	document.addEventListener("DOMContentLoaded", setup);
+	document.addEventListener("astro:page-load", setup);
+</script>
 
 <style lang="scss">
 	.container {
