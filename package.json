@@ -19,6 +19,7 @@
     "@tryghost/content-api": "^1.11.18",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
+    "@voiceflow/react-chat": "^1.51.0",
     "astro": "^4.0.1",
     "astro-breadcrumbs": "^1.8.0",
     "date-fns": "^2.30.0",

@@ -6,7 +6,6 @@ interface Props {
 }
 const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
-import VoiceflowWidget from '../components/VoiceflowWidget.jsx';
 ---
 
 <!doctype html>
@@ -60,8 +59,59 @@ import VoiceflowWidget from '../components/VoiceflowWidget.jsx';
 	<body>
 		<slot />
 		<BookMe />
-		<VoiceflowWidget client:load />
-		<script src="/js/gdm-goto.js" is:inline></script>
+		<script is:inline src="/js/voiceflow.js"></script>
+		<script>
+			function setupNovaListeners() {
+				console.log("setupNovaListeners appelée");
+				(function (d, t) {
+					var v = d.createElement(t),
+						s = d.getElementsByTagName(t)[0];
+					console.log(
+						"Élément script créé, prêt à charger le widget Voiceflow",
+					);
+					v.onload = function () {
+						console.log("Script Voiceflow chargé, configuration en cours");
+						//@ts-ignore
+						window.voiceflow.chat.load({
+							verify: { projectID: "6579a0dea484f9a58503480e" },
+							url: "https://general-runtime.voiceflow.com",
+							versionID: "production",
+							assistant: {
+								title: "Nova",
+								description: "Technico-commerciale chez GDM-Pixel",
+								stylesheet: "https://dev.gdm-pixel.fr/css/nova.css", // Remplacez par votre lien de feuille de style
+							},
+						});
+					};
+					//@ts-ignore
+					v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+					//@ts-ignore
+					v.type = "text/javascript";
+					//@ts-ignore
+					s.parentNode.insertBefore(v, s);
+					console.log("Script Voiceflow inséré dans le DOM");
+				})(document, "script");
+			}
+
+			function reloadVoiceflow() {
+				console.log("Rechargement du widget Voiceflow");
+				//@ts-ignore
+				if (window.voiceflow) {
+					//@ts-ignore
+					delete window.voiceflow.chat; // Ajustez selon l'objet réel
+					console.log("Référence Voiceflow supprimée de window");
+				}
+				// Recréer le widget
+				setupNovaListeners();
+			}
+			// Appel initial de la fonction
+			setupNovaListeners();
+			// Écouter l'événement astro:page-load pour recharger le widget
+			document.addEventListener("astro:page-load", function () {
+				console.log("Événement astro:page-load détecté");
+				reloadVoiceflow();
+			});
+		</script>
 		<script>
 			document.addEventListener("DOMContentLoaded", () => {
 				const loadedImages = {};
@@ -83,23 +133,28 @@ import VoiceflowWidget from '../components/VoiceflowWidget.jsx';
 				});
 			});
 		</script>
-		
+
 		<script>
 			function watchNova() {
-				const novaButton = document.getElementById("novabtn");
-				if (novaButton) {
-					console.log("Nova button found");
-					// Retirer l'ancien écouteur d'événement pour éviter les duplicatas
-					novaButton.removeEventListener("click", handleNovaClick);
-					// Ajouter le nouvel écouteur d'événement
-					novaButton.addEventListener("click", handleNovaClick);
+				// Sélectionner tous les éléments avec la classe .novabtn
+				const novaButtons = document.querySelectorAll(".novabtn");
+				if (novaButtons.length > 0) {
+					novaButtons.forEach((novaButton) => {
+						// Retirer l'ancien écouteur d'événement pour éviter les duplicatas
+						novaButton.removeEventListener("click", handleNovaClick);
+						// Ajouter le nouvel écouteur d'événement
+						novaButton.addEventListener("click", handleNovaClick);
+					});
 				}
 			}
 			function handleNovaClick() {
+				// Ouvrir le chat Voiceflow
 				//@ts-ignore
 				window.voiceflow.chat.open();
 			}
+			// Attacher l'écouteur d'événement lors du chargement initial
 			watchNova();
+			// Réattacher l'écouteur d'événement après chaque changement de page dans Astro
 			document.addEventListener("astro:page-load", watchNova);
 		</script>
 		<style is:global lang="scss">

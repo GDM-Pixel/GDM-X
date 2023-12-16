@@ -1,12 +1,4 @@
-function setupGDMListeners() {
-    var classname = document.getElementsByClassName("gogdm");
-    for (var i = 0; i < classname.length; i++) {
-        classname[i].removeEventListener('click', myFunction, false);
-        classname[i].addEventListener('click', myFunction, false);
-        classname[i].removeEventListener('contextmenu', myRightFunction, false);
-        classname[i].addEventListener('contextmenu', myRightFunction, false);
-    }
-}
+
 function setupGDMListeners() { 
     var classname = document.getElementsByClassName("gogdm");
     for (var i = 0; i < classname.length; i++) {
