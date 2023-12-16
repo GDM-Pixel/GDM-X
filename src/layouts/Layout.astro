@@ -156,6 +156,53 @@ import { ViewTransitions } from "astro:transitions";
 			// Réattacher l'écouteur d'événement après chaque changement de page dans Astro
 			document.addEventListener("astro:page-load", watchNova);
 		</script>
+		<script>
+			//@ts-ignore
+			!(function (t, e, a, n) {
+				function c() {
+					if (!e.getElementById(a)) {
+						var t = e.getElementsByTagName(n)[0],
+							c = e.createElement(n);
+						//@ts-ignore
+						(c.type = "text/javascript"),
+							//@ts-ignore
+							(c.async = !0),
+							//@ts-ignore
+							(c.src = "https://cdn.taku-app.com/js/latest.js"),
+							//@ts-ignore
+							t.parentNode.insertBefore(c, t);
+					}
+				}
+				//@ts-ignore
+				if ("function" != typeof t.Taku) {
+					var s = function () {
+						//@ts-ignore
+						s.q.push(arguments);
+					};
+					//@ts-ignore
+					(s.q = []),
+						//@ts-ignore
+						(t.Taku = s),
+						"complete" === e.readyState
+							? c()
+							: //@ts-ignore
+								t.attachEvent
+								? //@ts-ignore
+									t.attachEvent("onload", c)
+								: t.addEventListener("load", c, !1);
+				}
+			})(window, document, "taku-js", "script");
+			//@ts-ignore
+			window.Taku("news:boot", {
+				api_public_key: "oI/KXl6RR47CCmPPlLn3VL9bCzveD7AkrbX0r+1ZldI=",
+				position: "right",
+				launcher_options: {
+					bg_color: "#d62246",
+					text_color: "#ffffff",
+					text: "Wazaaa",
+				},
+			});
+		</script>
 		<style is:global lang="scss">
 			body {
 				overflow-x: clip;
