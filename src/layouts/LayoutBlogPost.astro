@@ -141,6 +141,7 @@ import { ViewTransitions } from "astro:transitions";
 			document.addEventListener("astro:page-load", watchNova);
 		</script>
 		<script>
+			function goTaku() {
 			//@ts-ignore
 			!(function (t, e, a, n) {
 				function c() {
@@ -185,7 +186,9 @@ import { ViewTransitions } from "astro:transitions";
 					text_color: "#ffffff",
 					text: "Wazaaa",
 				},
-			});
+			});}
+			goTaku();
+			document.addEventListener("astro:page-load", goTaku);
 		</script>
 		<style is:global lang="scss">
 			body {
