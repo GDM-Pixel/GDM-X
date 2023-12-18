@@ -6,6 +6,7 @@ import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import FeaturedContent from "../../components/FeaturedContent.astro";
 export async function getStaticPaths() {
 	const posts = await getCollection("articles");
 	const paths = posts.map((post) => {
@@ -22,7 +23,7 @@ export async function getStaticPaths() {
 	return paths;
 }
 type Props = {
-	post: CollectionEntry<'articles'>;
+	post: CollectionEntry<"articles">;
 };
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
@@ -30,7 +31,10 @@ import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
-<LayoutBlogPost title={post.data.metatitle} description={post.data.excerpt} ogimage={post.data.ogimage}>
+<LayoutBlogPost
+	title={post.data.metatitle}
+	description={post.data.excerpt}
+	ogimage={post.data.ogimage}>
 	<Header />
 	<div class="bd-container">
 		<Breadcrumbs transition:persist>
@@ -61,13 +65,7 @@ import "astro-breadcrumbs/breadcrumbs.css";
 	<main class="mt-6 mb-16 px-6">
 		<div class="container flex gap-6 px-6">
 			<article class="w-2/3">
-				<img
-					src={post.data.ogimage}
-					alt={post.data.title}
-                    width="795"
-                    height="445"
-					transition:name={`featuredImg_${post.slug}`}
-				/>
+				<FeaturedContent post={post} />
 
 				<h1>{post.data.title}</h1>
 				<div class="article-content">
@@ -167,5 +165,4 @@ import "astro-breadcrumbs/breadcrumbs.css";
 		filter: blur(15px);
 		opacity: 0.5;
 	}
-
 </style>

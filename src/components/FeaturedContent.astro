@@ -1,0 +1,45 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+type Props = {
+	post: CollectionEntry<"articles">;
+};
+
+const { post } = Astro.props;
+
+const { Content, headings } = await post.render();
+
+// Maintenant que `post` est défini, vous pouvez appeler `getRelatedPosts`
+const category = post.data.category;
+const relatedPosts = await getRelatedPosts(category, post.slug);
+
+// @ts-ignore
+export async function getRelatedPosts(category, currentSlug, limit = 6) {
+	const allPosts = await getCollection("articles");
+	// Filtrer les articles de la même catégorie et exclure l'article actuel par slug
+	const relatedPosts = allPosts
+		.filter(
+			(post) => post.data.category === category && post.slug !== currentSlug,
+		)
+		.slice(0, limit);
+	return relatedPosts;
+}
+---
+{post.data.video ? (
+        <iframe
+            src={`https://www.youtube.com/embed/${post.data.video}?si=qKyMidUCDXXzD_Kh`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="featuredvideo"
+        ></iframe>
+    ) : (
+        <img
+            src={post.data.ogimage}
+            alt={post.data.title}
+            width="795"
+            height="445"
+            transition:name={`featuredImg_${post.slug}`}
+            class="featuredimg"
+        />
+    )}

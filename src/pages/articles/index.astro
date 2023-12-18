@@ -7,13 +7,17 @@ import Footer from "../../components/Footer.astro";
 
 // Logique de pagination
 const allPosts = await getCollection("articles");
+const sortedPosts = allPosts
+    //@ts-ignore
+    .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
 const pageSize = 12;
 const pageNumber = 1;
-const paginatedPosts = allPosts.slice(
+const paginatedPosts = sortedPosts.slice(
 	(pageNumber - 1) * pageSize,
 	pageNumber * pageSize,
 );
-const totalPages = Math.ceil(allPosts.length / pageSize);
+
+const totalPages = Math.ceil(sortedPosts.length / pageSize);
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 ---

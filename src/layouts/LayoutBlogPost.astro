@@ -7,7 +7,7 @@ interface Props {
 }
 const { title, description, ogimage } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
-//import Repere from "../components/Repere.astro";
+import Repere from "../components/Repere.astro";
 ---
 
 <!doctype html>
@@ -41,11 +41,15 @@ import { ViewTransitions } from "astro:transitions";
 	</head>
 	<body>
 		<slot />
+		<button id="taku-launcher"
+			><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M320 48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H284.5c12 18.4 27.4 34.5 45.3 47.3c-3.2 .5-6.4 .7-9.7 .7H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0H320c35.3 0 64 28.7 64 64V198.6c-17.2 4.9-33.4 12.3-48 21.8V64c0-8.8-7.2-16-16-16zM96 152c0-13.3 10.7-24 24-24H264c13.3 0 24 10.7 24 24s-10.7 24-24 24H120c-13.3 0-24-10.7-24-24zm24 72H264c13.3 0 24 10.7 24 24s-10.7 24-24 24H120c-13.3 0-24-10.7-24-24s10.7-24 24-24zm0 96h48c13.3 0 24 10.7 24 24s-10.7 24-24 24H120c-13.3 0-24-10.7-24-24s10.7-24 24-24zm312-96a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm0 96a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm-32 48c0 8.8 7.2 16 16 16h0v48h0c-8.8 0-16 7.2-16 16s7.2 16 16 16h16 16c8.8 0 16-7.2 16-16s-7.2-16-16-16V368c0-8.8-7.2-16-16-16H416c-8.8 0-16 7.2-16 16z"/></svg></button
+		>
+	
 		<BookMe />
-		<script is:inline src="/js/voiceflow.js"></script>
+
 		<script>
+			// @ts-nocheck
 			function setupNovaListeners() {
-				//@ts-ignore
 				if (window.voiceflow && window.voiceflow.chat) {
 					return;
 				}
@@ -53,7 +57,6 @@ import { ViewTransitions } from "astro:transitions";
 					var v = d.createElement(t),
 						s = d.getElementsByTagName(t)[0];
 					v.onload = function () {
-						//@ts-ignore
 						window.voiceflow.chat.load({
 							verify: { projectID: "6579a0dea484f9a58503480e" },
 							url: "https://general-runtime.voiceflow.com",
@@ -61,62 +64,39 @@ import { ViewTransitions } from "astro:transitions";
 							assistant: {
 								title: "Nova",
 								description: "Technico-commerciale chez GDM-Pixel",
-								stylesheet: "https://dev.gdm-pixel.fr/css/nova.css", // Remplacez par votre lien de feuille de style
+								stylesheet: "https://dev.gdm-pixel.fr/css/nova.css", // LIEN CSS
 							},
 						});
 					};
-					//@ts-ignore
+
 					v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
-					//@ts-ignore
+
 					v.type = "text/javascript";
-					//@ts-ignore
+
 					s.parentNode.insertBefore(v, s);
 				})(document, "script");
 			}
 			function reloadVoiceflow() {
-				//@ts-ignore
 				if (window.voiceflow) {
-					//@ts-ignore
 					delete window.voiceflow.chat;
 				}
 				// Recréer le widget
 				var button = document.querySelector(".novabtn");
-				//@ts-ignore
+
 				button.addEventListener("mouseover", function () {
 					setupNovaListeners();
 				});
 			}
 			var button = document.querySelector(".novabtn");
-			//@ts-ignore
+
 			button.addEventListener("mouseover", function () {
 				setupNovaListeners();
 			});
 			document.addEventListener("astro:page-load", function () {
 				reloadVoiceflow();
 			});
+			// @ts-check
 		</script>
-		<script>
-			document.addEventListener("DOMContentLoaded", () => {
-				const loadedImages = {};
-				//@ts-ignore
-				function preloadImage(url) {
-					//@ts-ignore
-					if (!loadedImages[url]) {
-						const img = new Image();
-						img.src = url;
-						//@ts-ignore
-						loadedImages[url] = true;
-					}
-				}
-				document.querySelectorAll("a[data-image-src]").forEach((link) => {
-					link.addEventListener("mouseover", function () {
-						//@ts-ignore
-						preloadImage(this.getAttribute("data-image-src"));
-					});
-				});
-			});
-		</script>
-
 		<script>
 			function watchNova() {
 				// Sélectionner tous les éléments avec la classe .novabtn
@@ -141,71 +121,74 @@ import { ViewTransitions } from "astro:transitions";
 			document.addEventListener("astro:page-load", watchNova);
 		</script>
 		<script>
-			function goTaku() {
-			//@ts-ignore
-			!(function (t, e, a, n) {
-				function c() {
-					if (!e.getElementById(a)) {
-						var t = e.getElementsByTagName(n)[0],
-							c = e.createElement(n);
+			document.addEventListener("DOMContentLoaded", () => {
+				const loadedImages = {};
+				//@ts-ignore
+				function preloadImage(url) {
+					//@ts-ignore
+					if (!loadedImages[url]) {
+						const img = new Image();
+						img.src = url;
 						//@ts-ignore
-						(c.type = "text/javascript"),
-							//@ts-ignore
-							(c.async = !0),
-							//@ts-ignore
-							(c.src = "https://cdn.taku-app.com/js/latest.js"),
-							//@ts-ignore
-							t.parentNode.insertBefore(c, t);
+						loadedImages[url] = true;
 					}
 				}
-				//@ts-ignore
-				if ("function" != typeof t.Taku) {
-					var s = function () {
+				document.querySelectorAll("a[data-image-src]").forEach((link) => {
+					link.addEventListener("mouseover", function () {
 						//@ts-ignore
-						s.q.push(arguments);
-					};
-					//@ts-ignore
-					(s.q = []),
-						//@ts-ignore
-						(t.Taku = s),
-						"complete" === e.readyState
-							? c()
-							: //@ts-ignore
-								t.attachEvent
-								? //@ts-ignore
-									t.attachEvent("onload", c)
-								: t.addEventListener("load", c, !1);
-				}
-			})(window, document, "taku-js", "script");
-			//@ts-ignore
-			window.Taku("news:boot", {
-				api_public_key: "oI/KXl6RR47CCmPPlLn3VL9bCzveD7AkrbX0r+1ZldI=",
-				position: "right",
-				launcher_options: {
-					bg_color: "#d62246",
-					text_color: "#ffffff",
-					text: "Wazaaa",
-				},
-			});}
-			goTaku();
-			document.addEventListener("astro:page-load", goTaku);
+						preloadImage(this.getAttribute("data-image-src"));
+					});
+				});
+			});
 		</script>
+
+		<script>
+			// @ts-nocheck
+			!(function (t, e, a, n) {
+				window.takuLauncher = function () {
+					if (!e.getElementById(a) && !window.takuLoaded) {
+						var c = e.createElement(n);
+						c.type = "text/javascript";
+						c.async = !0;
+						c.src = "https://cdn.taku-app.com/js/latest.js";
+						c.onload = function () {
+							window.Taku("news:boot", {
+								api_public_key: "oI/KXl6RR47CCmPPlLn3VL9bCzveD7AkrbX0r+1ZldI=",
+								custom_launcher: "#taku-launcher",
+							});
+						};
+						var t = e.getElementsByTagName(n)[0];
+						t.parentNode.insertBefore(c, t);
+						window.takuLoaded = true;
+					}
+				};
+			})(window, document, "taku-js", "script");
+			document
+				.getElementById("taku-launcher")
+				.addEventListener("mouseenter", window.takuLauncher);
+			// @ts-check
+		</script>
+
 		<style is:global lang="scss">
+			#taku-launcher {
+			@apply fixed right-[20px] bottom-[20px] bg-dustyred-400 w-[60px] h-[60px] p-3 rounded-full;
+				svg {@apply fill-white w-full h-auto transition-all duration-300;}
+				&:hover {
+					@apply bg-moonstone-500 transition-all duration-300;
+				}
+			}
 			body {
 				overflow-x: clip;
 			}
-			.heroimg {
-				@apply absolute w-full h-full object-cover -z-10;
-			}
-			.section-header h2.section-title,
-			.section-header.dark h2.section-title2 {
-				@apply md:text-xxxl text-xl;
-			}
-
-			.accordion-content p {
-				@apply mb-3;
-				&:last-of-type {
-					@apply mb-0;
+			article {
+				.featuredimg {
+					@apply mb-4;
+				}
+				.featuredvideo {
+					@apply mb-4 w-full aspect-[16/9];
+				}
+				h1 {
+					@apply leading-tight mb-4;
 				}
 			}
 			@media screen and (max-width: 767px) {
@@ -257,27 +240,7 @@ import { ViewTransitions } from "astro:transitions";
 			.fa-square-x-twitter {
 				width: 100px;
 			}
-			.section-header {
-				@apply flex flex-col justify-center font-bold text-center items-center px-6  mb-10 max-w-3xl mx-auto;
-				h2 {
-					@apply text-xxxl mb-4;
-				}
-				&.dark {
-					@apply text-white;
-					h2 {
-						@apply text-white;
-					}
-				}
-				&.left {
-					@apply text-left px-0 block max-w-full;
-				}
-			}
-			.subtitle {
-				@apply font-semibold uppercase mb-6;
-			}
-			.gauche-droite .col .body p {
-				@apply mb-3;
-			}
+
 			.category-header {
 				@apply mx-auto container mb-12;
 			}

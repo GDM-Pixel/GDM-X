@@ -10,6 +10,7 @@ import AuthorBox from "../../../components/AuthorBox.astro";
 import RelatedPosts from "../../../components/RelatedPosts.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
+import FeaturedContent from "../../../components/FeaturedContent.astro";
 export async function getStaticPaths() {
 	const posts = await getCollection("articles");
 	const paths = posts.map((post) => {
@@ -85,13 +86,7 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 	<main class="mt-6 mb-16 px-6">
 		<div class="mx-auto flex max-w-5xl md:justify-between md:flex-row flex-col">
 			<article class="md:w-[62%] w-full">
-				<img
-					src={post.data.ogimage}
-					alt={post.data.title}
-					width="795"
-					height="445"
-					transition:name={`featuredImg_${post.slug}`}
-				/>
+			<FeaturedContent post={post} />
 
 				<h1>{post.data.title}</h1>
 				<div class="article-content prose prose-justify max-w-5xl">
