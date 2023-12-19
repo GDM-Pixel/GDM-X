@@ -37,13 +37,16 @@ On avait décidé de refondre le site en React (un framework JS créé par l'éq
 * Intégration de Tailwind CSS
 * Reformatage automatique des images en WebP
 
-![](../../../public/img/20231218_220108_astro-speed.jpg)
+<a data-src="/img/20231218_220108_astro-speed.jpg" data-fancybox="blog-gallery" data-caption="Astro le petit robot">
+<img src="/img/20231218_220108_astro-speed.jpg" loading="lazy">
+</a>
+
 
 > Là, vous voyez ⬆️, niveau "vitesse", c'est juste n'importe quoi tellement ça cloue tous les autres au poteau !
 
 ## Pourquoi Astro va faire une grosse différence pour nous (et pour vous)
 
-Bon, c'est bien beau, mais ça implique quoi tous ces détails techniques ?
+Bon, c'est <strong>bien beau</strong>, mais ça implique quoi tous ces détails techniques ?
 
 * Moins de prise de tête pour avoir un truc SEO-Friendly
 * Des effets de transition époustoufflant
