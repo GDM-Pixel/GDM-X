@@ -24,22 +24,121 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 	return relatedPosts;
 }
 ---
-{post.data.video ? (
-        <iframe
-            src={`https://www.youtube.com/embed/${post.data.video}?si=qKyMidUCDXXzD_Kh`}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            class="featuredvideo"
-        ></iframe>
-    ) : (
-        <img
-            src={post.data.ogimage}
-            alt={post.data.title}
-            width="795"
-            height="445"
-            transition:name={`featuredImg_${post.slug}`}
-            class="featuredimg"
-        />
-    )}
+
+{
+	post.data.video ? (
+		<div class="video-thumbnail rounded-lg">
+			<img
+				src={post.data.ogimage}
+				alt={post.data.title}
+				width="795"
+				height="445"
+				class="featuredimg rounded-lg"
+			/>
+			<a
+				data-src={`https://www.youtube.com/watch?v=${post.data.video}`}
+				data-fancybox="video-gallery"
+				data-caption={post.data.title}>
+				<div class="play-button-container">
+					<div class="circle circle-1" />
+					<div class="circle circle-2" />
+					<div class="circle circle-3" />
+					<svg
+						class="play-icon"
+						width="96"
+						height="96"
+						viewBox="0 0 96 96"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<path d="M48 96C74.5097 96 96 74.5097 96 48C96 21.4903 74.5097 0 48 0C21.4903 0 0 21.4903 0 48C0 74.5097 21.4903 96 48 96Z" />
+						<path d="M62 48L42 60V36L62 48Z" fill="white" />
+					</svg>
+				</div>
+			</a>
+		</div>
+	) : (
+		<img
+			src={post.data.ogimage}
+			alt={post.data.title}
+			width="795"
+			height="445"
+			class="featuredimg  rounded-lg"
+		/>
+	)
+}
+<script>
+	import { Fancybox } from "@fancyapps/ui";
+	import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+	function initFancybox() {
+		Fancybox.bind("[data-fancybox]", {
+			// Vos options personnalisées, si nécessaire
+		});
+	}
+	initFancybox();
+	document.addEventListener("astro:page-load", initFancybox);
+</script>
+
+<style lang="scss">
+	.video-thumbnail {
+		position: relative;
+		cursor: pointer;
+	}
+	.play-button-container {
+		position: absolute;
+		width: 128px; /* Assurez-vous que cela correspond à la taille de votre bouton SVG */
+		height: 128px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		.play-icon {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			fill: #d62246;
+            transition:300ms ease all;
+            &:hover {
+                fill: #ff0000;transition:300ms ease all;
+            }
+		}
+		.circle {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+			background: rgba(214, 34, 70, 1);
+			animation: circleFade 2s infinite ease-out;
+		}
+
+		.circle-1 {opacity:0;
+			width: 140px;
+			height: 140px;
+		}
+
+		.circle-2 {opacity:0;
+			width: 160px;
+			height: 160px;
+			animation-delay: 0.7s; /* Délai pour le début de l'animation */
+		}
+
+		.circle-3 {
+			width: 180px;
+			height: 180px;
+            opacity:0;
+			animation-delay: 1.4s;
+		}
+	}
+
+	@keyframes circleFade {
+		0% {
+			transform: translate(-50%, -50%) scale(0);
+			opacity: 1;
+		}
+		100% {
+			transform: translate(-50%, -50%) scale(1.2);
+			opacity: 0;
+		}
+	}
+</style>

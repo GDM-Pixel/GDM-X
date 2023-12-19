@@ -37,10 +37,9 @@ On avait décidé de refondre le site en React (un framework JS créé par l'éq
 * Intégration de Tailwind CSS
 * Reformatage automatique des images en WebP
 
-<a data-src="/img/20231218_220108_astro-speed.jpg" data-fancybox="blog-gallery" data-caption="Astro le petit robot">
-<img src="/img/20231218_220108_astro-speed.jpg" loading="lazy">
+<a data-src="/img/astro-speed.jpg" data-fancybox="blog-gallery" data-caption="Regardez cette tôle que se prend WordPress face à Astro...">
+<img src="/img/astro-speed.jpg" loading="lazy">
 </a>
-
 
 > Là, vous voyez ⬆️, niveau "vitesse", c'est juste n'importe quoi tellement ça cloue tous les autres au poteau !
 

@@ -1,0 +1,98 @@
+---
+---
+<script>
+			// @ts-nocheck
+			function setupNovaListeners() {
+				if (window.voiceflow && window.voiceflow.chat) {
+					return;
+				}
+				(function (d, t) {
+					var v = d.createElement(t),
+						s = d.getElementsByTagName(t)[0];
+					v.onload = function () {
+						window.voiceflow.chat.load({
+							verify: { projectID: "6579a0dea484f9a58503480e" },
+							url: "https://general-runtime.voiceflow.com",
+							versionID: "production",
+							assistant: {
+								title: "Nova",
+								description: "Technico-commerciale chez GDM-Pixel",
+								stylesheet: "https://dev.gdm-pixel.fr/css/nova.css", // LIEN CSS
+							},
+						});
+					};
+
+					v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+
+					v.type = "text/javascript";
+
+					s.parentNode.insertBefore(v, s);
+				})(document, "script");
+			}
+			function reloadVoiceflow() {
+				if (window.voiceflow) {
+					delete window.voiceflow.chat;
+				}
+				// Recréer le widget
+				var button = document.querySelector(".novabtn");
+
+				button.addEventListener("mouseover", function () {
+					setupNovaListeners();
+				});
+			}
+			var button = document.querySelector(".novabtn");
+
+			button.addEventListener("mouseover", function () {
+				setupNovaListeners();
+			});
+			document.addEventListener("astro:page-load", function () {
+				reloadVoiceflow();
+			});
+			// @ts-check
+		</script>
+		<script>
+			function watchNova() {
+				// Sélectionner tous les éléments avec la classe .novabtn
+				const novaButtons = document.querySelectorAll(".novabtn");
+				if (novaButtons.length > 0) {
+					novaButtons.forEach((novaButton) => {
+						// Retirer l'ancien écouteur d'événement pour éviter les duplicatas
+						novaButton.removeEventListener("click", handleNovaClick);
+						// Ajouter le nouvel écouteur d'événement
+						novaButton.addEventListener("click", handleNovaClick);
+					});
+				}
+			}
+			function handleNovaClick() {
+				// Ouvrir le chat Voiceflow
+				//@ts-ignore
+				window.voiceflow.chat.open();
+			}
+			// Attacher l'écouteur d'événement lors du chargement initial
+			watchNova();
+			// Réattacher l'écouteur d'événement après chaque changement de page dans Astro
+			document.addEventListener("astro:page-load", watchNova);
+		</script>
+        <script>
+			function watchNova() {
+				// Sélectionner tous les éléments avec la classe .novabtn
+				const novaButtons = document.querySelectorAll(".novabtn");
+				if (novaButtons.length > 0) {
+					novaButtons.forEach((novaButton) => {
+						// Retirer l'ancien écouteur d'événement pour éviter les duplicatas
+						novaButton.removeEventListener("click", handleNovaClick);
+						// Ajouter le nouvel écouteur d'événement
+						novaButton.addEventListener("click", handleNovaClick);
+					});
+				}
+			}
+			function handleNovaClick() {
+				// Ouvrir le chat Voiceflow
+				//@ts-ignore
+				window.voiceflow.chat.open();
+			}
+			// Attacher l'écouteur d'événement lors du chargement initial
+			watchNova();
+			// Réattacher l'écouteur d'événement après chaque changement de page dans Astro
+			document.addEventListener("astro:page-load", watchNova);
+		</script>
