@@ -28,7 +28,7 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 {
 	post.data.video ? (
 		<div class="video-thumbnail rounded-lg">
-			<img
+			<img transition:name={`featuredImg_${post.slug}`}
 				src={post.data.ogimage}
 				alt={post.data.title}
 				width="795"
@@ -57,7 +57,7 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 			</a>
 		</div>
 	) : (
-		<img
+		<img transition:name={`featuredImg_${post.slug}`}
 			src={post.data.ogimage}
 			alt={post.data.title}
 			width="795"

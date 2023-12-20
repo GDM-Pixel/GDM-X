@@ -1,16 +1,23 @@
 ---
 import { Image } from "astro:assets";
 import logoGDM from "../assets/img/logo-gdm-white.svg";
-
 ---
 
 <div class="topbar">
 	<div class="inner_container_lg">
 		<div class="left">
 			<a title="Nous appeler" href="tel:+33977216680" class="mr-2">
-				<i class="fa-sharp fa-solid fa-phone"></i>+33-9-7721-6680</a
+				<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0.875L3.9375 0L6.125 3.9375L3.83359 5.76953C4.8207 7.63984 6.35742 9.17656 8.23047 10.1664L10.0625 7.875L14 10.0625L13.125 14H12.25C5.48516 14 0 8.51484 0 1.75V0.875Z" fill="white"/>
+</svg>
+
+				 +33-9-7721-6680</a
 			>| <a title="Nous écrire" href="mailto:contact@gdm-pixel.fr"
-				><i class="fa-sharp fa-solid fa-envelope"></i> contact@gdm-pixel.fr</a
+				><svg width="14" height="10" viewBox="0 0 14 10" class="ml-2 mt-[2px]" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0H14V2.08333L7 6.66667L0 2.08333V0ZM0 10V3.09375L6.50508 7.35417L7 7.67708L7.49492 7.35156L14 3.09375V10H0Z" fill="white"/>
+</svg>
+
+				 contact@gdm-pixel.fr</a
 			>
 		</div>
 		<div class="right">
@@ -101,7 +108,8 @@ import logoGDM from "../assets/img/logo-gdm-white.svg";
 				<li>
 					<a
 						href="/webmarketing/"
-						data-image-src="/img/HeroBckWebmarketing.webp">Webmarketing</a>
+						data-image-src="/img/HeroBckWebmarketing.webp">Webmarketing</a
+					>
 				</li>
 				<li>
 					<a href="/contact/" data-image-src="/img/contact-hero-bck.webp"
@@ -184,26 +192,31 @@ import logoGDM from "../assets/img/logo-gdm-white.svg";
 					</li>
 					<li>
 						<a href="/creation-site/" data-image-src="/img/HeroBoxCreasite.webp"
-							>Création de site</a>
+							>Création de site</a
+						>
 					</li>
 					<li>
 						<a
 							href="/creation-site/creer-ecommerce/"
-							data-image-src="/img/HeroEcommerce.webp">E-commerce</a>
+							data-image-src="/img/HeroEcommerce.webp">E-commerce</a
+						>
 					</li>
 					<li>
 						<a href="/referencement/" data-image-src="/img/SEOHero.webp"
-							>Référencement</a>
+							>Référencement</a
+						>
 					</li>
 					<li>
 						<a
 							href="/webmarketing/"
-							data-image-src="/img/HeroBckWebmarketing.webp">Webmarketing</a>
+							data-image-src="/img/HeroBckWebmarketing.webp">Webmarketing</a
+						>
 					</li>
 					<li><a href="/articles/">Le Blog</a></li>
 					<li>
 						<a href="/contact/" data-image-src="/img/contact-hero-bck.webp"
-							>Contact</a>
+							>Contact</a
+						>
 					</li>
 				</ul>
 			</div>
@@ -212,11 +225,10 @@ import logoGDM from "../assets/img/logo-gdm-white.svg";
 </div>
 <div class="mobile-menu-overlay"></div>
 
+<script>
+	import { navigate } from "astro:transitions/client";
 
-<script> 
-import { navigate } from 'astro:transitions/client';
-
-function toggleMenu() {
+	function toggleMenu() {
 		const navBlack = document.querySelector(".gdm-nav-1");
 		const navRed = document.querySelector(".gdm-nav-2");
 		const navWhite = document.querySelector(".gdm-nav-3");
@@ -230,7 +242,6 @@ function toggleMenu() {
 			//@ts-ignore
 			overlay.style.opacity = isMenuVisible ? "0" : "1";
 		});
-		
 	}
 
 	function setup() {
@@ -242,8 +253,7 @@ function toggleMenu() {
 		navLinks.forEach((link) => {
 			if (link.getAttribute("href") === window.location.pathname) {
 				link.classList.add("active");
-			}
-			else if (link.getAttribute("href") != window.location.pathname) {
+			} else if (link.getAttribute("href") != window.location.pathname) {
 				link.classList.remove("active");
 			}
 			link.addEventListener("click", () => {
@@ -265,23 +275,22 @@ function toggleMenu() {
 		const mobileNavLinks = document.querySelectorAll("#mobile-nav a");
 		// Ajouter un écouteur d'événements pour chaque lien
 		mobileNavLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-			toggleMenu(); // Ferme le menu
-            event.preventDefault();
-            handleNavigation(link.getAttribute("href")); // Gère la navigation
-        });
-    });
+			link.addEventListener("click", (event) => {
+				toggleMenu(); // Ferme le menu
+				event.preventDefault();
+				handleNavigation(link.getAttribute("href")); // Gère la navigation
+			});
+		});
 	}
 	//@ts-ignore
 	function handleNavigation(href) {
-    if (href) {
-        setTimeout(() => {
-            navigate(href);
-        }, 300);
-    }
-}
-document.addEventListener("astro:page-load", setup);
-
+		if (href) {
+			setTimeout(() => {
+				navigate(href);
+			}, 300);
+		}
+	}
+	document.addEventListener("astro:page-load", setup);
 </script>
 <style lang="scss" is:global>
 	.topbar {

@@ -1,7 +1,7 @@
 ---
 import PixelSeparator from "./PixelSeparator.astro";
 import { getCollection } from "astro:content";
-const allPosts = await getCollection("articles");
+const allPosts = (await getCollection("articles")).filter(post => post.data.category === 'seo');
 //@ts-ignore
 const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
 const postsForSlider = sortedPosts.slice(0, 6);
