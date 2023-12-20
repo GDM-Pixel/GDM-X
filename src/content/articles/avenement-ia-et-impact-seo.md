@@ -1,7 +1,7 @@
 ---
 author: charles-annoni
 category: seo
-date: 2023-12-01
+date: 2023-12-20
 featured: false
 ogimage: /img/SEO-IA-Generative.webp
 video:

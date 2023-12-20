@@ -65,9 +65,9 @@ const customCrumbs = [
 
 	<main class="-mt-16 z-10 relative">
 		<div class="container mx-auto max-w-6xl">
-			<div class="grid grid-cols-12 gap-6 p-12 shadow-2xl bg-white rounded-lg">
+			<div class="md:grid md:grid-cols-12 flex flex-col gap-6 p-6 md:p-12 shadow-2xl bg-white rounded-lg">
 				<div class="col1 col-span-5 flex flex-col justify-center">
-					<Image src={ContactImage} alt="Contactez-nous" />
+					<Image src={ContactImage} alt="Contactez-nous" class="w-full"/>
 				</div>
 				<div class="col2 col-span-7">
 					<div class="section-header left">
@@ -78,7 +78,7 @@ const customCrumbs = [
 						<h2 class="section-title">Demande de renseignements</h2>
 						<PixelSeparator />
 					</div>
-					<form id="contact-form" class="grid grid-cols-2 gap-6" method="POST" data-astro-reload>
+					<form id="contact-form" class="md:grid md:grid-cols-2 flex flex-col gap-6" method="POST" data-astro-reload>
 						<input type="hidden" name="contactNumber" />
 						<input type="text" name="userName" placeholder="Nom" />
 						<input type="email" name="userEmail" placeholder="E-mail" />
@@ -237,15 +237,15 @@ const customCrumbs = [
 			@apply text-base font-bold uppercase text-moonstone-400 mb-4;
 		}
 		.baseline {
-			@apply text-xxxxl font-extrabold leading-[66px] uppercase text-white mb-0;
+			@apply md:text-xxxxl text-xxl font-extrabold md:leading-[66px] uppercase text-white mb-0;
 		}
 		.intro {
 			@apply max-w-md text-md;
 		}
 		.cta_container {
-			@apply mt-6 gap-4 flex;
+			@apply mt-6 gap-4 flex md:flex-row flex-col;
 			.cta {
-				@apply text-base;
+				@apply text-base self-start;
 			}
 		}
 	}
