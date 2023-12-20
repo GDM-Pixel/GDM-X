@@ -5,6 +5,10 @@ import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("articles");
 //@ts-ignore
+const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+const postsForSlider = sortedPosts.slice(0, 6);
+
+// @ts-ignore
 function formatDate(date) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
 	//@ts-ignore
