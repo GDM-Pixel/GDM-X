@@ -93,6 +93,8 @@ function Fancyboxbox() {
          opacity: 0;
          transform: translateX(-100px) scale(0.8);
         }
+        .portfoliome .pfthumb {border:solid 2px transparent;transition:300ms ease all;box-sizing:content-box;}
+        .portfoliome .pfthumb:hover {border:solid 2px #00B2CB;transition:300ms ease all;cursor:zoom-in;}
         .portfoliocontainer button.grey {
   background-color: grey;pointer-events:none;cursor:default;
 }

@@ -46,7 +46,7 @@ import NovaLauncher from "../components/NovaLauncher.astro";
 		<BookMe />
 		<TakuLauncher />
 		<NovaLauncher />
-		
+
 		<script>
 			document.addEventListener("DOMContentLoaded", () => {
 				const loadedImages = {};
@@ -93,6 +93,12 @@ import NovaLauncher from "../components/NovaLauncher.astro";
 				}
 				h1 {
 					@apply leading-tight mb-4;
+				}
+				a img {
+					@apply border-4 border-transparent box-content transition-all duration-300;
+					&:hover {
+						@apply border-4 border-solid border-moonstone-400 cursor-zoom-in transition-all duration-300;
+					}
 				}
 			}
 			@media screen and (max-width: 767px) {
