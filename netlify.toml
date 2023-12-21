@@ -2,6 +2,7 @@
   from = "/articles/1/"
   to = "/articles/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/old-pathpath"
@@ -12,38 +13,46 @@
   from = "/articles/1/"
   to = "/articles/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/articles/creasite/1/"
   to = "/articles/creasite/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/articles/ecommerce/1/"
   to = "/articles/ecommerce/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/articles/labo/1/"
   to = "/articles/labo/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/articles/seo/1/"
   to = "/articles/seo/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/articles/tutoriel/1/"
   to = "/articles/tutoriel/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/articles/webdesign/1/"
   to = "/articles/webdesign/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/articles/webmark/1/"
   to = "/articles/webmark/"
   status = 301
+  force = true
