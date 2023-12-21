@@ -25,6 +25,6 @@ pnpm-debug.log*
 .netlify
 
 # pages
-/src/pages/cv.astro
-/src/pages/devis-pour-votre-projet-web.astro
-/src/pages/pages-icones.astro
+src/pages/cv.astro
+src/pages/devis-pour-votre-projet-web.astro
+src/pages/pages-icones.astro

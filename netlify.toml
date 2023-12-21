@@ -4,12 +4,12 @@
   status = 301
 
 [[redirects]]
-  from = "/articles/1/"
+  from = "/articles/1"
   to = "https://www.gdm-pixel.fr/articles/"
   status = 301
 
 [[redirects]]
-  from = "/articles/creasite/1/"
+  from = "/articles/creasite/1"
   to = "https://www.gdm-pixel.fr/articles/creasite/"
   status = 301
 
