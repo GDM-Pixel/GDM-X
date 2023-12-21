@@ -16,8 +16,14 @@ import { ViewTransitions } from "astro:transitions";
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow" />
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+		</script>
 		<!-- Google Tag Manager -->
-		<script>
+		<script is:inline>
 			// @ts-nocheck
 			(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
