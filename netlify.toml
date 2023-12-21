@@ -2,3 +2,43 @@
   from = "/old-path"
   to = "https://www.google.fr"
   status = 301
+
+[[redirects]]
+  from = "/articles/1/"
+  to = "https://www.gdm-pixel.fr/articles/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/creasite/1/"
+  to = "https://www.gdm-pixel.fr/articles/creasite/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/ecommerce/1/"
+  to = "https://www.gdm-pixel.fr/articles/ecommerce/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/labo/1/"
+  to = "https://www.gdm-pixel.fr/articles/labo/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/seo/1/"
+  to = "https://www.gdm-pixel.fr/articles/seo/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/tutoriel/1/"
+  to = "https://www.gdm-pixel.fr/articles/tutoriel/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/webdesign/1/"
+  to = "https://www.gdm-pixel.fr/articles/webdesign/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/webmark/1/"
+  to = "https://www.gdm-pixel.fr/articles/webmark/"
+  status = 301
