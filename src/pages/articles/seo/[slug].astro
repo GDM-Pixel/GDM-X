@@ -49,16 +49,18 @@ import "astro-breadcrumbs/breadcrumbs.css";
 import FeaturedContent from "../../../components/FeaturedContent.astro";
 export async function getStaticPaths() {
 	const posts = await getCollection("articles");
-	const paths = posts.map((post) => {
-		return {
-			params: {
-				slug: post.slug,
-			},
-			props: {
-				post,
-			},
-		};
-	});
+	const paths = posts
+		.filter((post) => post.data.category === 'seo') // Filtrer les articles par catégorie
+		.map((post) => {
+			return {
+				params: {
+					slug: post.slug,
+				},
+				props: {
+					post,
+				},
+			};
+		});
 	return paths;
 }
 // @ts-ignore
