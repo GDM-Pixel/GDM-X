@@ -25,7 +25,7 @@ import TestimonialsBand from "../components/TestimonialsBand.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 const customCrumbs = [
-	{},
+	{ text: "Accueil", href: "/" },
 	{
 		text: "SEO, SEA et SEM",
 		href: "/referencement/",
@@ -398,7 +398,7 @@ const customCrumbs = [
 
 		<MainCTA />
 		<section>
-		<SEOBlogSlider />
+			<SEOBlogSlider />
 		</section>
 	</main>
 	<Footer />
