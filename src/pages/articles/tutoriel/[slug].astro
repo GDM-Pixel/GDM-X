@@ -8,6 +8,42 @@ import Footer from "../../../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import AuthorBox from "../../../components/AuthorBox.astro";
 import RelatedPosts from "../../../components/RelatedPosts.astro";
+type Props = {
+	post: CollectionEntry<"articles">;
+};
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+const category = post.data.category;
+const relatedPosts = await getRelatedPosts(category, post.slug);
+// Votre structure de catégories
+const categories = {
+  seo: 'SEO', 
+  webmark: 'Webmarketing',
+  webdesign: 'Webdesign',
+  creasite: 'Création de site',
+  tutoriel: 'Tutoriel',
+  ecommerce: 'E-commerce'
+};
+
+const customCrumbs = [
+  {
+    text: 'Home',
+    href: '/'
+  },
+   {
+    text: 'Articles',
+    href: '/articles/'
+  },
+  {
+	//@ts-ignore
+    text: categories[category],
+    href: `/articles/${category}/`
+  },
+  {
+    text: post.data.title,
+    href: `/articles/${category}/${post.slug}/`
+  }
+];
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 import FeaturedContent from "../../../components/FeaturedContent.astro";
@@ -23,22 +59,8 @@ export async function getStaticPaths() {
 			},
 		};
 	});
-
 	return paths;
 }
-
-type Props = {
-	post: CollectionEntry<"articles">;
-};
-
-const { post } = Astro.props;
-
-const { Content, headings } = await post.render();
-
-// Maintenant que `post` est défini, vous pouvez appeler `getRelatedPosts`
-const category = post.data.category;
-const relatedPosts = await getRelatedPosts(category, post.slug);
-
 // @ts-ignore
 export async function getRelatedPosts(category, currentSlug, limit = 6) {
 	const allPosts = await getCollection("articles");
@@ -58,7 +80,7 @@ export async function getRelatedPosts(category, currentSlug, limit = 6) {
 	ogimage={post.data.ogimage}>
 	<Header />
 	<div class="bd-container">
-		<Breadcrumbs transition:persist>
+		<Breadcrumbs crumbs={customCrumbs} transition:persist>
 			<svg
 				slot="index"
 				xmlns="http://www.w3.org/2000/svg"

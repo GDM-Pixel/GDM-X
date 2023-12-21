@@ -6,6 +6,40 @@ import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+type Props = {
+	post: CollectionEntry<"articles">;
+};
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+const category = post.data.category;
+const relatedPosts = await getRelatedPosts(category, post.slug);
+// Votre structure de catégories
+const categories = {
+  seo: 'SEO', 
+  webmark: 'Webmarketing',
+  webdesign: 'Webdesign',
+  creasite: 'Création de site',
+  tutoriel: 'Tutoriel',
+  ecommerce: 'E-commerce'
+};
+
+const customCrumbs = [
+  {
+    text: 'Home',
+    href: '/'
+  },
+  {
+	//@ts-ignore
+    text: categories[category],
+    href: `/articles/${category}/`
+  },
+  {
+    text: post.data.title,
+    href: `/articles/${category}/${post.slug}/`
+  }
+];
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
 import FeaturedContent from "../../components/FeaturedContent.astro";
 export async function getStaticPaths() {
 	const posts = await getCollection("articles");
@@ -19,16 +53,19 @@ export async function getStaticPaths() {
 			},
 		};
 	});
-
 	return paths;
 }
-type Props = {
-	post: CollectionEntry<"articles">;
-};
-const { post } = Astro.props;
-const { Content, headings } = await post.render();
-import { Breadcrumbs } from "astro-breadcrumbs";
-import "astro-breadcrumbs/breadcrumbs.css";
+// @ts-ignore
+export async function getRelatedPosts(category, currentSlug, limit = 6) {
+	const allPosts = await getCollection("articles");
+	// Filtrer les articles de la même catégorie et exclure l'article actuel par slug
+	const relatedPosts = allPosts
+		.filter(
+			(post) => post.data.category === category && post.slug !== currentSlug,
+		)
+		.slice(0, limit);
+	return relatedPosts;
+}
 ---
 
 <LayoutBlogPost
