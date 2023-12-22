@@ -1,34 +1,29 @@
 ---
-// Ce composant Astro intègre Google Tag Manager dans votre site.
+
 const gtmId = "GTM-TZB5ZZ8X";
 ---
 
-<!-- Intégration de Google Tag Manager -->
 <script>
 	// Fonction pour initialiser GTM
 	function initGTM() {
-		// @ts-ignore
-		if (window.dataLayer && window.dataLayer.find((obj) => obj["gtm.start"])) {
-			console.log("GTM already initialized");
-			return;
-		}
-        // @ts-ignore
-		window.dataLayer = window.dataLayer || [];
-        // @ts-ignore
-		window.dataLayer.push({
-			"gtm.start": new Date().getTime(),
-			event: "gtm.js",
-		});
-		
-		const script = document.createElement("script");
-		script.async = true;
-		script.src = `https://www.googletagmanager.com/gtm.js?id=GTM-TZB5ZZ8X`;
-		document.head.appendChild(script);
+		(function (w, d, s, l, i) {
+            // @ts-ignore
+			w[l] = w[l] || [];
+            // @ts-ignore
+			w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != "dataLayer" ? "&l=" + l : "";
+                // @ts-ignore
+			j.async = true;
+            // @ts-ignore
+			j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            // @ts-ignore
+			f.parentNode.insertBefore(j, f);
+		})(window, document, "script", "dataLayer", "GTM-TZB5ZZ8X");
 	}
-
 	// Initialisation de GTM au chargement de la page
 	initGTM();
-
 	// Réinitialisation de GTM lors de l'événement custom 'astro:page-load'
 	document.addEventListener("astro:page-load", function () {
 		console.log("astro:page-load event detected");
@@ -37,7 +32,6 @@ const gtmId = "GTM-TZB5ZZ8X";
 </script>
 
 <noscript>
-	<!-- Fallback pour les utilisateurs sans JavaScript -->
 	<iframe
 		src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
 		height="0"
