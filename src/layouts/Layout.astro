@@ -56,19 +56,18 @@ import NovaLauncher from "../components/NovaLauncher.astro";
 			}
 		</style>
 		<title>{title}</title>
-		<!-- Google Tag Manager (noscript) -->
 		<script
-			async
+			type="text/partytown"
 			src="https://www.googletagmanager.com/gtag/js?id=G-3YWVQX80V5"></script>
-		<script>
+		<script type="text/partytown">
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
-				window.dataLayer.push(arguments);
+				dataLayer.push(arguments);
 			}
 			gtag("js", new Date());
+
 			gtag("config", "G-3YWVQX80V5");
 		</script>
-		<!-- End Google Tag Manager (noscript) -->
 	</head>
 	<body>
 		<slot />

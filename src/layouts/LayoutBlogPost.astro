@@ -40,20 +40,19 @@ import NovaLauncher from "../components/NovaLauncher.astro";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
-		<!-- Google Tag Manager (noscript) -->
+		<!-- Google Tag Manager -->
 		<script
 			type="text/partytown"
-			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-3YWVQX80V5"></script>
-		<script>
+		<script type="text/partytown">
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
-				window.dataLayer.push(arguments);
+				dataLayer.push(arguments);
 			}
 			gtag("js", new Date());
+
 			gtag("config", "G-3YWVQX80V5");
 		</script>
-		<!-- End Google Tag Manager (noscript) -->
 	</head>
 	<body>
 		<slot />
