@@ -17,7 +17,7 @@ L’intégration de l’IA dans le domaine du SEO est une tendance qui s'est dé
 
 Cette approche permet aux moteurs de recherche de fournir des résultats de recherche plus précis et pertinents pour les utilisateurs. En somme, l'intégration de l'IA dans le SEO ouvre de nouvelles perspectives passionnantes pour les professionnels du référencement et promet d'améliorer encore davantage l'expérience de recherche en ligne.
 <a data-src="/img/20231220_223919_teen-surf-web.webp" data-fancybox="blog-gallery" data-caption="Le ciblage publicitaire sera encore plus violent !">
-<img src="/img/20231220_223919_teen-surf-web.webp" loading="lazy">
+<img src="/img/20231220_223919_teen-surf-web.webp" loading="lazy" width="642" height="363" alt="Ciblage publicitaire">
 </a>
 
 ### Les Bénéfices de l'IA pour le SEO
@@ -61,7 +61,7 @@ Je mets ma main à couper (et un kinder bueno sur la table) que le volume de pag
 Je sais, j'y vais fort, mais je suis persuadé que l'avenir du SEO réside dans les données de l'expérience utilisateur.
 
 <a data-src="/img/20231220_223619_critters-spam.webp" data-fancybox="blog-gallery" data-caption="... Et ça va spammer à mort...">
-<img src="/img/20231220_223619_critters-spam.webp" loading="lazy">
+<img src="/img/20231220_223619_critters-spam.webp" loading="lazy" width="642" height="363" alt="Encore plus de spam">
 </a>
 
 ## Stratégies SEO à l'Ère de l'IA

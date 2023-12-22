@@ -56,3 +56,468 @@
   to = "/articles/webmark/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/le-blog/commander-vps-ovh/"
+  to = "https://digital-cookie.io/tutoriel/commander-vps-ssd-ovh/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/auditer-temps-chargement/"
+  to = "https://digital-cookie.io/tutoriel/auditer-temps-chargement/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/best-spinner-tutoriel-en-francais/"
+  to = "https://digital-cookie.io/tutoriel/best-spinner-tutoriel-en-francais/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/commander-certificat-ssl/"
+  to = "https://digital-cookie.io/tutoriel/commander-certificat-ssl/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/commander-vps-ssd-ovh/"
+  to = "https://digital-cookie.io/tutoriel/commander-vps-ssd-ovh/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/configurer-autoptimize/"
+  to = "https://digital-cookie.io/tutoriel/configurer-autoptimize/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/configurer-site-wordpress-serveur-optimise-vitesse/"
+  to = "https://digital-cookie.io/tutoriel/configurer-site-wordpress-serveur-optimise-vitesse/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/configurer-son-dns/"
+  to = "https://digital-cookie.io/tutoriel/configurer-son-dns/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/creer-base-donnee-mysql-phpmyadmin/"
+  to = "https://digital-cookie.io/tutoriel/creer-base-donnee-mysql-phpmyadmin/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/creer-sauvegarde/"
+  to = "https://digital-cookie.io/tutoriel/creer-sauvegarde/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/creer-un-sprite-css/"
+  to = "https://digital-cookie.io/tutoriel/creer-un-sprite-css/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/extraire-donnees-imacros/"
+  to = "https://digital-cookie.io/tutoriel/extraire-donnees-imacros/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/installer-certificat-ssl-vps-ovh/"
+  to = "https://digital-cookie.io/tutoriel/installer-certificat-ssl-vps-ovh/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/installer-fail2ban-vps/"
+  to = "https://digital-cookie.io/tutoriel/installer-fail2ban-vps/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/installer-plugin-de-securite-wordpress/"
+  to = "https://digital-cookie.io/tutoriel/installer-plugin-de-securite-wordpress/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/installer-script-lazyload/"
+  to = "https://digital-cookie.io/tutoriel/installer-script-lazyload/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/installer-serveur-optimise-wordpress/"
+  to = "https://digital-cookie.io/tutoriel/installer-serveur-optimise-wordpress/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/installer-ssl-nginx-webinoly/"
+  to = "https://digital-cookie.io/tutoriel/installer-ssl-nginx-webinoly/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/installer-wordpress/"
+  to = "https://digital-cookie.io/tutoriel/installer-wordpress/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/itheme-security-retablir-acces-bo-blocage/"
+  to = "https://digital-cookie.io/tutoriel/itheme-security-retablir-acces-bo-blocage/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/migrer-http-vers-https-video/"
+  to = "https://digital-cookie.io/tutoriel/migrer-http-vers-https-video/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/optimiser-site-lindex-mobile-de-google/"
+  to = "https://digital-cookie.io/tutoriel/optimiser-site-lindex-mobile-de-google/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/optimiser-temps-chargement-wordpress/"
+  to = "https://digital-cookie.io/tutoriel/optimiser-temps-chargement-wordpress/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/reduire-nombre-fichiers-ameliorer-temps-chargement/"
+  to = "https://digital-cookie.io/tutoriel/reduire-nombre-fichiers-ameliorer-temps-chargement/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/reinstaller-wordpress/"
+  to = "https://digital-cookie.io/tutoriel/reinstaller-wordpress/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/scrapebox-tutoriel-video-en-francais/"
+  to = "https://digital-cookie.io/tutoriel/scrapebox-tutoriel-video-en-francais/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/se-connecter-en-ftp/"
+  to = "https://digital-cookie.io/tutoriel/se-connecter-en-ftp/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/se-connecter-en-ssh/"
+  to = "https://digital-cookie.io/tutoriel/se-connecter-en-ssh/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/securiser-son-acces-ssh/"
+  to = "https://digital-cookie.io/tutoriel/securiser-son-acces-ssh/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/securiser-xml-rpc-fail2ban/"
+  to = "https://digital-cookie.io/tutoriel/securiser-xml-rpc-fail2ban/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/thebestspinner-application-au-e-commerce/"
+  to = "https://digital-cookie.io/tutoriel/thebestspinner-application-au-e-commerce/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/trouver-des-spots-de-liens/"
+  to = "https://digital-cookie.io/tutoriel/trouver-des-spots-de-liens/"
+  status = 301
+  
+[[redirects]]
+  from = "/tutoriel/tutoriel-avance-thebestspinner/"
+  to = "https://digital-cookie.io/tutoriel/tutoriel-avance-thebestspinner/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/"
+  to ="/articles/"
+  status = 301
+  
+[[redirects]]
+  from = "/blog/page/2/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/blog/page/3/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/creasite/"
+  to ="/articles/creasite/"
+  status = 301
+  
+[[redirects]]
+  from = "/creasite/fontsquirrel/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/creasite/theme-premium-or-not/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/labo/customizer-cornerstone-theme-x/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/labo/extra-le-theme-magasine-ultime-pour-wp/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/labo/presentation-de-dragon-naturallyspeaking/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/labo/quel-certificat-ssl-choisir/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/labo/realiser-des-infographies-avec-chrome/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/labo/sieges-dx-racer/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/labo/test-avis-camtasia-techsmith/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/labo/x-meilleur-theme-wordpress/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/"
+  to ="/articles/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/10-trucs-monter-taux-rebond/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/9-moyens-doptimiser-vos-articles-de-blog-seo/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/condamnes-justice-abus-backlinks/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/creer-groupes-de-propriete-search-console/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/de-nouveaux-emojis-chez-facebook/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/filtre-antispam-facebook-go-wild/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/google-mis-longtemps-demarrer/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/inbound-marketing/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/indexation-prioritaire-pour-les-pages-https/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/link-building-manuel/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/matt-cutts-quitte-google/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/mettre-son-site-en-conformite-avec-la-loi-sur-les-cookies/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/modif-couleur-serp/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/modifications-search-console/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/nouveautes-2019/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/photolifox-photographe/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/pourquoi-crawler-site-souvent/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/proteger-son-activite-en-ligne/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/quel-antivirus-en-2014/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/quelle-configuration-pour-le-web/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/rediger-article-blog-qualite/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/referencement-local-comment-ranker/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/un-site-internet-comment-ca-marche/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/url-images-compteront-plus-140/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/le-blog/yousign-signature-electronique/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/6-solutions-aux-problemes-seo-les-plus-frequents-en-e-commerce/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/6-trucs-simple-liens-white-hat/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/authorship-est-mort/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/google-bannit-adwords-prets-abusifs/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/google-blackday-le-retour/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/guide-du-seo-2015/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/https-et-seo/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/penguin-en-temps-reel-confirme/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/petit-lexique-du-seo/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/un-ctr-qui-envoie-du-steak/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/seo/une-breve-histoire-du-referencement/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/webmark/augmentation-massive-des-sites-compatibles-avec-les-mobiles/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/webmark/droit-oubli/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/webmark/emoji-serp-google/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/webmark/gdm-pixel-fait-peau-neuve/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/webmark/market-place-trap/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/webmark/mobilegeddon-le-retour/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/webmark/que-du-web-levenement-seo-du-4-juin/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/webmark/retrouver-son-telephone-sur-google/"
+  to ="/"
+  status = 301
+  
+[[redirects]]
+  from = "/webmark/update-google-21-avril/"
+  to ="/"
+  status = 301
