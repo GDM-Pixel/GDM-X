@@ -56,20 +56,27 @@ import NovaLauncher from "../components/NovaLauncher.astro";
 			}
 		</style>
 		<title>{title}</title>
-		<script
-			type="text/partytown"
-			src="https://www.googletagmanager.com/gtag/js?id=G-3YWVQX80V5"></script>
 		<script type="text/partytown">
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-
-			gtag("config", "G-3YWVQX80V5");
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-TZB5ZZ8X");
 		</script>
 	</head>
 	<body>
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-TZB5ZZ8X"
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"></iframe></noscript
+		>
 		<slot />
 		<BookMe />
 		<NovaLauncher />
