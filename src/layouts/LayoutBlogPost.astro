@@ -10,6 +10,7 @@ import { ViewTransitions } from "astro:transitions";
 import Repere from "../components/Repere.astro";
 import TakuLauncher from "../components/TakuLauncher.astro";
 import NovaLauncher from "../components/NovaLauncher.astro";
+import GTM from "../components/GTM.astro";
 ---
 
 <!doctype html>
@@ -40,32 +41,9 @@ import NovaLauncher from "../components/NovaLauncher.astro";
 		<meta property="og:site_name" content="GDM-Pixel, Agence web à Caen" />
 		<meta property="og:locale" content="fr_FR" />
 		<title>{title}</title>
-		<!-- Google Tag Manager -->
-		<script type="text/partytown">
-			function initiateGTM() {
-				(function (w, d, s, l, i) {
-					w[l] = w[l] || [];
-					w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-					var f = d.getElementsByTagName(s)[0],
-						j = d.createElement(s),
-						dl = l != "dataLayer" ? "&l=" + l : "";
-					j.async = true;
-					j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-					f.parentNode.insertBefore(j, f);
-				})(window, document, "script", "dataLayer", "GTM-TZB5ZZ8X");
-			}
-			initiateGTM();
-			document.addEventListener("astro:page-load", initiateGTM);
-		</script>
 	</head>
 	<body>
-		<noscript
-			><iframe
-				src="https://www.googletagmanager.com/ns.html?id=GTM-TZB5ZZ8X"
-				height="0"
-				width="0"
-				style="display:none;visibility:hidden"></iframe></noscript
-		>
+		<GTM />
 		<slot />
 		<BookMe />
 		<TakuLauncher />
