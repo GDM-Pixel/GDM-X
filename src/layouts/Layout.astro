@@ -66,7 +66,12 @@ import NovaLauncher from "../components/NovaLauncher.astro";
 				j.async = true;
 				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 				f.parentNode.insertBefore(j, f);
-			})(window, document, "script", "dataLayer", "GTM-TZB5ZZ8X");
+				// Écouter l'événement astro:page-load et pousser un événement dans la dataLayer
+				w.addEventListener('astro:page-load', function() {
+				w[l].push({ event: 'astro-page-load' });
+				});
+			})
+			(window, document, "script", "dataLayer", "GTM-TZB5ZZ8X");
 		</script>
 	</head>
 	<body>
