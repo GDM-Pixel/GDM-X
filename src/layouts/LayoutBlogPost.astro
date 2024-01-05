@@ -49,26 +49,28 @@ import GTM from "../components/GTM.astro";
 		<TakuLauncher />
 		<NovaLauncher />
 
+		<script src="/js/gdm-goto.js" is:inline></script>
 		<script>
-			document.addEventListener("DOMContentLoaded", () => {
+			//@ts-nocheck
+			function preloadImages() {
 				const loadedImages = {};
-				//@ts-ignore
 				function preloadImage(url) {
-					//@ts-ignore
 					if (!loadedImages[url]) {
 						const img = new Image();
 						img.src = url;
-						//@ts-ignore
 						loadedImages[url] = true;
 					}
 				}
+
 				document.querySelectorAll("a[data-image-src]").forEach((link) => {
 					link.addEventListener("mouseover", function () {
-						//@ts-ignore
 						preloadImage(this.getAttribute("data-image-src"));
 					});
 				});
-			});
+			}
+			//@ts-check
+			document.addEventListener("DOMContentLoaded", preloadImages);
+			document.addEventListener("astro:page-load", preloadImages);
 		</script>
 		<script>
 			import { Fancybox } from "@fancyapps/ui";

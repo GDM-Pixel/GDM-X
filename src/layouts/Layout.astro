@@ -57,14 +57,35 @@ import GTM from "../components/GTM.astro";
 			}
 		</style>
 		<title>{title}</title>
-		
 	</head>
 	<body>
 		<GTM />
 		<slot />
 		<BookMe />
 		<NovaLauncher />
+		<script src="/js/gdm-goto.js" is:inline></script>
+		<script>
+			//@ts-nocheck
+			function preloadImages() {
+				const loadedImages = {};
+				function preloadImage(url) {
+					if (!loadedImages[url]) {
+						const img = new Image();
+						img.src = url;
+						loadedImages[url] = true;
+					}
+				}
 
+				document.querySelectorAll("a[data-image-src]").forEach((link) => {
+					link.addEventListener("mouseover", function () {
+						preloadImage(this.getAttribute("data-image-src"));
+					});
+				});
+			}
+			//@ts-check
+			document.addEventListener("DOMContentLoaded", preloadImages);
+			document.addEventListener("astro:page-load", preloadImages);
+		</script>
 		<style is:global lang="scss">
 			body {
 				overflow-x: clip;

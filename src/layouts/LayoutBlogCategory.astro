@@ -1,5 +1,5 @@
 ---
-import Nova from "../components/Nova.astro";
+import NovaLauncher from "../components/NovaLauncher.astro";
 interface Props {
 	title: string;
 	description: string;
@@ -36,28 +36,29 @@ import GTM from "../components/GTM.astro";
 	<body>
 		<GTM />
 		<slot />
-		<Nova />
+		<NovaLauncher />
 		<script src="/js/gdm-goto.js" is:inline></script>
 		<script>
-			document.addEventListener("DOMContentLoaded", () => {
-				const loadedImages = {};
-				//@ts-ignore
-				function preloadImage(url) {
-					//@ts-ignore
-					if (!loadedImages[url]) {
-						const img = new Image();
-						img.src = url;
-						//@ts-ignore
-						loadedImages[url] = true;
-					}
-				}
-				document.querySelectorAll("a[data-image-src]").forEach((link) => {
-					link.addEventListener("mouseover", function () {
-						//@ts-ignore
-						preloadImage(this.getAttribute("data-image-src"));
-					});
-				});
-			});
+			//@ts-nocheck
+			 function preloadImages() {
+        const loadedImages = {};
+        function preloadImage(url) {
+            if (!loadedImages[url]) {
+                const img = new Image();
+                img.src = url;
+                loadedImages[url] = true;
+            }
+        }
+
+        document.querySelectorAll("a[data-image-src]").forEach((link) => {
+            link.addEventListener("mouseover", function () {
+                preloadImage(this.getAttribute("data-image-src"));
+            });
+        });
+    }
+	//@ts-check
+    document.addEventListener("DOMContentLoaded", preloadImages);
+    document.addEventListener("astro:page-load", preloadImages);
 		</script>
 
 		<style is:global lang="scss">
